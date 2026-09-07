@@ -1,49 +1,34 @@
-# Instagram Followers Analyzer v0.3
+# Instagram Followers Analyzer v0.4
 
-## Fő funkciók
+## Fő változások
 
-- Instagram ZIP / JSON import
-- Followers / Following / Not Following Back
-- referencia szűrés: összes / referencia elrejtése / csak referencia
-- EN / DE / HU
-- szívezhető profilok (Keep), localStorage-ban tárolva
-- Overview
-- referencia alapú gyors változások:
-  - New followers
-  - Lost followers
-  - New following
-  - Unfollowed by you
-- Growth snapshot history
-- follower/following/mutual/not-following-back idősor
-- egyszerű SVG growth chart
-- Follow Cohort Analysis mentett snapshotok alapján
-- Cleanup lista
-- szívezett profilok kizárása a cleanupból
-- CSV export
-
-## Growth működés
-
-A Growth nézetben a `Save current snapshot` gomb az aktuális feltöltött exportból lokálisan snapshotot ment.
-A snapshotok a böngésző `localStorage` tárhelyében maradnak.
-
-## Cohort működés
-
-A cohort elemzés a snapshotok között újonnan megjelent `following` profilokat tekinti új követéseknek.
-A későbbi snapshotokból figyeli, mikor jelennek meg a `followers` listában.
-
-Ezért a cohort eredmények pontossága függ attól, milyen gyakran készül snapshot.
-
-## Cleanup működés
-
-A jelenlegi pontozás szándékosan egyszerű:
-- nem követ vissza: +50
-- a választott időhatárnál régebbi követés: +15
-- 365 napnál régebbi követés: további +10
-- Heart / Keep profil: kizárva
-
-Interakciós score még nincs, mert ahhoz először érdemes valódi Instagram activity exporttal auditálni a rendelkezésre álló JSON fájlokat.
+- A korábbi saját Growth dashboard helyett **Instagram Insights** nézet került be.
+- A teljes Instagram ZIP-ből automatikusan olvassa:
+  - `audience_insights.json`
+  - `content_interactions.json`
+  - `profiles_reached.json`
+- Nem feltételez 90 napos periódust: az exportban szereplő `Date range` jelenik meg.
+- Csak a leginkább használható mutatókat jeleníti meg:
+  - Followers
+  - Follows
+  - Unfollows
+  - Net follower change
+  - Accounts reached
+  - Profile visits
+  - External link taps
+  - Content interactions
+  - Non-follower reach
+  - Non-follower engagement
+- A profil-szintű Relationship History háttérben megmarad a Cohort Analysis miatt.
+- Az aktuális export betöltésekor a relationship snapshot automatikusan mentődik localStorage-ba.
+- Ugyanazon napi, azonos állapotú import nem duplikálódik.
+- Mobilon kompaktabb felhasználói sorok.
+- Session reviewed státusz kis ponttal:
+  - szürke = még nem nyitott
+  - zöld = már megnyitott az aktuális böngésző-sessionben
+- Fix alsó **Open next** gomb a következő még nem megnyitott profilhoz.
+- Heart / Keep továbbra is tartósan, localStorage-ban tárolódik.
 
 ## Adatvédelem
 
-Nincs backend. A feltöltött exportok a böngészőben kerülnek feldolgozásra.
-A Hearts és Growth snapshotok csak a böngésző localStorage tárhelyében maradnak.
+Nincs backend. A ZIP/JSON feldolgozás a böngészőben történik. A Heart és Relationship History csak a böngésző helyi tárhelyén marad.

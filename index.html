@@ -67,7 +67,7 @@
         <button class="nav-item" data-section="followers" type="button" data-i18n="followers">Followers</button>
         <button class="nav-item" data-section="following" type="button" data-i18n="following">Following</button>
         <button class="nav-item" data-section="notFollowingBack" type="button" data-i18n="notFollowingBack">Not Following Back</button>
-        <button class="nav-item" data-section="growth" type="button" data-i18n="growth">Growth</button>
+        <button class="nav-item" data-section="insights" type="button" data-i18n="insights">Insights</button>
         <button class="nav-item" data-section="cohorts" type="button" data-i18n="cohorts">Cohorts</button>
         <button class="nav-item" data-section="cleanup" type="button" data-i18n="cleanup">Cleanup</button>
       </nav>
@@ -174,42 +174,50 @@
       </div>
     </section>
 
-    <section id="growthSection" class="section-card section-panel">
-      <div class="section-title-row">
+    <section id="insightsSection" class="section-card section-panel">
+      <div class="section-title-row insights-head">
         <div>
-          <p class="eyebrow" data-i18n="growthHistory">GROWTH HISTORY</p>
-          <h2 data-i18n="growthTitle">Saved snapshots</h2>
+          <p class="eyebrow" data-i18n="instagramInsights">INSTAGRAM INSIGHTS</p>
+          <h2 data-i18n="insightsTitle">Useful account performance</h2>
         </div>
-        <div class="section-actions">
-          <button class="button" id="saveSnapshotBtn" type="button" data-i18n="saveSnapshot">Save current snapshot</button>
-          <button class="button ghost" id="clearSnapshotsBtn" type="button" data-i18n="clearHistory">Clear history</button>
-        </div>
+        <div class="insights-period" id="insightsPeriod">—</div>
       </div>
 
-      <div class="metric-grid growth-metrics">
-        <article class="metric-card"><span data-i18n="netGrowth">Net follower growth</span><strong id="growthNet">0</strong></article>
-        <article class="metric-card"><span data-i18n="growthRate">Growth rate</span><strong id="growthRate">0%</strong></article>
-        <article class="metric-card"><span data-i18n="followerRatio">Follower / Following</span><strong id="ratioValue">0</strong></article>
-        <article class="metric-card"><span data-i18n="snapshotCount">Snapshots</span><strong id="snapshotCount">0</strong></article>
+      <div class="metric-grid insights-primary">
+        <article class="metric-card"><span data-i18n="followers">Followers</span><strong id="insightFollowers">—</strong></article>
+        <article class="metric-card"><span data-i18n="followsPeriod">Follows</span><strong id="insightFollows">—</strong></article>
+        <article class="metric-card"><span data-i18n="unfollowsPeriod">Unfollows</span><strong id="insightUnfollows">—</strong></article>
+        <article class="metric-card"><span data-i18n="netFollowerChange">Net follower change</span><strong id="insightNet">—</strong></article>
       </div>
 
-      <div class="chart-card">
-        <svg id="growthChart" viewBox="0 0 900 280" preserveAspectRatio="none" aria-label="Growth chart"></svg>
+      <div class="metric-grid insights-secondary">
+        <article class="metric-card"><span data-i18n="accountsReached">Accounts reached</span><strong id="insightReach">—</strong></article>
+        <article class="metric-card"><span data-i18n="profileVisits">Profile visits</span><strong id="insightVisits">—</strong></article>
+        <article class="metric-card"><span data-i18n="externalLinkTaps">External link taps</span><strong id="insightLinks">—</strong></article>
+        <article class="metric-card"><span data-i18n="contentInteractions">Content interactions</span><strong id="insightInteractions">—</strong></article>
       </div>
 
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th data-i18n="date">Date</th>
-              <th data-i18n="followers">Followers</th>
-              <th data-i18n="following">Following</th>
-              <th data-i18n="mutuals">Mutuals</th>
-              <th data-i18n="notFollowingBack">Not Following Back</th>
-            </tr>
-          </thead>
-          <tbody id="snapshotTableBody"></tbody>
-        </table>
+      <div class="overview-grid insight-discovery-grid">
+        <article class="info-card compact-info">
+          <p class="eyebrow" data-i18n="discovery">DISCOVERY</p>
+          <div class="change-list">
+            <div><span data-i18n="nonFollowerReach">Reach from non-followers</span><strong id="insightNonFollowerReach">—</strong></div>
+            <div><span data-i18n="nonFollowerEngagement">Engagement from non-followers</span><strong id="insightNonFollowerEngagement">—</strong></div>
+          </div>
+        </article>
+        <article class="info-card compact-info">
+          <p class="eyebrow" data-i18n="relationshipHistory">RELATIONSHIP HISTORY</p>
+          <div class="history-status">
+            <strong id="historySnapshotCount">0</strong>
+            <span data-i18n="snapshotsSavedAutomatically">snapshots saved automatically for cohorts</span>
+          </div>
+          <button class="button ghost danger-ghost" id="clearSnapshotsBtn" type="button" data-i18n="clearHistory">Clear history</button>
+        </article>
+      </div>
+
+      <div class="empty-state insight-empty" id="insightEmpty">
+        <strong data-i18n="noInsights">No Instagram Insights found.</strong>
+        <span data-i18n="noInsightsCopy">Use a full Instagram export that includes Past Instagram Insights.</span>
       </div>
     </section>
 
@@ -263,6 +271,13 @@
       </div>
     </section>
   </main>
+
+  <div class="open-next-wrap" id="openNextWrap">
+    <button class="open-next-button" id="openNextBtn" type="button">
+      <span data-i18n="openNext">Open next</span>
+      <small id="openNextRemaining"></small>
+    </button>
+  </div>
 
   <script src="app.js"></script>
 </body>

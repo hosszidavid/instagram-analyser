@@ -4,7 +4,7 @@ const translations = {
     currentExport:"CURRENT EXPORT",currentTitle:"Current Instagram export",referenceExport:"REFERENCE EXPORT",referenceTitle:"Reference export",clear:"Clear",
     chooseCurrent:"Choose Instagram ZIP or JSON files",dropHint:"Drop the original Instagram export ZIP here, or select followers/following JSON files.",
     chooseReference:"Choose reference ZIP or JSON files",referenceHint:"Optional. Use an older Instagram export as the comparison reference.",nothingLoaded:"Nothing loaded.",noReference:"No reference loaded.",
-    overview:"Overview",followers:"Followers",following:"Following",notFollowingBack:"Not Following Back",growth:"Growth",cohorts:"Cohorts",cleanup:"Cleanup",mutuals:"Mutuals",
+    overview:"Overview",followers:"Followers",following:"Following",notFollowingBack:"Not Following Back",insights:"Insights",cohorts:"Cohorts",cleanup:"Cleanup",mutuals:"Mutuals",
     quickChanges:"QUICK CHANGES",referenceComparison:"Reference comparison",newFollowers:"New followers",lostFollowers:"Lost followers",newFollowing:"New following",unfollowedByYou:"Unfollowed by you",
     keepList:"KEEP LIST",heartedProfiles:"Hearted profiles",savedLocally:"saved locally",
     search:"Search",searchPlaceholder:"Search users...",referenceFilter:"Reference filter",referenceAll:"Show all",referenceHide:"Hide reference matches",referenceOnly:"Show only reference matches",
@@ -14,8 +14,9 @@ const translations = {
     loadedFiles:"{files} source file(s) · {followers} followers · {following} following · {notFollowing} not following back",visibleUsers:"{count} users shown",referenceHidden:"{count} hidden by reference",referenceOnlyShown:"{count} matching the reference",
     followsSince:"Follows you since {date}",followingSince:"Following since {date}",dateUnavailable:"Date unavailable",
     growthHistory:"GROWTH HISTORY",growthTitle:"Saved snapshots",saveSnapshot:"Save current snapshot",clearHistory:"Clear history",netGrowth:"Net follower growth",growthRate:"Growth rate",followerRatio:"Follower / Following",snapshotCount:"Snapshots",date:"Date",
+    instagramInsights:"INSTAGRAM INSIGHTS",insightsTitle:"Useful account performance",followsPeriod:"Follows",unfollowsPeriod:"Unfollows",netFollowerChange:"Net follower change",accountsReached:"Accounts reached",profileVisits:"Profile visits",externalLinkTaps:"External link taps",contentInteractions:"Content interactions",discovery:"DISCOVERY",nonFollowerReach:"Reach from non-followers",nonFollowerEngagement:"Engagement from non-followers",relationshipHistory:"RELATIONSHIP HISTORY",snapshotsSavedAutomatically:"snapshots saved automatically for cohorts",noInsights:"No Instagram Insights found.",noInsightsCopy:"Use a full Instagram export that includes Past Instagram Insights.",openNext:"Open next",allOpened:"All opened",left:"left",
     cohortAnalysis:"FOLLOW COHORT ANALYSIS",cohortTitle:"How fast do new follows convert?",followBackRate:"Follow-back rate",medianTime:"Median follow-back time",followedInCohorts:"Tracked follows",suggestedThreshold:"Suggested threshold",
-    within1:"Within 1 day",within2:"Within 2 days",within3:"Within 3 days",within7:"Within 7 days",cohortNeedHistory:"Save at least two snapshots to build cohort analysis.",days:"days",
+    within1:"Within 1 day",within2:"Within 2 days",within3:"Within 3 days",within7:"Within 7 days",cohortNeedHistory:"Load exports from at least two different dates to build cohort analysis.",days:"days",
     cleanupCandidates:"CLEANUP CANDIDATES",cleanupTitle:"Prioritized accounts to review",cleanupNote:"The score currently uses only relationship data available from followers/following exports. Hearted profiles are excluded.",
     olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score"
   },
@@ -24,7 +25,7 @@ const translations = {
     currentExport:"AKTUELLER EXPORT",currentTitle:"Aktueller Instagram-Export",referenceExport:"REFERENZ-EXPORT",referenceTitle:"Referenz-Export",clear:"Löschen",
     chooseCurrent:"Instagram-ZIP oder JSON-Dateien auswählen",dropHint:"Ziehe den originalen Instagram-Export als ZIP hierher oder wähle Followers-/Following-JSON-Dateien aus.",
     chooseReference:"Referenz-ZIP oder JSON-Dateien auswählen",referenceHint:"Optional. Verwende einen älteren Instagram-Export als Vergleichsreferenz.",nothingLoaded:"Noch nichts geladen.",noReference:"Keine Referenz geladen.",
-    overview:"Übersicht",followers:"Follower",following:"Gefolgt",notFollowingBack:"Folgen nicht zurück",growth:"Wachstum",cohorts:"Kohorten",cleanup:"Bereinigung",mutuals:"Gegenseitig",
+    overview:"Übersicht",followers:"Follower",following:"Gefolgt",notFollowingBack:"Folgen nicht zurück",insights:"Insights",cohorts:"Kohorten",cleanup:"Bereinigung",mutuals:"Gegenseitig",
     quickChanges:"SCHNELLE ÄNDERUNGEN",referenceComparison:"Referenzvergleich",newFollowers:"Neue Follower",lostFollowers:"Verlorene Follower",newFollowing:"Neu gefolgt",unfollowedByYou:"Von dir entfolgt",
     keepList:"KEEP-LISTE",heartedProfiles:"Markierte Profile",savedLocally:"lokal gespeichert",
     search:"Suchen",searchPlaceholder:"Nutzer suchen...",referenceFilter:"Referenzfilter",referenceAll:"Alle anzeigen",referenceHide:"Referenztreffer ausblenden",referenceOnly:"Nur Referenztreffer anzeigen",
@@ -34,8 +35,9 @@ const translations = {
     loadedFiles:"{files} Quelldatei(en) · {followers} Follower · {following} gefolgt · {notFollowing} folgen nicht zurück",visibleUsers:"{count} Nutzer angezeigt",referenceHidden:"{count} durch Referenz ausgeblendet",referenceOnlyShown:"{count} entsprechen der Referenz",
     followsSince:"Folgt dir seit {date}",followingSince:"Du folgst seit {date}",dateUnavailable:"Datum nicht verfügbar",
     growthHistory:"WACHSTUMSVERLAUF",growthTitle:"Gespeicherte Snapshots",saveSnapshot:"Aktuellen Snapshot speichern",clearHistory:"Verlauf löschen",netGrowth:"Netto-Followerwachstum",growthRate:"Wachstumsrate",followerRatio:"Follower / Gefolgt",snapshotCount:"Snapshots",date:"Datum",
+    instagramInsights:"INSTAGRAM INSIGHTS",insightsTitle:"Nützliche Account-Performance",followsPeriod:"Neue Follows",unfollowsPeriod:"Unfollows",netFollowerChange:"Netto-Followeränderung",accountsReached:"Erreichte Konten",profileVisits:"Profilbesuche",externalLinkTaps:"Externe Link-Klicks",contentInteractions:"Content-Interaktionen",discovery:"ENTDECKUNG",nonFollowerReach:"Reichweite durch Nicht-Follower",nonFollowerEngagement:"Engagement durch Nicht-Follower",relationshipHistory:"BEZIEHUNGSVERLAUF",snapshotsSavedAutomatically:"Snapshots werden automatisch für Kohorten gespeichert",noInsights:"Keine Instagram Insights gefunden.",noInsightsCopy:"Verwende einen vollständigen Instagram-Export mit Past Instagram Insights.",openNext:"Nächstes öffnen",allOpened:"Alle geöffnet",left:"übrig",
     cohortAnalysis:"FOLLOW-KOHORTENANALYSE",cohortTitle:"Wie schnell konvertieren neue Follows?",followBackRate:"Follow-back-Rate",medianTime:"Median Follow-back-Zeit",followedInCohorts:"Beobachtete Follows",suggestedThreshold:"Empfohlene Schwelle",
-    within1:"Innerhalb 1 Tag",within2:"Innerhalb 2 Tagen",within3:"Innerhalb 3 Tagen",within7:"Innerhalb 7 Tagen",cohortNeedHistory:"Speichere mindestens zwei Snapshots für die Kohortenanalyse.",days:"Tage",
+    within1:"Innerhalb 1 Tag",within2:"Innerhalb 2 Tagen",within3:"Innerhalb 3 Tagen",within7:"Innerhalb 7 Tagen",cohortNeedHistory:"Lade Exporte von mindestens zwei verschiedenen Tagen für die Kohortenanalyse.",days:"Tage",
     cleanupCandidates:"BEREINIGUNGSKANDIDATEN",cleanupTitle:"Priorisierte Accounts zur Prüfung",cleanupNote:"Der Score nutzt derzeit nur Beziehungsdaten aus Followers/Following-Exporten. Markierte Profile werden ausgeschlossen.",
     olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score"
   },
@@ -44,7 +46,7 @@ const translations = {
     currentExport:"AKTUÁLIS EXPORT",currentTitle:"Aktuális Instagram export",referenceExport:"REFERENCIA EXPORT",referenceTitle:"Referencia export",clear:"Törlés",
     chooseCurrent:"Instagram ZIP vagy JSON fájlok kiválasztása",dropHint:"Dobd ide az eredeti Instagram export ZIP-et, vagy válaszd ki a followers/following JSON fájlokat.",
     chooseReference:"Referencia ZIP vagy JSON fájlok kiválasztása",referenceHint:"Opcionális. Egy korábbi Instagram exportot használhatsz összehasonlítási referenciaként.",nothingLoaded:"Nincs fájl betöltve.",noReference:"Nincs referencia betöltve.",
-    overview:"Áttekintés",followers:"Követők",following:"Követéseim",notFollowingBack:"Nem követnek vissza",growth:"Növekedés",cohorts:"Cohortok",cleanup:"Kikövetés",mutuals:"Kölcsönös követések",
+    overview:"Áttekintés",followers:"Követők",following:"Követéseim",notFollowingBack:"Nem követnek vissza",insights:"Insights",cohorts:"Cohortok",cleanup:"Kikövetés",mutuals:"Kölcsönös követések",
     quickChanges:"GYORS VÁLTOZÁSOK",referenceComparison:"Referencia összehasonlítás",newFollowers:"Új követők",lostFollowers:"Elvesztett követők",newFollowing:"Új követéseim",unfollowedByYou:"Általam kikövetve",
     keepList:"KEEP LISTA",heartedProfiles:"Szívezett profilok",savedLocally:"helyben mentve",
     search:"Keresés",searchPlaceholder:"Felhasználók keresése...",referenceFilter:"Referencia szűrő",referenceAll:"Összes megjelenítése",referenceHide:"Referencia találatok elrejtése",referenceOnly:"Csak referencia találatok",
@@ -54,8 +56,9 @@ const translations = {
     loadedFiles:"{files} forrásfájl · {followers} követő · {following} követés · {notFollowing} nem követ vissza",visibleUsers:"{count} felhasználó megjelenítve",referenceHidden:"{count} referencia alapján elrejtve",referenceOnlyShown:"{count} szerepel a referenciában",
     followsSince:"Követ: {date}",followingSince:"Követed: {date}",dateUnavailable:"Dátum nem elérhető",
     growthHistory:"NÖVEKEDÉSI ELŐZMÉNYEK",growthTitle:"Mentett snapshotok",saveSnapshot:"Aktuális snapshot mentése",clearHistory:"Előzmények törlése",netGrowth:"Nettó követőnövekedés",growthRate:"Növekedési arány",followerRatio:"Követők / Követéseim",snapshotCount:"Snapshotok",date:"Dátum",
+    instagramInsights:"INSTAGRAM INSIGHTS",insightsTitle:"Hasznos fiókteljesítmény",followsPeriod:"Új követések",unfollowsPeriod:"Kikövetések",netFollowerChange:"Nettó követőváltozás",accountsReached:"Elért fiókok",profileVisits:"Profilmegtekintések",externalLinkTaps:"Külső linkkattintások",contentInteractions:"Tartalominterakciók",discovery:"FELFEDEZÉS",nonFollowerReach:"Nem követőktől érkező reach",nonFollowerEngagement:"Nem követőktől érkező engagement",relationshipHistory:"KAPCSOLATI ELŐZMÉNYEK",snapshotsSavedAutomatically:"automatikusan mentett snapshot a cohortokhoz",noInsights:"Nem találtam Instagram Insights adatot.",noInsightsCopy:"Használj teljes Instagram exportot, amely tartalmazza a Past Instagram Insights fájlokat.",openNext:"Open next",allOpened:"Mind megnyitva",left:"hátra",
     cohortAnalysis:"FOLLOW COHORT ANALÍZIS",cohortTitle:"Milyen gyorsan követnek vissza az új követések?",followBackRate:"Visszakövetési arány",medianTime:"Medián visszakövetési idő",followedInCohorts:"Követett profilok",suggestedThreshold:"Javasolt határ",
-    within1:"1 napon belül",within2:"2 napon belül",within3:"3 napon belül",within7:"7 napon belül",cohortNeedHistory:"A cohort analízishez legalább két mentett snapshot szükséges.",days:"nap",
+    within1:"1 napon belül",within2:"2 napon belül",within3:"3 napon belül",within7:"7 napon belül",cohortNeedHistory:"A cohort analízishez legalább két különböző napról származó export szükséges.",days:"nap",
     cleanupCandidates:"KIKÖVETÉSI JELÖLTEK",cleanupTitle:"Prioritás szerint rendezett profilok",cleanupNote:"A pontszám jelenleg csak a followers/following exportokból elérhető kapcsolati adatokat használja. A szívezett profilokat kizárjuk.",
     olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám"
   }
@@ -71,6 +74,9 @@ const state = {
   referenceLoaded: false,
   currentSourceCount: 0,
   referenceSourceCount: 0,
+  insights: null,
+  currentSnapshotTimestamp: null,
+  reviewed: new Set(JSON.parse(sessionStorage.getItem("ifa-reviewed") || "[]")),
   hearts: new Set(JSON.parse(localStorage.getItem("ifa-hearts") || "[]")),
   snapshots: JSON.parse(localStorage.getItem("ifa-snapshots") || "[]")
 };
@@ -81,7 +87,7 @@ const els = Object.fromEntries([
   "languageSelect","currentFiles","referenceFiles","currentDropzone","referenceDropzone","currentStatus","referenceStatus","clearCurrentBtn","clearReferenceBtn",
   "searchInput","referenceMode","sortSelect","exportCsvBtn","summaryLine","userList","emptyState","metricFollowers","metricFollowing","metricMutuals","metricNfb",
   "newFollowersCount","lostFollowersCount","newFollowingCount","unfollowedByYouCount","heartedCount","followersCount","followingCount","notFollowingBackCount",
-  "saveSnapshotBtn","clearSnapshotsBtn","growthNet","growthRate","ratioValue","snapshotCount","growthChart","snapshotTableBody","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint",
+  "clearSnapshotsBtn","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","historySnapshotCount","insightEmpty","openNextWrap","openNextBtn","openNextRemaining","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint",
   "cleanupAge","cleanupList","cleanupEmpty"
 ].map(id=>[id,document.querySelector("#"+id)]));
 
@@ -92,7 +98,7 @@ const panels={
   followers:document.querySelector("#listSection"),
   following:document.querySelector("#listSection"),
   notFollowingBack:document.querySelector("#listSection"),
-  growth:document.querySelector("#growthSection"),
+  insights:document.querySelector("#insightsSection"),
   cohorts:document.querySelector("#cohortSection"),
   cleanup:document.querySelector("#cleanupSection")
 };
@@ -103,7 +109,7 @@ function applyLanguage(){
   document.documentElement.lang=state.lang; els.languageSelect.value=state.lang;
   document.querySelectorAll("[data-i18n]").forEach(n=>{const k=n.dataset.i18n;if(translations[state.lang]?.[k])n.textContent=t(k)});
   els.searchInput.placeholder=t("searchPlaceholder");
-  updateStatuses(); renderAll();
+  updateStatuses(); renderAll(); updateOpenNext();
 }
 els.languageSelect.addEventListener("change",()=>{state.lang=els.languageSelect.value;localStorage.setItem("ifa-language",state.lang);applyLanguage()});
 
@@ -114,7 +120,8 @@ navItems.forEach(btn=>btn.addEventListener("click",()=>switchSection(btn.dataset
 tabs.forEach(tab=>tab.addEventListener("click",()=>{state.view=tab.dataset.view;tabs.forEach(x=>x.classList.toggle("active",x===tab));renderList()}));
 els.searchInput.addEventListener("input",renderList); els.referenceMode.addEventListener("change",renderList); els.sortSelect.addEventListener("change",renderList); els.exportCsvBtn.addEventListener("click",exportVisibleCsv);
 els.clearCurrentBtn.addEventListener("click",()=>clearDataset("current")); els.clearReferenceBtn.addEventListener("click",()=>clearDataset("reference"));
-els.saveSnapshotBtn.addEventListener("click",saveSnapshot); els.clearSnapshotsBtn.addEventListener("click",()=>{state.snapshots=[];persistSnapshots();renderGrowth();renderCohorts()});
+els.clearSnapshotsBtn.addEventListener("click",()=>{state.snapshots=[];persistSnapshots();renderInsights();renderCohorts()});
+els.openNextBtn.addEventListener("click",openNextProfile);
 els.cleanupAge.addEventListener("change",renderCleanup);
 
 function switchSection(section){
@@ -124,10 +131,10 @@ function switchSection(section){
   panels[section].classList.add("active-panel");
   if(["followers","following","notFollowingBack"].includes(section)){
     state.view=section; tabs.forEach(x=>x.classList.toggle("active",x.dataset.view===section)); renderList();
-  } else if(section==="growth") renderGrowth(); else if(section==="cohorts") renderCohorts(); else if(section==="cleanup") renderCleanup(); else renderOverview();
+  } else if(section==="insights") renderInsights(); else if(section==="cohorts") renderCohorts(); else if(section==="cleanup") renderCleanup(); else renderOverview();
 }
 
-function clearDataset(target){state[target]=emptyDataset();state[`${target}Loaded`]=false;state[`${target}SourceCount`]=0;(target==="current"?els.currentFiles:els.referenceFiles).value="";updateStatuses();renderAll()}
+function clearDataset(target){state[target]=emptyDataset();state[`${target}Loaded`]=false;if(target==="current"){state.insights=null;state.currentSnapshotTimestamp=null;}state[`${target}SourceCount`]=0;(target==="current"?els.currentFiles:els.referenceFiles).value="";updateStatuses();renderAll()}
 
 function setupFileInput(input,dropzone,target){
   input.addEventListener("change",()=>{if(input.files?.length)loadFiles([...input.files],target)});
@@ -144,7 +151,13 @@ async function loadFiles(files,target){
       if(file.name.toLowerCase().endsWith(".zip")) sources.push(...await extractInstagramJsonFilesFromZip(file));
       else if(file.name.toLowerCase().endsWith(".json")) sources.push({name:file.name,text:await file.text()});
     }
-    state[target]=buildDatasetFromSources(sources);state[`${target}Loaded`]=true;state[`${target}SourceCount`]=sources.length;updateStatuses();renderAll();
+    const imported=buildImportFromSources(sources);state[target]=imported.dataset;state[`${target}Loaded`]=true;state[`${target}SourceCount`]=sources.length;
+    if(target==="current"){
+      state.insights=imported.insights;
+      state.currentSnapshotTimestamp=inferSnapshotTimestamp(files,imported.insights);
+      saveSnapshotAutomatically();
+    }
+    updateStatuses();renderAll();
   }catch(err){console.error(err);status.textContent=`Error: ${err.message}`}
 }
 
@@ -164,7 +177,7 @@ async function extractInstagramJsonFilesFromZip(file){
     if(view.getUint32(off,true)!==0x02014b50)throw new Error(t("invalidZip"));
     const compression=view.getUint16(off+10,true),compressedSize=view.getUint32(off+20,true),uncompressedSize=view.getUint32(off+24,true),fileNameLength=view.getUint16(off+28,true),extraLength=view.getUint16(off+30,true),commentLength=view.getUint16(off+32,true),localHeaderOffset=view.getUint32(off+42,true);
     const name=new TextDecoder().decode(bytes.slice(off+46,off+46+fileNameLength)),base=name.split("/").pop().toLowerCase();
-    if(base==="following.json"||/^followers(?:_\d+)?\.json$/i.test(base))candidates.push({name,compression,compressedSize,uncompressedSize,localHeaderOffset});
+    if(base==="following.json"||/^followers(?:_\d+)?\.json$/i.test(base)||["audience_insights.json","content_interactions.json","profiles_reached.json"].includes(base))candidates.push({name,compression,compressedSize,uncompressedSize,localHeaderOffset});
     off+=46+fileNameLength+extraLength+commentLength;
   }
   if(!candidates.length)throw new Error(t("noRecognized"));
@@ -180,16 +193,36 @@ async function extractZipEntryText(buffer,entry){
   }else throw new Error(t("zipUnsupported"));return new TextDecoder().decode(output);
 }
 
-function buildDatasetFromSources(sources){
+function buildImportFromSources(sources){
   const followers=new Map(),following=new Map();let recognized=0;
+  const insightParts={audience:null,interactions:null,reach:null};
   for(const s of sources){
     let data;try{data=JSON.parse(s.text)}catch{throw new Error(`${s.name}: ${t("invalidJson")}.`)}
     const base=s.name.toLowerCase().split("/").pop();
     if(base==="following.json"){recognized++;extractFollowing(data).forEach(e=>putNewest(following,e));continue}
     if(/^followers(?:_\d+)?\.json$/i.test(base)){recognized++;extractFollowers(data).forEach(e=>putNewest(followers,e));continue}
+    if(base==="audience_insights.json"||data?.organic_insights_audience) insightParts.audience=data;
+    else if(base==="content_interactions.json"||data?.organic_insights_interactions) insightParts.interactions=data;
+    else if(base==="profiles_reached.json"||data?.organic_insights_reach) insightParts.reach=data;
   }
   if(!recognized)throw new Error(t("noRecognized"));
-  const nfb=new Map();for(const[k,v]of following)if(!followers.has(k))nfb.set(k,v);return{followers,following,notFollowingBack:nfb};
+  const nfb=new Map();for(const[k,v]of following)if(!followers.has(k))nfb.set(k,v);
+  return{dataset:{followers,following,notFollowingBack:nfb},insights:parseInsights(insightParts)};
+}
+function insightMap(root,key){const row=root?.[key]?.[0];return row?.string_map_data||{}}
+function valueOf(map,key){return map?.[key]?.value??null}
+function numberOf(map,key){const v=valueOf(map,key);if(v==null)return null;const n=Number(String(v).replace(/,/g,"").replace(/%/g,"").trim());return Number.isFinite(n)?n:null}
+function parseFollowTypePercent(text,label){if(!text)return null;const m=String(text).match(new RegExp(label+"\\s*:\\s*([\\d.]+)%","i"));return m?Number(m[1]):null}
+function parseInsights(parts){
+  const a=insightMap(parts.audience,"organic_insights_audience"),i=insightMap(parts.interactions,"organic_insights_interactions"),r=insightMap(parts.reach,"organic_insights_reach");
+  if(!Object.keys(a).length&&!Object.keys(i).length&&!Object.keys(r).length)return null;
+  const engaged=valueOf(i,"Engaged account by follow type");
+  return{
+    period:valueOf(a,"Date range")||valueOf(i,"Date range")||valueOf(r,"Date range")||null,
+    followers:numberOf(a,"Followers"),follows:numberOf(a,"Follows"),unfollows:numberOf(a,"Unfollows"),net:numberOf(a,"Overall followers"),
+    reached:numberOf(r,"Accounts reached"),profileVisits:numberOf(r,"Profile visits"),externalLinkTaps:numberOf(r,"External link taps"),
+    interactions:numberOf(i,"Content interactions"),nonFollowerReach:numberOf(r,"Non-followers"),nonFollowerEngagement:parseFollowTypePercent(engaged,"Non-followers")
+  };
 }
 function extractFollowers(data){return(Array.isArray(data)?data:[]).map(normalizeRelationshipEntry).filter(Boolean)}
 function extractFollowing(data){const rows=Array.isArray(data)?data:(data&&Array.isArray(data.relationships_following)?data.relationships_following:[]);return rows.map(normalizeRelationshipEntry).filter(Boolean)}
@@ -203,7 +236,7 @@ function cleanUsername(v){if(typeof v!=="string")return"";const s=v.trim().repla
 function usernameFromHref(h){if(typeof h!=="string")return"";try{return cleanUsername(new URL(h).pathname.split("/").filter(Boolean)[0])}catch{return""}}
 function putNewest(map,e){const k=e.username.toLowerCase(),old=map.get(k);if(!old||(e.timestamp??-Infinity)>(old.timestamp??-Infinity))map.set(k,e)}
 
-function renderAll(){renderOverview();renderList();renderGrowth();renderCohorts();renderCleanup()}
+function renderAll(){renderOverview();renderList();renderInsights();renderCohorts();renderCleanup();updateOpenNext()}
 function renderOverview(){
   const c=state.current;els.metricFollowers.textContent=c.followers.size;els.metricFollowing.textContent=c.following.size;
   let mutuals=0;for(const k of c.following.keys())if(c.followers.has(k))mutuals++;els.metricMutuals.textContent=mutuals;els.metricNfb.textContent=c.notFollowingBack.size;els.heartedCount.textContent=state.hearts.size;
@@ -232,47 +265,61 @@ function renderList(){
   const rows=currentVisibleRows(),mode=els.referenceMode.value,raw=state.current[state.view],ref=state.reference[state.view];let extra="";
   if(state.referenceLoaded&&mode==="hide"){let n=0;for(const k of raw.keys())if(ref.has(k))n++;if(n)extra=` · ${t("referenceHidden",{count:n})}`}
   else if(state.referenceLoaded&&mode==="only"){let n=0;for(const k of raw.keys())if(ref.has(k))n++;extra=` · ${t("referenceOnlyShown",{count:n})}`}
-  els.summaryLine.textContent=t("visibleUsers",{count:rows.length})+extra;els.userList.innerHTML=rows.map(renderUserRow).join("");els.emptyState.style.display=rows.length?"none":"flex";bindHeartButtons();
+  els.summaryLine.textContent=t("visibleUsers",{count:rows.length})+extra;els.userList.innerHTML=rows.map(renderUserRow).join("");els.emptyState.style.display=rows.length?"none":"flex";bindHeartButtons();bindProfileLinks();updateOpenNext();
 }
 function renderUserRow(row){
-  const key=row.username.toLowerCase(),hearted=state.hearts.has(key),meta=formatMeta(row.timestamp);
+  const key=row.username.toLowerCase(),hearted=state.hearts.has(key),reviewed=state.reviewed.has(key),meta=formatMeta(row.timestamp);
   return `<div class="user-row">
     <div class="avatar">${escapeHtml(row.username.charAt(0).toUpperCase())}</div>
-    <a class="username" href="${escapeAttribute(row.href)}" target="_blank" rel="noopener noreferrer">@${escapeHtml(row.username)}</a>
+    <a class="username" data-profile-key="${escapeAttribute(key)}" href="${escapeAttribute(row.href)}" target="_blank" rel="noopener noreferrer">@${escapeHtml(row.username)}</a>
     <div class="meta">${escapeHtml(meta)}</div>
+    <span class="review-dot ${reviewed?"reviewed":""}" title="${reviewed?"Opened":"Not opened"}"></span>
     <button class="heart-btn ${hearted?"active":""}" data-heart="${escapeAttribute(key)}" type="button" aria-label="Keep">${hearted?"♥":"♡"}</button>
   </div>`;
 }
 function bindHeartButtons(){document.querySelectorAll("[data-heart]").forEach(btn=>btn.addEventListener("click",()=>{const k=btn.dataset.heart;if(state.hearts.has(k))state.hearts.delete(k);else state.hearts.add(k);localStorage.setItem("ifa-hearts",JSON.stringify([...state.hearts]));renderAll()}))}
+function markReviewed(key){state.reviewed.add(key);sessionStorage.setItem("ifa-reviewed",JSON.stringify([...state.reviewed]));renderList()}
+function bindProfileLinks(){document.querySelectorAll("[data-profile-key]").forEach(a=>a.addEventListener("click",()=>{const key=a.dataset.profileKey;state.reviewed.add(key);sessionStorage.setItem("ifa-reviewed",JSON.stringify([...state.reviewed]));setTimeout(()=>renderList(),0)}))}
+function updateOpenNext(){
+  const isList=["followers","following","notFollowingBack"].includes(state.section)&&state.currentLoaded;
+  els.openNextWrap.classList.toggle("visible",isList);if(!isList)return;
+  const rows=currentVisibleRows(),remaining=rows.filter(r=>!state.reviewed.has(r.username.toLowerCase()));
+  els.openNextBtn.disabled=!remaining.length;els.openNextBtn.querySelector("[data-i18n=openNext]").textContent=remaining.length?t("openNext"):t("allOpened");els.openNextRemaining.textContent=remaining.length?`${remaining.length} ${t("left")}`:"";
+}
+function openNextProfile(){const next=currentVisibleRows().find(r=>!state.reviewed.has(r.username.toLowerCase()));if(!next)return;const key=next.username.toLowerCase();state.reviewed.add(key);sessionStorage.setItem("ifa-reviewed",JSON.stringify([...state.reviewed]));window.open(next.href,"_blank","noopener");renderList()}
 function formatMeta(ts){if(!ts)return t("dateUnavailable");const d=new Date(ts*1000);if(Number.isNaN(d.getTime()))return t("dateUnavailable");const locale=state.lang==="de"?"de-DE":state.lang==="hu"?"hu-HU":"en-GB",fmt=new Intl.DateTimeFormat(locale,{year:"numeric",month:"2-digit",day:"2-digit"}).format(d);return state.view==="followers"?t("followsSince",{date:fmt}):t("followingSince",{date:fmt})}
 
-function saveSnapshot(){
-  if(!state.currentLoaded)return;
-  const now=new Date();const snapshot={
-    id:now.toISOString(),timestamp:Math.floor(now.getTime()/1000),
-    followers:serializeMap(state.current.followers),following:serializeMap(state.current.following),
-    counts:{followers:state.current.followers.size,following:state.current.following.size,mutuals:countMutuals(state.current),notFollowingBack:state.current.notFollowingBack.size}
-  };
-  state.snapshots.push(snapshot);state.snapshots.sort((a,b)=>a.timestamp-b.timestamp);persistSnapshots();renderGrowth();renderCohorts();
-}
 function serializeMap(map){return[...map.values()].map(x=>({username:x.username.toLowerCase(),timestamp:x.timestamp??null}))}
 function persistSnapshots(){localStorage.setItem("ifa-snapshots",JSON.stringify(state.snapshots))}
 function countMutuals(ds){let n=0;for(const k of ds.following.keys())if(ds.followers.has(k))n++;return n}
-function renderGrowth(){
-  const snaps=state.snapshots;els.snapshotCount.textContent=snaps.length;els.ratioValue.textContent=state.currentLoaded&&state.current.following.size? (state.current.followers.size/state.current.following.size).toFixed(2):"0";
-  let net=0,rate=0;if(snaps.length>=2){net=snaps.at(-1).counts.followers-snaps[0].counts.followers;rate=snaps[0].counts.followers?net/snaps[0].counts.followers*100:0}
-  els.growthNet.textContent=(net>0?"+":"")+net;els.growthRate.textContent=(rate>0?"+":"")+rate.toFixed(1)+"%";
-  els.snapshotTableBody.innerHTML=[...snaps].reverse().map(s=>`<tr><td>${fmtDate(s.timestamp)}</td><td>${s.counts.followers}</td><td>${s.counts.following}</td><td>${s.counts.mutuals}</td><td>${s.counts.notFollowingBack}</td></tr>`).join("");
-  drawGrowthChart(snaps);
+function inferSnapshotTimestamp(files,insights){
+  for(const f of files){const m=f.name.match(/(20\d{2})-(\d{2})-(\d{2})/);if(m){const d=new Date(`${m[1]}-${m[2]}-${m[3]}T12:00:00`);if(!Number.isNaN(d.getTime()))return Math.floor(d.getTime()/1000)}}
+  return Math.floor(Date.now()/1000);
 }
-function drawGrowthChart(snaps){
-  const svg=els.growthChart;if(!snaps.length){svg.innerHTML="";return}
-  const w=900,h=280,p=36,vals=snaps.map(s=>s.counts.followers),min=Math.min(...vals),max=Math.max(...vals),range=Math.max(1,max-min);
-  const pts=snaps.map((s,i)=>{const x=snaps.length===1?w/2:p+i*(w-2*p)/(snaps.length-1),y=h-p-(s.counts.followers-min)/range*(h-2*p);return{x,y,s}});
-  const grids=[0,.25,.5,.75,1].map(r=>{const y=p+r*(h-2*p);return`<line class="chart-gridline" x1="${p}" y1="${y}" x2="${w-p}" y2="${y}"/>`}).join("");
-  const path=pts.map((q,i)=>(i?"L":"M")+q.x+" "+q.y).join(" ");
-  const points=pts.map(q=>`<circle class="chart-point" cx="${q.x}" cy="${q.y}" r="4"/>`).join("");
-  svg.innerHTML=grids+`<path class="chart-line" d="${path}"/>`+points;
+function stateHash(ds){const raw=[...ds.followers.keys()].sort().join("|")+"::"+[...ds.following.keys()].sort().join("|");let h=2166136261;for(let i=0;i<raw.length;i++){h^=raw.charCodeAt(i);h=Math.imul(h,16777619)}return(h>>>0).toString(16)}
+function saveSnapshotAutomatically(){
+  if(!state.currentLoaded&&state.current.followers.size===0&&state.current.following.size===0)return;
+  const ts=state.currentSnapshotTimestamp||Math.floor(Date.now()/1000),day=new Date(ts*1000).toISOString().slice(0,10),hash=stateHash(state.current);
+  const snapshot={id:day+":"+hash,timestamp:ts,hash,followers:serializeMap(state.current.followers),following:serializeMap(state.current.following),counts:{followers:state.current.followers.size,following:state.current.following.size,mutuals:countMutuals(state.current),notFollowingBack:state.current.notFollowingBack.size}};
+  const existing=state.snapshots.findIndex(s=>s.id===snapshot.id);
+  if(existing>=0)state.snapshots[existing]=snapshot;else state.snapshots.push(snapshot);
+  state.snapshots.sort((a,b)=>a.timestamp-b.timestamp);persistSnapshots();
+}
+function fmtMetric(v,suffix=""){return v==null?"—":`${Number(v).toLocaleString()}${suffix}`}
+function renderInsights(){
+  const x=state.insights;els.historySnapshotCount.textContent=state.snapshots.length;
+  els.insightEmpty.style.display=x?"none":"flex";
+  els.insightsPeriod.textContent=x?.period||"—";
+  els.insightFollowers.textContent=fmtMetric(x?.followers);
+  els.insightFollows.textContent=fmtMetric(x?.follows);
+  els.insightUnfollows.textContent=fmtMetric(x?.unfollows);
+  els.insightNet.textContent=x?.net==null?"—":`${x.net>0?"+":""}${Number(x.net).toLocaleString()}`;
+  els.insightReach.textContent=fmtMetric(x?.reached);
+  els.insightVisits.textContent=fmtMetric(x?.profileVisits);
+  els.insightLinks.textContent=fmtMetric(x?.externalLinkTaps);
+  els.insightInteractions.textContent=fmtMetric(x?.interactions);
+  els.insightNonFollowerReach.textContent=fmtMetric(x?.nonFollowerReach,"%");
+  els.insightNonFollowerEngagement.textContent=fmtMetric(x?.nonFollowerEngagement,"%");
 }
 
 function renderCohorts(){
