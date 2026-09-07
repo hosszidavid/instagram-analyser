@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Followers Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow" data-i18n="eyebrow">LOCAL INSTAGRAM ANALYZER</p>
+        <h1>Followers Analyzer</h1>
+        <p class="subtle" data-i18n="privacyCopy">Your files are processed only in this browser.</p>
+      </div>
+      <div class="top-actions">
+        <label class="language-picker">
+          <span class="sr-only" data-i18n="language">Language</span>
+          <select id="languageSelect" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="de">DE</option>
+            <option value="hu">HU</option>
+          </select>
+        </label>
+        <div class="privacy-badge" data-i18n="processedLocally">Processed locally</div>
+      </div>
+    </header>
+
+    <section class="upload-grid">
+      <article class="upload-card">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow" data-i18n="currentExport">CURRENT EXPORT</p>
+            <h2 data-i18n="currentTitle">Current Instagram export</h2>
+          </div>
+          <button class="button ghost" id="clearCurrentBtn" type="button" data-i18n="clear">Clear</button>
+        </div>
+        <label class="dropzone" id="currentDropzone">
+          <input id="currentFiles" type="file" accept=".zip,.json,application/zip,application/json" multiple />
+          <span class="drop-title" data-i18n="chooseCurrent">Choose Instagram ZIP or JSON files</span>
+          <span class="drop-copy" data-i18n="dropHint">Drop the original Instagram export ZIP here, or select followers/following JSON files.</span>
+        </label>
+        <div class="file-status" id="currentStatus" data-i18n="nothingLoaded">Nothing loaded.</div>
+      </article>
+
+      <article class="upload-card">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow" data-i18n="referenceExport">REFERENCE EXPORT</p>
+            <h2 data-i18n="referenceTitle">Reference export</h2>
+          </div>
+          <button class="button ghost" id="clearReferenceBtn" type="button" data-i18n="clear">Clear</button>
+        </div>
+        <label class="dropzone" id="referenceDropzone">
+          <input id="referenceFiles" type="file" accept=".zip,.json,application/zip,application/json" multiple />
+          <span class="drop-title" data-i18n="chooseReference">Choose reference ZIP or JSON files</span>
+          <span class="drop-copy" data-i18n="referenceHint">Optional. Use an older Instagram export as the comparison reference.</span>
+        </label>
+        <div class="file-status" id="referenceStatus" data-i18n="noReference">No reference loaded.</div>
+      </article>
+    </section>
+
+    <section class="nav-shell">
+      <nav class="main-nav" aria-label="Analyzer sections">
+        <button class="nav-item active" data-section="overview" type="button" data-i18n="overview">Overview</button>
+        <button class="nav-item" data-section="followers" type="button" data-i18n="followers">Followers</button>
+        <button class="nav-item" data-section="following" type="button" data-i18n="following">Following</button>
+        <button class="nav-item" data-section="notFollowingBack" type="button" data-i18n="notFollowingBack">Not Following Back</button>
+        <button class="nav-item" data-section="growth" type="button" data-i18n="growth">Growth</button>
+        <button class="nav-item" data-section="cohorts" type="button" data-i18n="cohorts">Cohorts</button>
+        <button class="nav-item" data-section="cleanup" type="button" data-i18n="cleanup">Cleanup</button>
+      </nav>
+    </section>
+
+    <section id="overviewSection" class="section-card section-panel active-panel">
+      <div class="metric-grid">
+        <article class="metric-card">
+          <span data-i18n="followers">Followers</span>
+          <strong id="metricFollowers">0</strong>
+        </article>
+        <article class="metric-card">
+          <span data-i18n="following">Following</span>
+          <strong id="metricFollowing">0</strong>
+        </article>
+        <article class="metric-card">
+          <span data-i18n="mutuals">Mutuals</span>
+          <strong id="metricMutuals">0</strong>
+        </article>
+        <article class="metric-card">
+          <span data-i18n="notFollowingBack">Not Following Back</span>
+          <strong id="metricNfb">0</strong>
+        </article>
+      </div>
+
+      <div class="overview-grid">
+        <article class="info-card">
+          <div class="section-title-row">
+            <div>
+              <p class="eyebrow" data-i18n="quickChanges">QUICK CHANGES</p>
+              <h2 data-i18n="referenceComparison">Reference comparison</h2>
+            </div>
+          </div>
+          <div class="change-list">
+            <div><span data-i18n="newFollowers">New followers</span><strong id="newFollowersCount">0</strong></div>
+            <div><span data-i18n="lostFollowers">Lost followers</span><strong id="lostFollowersCount">0</strong></div>
+            <div><span data-i18n="newFollowing">New following</span><strong id="newFollowingCount">0</strong></div>
+            <div><span data-i18n="unfollowedByYou">Unfollowed by you</span><strong id="unfollowedByYouCount">0</strong></div>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <div class="section-title-row">
+            <div>
+              <p class="eyebrow" data-i18n="keepList">KEEP LIST</p>
+              <h2 data-i18n="heartedProfiles">Hearted profiles</h2>
+            </div>
+          </div>
+          <div class="big-stat">
+            <strong id="heartedCount">0</strong>
+            <span data-i18n="savedLocally">saved locally</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="listSection" class="section-card section-panel">
+      <div class="tabs" role="tablist" aria-label="Analysis views">
+        <button class="tab active" data-view="followers" type="button">
+          <span data-i18n="followers">Followers</span><strong id="followersCount">0</strong>
+        </button>
+        <button class="tab" data-view="following" type="button">
+          <span data-i18n="following">Following</span><strong id="followingCount">0</strong>
+        </button>
+        <button class="tab" data-view="notFollowingBack" type="button">
+          <span data-i18n="notFollowingBack">Not Following Back</span><strong id="notFollowingBackCount">0</strong>
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <label class="search">
+          <span class="sr-only" data-i18n="search">Search</span>
+          <input id="searchInput" type="search" placeholder="Search users..." />
+        </label>
+
+        <label class="field">
+          <span class="field-label" data-i18n="referenceFilter">Reference filter</span>
+          <select id="referenceMode" class="select">
+            <option value="all" data-i18n="referenceAll">Show all</option>
+            <option value="hide" data-i18n="referenceHide">Hide reference matches</option>
+            <option value="only" data-i18n="referenceOnly">Show only reference matches</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field-label" data-i18n="sort">Sort</span>
+          <select id="sortSelect" class="select">
+            <option value="date-desc" data-i18n="newestFirst">Newest first</option>
+            <option value="date-asc" data-i18n="oldestFirst">Oldest first</option>
+            <option value="name-asc" data-i18n="nameAsc">Name A–Z</option>
+            <option value="name-desc" data-i18n="nameDesc">Name Z–A</option>
+          </select>
+        </label>
+
+        <button class="button export-button" id="exportCsvBtn" type="button" data-i18n="exportCsv">Export CSV</button>
+      </div>
+
+      <div class="summary-line" id="summaryLine"></div>
+      <div class="user-list" id="userList"></div>
+
+      <div class="empty-state" id="emptyState">
+        <strong data-i18n="emptyTitle">No matching users.</strong>
+        <span data-i18n="emptyCopy">The current search or reference filter may exclude all users.</span>
+      </div>
+    </section>
+
+    <section id="growthSection" class="section-card section-panel">
+      <div class="section-title-row">
+        <div>
+          <p class="eyebrow" data-i18n="growthHistory">GROWTH HISTORY</p>
+          <h2 data-i18n="growthTitle">Saved snapshots</h2>
+        </div>
+        <div class="section-actions">
+          <button class="button" id="saveSnapshotBtn" type="button" data-i18n="saveSnapshot">Save current snapshot</button>
+          <button class="button ghost" id="clearSnapshotsBtn" type="button" data-i18n="clearHistory">Clear history</button>
+        </div>
+      </div>
+
+      <div class="metric-grid growth-metrics">
+        <article class="metric-card"><span data-i18n="netGrowth">Net follower growth</span><strong id="growthNet">0</strong></article>
+        <article class="metric-card"><span data-i18n="growthRate">Growth rate</span><strong id="growthRate">0%</strong></article>
+        <article class="metric-card"><span data-i18n="followerRatio">Follower / Following</span><strong id="ratioValue">0</strong></article>
+        <article class="metric-card"><span data-i18n="snapshotCount">Snapshots</span><strong id="snapshotCount">0</strong></article>
+      </div>
+
+      <div class="chart-card">
+        <svg id="growthChart" viewBox="0 0 900 280" preserveAspectRatio="none" aria-label="Growth chart"></svg>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th data-i18n="date">Date</th>
+              <th data-i18n="followers">Followers</th>
+              <th data-i18n="following">Following</th>
+              <th data-i18n="mutuals">Mutuals</th>
+              <th data-i18n="notFollowingBack">Not Following Back</th>
+            </tr>
+          </thead>
+          <tbody id="snapshotTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="cohortSection" class="section-card section-panel">
+      <div class="section-title-row">
+        <div>
+          <p class="eyebrow" data-i18n="cohortAnalysis">FOLLOW COHORT ANALYSIS</p>
+          <h2 data-i18n="cohortTitle">How fast do new follows convert?</h2>
+        </div>
+      </div>
+
+      <div class="metric-grid">
+        <article class="metric-card"><span data-i18n="followBackRate">Follow-back rate</span><strong id="cohortRate">0%</strong></article>
+        <article class="metric-card"><span data-i18n="medianTime">Median follow-back time</span><strong id="cohortMedian">—</strong></article>
+        <article class="metric-card"><span data-i18n="followedInCohorts">Tracked follows</span><strong id="cohortTracked">0</strong></article>
+        <article class="metric-card"><span data-i18n="suggestedThreshold">Suggested threshold</span><strong id="cohortThreshold">—</strong></article>
+      </div>
+
+      <div class="cohort-grid" id="cohortGrid"></div>
+      <div class="summary-line" id="cohortHint"></div>
+    </section>
+
+    <section id="cleanupSection" class="section-card section-panel">
+      <div class="section-title-row">
+        <div>
+          <p class="eyebrow" data-i18n="cleanupCandidates">CLEANUP CANDIDATES</p>
+          <h2 data-i18n="cleanupTitle">Prioritized accounts to review</h2>
+        </div>
+      </div>
+
+      <div class="summary-line" data-i18n="cleanupNote">
+        The score currently uses only relationship data available from followers/following exports. Hearted profiles are excluded.
+      </div>
+
+      <div class="cleanup-controls">
+        <label class="field">
+          <span class="field-label" data-i18n="olderThan">Following older than</span>
+          <select id="cleanupAge">
+            <option value="30">30 days</option>
+            <option value="90">90 days</option>
+            <option value="180" selected>180 days</option>
+            <option value="365">365 days</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="user-list" id="cleanupList"></div>
+      <div class="empty-state" id="cleanupEmpty">
+        <strong data-i18n="noCleanup">No cleanup candidates.</strong>
+        <span data-i18n="noCleanupCopy">Try a lower age threshold or load a current export.</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
