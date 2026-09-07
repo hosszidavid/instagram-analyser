@@ -18,7 +18,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALYSIS",cohortTitle:"How fast do new follows convert?",followBackRate:"Follow-back rate",medianTime:"Median follow-back time",followedInCohorts:"Tracked follows",suggestedThreshold:"Suggested threshold",
     within1:"Within 1 day",within2:"Within 2 days",within3:"Within 3 days",within7:"Within 7 days",cohortNeedHistory:"Cohorts are calculated directly from the follow timestamps in the current export.",days:"days",
     cleanupCandidates:"CLEANUP CANDIDATES",cleanupTitle:"Prioritized accounts to review",cleanupNote:"The score currently uses only relationship data available from followers/following exports. Hearted profiles are excluded.",
-    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history"
+    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Public Instagram archive",driveSyncCopy:"Paste the public Drive folder link. The analyzer finds dated exports and relevant JSON files automatically.",driveFolderLink:"Public Drive folder link",syncDrive:"Sync Drive",driveNotSynced:"Not synced",driveSyncing:"Scanning Drive…",driveSynced:"Synced",driveReady:"Ready to scan the public folder.",driveLatest:"Latest export",drivePrevious:"Previous export",driveExportsFound:"Exports found",driveFilesFound:"Relevant files",driveApiKeyMissing:"",driveBridgeMissing:"The public Drive bridge is not configured yet. Add your Cloudflare Worker URL to config.js once; no Google API key or billing is needed.",driveInvalidLink:"This does not look like a Google Drive folder link.",driveNoExports:"No dated Instagram exports with followers/following files were found under this folder.",driveSyncComplete:"Drive sync complete. Latest dated export loaded as Current. Reference is loaded only from a folder named Reference when available.",driveSyncFailed:"Drive sync failed",driveAutoSnapshot:"The latest Insights were added to snapshot history automatically.",driveNoPrevious:"None",driveScanningFolder:"Scanning folders and files…",driveDownloading:"Downloading relevant JSON files…",scanDriveHistory:"Scan Drive history",driveHistoryScanning:"Scanning all dated Drive exports for Insights…",driveHistoryComplete:"Drive history scan complete.",driveHistoryAdded:"snapshots added",driveHistoryUpdated:"snapshots updated",driveHistoryNoInsights:"No dated Insights exports were found.",driveReferenceFolder:"Reference folder",driveReferenceFound:"Loaded from Drive reference folder",driveReferenceMissing:"No reference folder found"
   },
   de: {
     eyebrow:"LOKALER INSTAGRAM ANALYZER",privacyCopy:"Deine Dateien werden ausschließlich in diesem Browser verarbeitet.",processedLocally:"Lokal verarbeitet",language:"Sprache",
@@ -39,7 +39,7 @@ const translations = {
     cohortAnalysis:"FOLLOW-KOHORTENANALYSE",cohortTitle:"Wie schnell konvertieren neue Follows?",followBackRate:"Follow-back-Rate",medianTime:"Median Follow-back-Zeit",followedInCohorts:"Beobachtete Follows",suggestedThreshold:"Empfohlene Schwelle",
     within1:"Innerhalb 1 Tag",within2:"Innerhalb 2 Tagen",within3:"Innerhalb 3 Tagen",within7:"Innerhalb 7 Tagen",cohortNeedHistory:"Die Kohorten werden direkt aus den Follow-Zeitstempeln des aktuellen Exports berechnet.",days:"Tage",
     cleanupCandidates:"BEREINIGUNGSKANDIDATEN",cleanupTitle:"Priorisierte Accounts zur Prüfung",cleanupNote:"Der Score nutzt derzeit nur Beziehungsdaten aus Followers/Following-Exporten. Markierte Profile werden ausgeschlossen.",
-    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf"
+    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Öffentliches Instagram-Archiv",driveSyncCopy:"Füge den öffentlichen Drive-Ordnerlink ein. Der Analyzer findet datierte Exporte und relevante JSON-Dateien automatisch.",driveFolderLink:"Öffentlicher Drive-Ordnerlink",syncDrive:"Drive synchronisieren",driveNotSynced:"Nicht synchronisiert",driveSyncing:"Drive wird durchsucht…",driveSynced:"Synchronisiert",driveReady:"Bereit, den öffentlichen Ordner zu durchsuchen.",driveLatest:"Neuester Export",drivePrevious:"Vorheriger Export",driveExportsFound:"Exporte gefunden",driveFilesFound:"Relevante Dateien",driveApiKeyMissing:"",driveBridgeMissing:"Die öffentliche Drive-Bridge ist noch nicht konfiguriert. Trage einmal die Cloudflare-Worker-URL in config.js ein; ein Google-API-Schlüssel oder Billing ist nicht nötig.",driveInvalidLink:"Das sieht nicht wie ein Google-Drive-Ordnerlink aus.",driveNoExports:"Unter diesem Ordner wurden keine datierten Instagram-Exporte mit Followers/Following-Dateien gefunden.",driveSyncComplete:"Drive-Sync abgeschlossen. Der neueste datierte Export wurde als Aktuell geladen. Reference wird nur aus einem Ordner namens Reference geladen, falls vorhanden.",driveSyncFailed:"Drive-Sync fehlgeschlagen",driveAutoSnapshot:"Die neuesten Insights wurden automatisch zum Snapshot-Verlauf hinzugefügt.",driveNoPrevious:"Keine",driveScanningFolder:"Ordner und Dateien werden durchsucht…",driveDownloading:"Relevante JSON-Dateien werden geladen…",scanDriveHistory:"Drive-Verlauf scannen",driveHistoryScanning:"Alle datierten Drive-Exporte werden nach Insights durchsucht…",driveHistoryComplete:"Drive-Verlaufsscan abgeschlossen.",driveHistoryAdded:"Snapshots hinzugefügt",driveHistoryUpdated:"Snapshots aktualisiert",driveHistoryNoInsights:"Keine datierten Insights-Exporte gefunden.",driveReferenceFolder:"Reference-Ordner",driveReferenceFound:"Aus dem Drive-Ordner Reference geladen",driveReferenceMissing:"Kein Reference-Ordner gefunden"
   },
   hu: {
     eyebrow:"HELYI INSTAGRAM ELEMZŐ",privacyCopy:"A fájlok feldolgozása kizárólag ebben a böngészőben történik.",processedLocally:"Helyben feldolgozva",language:"Nyelv",
@@ -60,7 +60,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALÍZIS",cohortTitle:"Milyen gyorsan követnek vissza az új követések?",followBackRate:"Visszakövetési arány",medianTime:"Medián visszakövetési idő",followedInCohorts:"Követett profilok",suggestedThreshold:"Javasolt határ",
     within1:"1 napon belül",within2:"2 napon belül",within3:"3 napon belül",within7:"7 napon belül",cohortNeedHistory:"A cohort elemzés közvetlenül az aktuális export követési időbélyegeiből készül.",days:"nap",
     cleanupCandidates:"KIKÖVETÉSI JELÖLTEK",cleanupTitle:"Prioritás szerint rendezett profilok",cleanupNote:"A pontszám jelenleg csak a followers/following exportokból elérhető kapcsolati adatokat használja. A szívezett profilokat kizárjuk.",
-    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények"
+    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények",driveSyncEyebrow:"GOOGLE DRIVE SZINKRON",driveSyncTitle:"Nyilvános Instagram archívum",driveSyncCopy:"Illeszd be a nyilvános Drive mappa linkjét. Az analyzer automatikusan megkeresi a dátumozott exportokat és a releváns JSON fájlokat.",driveFolderLink:"Nyilvános Drive mappa link",syncDrive:"Drive szinkron",driveNotSynced:"Nincs szinkronizálva",driveSyncing:"Drive átvizsgálása…",driveSynced:"Szinkronizálva",driveReady:"Készen áll a nyilvános mappa átvizsgálására.",driveLatest:"Legújabb export",drivePrevious:"Előző export",driveExportsFound:"Talált exportok",driveFilesFound:"Releváns fájlok",driveApiKeyMissing:"",driveBridgeMissing:"A nyilvános Drive bridge még nincs beállítva. Egyszer add hozzá a Cloudflare Worker URL-jét a config.js fájlhoz; Google API-kulcs és billing nem kell.",driveInvalidLink:"Ez nem tűnik Google Drive mappalinknek.",driveNoExports:"Ebben a mappában nem találtam dátumozott Instagram exportot followers/following fájlokkal.",driveSyncComplete:"Drive szinkron kész. A legújabb dátumozott export Currentként töltődött be. Reference csak Reference nevű mappából töltődik be, ha van ilyen.",driveSyncFailed:"A Drive szinkron sikertelen",driveAutoSnapshot:"A legújabb Insights automatikusan bekerült a snapshot előzményekbe.",driveNoPrevious:"Nincs",driveScanningFolder:"Mappák és fájlok átvizsgálása…",driveDownloading:"Releváns JSON fájlok letöltése…",scanDriveHistory:"Drive előzmények beolvasása",driveHistoryScanning:"Az összes dátumozott Drive export Insights adatainak beolvasása…",driveHistoryComplete:"Drive előzmények beolvasása kész.",driveHistoryAdded:"új snapshot",driveHistoryUpdated:"frissített snapshot",driveHistoryNoInsights:"Nem találtam dátumozott Insights exportot.",driveReferenceFolder:"Reference mappa",driveReferenceFound:"Betöltve a Drive Reference mappájából",driveReferenceMissing:"Nem található Reference mappa"
   }
 };
 
@@ -78,16 +78,18 @@ const state = {
   currentSnapshotTimestamp: null,
   reviewed: new Set(JSON.parse(sessionStorage.getItem("ifa-reviewed") || "[]")),
   hearts: new Set(JSON.parse(localStorage.getItem("ifa-hearts") || "[]")),
-  insightSnapshots: JSON.parse(localStorage.getItem("ifa-insight-snapshots") || "[]").map(s=>({...s,enabled:s.enabled!==false}))
+  insightSnapshots: JSON.parse(localStorage.getItem("ifa-insight-snapshots") || "[]").map(s=>({...s,enabled:s.enabled!==false})),
+  driveFolderUrl: localStorage.getItem("ifa-drive-folder-url") || "",
+  driveLastSync: null
 };
 
 function emptyDataset(){return{followers:new Map(),following:new Map(),notFollowingBack:new Map()}}
 
 const els = Object.fromEntries([
-  "languageSelect","currentFiles","referenceFiles","currentDropzone","referenceDropzone","currentStatus","referenceStatus","clearCurrentBtn","clearReferenceBtn",
+  "languageSelect","driveFolderUrl","syncDriveBtn","driveState","driveStateText","driveMessage","driveLatestDate","drivePreviousDate","driveExportCount","driveFileCount","currentFiles","referenceFiles","currentDropzone","referenceDropzone","currentStatus","referenceStatus","clearCurrentBtn","clearReferenceBtn",
   "searchInput","referenceMode","sortSelect","exportCsvBtn","summaryLine","userList","emptyState","metricFollowers","metricFollowing","metricMutuals","metricNfb",
   "newFollowersCount","lostFollowersCount","newFollowingCount","unfollowedByYouCount","heartedCount","followersCount","followingCount","notFollowingBackCount",
-  "exportPdfBtn","exportDatabaseBtn","importDatabaseInput","saveInsightSnapshotBtn","clearSnapshotsBtn","chartScaleMode","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","insightSnapshotCount","insightsGrowthChart","insightsChartCard","insightsChartTooltip","insightSnapshotTableBody","insightsGrowthEmpty","insightEmpty","openNextWrap","openNextBtn","openNextRemaining","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint"
+  "exportPdfBtn","exportDatabaseBtn","importDatabaseInput","saveInsightSnapshotBtn","scanDriveHistoryBtn","clearSnapshotsBtn","chartScaleMode","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","insightSnapshotCount","insightsGrowthChart","insightsChartCard","insightsChartTooltip","insightSnapshotTableBody","insightsGrowthEmpty","insightEmpty","openNextWrap","openNextBtn","openNextRemaining","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint"
 ].map(id=>[id,document.querySelector("#"+id)]));
 
 const navItems=[...document.querySelectorAll(".nav-item")];
@@ -109,6 +111,13 @@ function applyLanguage(){
 }
 els.languageSelect.addEventListener("change",()=>{state.lang=els.languageSelect.value;localStorage.setItem("ifa-language",state.lang);applyLanguage()});
 
+els.driveFolderUrl.value=state.driveFolderUrl;
+els.driveFolderUrl.addEventListener("change",()=>{
+  state.driveFolderUrl=els.driveFolderUrl.value.trim();
+  localStorage.setItem("ifa-drive-folder-url",state.driveFolderUrl);
+});
+els.syncDriveBtn.addEventListener("click",syncPublicDrive);
+
 setupFileInput(els.currentFiles,els.currentDropzone,"current");
 setupFileInput(els.referenceFiles,els.referenceDropzone,"reference");
 
@@ -117,6 +126,7 @@ tabs.forEach(tab=>tab.addEventListener("click",()=>{state.view=tab.dataset.view;
 els.searchInput.addEventListener("input",renderList); els.referenceMode.addEventListener("change",renderList); els.sortSelect.addEventListener("change",renderList); els.exportCsvBtn.addEventListener("click",exportVisibleCsv);
 els.clearCurrentBtn.addEventListener("click",()=>clearDataset("current")); els.clearReferenceBtn.addEventListener("click",()=>clearDataset("reference"));
 els.saveInsightSnapshotBtn.addEventListener("click",saveInsightSnapshot);
+els.scanDriveHistoryBtn?.addEventListener("click",scanDriveHistory);
 els.exportPdfBtn.addEventListener("click",exportPdfReport);
 els.exportDatabaseBtn.addEventListener("click",exportDatabase);
 els.importDatabaseInput.addEventListener("change",importDatabaseFile);
@@ -141,6 +151,431 @@ function switchSection(section){
   }
   updateOpenNext();
 }
+
+
+const DRIVE_FOLDER_MIME="application/vnd.google-apps.folder";
+const DRIVE_RELEVANT_NAMES=new Set([
+  "following.json",
+  "audience_insights.json",
+  "content_interactions.json",
+  "profiles_reached.json"
+]);
+
+function driveBridgeUrl(){
+  return String(window.IFA_CONFIG?.driveBridgeUrl||"").trim().replace(/\/$/,"");
+}
+
+function extractDriveFolderId(value){
+  const s=String(value||"").trim();
+  const m=s.match(/\/folders\/([A-Za-z0-9_-]+)/);
+  if(m)return m[1];
+  if(/^[A-Za-z0-9_-]{15,}$/.test(s))return s;
+  return null;
+}
+
+function extractDriveResourceKey(value){
+  try{
+    const u=new URL(String(value||""));
+    return u.searchParams.get("resourcekey")||u.searchParams.get("resourceKey")||"";
+  }catch{
+    const m=String(value||"").match(/[?&]resourcekey=([A-Za-z0-9_-]+)/i);
+    return m?m[1]:"";
+  }
+}
+
+function isDriveRelevantFile(name){
+  const base=String(name||"").toLowerCase();
+  return DRIVE_RELEVANT_NAMES.has(base)||/^followers(?:_\d+)?\.json$/i.test(base);
+}
+
+function isReferenceDriveFile(file){
+  return (file.path||[]).some(segment=>String(segment).trim().toLowerCase()==="reference");
+}
+
+function groupReferenceDriveFiles(files){
+  return files.filter(isReferenceDriveFile);
+}
+
+function setDriveUi(stateName,message){
+  els.driveState.dataset.state=stateName;
+  els.driveStateText.textContent=t(
+    stateName==="syncing"?"driveSyncing":
+    stateName==="synced"?"driveSynced":"driveNotSynced"
+  );
+  if(message)els.driveMessage.textContent=message;
+}
+
+async function syncPublicDrive(){
+  const bridge=driveBridgeUrl();
+  const url=els.driveFolderUrl.value.trim();
+  const rootId=extractDriveFolderId(url);
+  const rootResourceKey=extractDriveResourceKey(url);
+
+  state.driveFolderUrl=url;
+  localStorage.setItem("ifa-drive-folder-url",url);
+
+  if(!rootId){
+    setDriveUi("error",t("driveInvalidLink"));
+    return;
+  }
+  if(!bridge){
+    setDriveUi("error",t("driveBridgeMissing"));
+    return;
+  }
+
+  els.syncDriveBtn.disabled=true;
+  setDriveUi("syncing",t("driveScanningFolder"));
+
+  try{
+    const discovered=[];
+    await walkDriveFolder(rootId,[],discovered,bridge,new Set(),rootResourceKey);
+
+    const relevant=discovered.filter(f=>isDriveRelevantFile(f.name));
+    els.driveFileCount.textContent=String(relevant.length);
+
+    // Current candidates are dated exports outside any special Reference folder.
+    const datedNonReference=relevant.filter(f=>!isReferenceDriveFile(f));
+    const grouped=groupDriveExportsByDate(datedNonReference);
+    const complete=[...grouped.values()]
+      .filter(g=>{
+        const names=new Set(g.files.map(f=>f.name.toLowerCase()));
+        const hasFollowing=names.has("following.json");
+        const hasFollowers=[...names].some(n=>/^followers(?:_\d+)?\.json$/i.test(n));
+        return hasFollowing&&hasFollowers;
+      })
+      .sort((a,b)=>a.date.localeCompare(b.date));
+
+    els.driveExportCount.textContent=String(complete.length);
+
+    if(!complete.length){
+      els.driveLatestDate.textContent="—";
+      els.drivePreviousDate.textContent=t("driveNoPrevious");
+      setDriveUi("error",t("driveNoExports"));
+      return;
+    }
+
+    const latest=complete.at(-1);
+    els.driveLatestDate.textContent=latest.date;
+
+    // Reference is NEVER inferred from the second-newest export.
+    // It is loaded only from a folder segment named exactly "Reference" (case-insensitive).
+    const referenceFiles=groupReferenceDriveFiles(relevant);
+    const referenceNames=new Set(referenceFiles.map(f=>f.name.toLowerCase()));
+    const hasReferenceFollowing=referenceNames.has("following.json");
+    const hasReferenceFollowers=[...referenceNames].some(n=>/^followers(?:_\d+)?\.json$/i.test(n));
+    const hasReference=hasReferenceFollowing&&hasReferenceFollowers;
+
+    els.drivePreviousDate.textContent=hasReference?t("driveReferenceFound"):t("driveReferenceMissing");
+    setDriveUi("syncing",t("driveDownloading"));
+
+    const latestSources=await downloadDriveSources(latest.files,bridge);
+    const latestImported=buildImportFromSources(latestSources);
+
+    state.current=latestImported.dataset;
+    state.currentLoaded=true;
+    state.currentSourceCount=latestSources.length;
+    state.insights=latestImported.insights;
+    state.currentSnapshotTimestamp=dateToNoonTimestamp(latest.date);
+
+    // Release raw downloaded source text as soon as parsing is finished.
+    // Nothing is written to device storage; fetches use no-store below.
+    latestSources.length=0;
+
+    if(hasReference){
+      const referenceSources=await downloadDriveSources(referenceFiles,bridge);
+      const referenceImported=buildImportFromSources(referenceSources);
+      state.reference=referenceImported.dataset;
+      state.referenceLoaded=true;
+      state.referenceSourceCount=referenceSources.length;
+      referenceSources.length=0;
+    }else{
+      state.reference=emptyDataset();
+      state.referenceLoaded=false;
+      state.referenceSourceCount=0;
+    }
+
+    let snapshotAdded=false;
+    if(state.insights){
+      const day=latest.date;
+      const existed=state.insightSnapshots.some(s=>s.id===day);
+      upsertInsightSnapshotFromState();
+      snapshotAdded=!existed;
+    }
+
+    state.driveLastSync=Date.now();
+    updateStatuses();
+    renderAll();
+
+    setDriveUi(
+      "synced",
+      t("driveSyncComplete")+(snapshotAdded?` ${t("driveAutoSnapshot")}`:"")
+    );
+  }catch(err){
+    console.error("Drive sync:",err);
+    setDriveUi("error",`${t("driveSyncFailed")}: ${humanizeDriveError(err)}`);
+  }finally{
+    els.syncDriveBtn.disabled=false;
+  }
+}
+
+function humanizeDriveError(err){
+  const msg=String(err?.message||err||"Unknown error");
+  if(/403|permission|forbidden/i.test(msg)){
+    return `${msg}. Check that the folder and its contents are public to anyone with the link.`;
+  }
+  if(/bridge|fetch|network/i.test(msg)){
+    return `${msg}. Check the driveBridgeUrl in config.js and the Cloudflare Worker deployment.`;
+  }
+  return msg;
+}
+
+async function walkDriveFolder(folderId,path,out,bridge,visited,resourceKey=""){
+  if(visited.has(folderId))return;
+  visited.add(folderId);
+
+  const params=new URLSearchParams({folderId});
+  if(resourceKey)params.set("resourceKey",resourceKey);
+
+  const response=await fetch(`${bridge}/list?${params.toString()}`,{cache:"no-store"});
+  if(!response.ok){
+    const body=await response.text();
+    throw new Error(`Public Drive bridge ${response.status}: ${body.slice(0,240)}`);
+  }
+
+  const data=await response.json();
+  if(data.error)throw new Error(data.error);
+
+  for(const item of data.items||[]){
+    if(item.mimeType===DRIVE_FOLDER_MIME){
+      await walkDriveFolder(
+        item.id,
+        [...path,item.name],
+        out,
+        bridge,
+        visited,
+        item.resourceKey||""
+      );
+    }else{
+      out.push({...item,path:[...path,item.name]});
+    }
+  }
+}
+
+function inferDriveExportDate(file){
+  const joined=(file.path||[]).join("/");
+  let m=joined.match(/instagram-[^/]*-(20\d{2})-(\d{2})-(\d{2})(?:-|\/)/i);
+  if(m)return `${m[1]}-${m[2]}-${m[3]}`;
+
+  m=joined.match(/meta-(20\d{2})-([A-Za-z]{3})-(\d{1,2})-/i);
+  if(m){
+    const months={jan:"01",feb:"02",mar:"03",apr:"04",may:"05",jun:"06",jul:"07",aug:"08",sep:"09",oct:"10",nov:"11",dec:"12"};
+    const month=months[m[2].toLowerCase()];
+    if(month)return `${m[1]}-${month}-${String(m[3]).padStart(2,"0")}`;
+  }
+
+  m=joined.match(/(20\d{2})[-_.](\d{2})[-_.](\d{2})/);
+  if(m)return `${m[1]}-${m[2]}-${m[3]}`;
+
+  return null;
+}
+
+function groupDriveExportsByDate(files){
+  const groups=new Map();
+  for(const file of files){
+    const date=inferDriveExportDate(file);
+    if(!date)continue;
+    if(!groups.has(date))groups.set(date,{date,files:[]});
+    groups.get(date).files.push(file);
+  }
+  return groups;
+}
+
+async function downloadDriveSources(files,bridge){
+  const selected=files.filter(f=>isDriveRelevantFile(f.name));
+  const sources=[];
+
+  for(const file of selected){
+    const params=new URLSearchParams({fileId:file.id});
+    if(file.resourceKey)params.set("resourceKey",file.resourceKey);
+
+    const response=await fetch(`${bridge}/file?${params.toString()}`,{cache:"no-store"});
+    if(!response.ok){
+      const body=await response.text();
+      throw new Error(`${file.name}: Public Drive bridge ${response.status}: ${body.slice(0,220)}`);
+    }
+    sources.push({name:(file.path||[file.name]).join("/"),text:await response.text()});
+  }
+  return sources;
+}
+
+
+async function scanDriveHistory(){
+  const bridge=driveBridgeUrl();
+  const url=els.driveFolderUrl.value.trim();
+  const rootId=extractDriveFolderId(url);
+  const rootResourceKey=extractDriveResourceKey(url);
+
+  if(!rootId){
+    alert(t("driveInvalidLink"));
+    return;
+  }
+  if(!bridge){
+    alert(t("driveBridgeMissing"));
+    return;
+  }
+
+  els.scanDriveHistoryBtn.disabled=true;
+  const oldText=els.driveMessage.textContent;
+  setDriveUi("syncing",t("driveHistoryScanning"));
+
+  try{
+    const discovered=[];
+    await walkDriveFolder(rootId,[],discovered,bridge,new Set(),rootResourceKey);
+
+    // Historical analytics come only from normal dated exports.
+    // The special Reference folder is excluded from the timeline.
+    const relevant=discovered
+      .filter(f=>isDriveRelevantFile(f.name))
+      .filter(f=>!isReferenceDriveFile(f));
+
+    const grouped=[...groupDriveExportsByDate(relevant).values()]
+      .sort((a,b)=>a.date.localeCompare(b.date));
+
+    let added=0;
+    let updated=0;
+    let found=0;
+
+    for(const group of grouped){
+      const insightFiles=group.files.filter(f=>{
+        const n=f.name.toLowerCase();
+        return DRIVE_RELEVANT_NAMES.has(n) && n!=="following.json";
+      });
+
+      if(!insightFiles.length)continue;
+
+      const sources=await downloadDriveSources(insightFiles,bridge);
+      const parsed=buildImportFromSources(sources);
+      sources.length=0;
+
+      if(!parsed.insights)continue;
+      found++;
+
+      const before=state.insightSnapshots.some(s=>s.id===group.date);
+
+      const oldInsights=state.insights;
+      const oldTimestamp=state.currentSnapshotTimestamp;
+      const oldFollowingLoaded=state.currentLoaded;
+      const oldCurrent=state.current;
+
+      // Use the dated export's Insights. If following.json is present in the same
+      // dated group, use it for the historical following count too.
+      let historicalFollowing=null;
+      const relationshipFiles=group.files.filter(f=>f.name.toLowerCase()==="following.json");
+      if(relationshipFiles.length){
+        const relSources=await downloadDriveSources(relationshipFiles,bridge);
+        const relParsed=buildImportFromSources(relSources);
+        historicalFollowing=relParsed.dataset?.following?.size ?? null;
+        relSources.length=0;
+      }
+
+      state.insights=parsed.insights;
+      state.currentSnapshotTimestamp=dateToNoonTimestamp(group.date);
+
+      // Preserve current relationship data; inject historical following count only
+      // into the snapshot being upserted.
+      const x=state.insights;
+      const ts=state.currentSnapshotTimestamp;
+      const day=group.date;
+      const existing=state.insightSnapshots.find(s=>s.id===day);
+      const snapshot={
+        id:day,
+        timestamp:ts,
+        period:x.period||null,
+        followers:x.followers,
+        follows:x.follows,
+        unfollows:x.unfollows,
+        net:x.net,
+        reached:x.reached,
+        profileVisits:x.profileVisits,
+        externalLinkTaps:x.externalLinkTaps,
+        interactions:x.interactions,
+        nonFollowerReach:x.nonFollowerReach,
+        nonFollowerEngagement:x.nonFollowerEngagement,
+        following:historicalFollowing,
+        enabled:existing?.enabled!==false
+      };
+      const idx=state.insightSnapshots.findIndex(s=>s.id===day);
+      if(idx>=0){
+        state.insightSnapshots[idx]=snapshot;
+        updated++;
+      }else{
+        state.insightSnapshots.push(snapshot);
+        added++;
+      }
+
+      state.insights=oldInsights;
+      state.currentSnapshotTimestamp=oldTimestamp;
+      state.currentLoaded=oldFollowingLoaded;
+      state.current=oldCurrent;
+    }
+
+    state.insightSnapshots.sort((a,b)=>a.timestamp-b.timestamp);
+    persistInsightSnapshots();
+    renderInsights();
+
+    if(!found){
+      setDriveUi("synced",t("driveHistoryNoInsights"));
+    }else{
+      setDriveUi(
+        "synced",
+        `${t("driveHistoryComplete")} ${added} ${t("driveHistoryAdded")}, ${updated} ${t("driveHistoryUpdated")}.`
+      );
+    }
+  }catch(err){
+    console.error("Drive history scan:",err);
+    setDriveUi("error",`${t("driveSyncFailed")}: ${humanizeDriveError(err)}`);
+  }finally{
+    els.scanDriveHistoryBtn.disabled=false;
+  }
+}
+
+
+function dateToNoonTimestamp(day){
+  const d=new Date(`${day}T12:00:00`);
+  return Number.isNaN(d.getTime())?Math.floor(Date.now()/1000):Math.floor(d.getTime()/1000);
+}
+
+function upsertInsightSnapshotFromState(){
+  if(!state.insights)return false;
+  const ts=state.currentSnapshotTimestamp||Math.floor(Date.now()/1000);
+  const day=new Date(ts*1000).toISOString().slice(0,10);
+  const x=state.insights;
+  const existing=state.insightSnapshots.find(s=>s.id===day);
+  const snapshot={
+    id:day,
+    timestamp:ts,
+    period:x.period||null,
+    followers:x.followers,
+    follows:x.follows,
+    unfollows:x.unfollows,
+    net:x.net,
+    reached:x.reached,
+    profileVisits:x.profileVisits,
+    externalLinkTaps:x.externalLinkTaps,
+    interactions:x.interactions,
+    nonFollowerReach:x.nonFollowerReach,
+    nonFollowerEngagement:x.nonFollowerEngagement,
+    following:state.currentLoaded?state.current.following.size:null,
+    enabled:existing?.enabled!==false
+  };
+  const idx=state.insightSnapshots.findIndex(s=>s.id===day);
+  if(idx>=0)state.insightSnapshots[idx]=snapshot;
+  else state.insightSnapshots.push(snapshot);
+  state.insightSnapshots.sort((a,b)=>a.timestamp-b.timestamp);
+  persistInsightSnapshots();
+  return idx<0;
+}
+
 
 function clearDataset(target){state[target]=emptyDataset();state[`${target}Loaded`]=false;if(target==="current"){state.insights=null;state.currentSnapshotTimestamp=null;}state[`${target}SourceCount`]=0;(target==="current"?els.currentFiles:els.referenceFiles).value="";updateStatuses();renderAll()}
 
@@ -312,31 +747,7 @@ function inferSnapshotTimestamp(files,insights){
 }
 function saveInsightSnapshot(){
   if(!state.insights)return;
-  const ts=state.currentSnapshotTimestamp||Math.floor(Date.now()/1000);
-  const day=new Date(ts*1000).toISOString().slice(0,10);
-  const x=state.insights;
-  const snapshot={
-    id:day,
-    timestamp:ts,
-    period:x.period||null,
-    followers:x.followers,
-    follows:x.follows,
-    unfollows:x.unfollows,
-    net:x.net,
-    reached:x.reached,
-    profileVisits:x.profileVisits,
-    externalLinkTaps:x.externalLinkTaps,
-    interactions:x.interactions,
-    nonFollowerReach:x.nonFollowerReach,
-    nonFollowerEngagement:x.nonFollowerEngagement,
-    following:state.currentLoaded?state.current.following.size:null,
-    enabled:true
-  };
-  const existing=state.insightSnapshots.findIndex(s=>s.id===snapshot.id);
-  if(existing>=0)state.insightSnapshots[existing]=snapshot;
-  else state.insightSnapshots.push(snapshot);
-  state.insightSnapshots.sort((a,b)=>a.timestamp-b.timestamp);
-  persistInsightSnapshots();
+  upsertInsightSnapshotFromState();
   renderInsights();
 }
 function fmtMetric(v,suffix=""){return v==null?"—":`${Number(v).toLocaleString()}${suffix}`}

@@ -69,6 +69,45 @@
       </article>
     </section>
 
+
+    <section class="drive-panel" id="drivePanel">
+      <div class="drive-head">
+        <div>
+          <p class="eyebrow" data-i18n="driveSyncEyebrow">GOOGLE DRIVE SYNC</p>
+          <h2 data-i18n="driveSyncTitle">Public Instagram archive</h2>
+          <p class="subtle drive-copy" data-i18n="driveSyncCopy">Paste the public Drive folder link. The analyzer scans it through the read-only public bridge and finds dated exports automatically.</p>
+        </div>
+        <div class="drive-state" id="driveState" data-state="idle">
+          <span class="drive-state-dot"></span>
+          <span id="driveStateText" data-i18n="driveNotSynced">Not synced</span>
+        </div>
+      </div>
+
+      <div class="drive-controls">
+        <label class="field drive-url-field">
+          <span class="field-label" data-i18n="driveFolderLink">Public Drive folder link</span>
+          <input
+            id="driveFolderUrl"
+            class="text-input"
+            type="url"
+            inputmode="url"
+            autocomplete="off"
+            value=""
+          />
+        </label>
+        <button class="button drive-sync-button" id="syncDriveBtn" type="button" data-i18n="syncDrive">Sync Drive</button>
+      </div>
+
+      <div class="drive-meta" id="driveMeta">
+        <span><b data-i18n="driveLatest">Latest export</b><strong id="driveLatestDate">—</strong></span>
+        <span><b data-i18n="drivePrevious">Previous export</b><strong id="drivePreviousDate">—</strong></span>
+        <span><b data-i18n="driveExportsFound">Exports found</b><strong id="driveExportCount">0</strong></span>
+        <span><b data-i18n="driveFilesFound">Relevant files</b><strong id="driveFileCount">0</strong></span>
+      </div>
+
+      <div class="file-status drive-message" id="driveMessage" data-i18n="driveReady">Ready to scan the public folder.</div>
+    </section>
+
     <section class="nav-shell">
       <nav class="main-nav" aria-label="Analyzer sections">
         <button class="nav-item active" data-section="overview" type="button" data-i18n="overview">Overview</button>
@@ -218,6 +257,7 @@
           </div>
           <div class="snapshot-actions">
             <button class="button" id="saveInsightSnapshotBtn" type="button" data-i18n="saveInsightSnapshot">Save snapshot</button>
+          <button class="button ghost" id="scanDriveHistoryBtn" type="button" data-i18n="scanDriveHistory">Scan Drive history</button>
             <button class="button ghost danger-ghost" id="clearSnapshotsBtn" type="button" data-i18n="clearHistory">Clear history</button>
           </div>
         </article>
@@ -308,6 +348,7 @@
     </button>
   </div>
 
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

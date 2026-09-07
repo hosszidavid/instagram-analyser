@@ -600,3 +600,126 @@ h1,h2,
     max-width:100%;
   }
 }
+
+
+/* v0.12 - public Google Drive sync */
+.drive-panel{
+  margin-bottom:16px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  background:var(--panel);
+  backdrop-filter:blur(16px);
+  overflow:hidden;
+}
+.drive-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+}
+.drive-copy{
+  max-width:720px;
+  font-size:13px;
+  line-height:1.45;
+}
+.drive-state{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:34px;
+  padding:0 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#fff;
+  color:var(--muted);
+  font-size:12px;
+  white-space:nowrap;
+}
+.drive-state-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#a8b0b4;
+}
+.drive-state[data-state="syncing"] .drive-state-dot{
+  background:#d97706;
+  animation:drive-pulse 1.1s ease-in-out infinite;
+}
+.drive-state[data-state="synced"] .drive-state-dot{background:#16a34a}
+.drive-state[data-state="error"] .drive-state-dot{background:#dc2626}
+@keyframes drive-pulse{50%{opacity:.35}}
+
+.drive-controls{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:10px;
+  margin-top:18px;
+}
+.text-input{
+  width:100%;
+  height:44px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+  color:var(--text);
+  padding:0 13px;
+  outline:none;
+}
+.text-input:focus{
+  border-color:#b7bcc0;
+  box-shadow:0 0 0 3px rgba(20,22,26,.04);
+}
+.drive-sync-button{min-width:122px}
+.drive-sync-button:disabled{opacity:.55;cursor:wait}
+
+.drive-meta{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+  margin-top:12px;
+}
+.drive-meta>span{
+  min-width:0;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+}
+.drive-meta b{
+  display:block;
+  margin-bottom:4px;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:650;
+}
+.drive-meta strong{
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:13px;
+  font-weight:650;
+}
+.drive-message{
+  margin:10px 2px 0;
+}
+
+@media(max-width:760px){
+  .drive-head{flex-direction:column;gap:12px}
+  .drive-controls{grid-template-columns:1fr}
+  .drive-sync-button{width:100%}
+  .drive-meta{grid-template-columns:1fr 1fr}
+}
+@media(max-width:420px){
+  .drive-panel{padding:16px 14px}
+  .drive-meta{grid-template-columns:1fr 1fr}
+}
+
+/* v0.14 - Insights history scan action */
+@media(max-width:620px){
+  #scanDriveHistoryBtn{
+    width:100%;
+  }
+}
