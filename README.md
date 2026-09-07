@@ -96,3 +96,29 @@ A grafikon és a felső kapcsolók színei most már sokkal jobban elkülönüln
 - Profile visits: kék
 
 A legend és a grafikon továbbra is pontosan ugyanazt a színpalettát használja.
+
+
+## v0.10 mobile + PDF report
+
+### Mobile
+- az app teljes szélessége a viewporton belül marad
+- a széles snapshot táblázat saját vízszintes scrollt kap, nem nyújtja szét az oldalt
+- a metric kapcsolók külön vízszintes scroll-sávként működnek
+- a mobil grafikon külön, kompakt 520×320-as koordinátarendszert használ
+- a tengelyfeliratok mobilon nagyobbak és olvashatóbbak
+- a grafikon továbbra is filigrán marad
+
+### Export PDF
+Az új `Export PDF` gomb egy letisztult report nézetet készít:
+- aktuális fő Insights számok
+- Followers / Following
+- Follows / Unfollows
+- Net follower change
+- Accounts reached
+- Profile visits
+- Content interactions
+- az aktuálisan beállított trendgrafikon
+- legutóbbi aktív snapshotok
+
+A gomb a böngésző natív nyomtatási/PDF dialógusát nyitja meg.
+Desktopon `Save as PDF`, iPhone/iPad esetén a rendszer PDF/Print megosztási folyamata használható.

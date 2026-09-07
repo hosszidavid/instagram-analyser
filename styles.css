@@ -273,3 +273,137 @@ h1,h2{margin:0;font-weight:650;letter-spacing:-.03em}h1{font-size:clamp(34px,5vw
     aspect-ratio:1200 / 300;
   }
 }
+
+/* v0.10 - mobile containment + mobile chart */
+html,body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+.app-shell,
+.topbar,
+.upload-grid,
+.nav-shell,
+.section-card,
+.section-panel,
+.insight-history-panel,
+.section-title-row,
+.toolbar,
+.metric-grid,
+.overview-grid,
+.insight-grid{
+  min-width:0;
+  max-width:100%;
+}
+
+.table-wrap{
+  max-width:100%;
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+}
+
+.snapshot-table{
+  min-width:720px;
+}
+
+.metric-toggle-row{
+  max-width:100%;
+}
+
+@media(max-width:620px){
+  .app-shell{
+    width:calc(100% - 16px);
+    padding-top:20px;
+  }
+
+  .growth-trends,
+  .insight-history-panel{
+    min-width:0;
+  }
+
+  .compact-section-head{
+    gap:14px;
+  }
+
+  .compact-field{
+    width:100%;
+    min-width:0;
+  }
+
+  .metric-toggle-row{
+    width:100%;
+    max-width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    scroll-padding-left:12px;
+    padding:10px 12px 12px;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-inline:contain;
+  }
+
+  .metric-toggle-row::-webkit-scrollbar{
+    display:none;
+  }
+
+  .metric-toggle{
+    flex:0 0 auto;
+  }
+
+  .interactive-chart-card{
+    margin:0 12px 16px;
+    padding:10px 8px 4px;
+    overflow:hidden;
+  }
+
+  #insightsGrowthChart{
+    width:100%;
+    height:auto;
+    aspect-ratio:520 / 320;
+    min-height:0;
+  }
+
+  .chart-axis{
+    font-size:14px;
+  }
+
+  .chart-date-label{
+    font-size:13px;
+  }
+
+  .chart-line{
+    stroke-width:1.55;
+  }
+
+  .chart-point{
+    stroke-width:1.15;
+  }
+
+  .chart-tooltip{
+    max-width:150px;
+  }
+
+  .table-wrap{
+    padding:0 12px 16px;
+    max-width:100%;
+  }
+
+  .snapshot-table{
+    min-width:680px;
+  }
+
+  .database-actions{
+    width:100%;
+    overflow:hidden;
+  }
+
+  .database-actions .db-button{
+    min-width:0;
+    white-space:normal;
+    text-align:center;
+    padding-left:10px;
+    padding-right:10px;
+  }
+}

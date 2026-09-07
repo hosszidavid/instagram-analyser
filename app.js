@@ -18,7 +18,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALYSIS",cohortTitle:"How fast do new follows convert?",followBackRate:"Follow-back rate",medianTime:"Median follow-back time",followedInCohorts:"Tracked follows",suggestedThreshold:"Suggested threshold",
     within1:"Within 1 day",within2:"Within 2 days",within3:"Within 3 days",within7:"Within 7 days",cohortNeedHistory:"Cohorts are calculated directly from the follow timestamps in the current export.",days:"days",
     cleanupCandidates:"CLEANUP CANDIDATES",cleanupTitle:"Prioritized accounts to review",cleanupNote:"The score currently uses only relationship data available from followers/following exports. Hearted profiles are excluded.",
-    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7"
+    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history"
   },
   de: {
     eyebrow:"LOKALER INSTAGRAM ANALYZER",privacyCopy:"Deine Dateien werden ausschließlich in diesem Browser verarbeitet.",processedLocally:"Lokal verarbeitet",language:"Sprache",
@@ -39,7 +39,7 @@ const translations = {
     cohortAnalysis:"FOLLOW-KOHORTENANALYSE",cohortTitle:"Wie schnell konvertieren neue Follows?",followBackRate:"Follow-back-Rate",medianTime:"Median Follow-back-Zeit",followedInCohorts:"Beobachtete Follows",suggestedThreshold:"Empfohlene Schwelle",
     within1:"Innerhalb 1 Tag",within2:"Innerhalb 2 Tagen",within3:"Innerhalb 3 Tagen",within7:"Innerhalb 7 Tagen",cohortNeedHistory:"Die Kohorten werden direkt aus den Follow-Zeitstempeln des aktuellen Exports berechnet.",days:"Tage",
     cleanupCandidates:"BEREINIGUNGSKANDIDATEN",cleanupTitle:"Priorisierte Accounts zur Prüfung",cleanupNote:"Der Score nutzt derzeit nur Beziehungsdaten aus Followers/Following-Exporten. Markierte Profile werden ausgeschlossen.",
-    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7"
+    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf"
   },
   hu: {
     eyebrow:"HELYI INSTAGRAM ELEMZŐ",privacyCopy:"A fájlok feldolgozása kizárólag ebben a böngészőben történik.",processedLocally:"Helyben feldolgozva",language:"Nyelv",
@@ -60,7 +60,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALÍZIS",cohortTitle:"Milyen gyorsan követnek vissza az új követések?",followBackRate:"Visszakövetési arány",medianTime:"Medián visszakövetési idő",followedInCohorts:"Követett profilok",suggestedThreshold:"Javasolt határ",
     within1:"1 napon belül",within2:"2 napon belül",within3:"3 napon belül",within7:"7 napon belül",cohortNeedHistory:"A cohort elemzés közvetlenül az aktuális export követési időbélyegeiből készül.",days:"nap",
     cleanupCandidates:"KIKÖVETÉSI JELÖLTEK",cleanupTitle:"Prioritás szerint rendezett profilok",cleanupNote:"A pontszám jelenleg csak a followers/following exportokból elérhető kapcsolati adatokat használja. A szívezett profilokat kizárjuk.",
-    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap"
+    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények"
   }
 };
 
@@ -87,7 +87,7 @@ const els = Object.fromEntries([
   "languageSelect","currentFiles","referenceFiles","currentDropzone","referenceDropzone","currentStatus","referenceStatus","clearCurrentBtn","clearReferenceBtn",
   "searchInput","referenceMode","sortSelect","exportCsvBtn","summaryLine","userList","emptyState","metricFollowers","metricFollowing","metricMutuals","metricNfb",
   "newFollowersCount","lostFollowersCount","newFollowingCount","unfollowedByYouCount","heartedCount","followersCount","followingCount","notFollowingBackCount",
-  "exportDatabaseBtn","importDatabaseInput","saveInsightSnapshotBtn","clearSnapshotsBtn","chartScaleMode","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","insightSnapshotCount","insightsGrowthChart","insightsChartCard","insightsChartTooltip","insightSnapshotTableBody","insightsGrowthEmpty","insightEmpty","openNextWrap","openNextBtn","openNextRemaining","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint"
+  "exportPdfBtn","exportDatabaseBtn","importDatabaseInput","saveInsightSnapshotBtn","clearSnapshotsBtn","chartScaleMode","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","insightSnapshotCount","insightsGrowthChart","insightsChartCard","insightsChartTooltip","insightSnapshotTableBody","insightsGrowthEmpty","insightEmpty","openNextWrap","openNextBtn","openNextRemaining","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint"
 ].map(id=>[id,document.querySelector("#"+id)]));
 
 const navItems=[...document.querySelectorAll(".nav-item")];
@@ -117,6 +117,7 @@ tabs.forEach(tab=>tab.addEventListener("click",()=>{state.view=tab.dataset.view;
 els.searchInput.addEventListener("input",renderList); els.referenceMode.addEventListener("change",renderList); els.sortSelect.addEventListener("change",renderList); els.exportCsvBtn.addEventListener("click",exportVisibleCsv);
 els.clearCurrentBtn.addEventListener("click",()=>clearDataset("current")); els.clearReferenceBtn.addEventListener("click",()=>clearDataset("reference"));
 els.saveInsightSnapshotBtn.addEventListener("click",saveInsightSnapshot);
+els.exportPdfBtn.addEventListener("click",exportPdfReport);
 els.exportDatabaseBtn.addEventListener("click",exportDatabase);
 els.importDatabaseInput.addEventListener("change",importDatabaseFile);
 els.chartScaleMode.addEventListener("change",renderInsights);
@@ -410,7 +411,14 @@ function drawInsightsGrowthChart(snaps){
   };
 
   const mode=els.chartScaleMode.value;
-  const w=1200,h=260,pL=56,pR=20,pT=20,pB=38;
+  const mobile=window.matchMedia("(max-width: 620px)").matches;
+  const w=mobile?520:1200;
+  const h=mobile?320:260;
+  const pL=mobile?50:56;
+  const pR=mobile?18:20;
+  const pT=mobile?20:20;
+  const pB=mobile?42:38;
+  svg.setAttribute("viewBox",`0 0 ${w} ${h}`);
 
   const series=selected.map(metric=>{
     const rows=active
@@ -523,8 +531,8 @@ function drawInsightsGrowthChart(snaps){
       const svgRect=svg.getBoundingClientRect();
       const cx=Number(hit.getAttribute("cx"));
       const cy=Number(hit.getAttribute("cy"));
-      const left=(cx/1200)*svgRect.width+(svgRect.left-cardRect.left);
-      const top=(cy/260)*svgRect.height+(svgRect.top-cardRect.top);
+      const left=(cx/w)*svgRect.width+(svgRect.left-cardRect.left);
+      const top=(cy/h)*svgRect.height+(svgRect.top-cardRect.top);
 
       tooltip.style.left=`${left}px`;
       tooltip.style.top=`${top}px`;
@@ -548,6 +556,130 @@ function hideChartTooltip(){
 function shortDate(ts){
   const locale=state.lang==="de"?"de-DE":state.lang==="hu"?"hu-HU":"en-GB";
   return new Intl.DateTimeFormat(locale,{month:"short",day:"numeric"}).format(new Date(ts*1000));
+}
+
+
+function exportPdfReport(){
+  if(!state.insights && !state.insightSnapshots.length){
+    alert(t("pdfNoData"));
+    return;
+  }
+
+  const reportWindow=window.open("","_blank");
+  if(!reportWindow){
+    alert(t("pdfNoData"));
+    return;
+  }
+
+  const x=state.insights;
+  const activeSnapshots=state.insightSnapshots.filter(s=>s.enabled!==false);
+  const chartSvg=els.insightsGrowthChart?.outerHTML||"";
+  const generated=new Intl.DateTimeFormat(
+    state.lang==="de"?"de-DE":state.lang==="hu"?"hu-HU":"en-GB",
+    {year:"numeric",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"}
+  ).format(new Date());
+
+  const metricRows=[
+    [t("followers"), x?.followers ?? (activeSnapshots.at(-1)?.followers ?? null)],
+    [t("following"), state.currentLoaded?state.current.following.size:(activeSnapshots.at(-1)?.following ?? null)],
+    [t("follows"), x?.follows ?? null],
+    [t("unfollows"), x?.unfollows ?? null],
+    ["Net follower change", x?.net ?? null],
+    [t("accountsReached"), x?.reached ?? null],
+    [t("profileVisits"), x?.profileVisits ?? null],
+    ["Content interactions", x?.interactions ?? null]
+  ].filter(([,v])=>v!=null);
+
+  const snapshotRows=[...state.insightSnapshots]
+    .filter(s=>s.enabled!==false)
+    .slice(-8)
+    .reverse()
+    .map(s=>`
+      <tr>
+        <td>${escapeHtml(fmtDate(s.timestamp))}</td>
+        <td>${escapeHtml(fmtMetric(s.followers))}</td>
+        <td>${escapeHtml(fmtMetric(s.following))}</td>
+        <td>${escapeHtml(s.period||"—")}</td>
+      </tr>`).join("");
+
+  const reportHtml=`<!doctype html>
+<html lang="${escapeAttribute(state.lang)}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${escapeHtml(t("pdfTitle"))}</title>
+<style>
+  @page{size:A4 landscape;margin:14mm}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#14161a;background:#fff}
+  .report{max-width:100%;margin:0 auto}
+  .head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:16px}
+  h1{font-size:26px;letter-spacing:-.03em;margin:0}
+  .meta{font-size:11px;color:#68777d;text-align:right}
+  .eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;color:#718087;margin:0 0 5px}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+  .metric{border:1px solid #dde3e6;border-radius:10px;padding:10px 12px}
+  .metric span{display:block;font-size:10px;color:#748188;margin-bottom:4px}
+  .metric strong{font-size:19px;font-weight:650}
+  .section-title{font-size:13px;font-weight:650;margin:14px 0 7px}
+  .chart{border:1px solid #dde3e6;border-radius:12px;padding:8px;margin-bottom:12px}
+  .chart svg{width:100%;height:118mm;max-height:118mm;display:block}
+  .chart-gridline{stroke:#edf0f2;stroke-width:.65}
+  .chart-axis{fill:#7f8b91;font-size:10px;font-weight:500}
+  .chart-line{fill:none;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
+  .chart-point{stroke:#fff;stroke-width:1.15}
+  .chart-hit{display:none}
+  .series-followers{stroke:#7c3aed;fill:#7c3aed}
+  .series-following{stroke:#0f766e;fill:#0f766e}
+  .series-follows{stroke:#16a34a;fill:#16a34a}
+  .series-unfollows{stroke:#dc2626;fill:#dc2626}
+  .series-reached{stroke:#ea580c;fill:#ea580c}
+  .series-profileVisits{stroke:#2563eb;fill:#2563eb}
+  table{width:100%;border-collapse:collapse;font-size:10px}
+  th,td{border-bottom:1px solid #e5e9eb;padding:5px 6px;text-align:left}
+  th{color:#68777d;font-weight:650}
+  @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+  <div class="report">
+    <div class="head">
+      <div>
+        <p class="eyebrow">${escapeHtml(t("pdfCurrentInsights"))}</p>
+        <h1>${escapeHtml(t("pdfTitle"))}</h1>
+      </div>
+      <div class="meta">
+        ${x?.period?`${escapeHtml(x.period)}<br>`:""}
+        ${escapeHtml(t("pdfGenerated"))}: ${escapeHtml(generated)}
+      </div>
+    </div>
+
+    <div class="metrics">
+      ${metricRows.map(([label,value])=>`
+        <div class="metric"><span>${escapeHtml(label)}</span><strong>${escapeHtml(fmtMetric(value))}</strong></div>
+      `).join("")}
+    </div>
+
+    ${chartSvg?`
+      <div class="section-title">${escapeHtml(t("pdfSavedTrends"))}</div>
+      <div class="chart">${chartSvg}</div>`:""}
+
+    ${snapshotRows?`
+      <div class="section-title">${escapeHtml(t("pdfSnapshotHistory"))}</div>
+      <table>
+        <thead><tr><th>${escapeHtml(t("date"))}</th><th>${escapeHtml(t("followers"))}</th><th>${escapeHtml(t("following"))}</th><th>${escapeHtml(t("period"))}</th></tr></thead>
+        <tbody>${snapshotRows}</tbody>
+      </table>`:""}
+  </div>
+  <script>
+    window.addEventListener("load",()=>setTimeout(()=>window.print(),250));
+  <\/script>
+</body>
+</html>`;
+
+  reportWindow.document.open();
+  reportWindow.document.write(reportHtml);
+  reportWindow.document.close();
 }
 
 function exportDatabase(){
@@ -649,6 +781,12 @@ function csvCell(v){const s=String(v??"");return`"${s.replaceAll('"','""')}"`}
 function fmtDate(ts){const locale=state.lang==="de"?"de-DE":state.lang==="hu"?"hu-HU":"en-GB";return new Intl.DateTimeFormat(locale,{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}).format(new Date(ts*1000))}
 function escapeHtml(v){return String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
 function escapeAttribute(v){return escapeHtml(v)}
+
+let chartResizeTimer=null;
+window.addEventListener("resize",()=>{
+  clearTimeout(chartResizeTimer);
+  chartResizeTimer=setTimeout(()=>{ if(state.section==="insights") renderInsights(); },120);
+});
 
 applyLanguage();
 switchSection("overview");
