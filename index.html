@@ -9,13 +9,17 @@
 <body>
   <main class="app-shell">
     <header class="topbar">
-      <div>
+      <div class="brand-block">
         <p class="eyebrow" data-i18n="eyebrow">LOCAL INSTAGRAM ANALYZER</p>
         <h1>Followers Analyzer</h1>
         <p class="subtle" data-i18n="privacyCopy">Your files are processed only in this browser.</p>
       </div>
-      <div class="top-actions">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="topActions" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="top-actions" id="topActions">
         <div class="database-actions">
+          <button class="button ghost db-button" id="openReadmeBtn" type="button" data-i18n="readme">README</button>
           <button class="button ghost db-button" id="exportPdfBtn" type="button" data-i18n="exportPdf">Export PDF</button>
           <button class="button ghost db-button" id="exportDatabaseBtn" type="button" data-i18n="exportDatabase">Export database</button>
           <label class="button ghost db-button import-db-label">
@@ -46,6 +50,7 @@
         </div>
         <label class="dropzone" id="currentDropzone">
           <input id="currentFiles" type="file" accept=".zip,.json,application/zip,application/json" multiple />
+          <span class="mobile-drop-title" data-i18n="add">Add</span>
           <span class="drop-title" data-i18n="chooseCurrent">Choose Instagram ZIP or JSON files</span>
           <span class="drop-copy" data-i18n="dropHint">Drop the original Instagram export ZIP here, or select followers/following JSON files.</span>
         </label>
@@ -62,6 +67,7 @@
         </div>
         <label class="dropzone" id="referenceDropzone">
           <input id="referenceFiles" type="file" accept=".zip,.json,application/zip,application/json" multiple />
+          <span class="mobile-drop-title" data-i18n="add">Add</span>
           <span class="drop-title" data-i18n="chooseReference">Choose reference ZIP or JSON files</span>
           <span class="drop-copy" data-i18n="referenceHint">Optional. Use an older Instagram export as the comparison reference.</span>
         </label>
@@ -346,6 +352,25 @@
       <span data-i18n="openNext">Open next</span>
       <small id="openNextRemaining"></small>
     </button>
+  </div>
+
+
+  <div class="readme-overlay" id="readmeOverlay" hidden>
+    <section class="readme-reader" role="dialog" aria-modal="true" aria-labelledby="readmeTitle">
+      <header class="readme-reader-head">
+        <div>
+          <p class="eyebrow" data-i18n="documentation">DOCUMENTATION</p>
+          <h2 id="readmeTitle">README</h2>
+        </div>
+        <button class="readme-close" id="closeReadmeBtn" type="button" aria-label="Close">×</button>
+      </header>
+      <div class="readme-language-tabs" aria-label="README language">
+        <button type="button" data-readme-lang="en">EN</button>
+        <button type="button" data-readme-lang="de">DE</button>
+        <button type="button" data-readme-lang="hu">HU</button>
+      </div>
+      <article class="readme-content" id="readmeContent"></article>
+    </section>
   </div>
 
   <script src="config.js"></script>
