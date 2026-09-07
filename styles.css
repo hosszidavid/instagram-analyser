@@ -407,3 +407,196 @@ html,body{
     padding-right:10px;
   }
 }
+
+/* v0.11 - hard mobile viewport containment
+   Keep the page itself locked to the viewport.
+   Only intentionally scrollable inner controls may move horizontally. */
+html{
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
+}
+
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
+  position:relative;
+}
+
+.app-shell{
+  box-sizing:border-box;
+  max-width:100%;
+  overflow-x:clip;
+}
+
+.topbar,
+.top-actions,
+.database-actions,
+.upload-grid,
+.upload-card,
+.nav-shell,
+.main-nav,
+.section-card,
+.section-panel,
+.section-title-row,
+.overview-grid,
+.info-card,
+.metric-grid,
+.metric-card,
+.insight-grid,
+.insight-history-panel,
+.toolbar,
+.tabs,
+.table-wrap,
+.chart-card,
+.metric-toggle-row{
+  box-sizing:border-box;
+}
+
+.upload-grid,
+.upload-card,
+.section-card,
+.section-panel,
+.overview-grid,
+.info-card,
+.metric-grid,
+.metric-card,
+.insight-grid,
+.insight-history-panel,
+.toolbar,
+.chart-card{
+  min-width:0;
+  width:100%;
+  max-width:100%;
+}
+
+.section-card,
+.section-panel,
+.insight-history-panel{
+  overflow-x:clip;
+}
+
+/* These are the only horizontal scrollers. */
+.nav-shell,
+.tabs,
+.metric-toggle-row,
+.table-wrap{
+  overscroll-behavior-x:contain;
+  touch-action:pan-x pan-y;
+}
+
+/* Prevent long labels / controls from forcing the document wider. */
+.topbar > *,
+.top-actions > *,
+.section-title-row > *,
+.toolbar > *,
+.metric-card > *,
+.info-card > *{
+  min-width:0;
+}
+
+h1,h2,
+.subtle,
+.drop-copy,
+.history-status span,
+.metric-toggle,
+.button,
+.field,
+.select{
+  max-width:100%;
+}
+
+@media(max-width:620px){
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:clip;
+  }
+
+  .app-shell{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:20px 8px 72px;
+    overflow-x:clip;
+  }
+
+  .topbar,
+  .upload-grid,
+  .nav-shell,
+  .section-card{
+    width:100%;
+    max-width:100%;
+  }
+
+  .topbar{
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .section-card{
+    border-radius:20px;
+  }
+
+  .section-title-row{
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .metric-grid,
+  .overview-grid,
+  .insight-grid{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .toolbar{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .nav-shell{
+    overflow-x:auto;
+  }
+
+  .tabs{
+    overflow-x:auto;
+    max-width:100%;
+  }
+
+  .metric-toggle-row{
+    overflow-x:auto;
+    max-width:100%;
+  }
+
+  .table-wrap{
+    overflow-x:auto;
+    max-width:100%;
+  }
+
+  /* Never allow a local wide child to establish document width. */
+  .main-nav,
+  .snapshot-table{
+    max-width:none;
+  }
+
+  .interactive-chart-card{
+    width:calc(100% - 24px);
+    max-width:calc(100% - 24px);
+    margin-left:12px;
+    margin-right:12px;
+  }
+
+  #insightsGrowthChart{
+    max-width:100%;
+  }
+
+  .open-next-wrap{
+    max-width:calc(100% - 24px);
+  }
+
+  .open-next-button{
+    max-width:100%;
+  }
+}

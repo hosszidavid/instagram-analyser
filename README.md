@@ -122,3 +122,17 @@ Az új `Export PDF` gomb egy letisztult report nézetet készít:
 
 A gomb a böngésző natív nyomtatási/PDF dialógusát nyitja meg.
 Desktopon `Save as PDF`, iPhone/iPad esetén a rendszer PDF/Print megosztási folyamata használható.
+
+
+## v0.11 mobile viewport containment
+
+- a teljes dokumentum szélessége mobilon fixen a viewporton belül marad
+- az app shell már nem használ oldalirányban túlnyúló külső szélességet
+- `overflow-x: clip` védi a page/root szintet iOS Safari alatt is
+- csak a szándékos belső elemek scrollozhatók oldalra:
+  - felső navigáció
+  - Followers tabok
+  - grafikon metric kapcsolók
+  - snapshot táblázat
+- a széles táblázat és a `max-content` navigáció nem tudja többé széthúzni a teljes oldalt
+- a fixed Open next gomb szélessége is viewporton belül marad
