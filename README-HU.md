@@ -577,3 +577,31 @@ Közvetlen Instagram ZIP import, többnyelvű UI és Reference szűrés.
 Első böngészőalapú followers/following JSON analyzer.
 
 </small>
+
+## v0.16 - Kompakt Drive history archívum
+
+Az Insights rész új **Drive cleanup history export** gombot kapott.
+
+Az export végigolvassa a megosztott Drive összes teljes, dátumozott Instagram exportját, de kihagyja:
+- a legújabb dátumozott exportot (Current)
+- a speciális `Reference` mappát
+
+Egyetlen `instagram-history.json` fájlt készít, amely megőrzi:
+- a történeti Insights snapshotokat
+- a kompakt followers/following állapotokat a relationship timestampjeikkel
+- follower/following darabszámokat
+- mutual és not-following-back darabszámokat
+- az egymást követő állapotok közötti relationship változásokat
+- napi follower churn adatokat
+- az első/utolsó follower-megfigyelést és a follower ciklusok számát
+
+Ha a Drive-on már van korábbi `instagram-history.json`, azt az új export beolvassa és összefésüli az új köztes adatokkal, így a korábban tömörített history nem vész el.
+
+A letöltés után:
+1. töltsd fel az `instagram-history.json` fájlt a megosztott Drive gyökerébe
+2. futtass egy Drive Syncet és ellenőrizd, hogy a kompakt history betöltődött
+3. csak ezután töröld kézzel a régi köztes nyers exportmappákat
+
+A normál Drive Sync automatikusan megkeresi az `instagram-history.json` fájlt, és visszatölti belőle a történeti Insights adatokat. A kompakt relationship history memóriába is betöltődik, így később használható retention/churn fejlesztésekhez.
+
+Az app soha nem töröl automatikusan Drive-tartalmat.

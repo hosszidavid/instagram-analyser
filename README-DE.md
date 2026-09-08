@@ -579,3 +579,31 @@ Direkter Instagram-ZIP-Import, mehrsprachige UI und Reference-Filterung.
 Erster browserbasierter Followers-/Following-JSON-Analyzer.
 
 </small>
+
+## v0.16 - Kompaktes Drive-History-Archiv
+
+Im Insights-Bereich gibt es jetzt **Drive cleanup history export**.
+
+Der Export durchsucht alle vollständigen datierten Instagram-Exporte im gemeinsamen Drive-Baum und lässt Folgendes aus:
+- den neuesten datierten Export (Current)
+- den speziellen `Reference`-Ordner
+
+Es wird eine einzige Datei `instagram-history.json` erzeugt. Sie enthält:
+- historische Insights-Snapshots
+- kompakte Followers-/Following-Zustände inklusive Relationship-Timestamps
+- Followers-/Following-Zähler
+- Mutual- und Not-Following-Back-Zähler
+- Relationship-Deltas zwischen aufeinanderfolgenden Snapshots
+- täglichen Follower-Churn
+- erste/letzte Follower-Beobachtung und Anzahl der Follower-Zyklen
+
+Wenn bereits eine ältere `instagram-history.json` im Drive vorhanden ist, wird sie in das neue Archiv übernommen, damit bereits komprimierte History erhalten bleibt.
+
+Nach dem Download:
+1. `instagram-history.json` in den Root des gemeinsamen Drive-Ordners hochladen
+2. einmal Drive Sync ausführen und prüfen, dass die kompakte History geladen wurde
+3. erst danach die alten dazwischenliegenden Roh-Exportordner manuell löschen
+
+Der normale Drive Sync erkennt `instagram-history.json` automatisch und stellt daraus die historischen Insights wieder her. Die kompakte Relationship-History wird ebenfalls in den Speicher geladen und kann später für Retention-/Churn-Funktionen verwendet werden.
+
+Die App löscht niemals automatisch Inhalte aus Google Drive.

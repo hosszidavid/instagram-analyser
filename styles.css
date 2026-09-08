@@ -1002,3 +1002,10 @@ body.readme-open{overflow:hidden}
   .readme-content h2{font-size:23px}
   .readme-content h3{font-size:18px}
 }
+
+/* v0.16 - compact history archive action */
+@media(max-width:620px){
+  #exportDriveHistoryBtn{
+    width:100%;
+  }
+}
