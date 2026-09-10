@@ -6,7 +6,7 @@ const translations = {
     chooseReference:"Choose reference ZIP or JSON files",referenceHint:"Optional. Use an older Instagram export as the comparison reference.",nothingLoaded:"Nothing loaded.",noReference:"No reference loaded.",
     overview:"Overview",followers:"Followers",following:"Following",notFollowingBack:"Not Following Back",insights:"Insights",cohorts:"Cohorts",cleanup:"Cleanup",mutuals:"Mutuals",
     quickChanges:"QUICK CHANGES",referenceComparison:"Reference comparison",newFollowers:"New followers",lostFollowers:"Lost followers",newFollowing:"New following",unfollowedByYou:"Unfollowed by you",
-    keepList:"KEEP LIST",heartedProfiles:"Hearted profiles",savedLocally:"saved locally",
+    keepList:"KEEP LIST",heartedProfiles:"Hearted profiles",savedLocally:"saved",
     search:"Search",searchPlaceholder:"Search users...",referenceFilter:"Reference filter",referenceAll:"Show all",referenceHide:"Hide reference matches",referenceOnly:"Show only reference matches",
     sort:"Sort",newestFirst:"Newest first",oldestFirst:"Oldest first",nameAsc:"Name A–Z",nameDesc:"Name Z–A",exportCsv:"Export CSV",
     emptyTitle:"No matching users.",emptyCopy:"The current search or reference filter may exclude all users.",loadPrompt:"Upload the current Instagram ZIP or JSON files to start the analysis.",
@@ -18,7 +18,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALYSIS",cohortTitle:"How fast do new follows convert?",followBackRate:"Follow-back rate",medianTime:"Median follow-back time",followedInCohorts:"Tracked follows",suggestedThreshold:"Suggested threshold",
     within1:"Within 1 day",within2:"Within 2 days",within3:"Within 3 days",within7:"Within 7 days",cohortNeedHistory:"Cohorts are calculated directly from the follow timestamps in the current export.",days:"days",
     cleanupCandidates:"CLEANUP CANDIDATES",cleanupTitle:"Prioritized accounts to review",cleanupNote:"The score currently uses only relationship data available from followers/following exports. Hearted profiles are excluded.",
-    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Public Instagram archive",driveSyncCopy:"Paste the public Drive folder link. The analyzer finds dated exports and relevant JSON files automatically.",driveFolderLink:"Public Drive folder link",syncDrive:"Sync Drive",driveNotSynced:"Not synced",driveSyncing:"Scanning Drive…",driveSynced:"Synced",driveReady:"Ready to scan the public folder.",driveLatest:"Latest export",drivePrevious:"Previous export",driveExportsFound:"Exports found",driveFilesFound:"Relevant files",driveApiKeyMissing:"",driveBridgeMissing:"The public Drive bridge is not configured yet. Add your Cloudflare Worker URL to config.js once; no Google API key or billing is needed.",driveInvalidLink:"This does not look like a Google Drive folder link.",driveNoExports:"No dated Instagram exports with followers/following files were found under this folder.",driveSyncComplete:"Drive sync complete. Daily follower events were merged for follow-back checking, the latest Following state was loaded, and all available dated Insights were added to history. Reference is loaded only from a folder named Reference when available.",driveSyncFailed:"Drive sync failed",driveAutoSnapshot:"Insights history was updated automatically.",driveNoPrevious:"None",driveScanningFolder:"Scanning folders and files…",driveDownloading:"Downloading relevant JSON files…",scanDriveHistory:"Scan Drive history",driveHistoryScanning:"Rebuilding all dated Drive Insights…",driveHistoryComplete:"Drive Insights history rebuilt.",driveHistoryAdded:"snapshots added",driveHistoryUpdated:"snapshots updated",driveHistoryNoInsights:"No dated Insights exports were found.",driveReferenceFolder:"Reference folder",driveReferenceFound:"Loaded from Drive reference folder",driveReferenceMissing:"No reference folder found",readme:"README",documentation:"DOCUMENTATION",add:"Add",sourceFilesShort:"{files} source file(s)",readmeLoadError:"Could not load the README file.",driveDailyModeNote:"Drive daily mode: follower rows are cumulative observed follower events, not a verified current follower list. Use a manual full export to detect lost followers.",driveFollowerListNote:"Observed follower events from Drive. Lost followers are verified only with a manual full export.",driveNfbListNote:"No follow-back observed in the available Drive follower events. A later unfollow cannot be detected until a manual full export.",loadedDriveDaily:"{files} source file(s) · {followers} observed follower records · {following} current following · {notFollowing} no follow-back observed",hideHearted:"Hide hearted"
+    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Public Instagram archive",driveSyncCopy:"Paste the public Drive folder link. The analyzer finds dated exports and relevant JSON files automatically.",driveFolderLink:"Public Drive folder link",syncDrive:"Sync Drive",driveNotSynced:"Not synced",driveSyncing:"Scanning Drive…",driveSynced:"Synced",driveReady:"Ready to scan the public folder.",driveLatest:"Latest export",drivePrevious:"Previous export",driveExportsFound:"Exports found",driveFilesFound:"Relevant files",driveApiKeyMissing:"",driveBridgeMissing:"The public Drive bridge is not configured yet. Add your Cloudflare Worker URL to config.js once; no Google API key or billing is needed.",driveInvalidLink:"This does not look like a Google Drive folder link.",driveNoExports:"No dated Instagram exports with followers/following files were found under this folder.",driveSyncComplete:"Drive sync complete. Daily follower events were merged for follow-back checking, the latest Following state was loaded, and all available dated Insights were added to history. Reference is loaded only from a folder named Reference when available.",driveSyncFailed:"Drive sync failed",driveAutoSnapshot:"Insights history was updated automatically.",driveNoPrevious:"None",driveScanningFolder:"Scanning folders and files…",driveDownloading:"Downloading relevant JSON files…",scanDriveHistory:"Scan Drive history",driveHistoryScanning:"Rebuilding all dated Drive Insights…",driveHistoryComplete:"Drive Insights history rebuilt.",driveHistoryAdded:"snapshots added",driveHistoryUpdated:"snapshots updated",driveHistoryNoInsights:"No dated Insights exports were found.",driveReferenceFolder:"Reference folder",driveReferenceFound:"Loaded from Drive reference folder",driveReferenceMissing:"No reference folder found",readme:"README",documentation:"DOCUMENTATION",add:"Add",sourceFilesShort:"{files} source file(s)",readmeLoadError:"Could not load the README file.",driveDailyModeNote:"Drive daily mode: follower rows are cumulative observed follower events, not a verified current follower list. Use a manual full export to detect lost followers.",driveFollowerListNote:"Observed follower events from Drive. Lost followers are verified only with a manual full export.",driveNfbListNote:"No follow-back observed in the available Drive follower events. A later unfollow cannot be detected until a manual full export.",loadedDriveDaily:"{files} source file(s) · {followers} observed follower records · {following} current following · {notFollowing} no follow-back observed",hideHearted:"Hide hearted",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Sync hearts",heartSyncLocal:"Local only",heartSyncSyncing:"Syncing...",heartSyncSynced:"Cloud synced",heartSyncReady:"Enter the same sync key that is stored as HEARTS_SYNC_KEY in the Cloudflare Worker.",heartSyncDone:"Hearts synchronized.",heartSyncNoKey:"Enter your Heart Sync key first.",heartSyncInvalidKey:"Heart Sync key was rejected.",heartSyncError:"Heart Sync failed",heartSyncAuto:"Heart changes sync automatically while a key is saved."
   },
   de: {
     eyebrow:"LOKALER INSTAGRAM ANALYZER",privacyCopy:"Deine Dateien werden ausschließlich in diesem Browser verarbeitet.",processedLocally:"Lokal verarbeitet",language:"Sprache",
@@ -27,7 +27,7 @@ const translations = {
     chooseReference:"Referenz-ZIP oder JSON-Dateien auswählen",referenceHint:"Optional. Verwende einen älteren Instagram-Export als Vergleichsreferenz.",nothingLoaded:"Noch nichts geladen.",noReference:"Keine Referenz geladen.",
     overview:"Übersicht",followers:"Follower",following:"Gefolgt",notFollowingBack:"Folgen nicht zurück",insights:"Insights",cohorts:"Kohorten",cleanup:"Bereinigung",mutuals:"Gegenseitig",
     quickChanges:"SCHNELLE ÄNDERUNGEN",referenceComparison:"Referenzvergleich",newFollowers:"Neue Follower",lostFollowers:"Verlorene Follower",newFollowing:"Neu gefolgt",unfollowedByYou:"Von dir entfolgt",
-    keepList:"KEEP-LISTE",heartedProfiles:"Markierte Profile",savedLocally:"lokal gespeichert",
+    keepList:"KEEP-LISTE",heartedProfiles:"Markierte Profile",savedLocally:"gespeichert",
     search:"Suchen",searchPlaceholder:"Nutzer suchen...",referenceFilter:"Referenzfilter",referenceAll:"Alle anzeigen",referenceHide:"Referenztreffer ausblenden",referenceOnly:"Nur Referenztreffer anzeigen",
     sort:"Sortierung",newestFirst:"Neueste zuerst",oldestFirst:"Älteste zuerst",nameAsc:"Name A–Z",nameDesc:"Name Z–A",exportCsv:"CSV exportieren",
     emptyTitle:"Keine passenden Nutzer.",emptyCopy:"Die aktuelle Suche oder der Referenzfilter kann alle Nutzer ausschließen.",loadPrompt:"Lade den aktuellen Instagram-ZIP-Export oder die JSON-Dateien hoch, um die Analyse zu starten.",
@@ -39,7 +39,7 @@ const translations = {
     cohortAnalysis:"FOLLOW-KOHORTENANALYSE",cohortTitle:"Wie schnell konvertieren neue Follows?",followBackRate:"Follow-back-Rate",medianTime:"Median Follow-back-Zeit",followedInCohorts:"Beobachtete Follows",suggestedThreshold:"Empfohlene Schwelle",
     within1:"Innerhalb 1 Tag",within2:"Innerhalb 2 Tagen",within3:"Innerhalb 3 Tagen",within7:"Innerhalb 7 Tagen",cohortNeedHistory:"Die Kohorten werden direkt aus den Follow-Zeitstempeln des aktuellen Exports berechnet.",days:"Tage",
     cleanupCandidates:"BEREINIGUNGSKANDIDATEN",cleanupTitle:"Priorisierte Accounts zur Prüfung",cleanupNote:"Der Score nutzt derzeit nur Beziehungsdaten aus Followers/Following-Exporten. Markierte Profile werden ausgeschlossen.",
-    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Öffentliches Instagram-Archiv",driveSyncCopy:"Füge den öffentlichen Drive-Ordnerlink ein. Der Analyzer findet datierte Exporte und relevante JSON-Dateien automatisch.",driveFolderLink:"Öffentlicher Drive-Ordnerlink",syncDrive:"Drive synchronisieren",driveNotSynced:"Nicht synchronisiert",driveSyncing:"Drive wird durchsucht…",driveSynced:"Synchronisiert",driveReady:"Bereit, den öffentlichen Ordner zu durchsuchen.",driveLatest:"Neuester Export",drivePrevious:"Vorheriger Export",driveExportsFound:"Exporte gefunden",driveFilesFound:"Relevante Dateien",driveApiKeyMissing:"",driveBridgeMissing:"Die öffentliche Drive-Bridge ist noch nicht konfiguriert. Trage einmal die Cloudflare-Worker-URL in config.js ein; ein Google-API-Schlüssel oder Billing ist nicht nötig.",driveInvalidLink:"Das sieht nicht wie ein Google-Drive-Ordnerlink aus.",driveNoExports:"Unter diesem Ordner wurden keine datierten Instagram-Exporte mit Followers/Following-Dateien gefunden.",driveSyncComplete:"Drive-Sync abgeschlossen. Tägliche Follower-Ereignisse wurden für die Follow-back-Prüfung zusammengeführt, der neueste Following-Stand geladen und alle verfügbaren datierten Insights in den Verlauf übernommen. Reference wird nur aus einem Ordner namens Reference geladen, falls vorhanden.",driveSyncFailed:"Drive-Sync fehlgeschlagen",driveAutoSnapshot:"Der Insights-Verlauf wurde automatisch aktualisiert.",driveNoPrevious:"Keine",driveScanningFolder:"Ordner und Dateien werden durchsucht…",driveDownloading:"Relevante JSON-Dateien werden geladen…",scanDriveHistory:"Drive-Verlauf scannen",driveHistoryScanning:"Alle datierten Drive-Insights werden neu aufgebaut…",driveHistoryComplete:"Drive-Insights-Verlauf neu aufgebaut.",driveHistoryAdded:"Snapshots hinzugefügt",driveHistoryUpdated:"Snapshots aktualisiert",driveHistoryNoInsights:"Keine datierten Insights-Exporte gefunden.",driveReferenceFolder:"Reference-Ordner",driveReferenceFound:"Aus dem Drive-Ordner Reference geladen",driveReferenceMissing:"Kein Reference-Ordner gefunden",readme:"README",documentation:"DOKUMENTATION",add:"Hinzufügen",sourceFilesShort:"{files} Quelldatei(en)",readmeLoadError:"Die README-Datei konnte nicht geladen werden.",driveDailyModeNote:"Drive-Tagesmodus: Die Follower-Zeilen sind zusammengeführte beobachtete Follower-Ereignisse, keine verifizierte aktuelle Follower-Liste. Verlorene Follower lassen sich erst mit einem manuellen vollständigen Export erkennen.",driveFollowerListNote:"Beobachtete Follower-Ereignisse aus Drive. Verlorene Follower werden erst mit einem manuellen vollständigen Export verifiziert.",driveNfbListNote:"In den verfügbaren Drive-Follower-Ereignissen wurde kein Follow-back beobachtet. Ein späteres Unfollow wird erst beim nächsten manuellen vollständigen Export erkannt.",loadedDriveDaily:"{files} Quelldatei(en) · {followers} beobachtete Follower-Datensätze · {following} aktueller Following-Stand · {notFollowing} ohne beobachteten Follow-back",hideHearted:"Markierte ausblenden"
+    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Öffentliches Instagram-Archiv",driveSyncCopy:"Füge den öffentlichen Drive-Ordnerlink ein. Der Analyzer findet datierte Exporte und relevante JSON-Dateien automatisch.",driveFolderLink:"Öffentlicher Drive-Ordnerlink",syncDrive:"Drive synchronisieren",driveNotSynced:"Nicht synchronisiert",driveSyncing:"Drive wird durchsucht…",driveSynced:"Synchronisiert",driveReady:"Bereit, den öffentlichen Ordner zu durchsuchen.",driveLatest:"Neuester Export",drivePrevious:"Vorheriger Export",driveExportsFound:"Exporte gefunden",driveFilesFound:"Relevante Dateien",driveApiKeyMissing:"",driveBridgeMissing:"Die öffentliche Drive-Bridge ist noch nicht konfiguriert. Trage einmal die Cloudflare-Worker-URL in config.js ein; ein Google-API-Schlüssel oder Billing ist nicht nötig.",driveInvalidLink:"Das sieht nicht wie ein Google-Drive-Ordnerlink aus.",driveNoExports:"Unter diesem Ordner wurden keine datierten Instagram-Exporte mit Followers/Following-Dateien gefunden.",driveSyncComplete:"Drive-Sync abgeschlossen. Tägliche Follower-Ereignisse wurden für die Follow-back-Prüfung zusammengeführt, der neueste Following-Stand geladen und alle verfügbaren datierten Insights in den Verlauf übernommen. Reference wird nur aus einem Ordner namens Reference geladen, falls vorhanden.",driveSyncFailed:"Drive-Sync fehlgeschlagen",driveAutoSnapshot:"Der Insights-Verlauf wurde automatisch aktualisiert.",driveNoPrevious:"Keine",driveScanningFolder:"Ordner und Dateien werden durchsucht…",driveDownloading:"Relevante JSON-Dateien werden geladen…",scanDriveHistory:"Drive-Verlauf scannen",driveHistoryScanning:"Alle datierten Drive-Insights werden neu aufgebaut…",driveHistoryComplete:"Drive-Insights-Verlauf neu aufgebaut.",driveHistoryAdded:"Snapshots hinzugefügt",driveHistoryUpdated:"Snapshots aktualisiert",driveHistoryNoInsights:"Keine datierten Insights-Exporte gefunden.",driveReferenceFolder:"Reference-Ordner",driveReferenceFound:"Aus dem Drive-Ordner Reference geladen",driveReferenceMissing:"Kein Reference-Ordner gefunden",readme:"README",documentation:"DOKUMENTATION",add:"Hinzufügen",sourceFilesShort:"{files} Quelldatei(en)",readmeLoadError:"Die README-Datei konnte nicht geladen werden.",driveDailyModeNote:"Drive-Tagesmodus: Die Follower-Zeilen sind zusammengeführte beobachtete Follower-Ereignisse, keine verifizierte aktuelle Follower-Liste. Verlorene Follower lassen sich erst mit einem manuellen vollständigen Export erkennen.",driveFollowerListNote:"Beobachtete Follower-Ereignisse aus Drive. Verlorene Follower werden erst mit einem manuellen vollständigen Export verifiziert.",driveNfbListNote:"In den verfügbaren Drive-Follower-Ereignissen wurde kein Follow-back beobachtet. Ein späteres Unfollow wird erst beim nächsten manuellen vollständigen Export erkannt.",loadedDriveDaily:"{files} Quelldatei(en) · {followers} beobachtete Follower-Datensätze · {following} aktueller Following-Stand · {notFollowing} ohne beobachteten Follow-back",hideHearted:"Markierte ausblenden",heartSync:"HEART SYNC",heartSyncKey:"Sync-Schlüssel",heartSyncButton:"Hearts synchronisieren",heartSyncLocal:"Nur lokal",heartSyncSyncing:"Synchronisierung...",heartSyncSynced:"Cloud-synchronisiert",heartSyncReady:"Gib denselben Sync-Schlüssel ein, der im Cloudflare Worker als HEARTS_SYNC_KEY gespeichert ist.",heartSyncDone:"Hearts synchronisiert.",heartSyncNoKey:"Gib zuerst deinen Heart-Sync-Schlüssel ein.",heartSyncInvalidKey:"Der Heart-Sync-Schlüssel wurde abgelehnt.",heartSyncError:"Heart Sync fehlgeschlagen",heartSyncAuto:"Heart-Änderungen werden automatisch synchronisiert, solange ein Schlüssel gespeichert ist."
   },
   hu: {
     eyebrow:"HELYI INSTAGRAM ELEMZŐ",privacyCopy:"A fájlok feldolgozása kizárólag ebben a böngészőben történik.",processedLocally:"Helyben feldolgozva",language:"Nyelv",
@@ -48,7 +48,7 @@ const translations = {
     chooseReference:"Referencia ZIP vagy JSON fájlok kiválasztása",referenceHint:"Opcionális. Egy korábbi Instagram exportot használhatsz összehasonlítási referenciaként.",nothingLoaded:"Nincs fájl betöltve.",noReference:"Nincs referencia betöltve.",
     overview:"Áttekintés",followers:"Követők",following:"Követéseim",notFollowingBack:"Nem követnek vissza",insights:"Insights",cohorts:"Cohortok",cleanup:"Kikövetés",mutuals:"Kölcsönös követések",
     quickChanges:"GYORS VÁLTOZÁSOK",referenceComparison:"Referencia összehasonlítás",newFollowers:"Új követők",lostFollowers:"Elvesztett követők",newFollowing:"Új követéseim",unfollowedByYou:"Általam kikövetve",
-    keepList:"KEEP LISTA",heartedProfiles:"Szívezett profilok",savedLocally:"helyben mentve",
+    keepList:"KEEP LISTA",heartedProfiles:"Szívezett profilok",savedLocally:"mentve",
     search:"Keresés",searchPlaceholder:"Felhasználók keresése...",referenceFilter:"Referencia szűrő",referenceAll:"Összes megjelenítése",referenceHide:"Referencia találatok elrejtése",referenceOnly:"Csak referencia találatok",
     sort:"Rendezés",newestFirst:"Legújabb elöl",oldestFirst:"Legrégebbi elöl",nameAsc:"Név A–Z",nameDesc:"Név Z–A",exportCsv:"CSV export",
     emptyTitle:"Nincs megfelelő felhasználó.",emptyCopy:"A keresés vagy a referencia szűrő minden felhasználót kizárhat.",loadPrompt:"Töltsd fel az aktuális Instagram ZIP-et vagy JSON fájlokat az elemzéshez.",
@@ -60,7 +60,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALÍZIS",cohortTitle:"Milyen gyorsan követnek vissza az új követések?",followBackRate:"Visszakövetési arány",medianTime:"Medián visszakövetési idő",followedInCohorts:"Követett profilok",suggestedThreshold:"Javasolt határ",
     within1:"1 napon belül",within2:"2 napon belül",within3:"3 napon belül",within7:"7 napon belül",cohortNeedHistory:"A cohort elemzés közvetlenül az aktuális export követési időbélyegeiből készül.",days:"nap",
     cleanupCandidates:"KIKÖVETÉSI JELÖLTEK",cleanupTitle:"Prioritás szerint rendezett profilok",cleanupNote:"A pontszám jelenleg csak a followers/following exportokból elérhető kapcsolati adatokat használja. A szívezett profilokat kizárjuk.",
-    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények",driveSyncEyebrow:"GOOGLE DRIVE SZINKRON",driveSyncTitle:"Nyilvános Instagram archívum",driveSyncCopy:"Illeszd be a nyilvános Drive mappa linkjét. Az analyzer automatikusan megkeresi a dátumozott exportokat és a releváns JSON fájlokat.",driveFolderLink:"Nyilvános Drive mappa link",syncDrive:"Drive szinkron",driveNotSynced:"Nincs szinkronizálva",driveSyncing:"Drive átvizsgálása…",driveSynced:"Szinkronizálva",driveReady:"Készen áll a nyilvános mappa átvizsgálására.",driveLatest:"Legújabb export",drivePrevious:"Előző export",driveExportsFound:"Talált exportok",driveFilesFound:"Releváns fájlok",driveApiKeyMissing:"",driveBridgeMissing:"A nyilvános Drive bridge még nincs beállítva. Egyszer add hozzá a Cloudflare Worker URL-jét a config.js fájlhoz; Google API-kulcs és billing nem kell.",driveInvalidLink:"Ez nem tűnik Google Drive mappalinknek.",driveNoExports:"Ebben a mappában nem találtam dátumozott Instagram exportot followers/following fájlokkal.",driveSyncComplete:"Drive szinkron kész. A napi follower események össze lettek fésülve a follow-back ellenőrzéshez, a legfrissebb Following állapot betöltődött, és minden elérhető dátumozott Insights bekerült az előzményekbe. Reference csak Reference nevű mappából töltődik be, ha van ilyen.",driveSyncFailed:"A Drive szinkron sikertelen",driveAutoSnapshot:"Az Insights előzmények automatikusan frissültek.",driveNoPrevious:"Nincs",driveScanningFolder:"Mappák és fájlok átvizsgálása…",driveDownloading:"Releváns JSON fájlok letöltése…",scanDriveHistory:"Drive előzmények beolvasása",driveHistoryScanning:"Az összes dátumozott Drive Insights újraépítése…",driveHistoryComplete:"Drive Insights előzmények újraépítve.",driveHistoryAdded:"új snapshot",driveHistoryUpdated:"frissített snapshot",driveHistoryNoInsights:"Nem találtam dátumozott Insights exportot.",driveReferenceFolder:"Reference mappa",driveReferenceFound:"Betöltve a Drive Reference mappájából",driveReferenceMissing:"Nem található Reference mappa",readme:"README",documentation:"DOKUMENTÁCIÓ",add:"Hozzáadás",sourceFilesShort:"{files} forrásfájl",readmeLoadError:"A README fájl nem tölthető be.",driveDailyModeNote:"Drive napi mód: a follower sorok az összefésült, megfigyelt follower eseményeket jelentik, nem egy hitelesített aktuális follower listát. Az elveszett followereket manuális teljes exporttal lehet ellenőrizni.",driveFollowerListNote:"A Drive-ban megfigyelt follower események. Az elveszett followereket csak manuális teljes export hitelesíti.",driveNfbListNote:"A rendelkezésre álló Drive follower eseményekben nincs megfigyelt follow-back. A későbbi kikövetés csak a következő manuális teljes exportnál derül ki.",loadedDriveDaily:"{files} forrásfájl · {followers} megfigyelt follower rekord · {following} aktuális following · {notFollowing} megfigyelt follow-back nélkül",hideHearted:"Szívezettek elrejtése"
+    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények",driveSyncEyebrow:"GOOGLE DRIVE SZINKRON",driveSyncTitle:"Nyilvános Instagram archívum",driveSyncCopy:"Illeszd be a nyilvános Drive mappa linkjét. Az analyzer automatikusan megkeresi a dátumozott exportokat és a releváns JSON fájlokat.",driveFolderLink:"Nyilvános Drive mappa link",syncDrive:"Drive szinkron",driveNotSynced:"Nincs szinkronizálva",driveSyncing:"Drive átvizsgálása…",driveSynced:"Szinkronizálva",driveReady:"Készen áll a nyilvános mappa átvizsgálására.",driveLatest:"Legújabb export",drivePrevious:"Előző export",driveExportsFound:"Talált exportok",driveFilesFound:"Releváns fájlok",driveApiKeyMissing:"",driveBridgeMissing:"A nyilvános Drive bridge még nincs beállítva. Egyszer add hozzá a Cloudflare Worker URL-jét a config.js fájlhoz; Google API-kulcs és billing nem kell.",driveInvalidLink:"Ez nem tűnik Google Drive mappalinknek.",driveNoExports:"Ebben a mappában nem találtam dátumozott Instagram exportot followers/following fájlokkal.",driveSyncComplete:"Drive szinkron kész. A napi follower események össze lettek fésülve a follow-back ellenőrzéshez, a legfrissebb Following állapot betöltődött, és minden elérhető dátumozott Insights bekerült az előzményekbe. Reference csak Reference nevű mappából töltődik be, ha van ilyen.",driveSyncFailed:"A Drive szinkron sikertelen",driveAutoSnapshot:"Az Insights előzmények automatikusan frissültek.",driveNoPrevious:"Nincs",driveScanningFolder:"Mappák és fájlok átvizsgálása…",driveDownloading:"Releváns JSON fájlok letöltése…",scanDriveHistory:"Drive előzmények beolvasása",driveHistoryScanning:"Az összes dátumozott Drive Insights újraépítése…",driveHistoryComplete:"Drive Insights előzmények újraépítve.",driveHistoryAdded:"új snapshot",driveHistoryUpdated:"frissített snapshot",driveHistoryNoInsights:"Nem találtam dátumozott Insights exportot.",driveReferenceFolder:"Reference mappa",driveReferenceFound:"Betöltve a Drive Reference mappájából",driveReferenceMissing:"Nem található Reference mappa",readme:"README",documentation:"DOKUMENTÁCIÓ",add:"Hozzáadás",sourceFilesShort:"{files} forrásfájl",readmeLoadError:"A README fájl nem tölthető be.",driveDailyModeNote:"Drive napi mód: a follower sorok az összefésült, megfigyelt follower eseményeket jelentik, nem egy hitelesített aktuális follower listát. Az elveszett followereket manuális teljes exporttal lehet ellenőrizni.",driveFollowerListNote:"A Drive-ban megfigyelt follower események. Az elveszett followereket csak manuális teljes export hitelesíti.",driveNfbListNote:"A rendelkezésre álló Drive follower eseményekben nincs megfigyelt follow-back. A későbbi kikövetés csak a következő manuális teljes exportnál derül ki.",loadedDriveDaily:"{files} forrásfájl · {followers} megfigyelt follower rekord · {following} aktuális following · {notFollowing} megfigyelt follow-back nélkül",hideHearted:"Szívezettek elrejtése",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Hearts szinkron",heartSyncLocal:"Csak lokális",heartSyncSyncing:"Szinkronizálás...",heartSyncSynced:"Cloud szinkronizálva",heartSyncReady:"Add meg ugyanazt a Sync Keyt, amit a Cloudflare Workerben HEARTS_SYNC_KEY néven mentettél.",heartSyncDone:"A Heartok szinkronizálva.",heartSyncNoKey:"Előbb add meg a Heart Sync keyt.",heartSyncInvalidKey:"A Heart Sync key nem megfelelő.",heartSyncError:"A Heart Sync sikertelen",heartSyncAuto:"A Heart módosítások automatikusan szinkronizálódnak, amíg a key el van mentve."
   }
 };
 
@@ -77,7 +77,8 @@ const state = {
   insights: null,
   currentSnapshotTimestamp: null,
   reviewed: new Set(JSON.parse(sessionStorage.getItem("ifa-reviewed") || "[]")),
-  hearts: new Set(JSON.parse(localStorage.getItem("ifa-hearts") || "[]")),
+  heartRecords: loadHeartRecords(),
+  hearts: new Set(),
   insightSnapshots: JSON.parse(localStorage.getItem("ifa-insight-snapshots") || "[]").map(s=>({...s,enabled:s.enabled!==false})),
   driveFolderUrl: localStorage.getItem("ifa-drive-folder-url") || "",
   driveLastSync: null,
@@ -85,13 +86,86 @@ const state = {
   driveFollowerEvents: new Map(),
   reviewAnchorKey: sessionStorage.getItem("ifa-review-anchor") || null
 };
+rebuildHeartSet();
 
 function emptyDataset(){return{followers:new Map(),following:new Map(),notFollowingBack:new Map()}}
+
+function normalizeHeartUsername(value){
+  return String(value||"").trim().toLowerCase();
+}
+
+function loadHeartRecords(){
+  const records={};
+  try{
+    const saved=JSON.parse(localStorage.getItem("ifa-heart-records")||"{}");
+    if(saved&&typeof saved==="object"&&!Array.isArray(saved)){
+      for(const [username,row] of Object.entries(saved)){
+        const key=normalizeHeartUsername(username);
+        if(!key||!row||typeof row!=="object")continue;
+        records[key]={
+          hearted:row.hearted===true,
+          updatedAt:Number.isFinite(Number(row.updatedAt))?Number(row.updatedAt):0
+        };
+      }
+    }
+  }catch{}
+
+  // v0.18 and older stored only the active usernames. Migrate them with
+  // timestamp 0 so a newer cloud-side removal always wins.
+  try{
+    const legacy=JSON.parse(localStorage.getItem("ifa-hearts")||"[]");
+    if(Array.isArray(legacy)){
+      for(const username of legacy){
+        const key=normalizeHeartUsername(username);
+        if(key&&!records[key])records[key]={hearted:true,updatedAt:0};
+      }
+    }
+  }catch{}
+
+  return records;
+}
+
+function rebuildHeartSet(){
+  state.hearts=new Set(
+    Object.entries(state.heartRecords)
+      .filter(([,row])=>row?.hearted===true)
+      .map(([username])=>username)
+  );
+}
+
+function persistHeartRecords(){
+  localStorage.setItem("ifa-heart-records",JSON.stringify(state.heartRecords));
+  localStorage.setItem("ifa-hearts",JSON.stringify([...state.hearts]));
+}
+
+function mergeHeartRecords(localRecords,remoteRecords){
+  const merged={...localRecords};
+  for(const [rawKey,remote] of Object.entries(remoteRecords||{})){
+    const key=normalizeHeartUsername(rawKey);
+    if(!key||!remote||typeof remote!=="object")continue;
+    const remoteAt=Number.isFinite(Number(remote.updatedAt))?Number(remote.updatedAt):0;
+    const local=merged[key];
+    const localAt=Number.isFinite(Number(local?.updatedAt))?Number(local.updatedAt):0;
+
+    if(!local||remoteAt>localAt){
+      merged[key]={hearted:remote.hearted===true,updatedAt:remoteAt};
+    }
+  }
+  return merged;
+}
+
+function setLocalHeart(username,hearted,updatedAt=Date.now()){
+  const key=normalizeHeartUsername(username);
+  if(!key)return;
+  state.heartRecords[key]={hearted:hearted===true,updatedAt};
+  rebuildHeartSet();
+  persistHeartRecords();
+}
 
 const els = Object.fromEntries([
   "languageSelect","driveFolderUrl","syncDriveBtn","driveState","driveStateText","driveMessage","driveLatestDate","drivePreviousDate","driveExportCount","driveFileCount","currentFiles","referenceFiles","currentDropzone","referenceDropzone","currentStatus","referenceStatus","clearCurrentBtn","clearReferenceBtn",
   "searchInput","referenceMode","sortSelect","exportCsvBtn","summaryLine","userList","emptyState","metricFollowers","metricFollowing","metricMutuals","metricNfb",
-  "newFollowersCount","lostFollowersCount","newFollowingCount","unfollowedByYouCount","heartedCount","followersCount","followingCount","notFollowingBackCount",
+  "newFollowersCount","lostFollowersCount","newFollowingCount","unfollowedByYouCount","heartedCount","heartSyncState","heartSyncKey","heartSyncBtn","heartSyncMessage","followersCount","followingCount","notFollowingBackCount",
   "mobileMenuToggle","topActions","openReadmeBtn","readmeOverlay","closeReadmeBtn","readmeContent","exportPdfBtn","exportDatabaseBtn","importDatabaseInput","saveInsightSnapshotBtn","scanDriveHistoryBtn","clearSnapshotsBtn","chartScaleMode","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","insightSnapshotCount","insightsGrowthChart","insightsChartCard","insightsChartTooltip","insightSnapshotTableBody","insightsGrowthEmpty","insightEmpty","openNextWrap","openNextBtn","openNextRemaining","hideHearted","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint"
 ].map(id=>[id,document.querySelector("#"+id)]));
 
@@ -125,6 +199,15 @@ document.addEventListener("click",event=>{
   if(!els.topActions?.classList.contains("mobile-open"))return;
   if(els.topActions.contains(event.target)||els.mobileMenuToggle.contains(event.target))return;
   closeMobileMenu();
+});
+
+window.addEventListener("focus",()=>{
+  if(heartSyncKey()&&Date.now()-lastHeartSyncAt>30000)syncHearts({silent:true});
+});
+document.addEventListener("visibilitychange",()=>{
+  if(document.visibilityState==="visible"&&heartSyncKey()&&Date.now()-lastHeartSyncAt>30000){
+    syncHearts({silent:true});
+  }
 });
 
 function closeMobileMenu(){
@@ -241,6 +324,8 @@ setupFileInput(els.referenceFiles,els.referenceDropzone,"reference");
 
 navItems.forEach(btn=>btn.addEventListener("click",()=>switchSection(btn.dataset.section)));
 tabs.forEach(tab=>tab.addEventListener("click",()=>{state.view=tab.dataset.view;tabs.forEach(x=>x.classList.toggle("active",x===tab));renderList()}));
+els.heartSyncBtn?.addEventListener("click",saveHeartSyncKeyAndSync);
+els.heartSyncKey?.addEventListener("keydown",event=>{if(event.key==="Enter"){event.preventDefault();saveHeartSyncKeyAndSync()}});
 els.searchInput.addEventListener("input",renderList); els.referenceMode.addEventListener("change",renderList); els.sortSelect.addEventListener("change",renderList); els.hideHearted.addEventListener("change",renderList); els.exportCsvBtn.addEventListener("click",exportVisibleCsv);
 els.clearCurrentBtn.addEventListener("click",()=>clearDataset("current")); els.clearReferenceBtn.addEventListener("click",()=>clearDataset("reference"));
 els.saveInsightSnapshotBtn.addEventListener("click",saveInsightSnapshot);
@@ -270,6 +355,129 @@ function switchSection(section){
   updateOpenNext();
 }
 
+
+
+const HEART_SYNC_KEY_STORAGE="ifa-heart-sync-key";
+let heartMutationQueue=Promise.resolve();
+let lastHeartSyncAt=0;
+
+function heartSyncKey(){
+  return String(localStorage.getItem(HEART_SYNC_KEY_STORAGE)||"").trim();
+}
+
+function setHeartSyncUi(stateName,message){
+  if(!els.heartSyncState||!els.heartSyncMessage)return;
+  els.heartSyncState.dataset.state=stateName;
+  els.heartSyncState.textContent=t(
+    stateName==="syncing"?"heartSyncSyncing":
+    stateName==="synced"?"heartSyncSynced":"heartSyncLocal"
+  );
+  if(message)els.heartSyncMessage.textContent=message;
+}
+
+async function heartApi(path,{method="GET",body=null}={}){
+  const bridge=driveBridgeUrl();
+  const key=heartSyncKey();
+  if(!bridge)throw new Error(t("driveBridgeMissing"));
+  if(!key)throw new Error(t("heartSyncNoKey"));
+
+  const response=await fetch(`${bridge}${path}`,{
+    method,
+    cache:"no-store",
+    headers:{
+      "authorization":`Bearer ${key}`,
+      ...(body?{"content-type":"application/json"}:{})
+    },
+    body:body?JSON.stringify(body):null
+  });
+
+  let payload={};
+  try{payload=await response.json()}catch{}
+
+  if(response.status===401)throw new Error(t("heartSyncInvalidKey"));
+  if(!response.ok)throw new Error(payload?.error||`HTTP ${response.status}`);
+  return payload;
+}
+
+async function syncHearts({silent=false}={}){
+  const key=heartSyncKey();
+  if(!key){
+    setHeartSyncUi("local",t("heartSyncReady"));
+    return false;
+  }
+
+  setHeartSyncUi("syncing",t("heartSyncSyncing"));
+  try{
+    const payload=await heartApi("/hearts/sync",{
+      method:"POST",
+      body:{records:state.heartRecords}
+    });
+
+    state.heartRecords=mergeHeartRecords(state.heartRecords,payload.records||{});
+    rebuildHeartSet();
+    persistHeartRecords();
+    lastHeartSyncAt=Date.now();
+    setHeartSyncUi("synced",t("heartSyncDone"));
+    renderAll();
+    return true;
+  }catch(err){
+    console.error("Heart sync:",err);
+    setHeartSyncUi("local",`${t("heartSyncError")}: ${err?.message||err}`);
+    if(!silent)console.warn(err);
+    return false;
+  }
+}
+
+function queueHeartMutation(username,hearted,updatedAt){
+  if(!heartSyncKey())return;
+  heartMutationQueue=heartMutationQueue
+    .catch(()=>{})
+    .then(async()=>{
+      try{
+        const payload=await heartApi("/hearts/set",{
+          method:"POST",
+          body:{username,hearted,updatedAt}
+        });
+        if(payload?.record){
+          const key=normalizeHeartUsername(username);
+          const remoteAt=Number(payload.record.updatedAt)||0;
+          const localAt=Number(state.heartRecords[key]?.updatedAt)||0;
+          if(remoteAt>localAt){
+            state.heartRecords[key]={
+              hearted:payload.record.hearted===true,
+              updatedAt:remoteAt
+            };
+            rebuildHeartSet();
+            persistHeartRecords();
+            renderAll();
+          }
+        }
+        lastHeartSyncAt=Date.now();
+        setHeartSyncUi("synced",t("heartSyncAuto"));
+      }catch(err){
+        console.error("Heart mutation sync:",err);
+        setHeartSyncUi("local",`${t("heartSyncError")}: ${err?.message||err}`);
+      }
+    });
+}
+
+function saveHeartSyncKeyAndSync(){
+  const key=String(els.heartSyncKey?.value||"").trim();
+  if(!key){
+    localStorage.removeItem(HEART_SYNC_KEY_STORAGE);
+    setHeartSyncUi("local",t("heartSyncNoKey"));
+    return;
+  }
+  localStorage.setItem(HEART_SYNC_KEY_STORAGE,key);
+  syncHearts();
+}
+
+function initializeHeartSync(){
+  if(!els.heartSyncKey)return;
+  els.heartSyncKey.value=heartSyncKey();
+  if(heartSyncKey())syncHearts({silent:true});
+  else setHeartSyncUi("local",t("heartSyncReady"));
+}
 
 const DRIVE_FOLDER_MIME="application/vnd.google-apps.folder";
 const DRIVE_RELEVANT_NAMES=new Set([
@@ -1102,7 +1310,14 @@ function renderUserRow(row){
     <button class="heart-btn ${hearted?"active":""}" data-heart="${escapeAttribute(key)}" type="button" aria-label="Keep">${hearted?"♥":"♡"}</button>
   </div>`;
 }
-function bindHeartButtons(){document.querySelectorAll("[data-heart]").forEach(btn=>btn.addEventListener("click",()=>{const k=btn.dataset.heart;if(state.hearts.has(k))state.hearts.delete(k);else state.hearts.add(k);localStorage.setItem("ifa-hearts",JSON.stringify([...state.hearts]));renderAll()}))}
+function bindHeartButtons(){document.querySelectorAll("[data-heart]").forEach(btn=>btn.addEventListener("click",()=>{
+  const k=normalizeHeartUsername(btn.dataset.heart);
+  const hearted=!state.hearts.has(k);
+  const updatedAt=Date.now();
+  setLocalHeart(k,hearted,updatedAt);
+  renderAll();
+  queueHeartMutation(k,hearted,updatedAt);
+}))}
 function setReviewAnchor(key){
   state.reviewAnchorKey=key||null;
   if(state.reviewAnchorKey)sessionStorage.setItem("ifa-review-anchor",state.reviewAnchorKey);
@@ -1529,6 +1744,7 @@ function exportDatabase(){
     exportedAt:new Date().toISOString(),
     data:{
       hearts:[...state.hearts],
+      heartRecords:state.heartRecords,
       insightSnapshots:state.insightSnapshots
     }
   };
@@ -1545,11 +1761,22 @@ async function importDatabaseFile(){
   try{
     const payload=JSON.parse(await file.text());
     if(payload?.schema!=="instagram-followers-analyzer-db"||!payload?.data)throw new Error("invalid");
-    state.hearts=new Set(Array.isArray(payload.data.hearts)?payload.data.hearts:[]);
+    if(payload.data.heartRecords&&typeof payload.data.heartRecords==="object"&&!Array.isArray(payload.data.heartRecords)){
+      state.heartRecords=mergeHeartRecords(state.heartRecords,payload.data.heartRecords);
+    }else if(Array.isArray(payload.data.hearts)){
+      const importedLegacy={};
+      for(const username of payload.data.hearts){
+        const key=normalizeHeartUsername(username);
+        if(key)importedLegacy[key]={hearted:true,updatedAt:0};
+      }
+      state.heartRecords=mergeHeartRecords(state.heartRecords,importedLegacy);
+    }
+    rebuildHeartSet();
+    persistHeartRecords();
     state.insightSnapshots=(Array.isArray(payload.data.insightSnapshots)?payload.data.insightSnapshots:[]).map(s=>({...s,enabled:s.enabled!==false}));
-    localStorage.setItem("ifa-hearts",JSON.stringify([...state.hearts]));
     persistInsightSnapshots();
     renderAll();
+    if(heartSyncKey())syncHearts({silent:true});
     alert(t("databaseImported"));
   }catch{
     alert(t("databaseInvalid"));
@@ -1630,3 +1857,4 @@ window.addEventListener("resize",()=>{
 
 applyLanguage();
 switchSection("overview");
+initializeHeartSync();

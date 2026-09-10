@@ -1003,3 +1003,56 @@ body.readme-open{overflow:hidden}
   .readme-content h2{font-size:23px}
   .readme-content h3{font-size:18px}
 }
+
+
+/* v0.19 - Heart Sync */
+.heart-sync-panel{
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+.heart-sync-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.heart-sync-head .eyebrow{margin:0}
+.heart-sync-state{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:0 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+  color:var(--muted);
+  white-space:nowrap;
+}
+.heart-sync-state[data-state="synced"]{
+  color:#166534;
+  border-color:#bbf7d0;
+  background:#f0fdf4;
+}
+.heart-sync-state[data-state="syncing"]{
+  color:#854d0e;
+  border-color:#fde68a;
+  background:#fffbeb;
+}
+.heart-sync-controls{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:8px;
+  align-items:end;
+}
+.heart-sync-key-field{min-width:0}
+.heart-sync-message{
+  margin-top:8px;
+  min-height:18px;
+}
+@media(max-width:620px){
+  .heart-sync-controls{grid-template-columns:1fr}
+  .heart-sync-controls .button{width:100%}
+}

@@ -5,7 +5,8 @@
  * - No Google Cloud project
  * - No Google Drive API key
  * - No OAuth
- * - No stored Instagram data
+ * - No stored Instagram export data
+ * - Optional private Heart Sync state in Cloudflare KV
  *
  * The worker only fetches already-public Google Drive pages/files and returns
  * a small JSON listing or proxies the requested public JSON file.
@@ -22,7 +23,7 @@ const DRIVE_HOSTS = new Set([
 ]);
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
 
     if (request.method === "OPTIONS") {
@@ -32,6 +33,67 @@ export default {
     try {
       if (url.pathname === "/health") {
         return cors(json({ ok: true, mode: "public-drive-bridge" }));
+      }
+
+      if (url.pathname === "/hearts" && request.method === "GET") {
+        const auth = authorizeHeartSync(request, env);
+        if (!auth.ok) return cors(json({ error: auth.error }, auth.status));
+
+        const state = await readHeartState(env);
+        return cors(json({
+          ok: true,
+          version: 1,
+          records: state.records
+        }));
+      }
+
+      if (url.pathname === "/hearts/sync" && request.method === "POST") {
+        const auth = authorizeHeartSync(request, env);
+        if (!auth.ok) return cors(json({ error: auth.error }, auth.status));
+
+        const body = await readJsonBody(request);
+        const incoming = sanitizeHeartRecords(body?.records);
+        const state = await readHeartState(env);
+        const merged = mergeHeartRecords(state.records, incoming);
+
+        await writeHeartState(env, merged);
+
+        return cors(json({
+          ok: true,
+          version: 1,
+          records: merged
+        }));
+      }
+
+      if (url.pathname === "/hearts/set" && request.method === "POST") {
+        const auth = authorizeHeartSync(request, env);
+        if (!auth.ok) return cors(json({ error: auth.error }, auth.status));
+
+        const body = await readJsonBody(request);
+        const username = normalizeHeartUsername(body?.username);
+        const updatedAt = normalizeUpdatedAt(body?.updatedAt);
+
+        if (!username || typeof body?.hearted !== "boolean" || updatedAt === null) {
+          return cors(json({ error: "Invalid heart mutation" }, 400));
+        }
+
+        const state = await readHeartState(env);
+        const current = state.records[username];
+        const currentAt = normalizeUpdatedAt(current?.updatedAt) ?? -1;
+
+        if (!current || updatedAt > currentAt) {
+          state.records[username] = {
+            hearted: body.hearted,
+            updatedAt
+          };
+          await writeHeartState(env, state.records);
+        }
+
+        return cors(json({
+          ok: true,
+          username,
+          record: state.records[username]
+        }));
       }
 
       if (url.pathname === "/list") {
@@ -104,13 +166,127 @@ export default {
 
       return cors(json({
         ok: true,
-        endpoints: ["/health", "/list?folderId=...", "/file?fileId=..."]
+        endpoints: ["/health", "/list?folderId=...", "/file?fileId=...", "/hearts", "/hearts/sync", "/hearts/set"]
       }));
     } catch (error) {
       return cors(json({ error: String(error?.message || error) }, 500));
     }
   }
 };
+
+
+const HEART_STATE_KEY = "hearts:v1";
+
+function authorizeHeartSync(request, env) {
+  if (!env?.HEARTS_KV) {
+    return { ok: false, status: 503, error: "HEARTS_KV binding is not configured" };
+  }
+
+  const expected = String(env?.HEARTS_SYNC_KEY || "");
+  if (!expected) {
+    return { ok: false, status: 503, error: "HEARTS_SYNC_KEY is not configured" };
+  }
+
+  const header = String(request.headers.get("authorization") || "");
+  const provided = header.replace(/^Bearer\s+/i, "");
+
+  if (!provided || !constantTimeEqual(provided, expected)) {
+    return { ok: false, status: 401, error: "Unauthorized" };
+  }
+
+  return { ok: true };
+}
+
+function constantTimeEqual(a, b) {
+  const left = String(a);
+  const right = String(b);
+  const length = Math.max(left.length, right.length);
+  let mismatch = left.length ^ right.length;
+
+  for (let i = 0; i < length; i++) {
+    mismatch |= (left.charCodeAt(i) || 0) ^ (right.charCodeAt(i) || 0);
+  }
+
+  return mismatch === 0;
+}
+
+async function readJsonBody(request) {
+  const text = await request.text();
+  if (text.length > 500000) throw new Error("Request body too large");
+  try {
+    return text ? JSON.parse(text) : {};
+  } catch {
+    throw new Error("Invalid JSON body");
+  }
+}
+
+function normalizeHeartUsername(value) {
+  const username = String(value || "").trim().toLowerCase();
+  if (!username || username.length > 100) return null;
+  return /^[a-z0-9._]+$/.test(username) ? username : null;
+}
+
+function normalizeUpdatedAt(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n) || n < 0) return null;
+  return Math.floor(n);
+}
+
+function sanitizeHeartRecords(value) {
+  const out = {};
+  if (!value || typeof value !== "object" || Array.isArray(value)) return out;
+
+  let count = 0;
+  for (const [rawUsername, row] of Object.entries(value)) {
+    if (++count > 10000) break;
+
+    const username = normalizeHeartUsername(rawUsername);
+    const updatedAt = normalizeUpdatedAt(row?.updatedAt);
+    if (!username || typeof row?.hearted !== "boolean" || updatedAt === null) continue;
+
+    out[username] = {
+      hearted: row.hearted,
+      updatedAt
+    };
+  }
+
+  return out;
+}
+
+function mergeHeartRecords(base, incoming) {
+  const merged = { ...(base || {}) };
+
+  for (const [username, row] of Object.entries(incoming || {})) {
+    const current = merged[username];
+    const incomingAt = normalizeUpdatedAt(row?.updatedAt) ?? 0;
+    const currentAt = normalizeUpdatedAt(current?.updatedAt) ?? -1;
+
+    // Equal timestamps keep the already stored value. This is important for
+    // v0.18 legacy migrations, which intentionally use timestamp 0.
+    if (!current || incomingAt > currentAt) {
+      merged[username] = {
+        hearted: row.hearted === true,
+        updatedAt: incomingAt
+      };
+    }
+  }
+
+  return merged;
+}
+
+async function readHeartState(env) {
+  const stored = await env.HEARTS_KV.get(HEART_STATE_KEY, { type: "json" });
+  const records = sanitizeHeartRecords(stored?.records || {});
+  return { version: 1, records };
+}
+
+async function writeHeartState(env, records) {
+  await env.HEARTS_KV.put(HEART_STATE_KEY, JSON.stringify({
+    version: 1,
+    updatedAt: Date.now(),
+    records: sanitizeHeartRecords(records)
+  }));
+}
 
 function parseEmbeddedFolder(html) {
   const entries = new Map();
@@ -244,8 +420,8 @@ function json(value, status = 200) {
 function cors(response) {
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", "*");
-  headers.set("access-control-allow-methods", "GET, OPTIONS");
-  headers.set("access-control-allow-headers", "content-type");
+  headers.set("access-control-allow-methods", "GET, POST, OPTIONS");
+  headers.set("access-control-allow-headers", "content-type, authorization");
   headers.set("x-content-type-options", "nosniff");
   return new Response(response.body, {
     status: response.status,

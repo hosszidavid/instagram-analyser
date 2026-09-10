@@ -288,3 +288,19 @@ The experimental Drive cleanup/history-export function from v0.16 has been remov
 - `Open next` continues from the most recently opened visible profile instead of jumping back to the first unopened row. After reaching the end of the current visible list it wraps to any earlier unopened rows.
 - Profile review uses one reusable named Instagram tab/window instead of creating a fresh browser window for every `Open next`.
 - Added `Hide hearted` to the relationship-list filters.
+
+## v0.19 - Cross-device Heart Sync
+
+Hearted profiles can now be synchronized between devices through the existing Cloudflare Worker.
+
+Cloudflare requirements:
+
+- KV namespace binding: `HEARTS_KV`
+- Worker secret: `HEARTS_SYNC_KEY`
+- deploy the included updated `cloudflare-worker.js`
+
+The sync key is never placed in `config.js`. It is entered once in the app on each device and stored only in that browser's local storage.
+
+Existing v0.18 Hearts are migrated automatically. Legacy local Hearts use timestamp `0`, so newer cloud-side removals take precedence. Heart removals are retained as tombstones in the synced state to prevent an older device from restoring them later.
+
+The local Heart cache remains available if the network is unavailable. A manual `Sync hearts` button is available, and connected clients also sync on startup, when returning to the app, and after Heart changes.

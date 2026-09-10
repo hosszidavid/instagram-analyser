@@ -2,7 +2,7 @@
 
 Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
 
-Aktuelle Version: **v0.18**
+Aktuelle Version: **v0.19**
 
 Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
 
@@ -607,3 +607,19 @@ Die experimentelle Drive-Cleanup/History-Export-Funktion aus v0.16 wurde entfern
 - `Nächstes öffnen` setzt ab dem zuletzt geöffneten sichtbaren Profil fort, statt zum ersten ungeöffneten Eintrag zurückzuspringen. Am Listenende wird bei Bedarf zu früheren ungeöffneten Einträgen zurückgesprungen.
 - Die Profilprüfung verwendet einen wiederverwendeten benannten Instagram-Tab/ein Fenster, statt bei jedem Schritt ein neues Browserfenster zu öffnen.
 - Neuer Filter `Markierte ausblenden`.
+
+## v0.19 - Geräteübergreifender Heart Sync
+
+Markierte Profile können jetzt über den bestehenden Cloudflare Worker zwischen mehreren Geräten synchronisiert werden.
+
+Cloudflare-Anforderungen:
+
+- KV-Namespace-Binding: `HEARTS_KV`
+- Worker-Secret: `HEARTS_SYNC_KEY`
+- die enthaltene aktualisierte `cloudflare-worker.js` deployen
+
+Der Sync-Schlüssel wird nicht in `config.js` gespeichert. Er wird auf jedem Gerät einmal in der App eingegeben und nur im Local Storage dieses Browsers gespeichert.
+
+Bestehende v0.18-Hearts werden automatisch migriert. Legacy-Hearts erhalten den Zeitstempel `0`, sodass neuere cloudseitige Entfernungen Vorrang haben. Entfernte Hearts bleiben als Tombstone-Einträge im synchronisierten Zustand erhalten, damit ein älteres Gerät sie später nicht versehentlich wiederherstellt.
+
+Der lokale Heart-Cache bleibt auch bei Netzwerkproblemen verfügbar. Zusätzlich zum manuellen `Hearts synchronisieren` erfolgt die Synchronisierung beim Start, beim Zurückkehren zur App und nach Heart-Änderungen.

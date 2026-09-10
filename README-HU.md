@@ -2,7 +2,7 @@
 
 Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
 
-Aktuális verzió: **v0.18**
+Aktuális verzió: **v0.19**
 
 Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
 
@@ -605,3 +605,19 @@ A v0.16 kísérleti Drive cleanup/history-export funkciója kikerült. A nyers s
 - Az `Open next` a legutóbb megnyitott látható profiltól folytatja a sort, nem ugrik vissza a legfelső meg nem nyitott elemhez. A lista végén szükség esetén visszafordul a korábbi meg nem nyitott elemekhez.
 - A profil-ellenőrzés egy újrahasznált, névvel ellátott Instagram fület/ablakot használ, nem nyit minden `Open next` lépésnél új böngészőablakot.
 - Új `Szívezettek elrejtése` lista-szűrő.
+
+## v0.19 - Többeszközös Heart Sync
+
+A szívezett profilok most már a meglévő Cloudflare Workeren keresztül több eszköz között is szinkronizálhatók.
+
+Cloudflare követelmények:
+
+- KV namespace binding: `HEARTS_KV`
+- Worker secret: `HEARTS_SYNC_KEY`
+- az új `cloudflare-worker.js` verzió deployolása
+
+A sync key nem kerül a `config.js` fájlba. Minden eszközön egyszer kell megadni az appban, és csak az adott böngésző local storage-ában tárolódik.
+
+A meglévő v0.18 Heartok automatikusan migrálódnak. A régi lokális Heartok `0` timestampet kapnak, ezért egy frissebb cloud oldali eltávolítás elsőbbséget élvez. A Heart eltávolítások tombstone rekordként megmaradnak a szinkronizált állapotban, így egy régebbi eszköz nem tudja később véletlenül visszahozni őket.
+
+A lokális Heart cache hálózati hiba esetén is megmarad. Van kézi `Hearts szinkron` gomb, ezen kívül a kapcsolódott kliensek induláskor, az apphoz visszatérve és Heart módosítás után is szinkronizálnak.

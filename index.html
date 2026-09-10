@@ -168,7 +168,22 @@
           </div>
           <div class="big-stat">
             <strong id="heartedCount">0</strong>
-            <span data-i18n="savedLocally">saved locally</span>
+            <span data-i18n="savedLocally">saved</span>
+          </div>
+
+          <div class="heart-sync-panel">
+            <div class="heart-sync-head">
+              <span class="eyebrow" data-i18n="heartSync">HEART SYNC</span>
+              <span class="heart-sync-state" id="heartSyncState" data-state="local" data-i18n="heartSyncLocal">Local only</span>
+            </div>
+            <div class="heart-sync-controls">
+              <label class="field heart-sync-key-field">
+                <span class="field-label" data-i18n="heartSyncKey">Sync key</span>
+                <input id="heartSyncKey" class="text-input" type="password" autocomplete="off" spellcheck="false" />
+              </label>
+              <button class="button ghost" id="heartSyncBtn" type="button" data-i18n="heartSyncButton">Sync hearts</button>
+            </div>
+            <div class="file-status heart-sync-message" id="heartSyncMessage" data-i18n="heartSyncReady">Enter the same sync key that is stored as HEARTS_SYNC_KEY in the Cloudflare Worker.</div>
           </div>
         </article>
       </div>
