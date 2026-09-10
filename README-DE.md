@@ -2,7 +2,7 @@
 
 Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
 
-Aktuelle Version: **v0.14**
+Aktuelle Version: **v0.17**
 
 Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
 
@@ -580,30 +580,23 @@ Erster browserbasierter Followers-/Following-JSON-Analyzer.
 
 </small>
 
-## v0.16 - Kompaktes Drive-History-Archiv
+## v0.17 - Tägliches Drive-Modell + automatische Insights-History
 
-Im Insights-Bereich gibt es jetzt **Drive cleanup history export**.
+Drive Sync behandelt Scheduled-`followers_*.json`-Dateien jetzt als positive Follower-Ereignisse/Beobachtungen. Die Beobachtungen werden über alle datierten Drive-Exporte dedupliziert zusammengeführt, während der neueste verfügbare `following.json`-Stand als aktueller Following-Zustand verwendet wird. Dieser Modus ist für die tägliche Follow-back-Prüfung gedacht.
 
-Der Export durchsucht alle vollständigen datierten Instagram-Exporte im gemeinsamen Drive-Baum und lässt Folgendes aus:
-- den neuesten datierten Export (Current)
-- den speziellen `Reference`-Ordner
+Scheduled Follower-Daten sind kein autoritativer Beweis dafür, dass ein älterer Follower dir noch folgt. Verlorene Follower müssen mit einem manuellen vollständigen Export gegen einen vollständigen Reference-Export geprüft werden.
 
-Es wird eine einzige Datei `instagram-history.json` erzeugt. Sie enthält:
-- historische Insights-Snapshots
-- kompakte Followers-/Following-Zustände inklusive Relationship-Timestamps
-- Followers-/Following-Zähler
-- Mutual- und Not-Following-Back-Zähler
-- Relationship-Deltas zwischen aufeinanderfolgenden Snapshots
-- täglichen Follower-Churn
-- erste/letzte Follower-Beobachtung und Anzahl der Follower-Zyklen
+Ein normaler **Drive Sync** baut jetzt automatisch alle verfügbaren datierten Insights-Snapshots auf. `Drive-Verlauf scannen` bleibt als manuelle Rebuild-/Repair-Funktion erhalten.
 
-Wenn bereits eine ältere `instagram-history.json` im Drive vorhanden ist, wird sie in das neue Archiv übernommen, damit bereits komprimierte History erhalten bleibt.
+Meta-Insights-Labels werden vor dem Parsen normalisiert. Varianten wie `Date range` / `Date Range`, `Accounts reached` / `Accounts Reached`, `Content interactions` / `Content Interactions` und `Non-followers` / `Non-Followers` werden auf dieselben kanonischen Metriken abgebildet.
 
-Nach dem Download:
-1. `instagram-history.json` in den Root des gemeinsamen Drive-Ordners hochladen
-2. einmal Drive Sync ausführen und prüfen, dass die kompakte History geladen wurde
-3. erst danach die alten dazwischenliegenden Roh-Exportordner manuell löschen
+Wenn für dasselbe Datum mehrere Exporte existieren, werden verfügbare Audience-, Interactions- und Reach-Daten zu einem Tages-Snapshot zusammengeführt. Fehlende Metriken werden nicht erfunden.
 
-Der normale Drive Sync erkennt `instagram-history.json` automatisch und stellt daraus die historischen Insights wieder her. Die kompakte Relationship-History wird ebenfalls in den Speicher geladen und kann später für Retention-/Churn-Funktionen verwendet werden.
+Die experimentelle Drive-Cleanup/History-Export-Funktion aus v0.16 wurde entfernt. Die rohen Scheduled Exports sollten vorerst behalten werden.
 
-Die App löscht niemals automatisch Inhalte aus Google Drive.
+### Entwicklungshistorie
+
+- **v0.17** Tägliches Follower-Event-Drive-Modell, automatische vollständige Insights-History, normalisierte Meta-Labels, manueller Full-Export-Reconciliation-Workflow, Drive Cleaner entfernt.
+- **v0.16** Experimenteller kompakter Drive-History-Archiv-Prototyp, in v0.17 entfernt.
+
+**Insights-Datumslogik:** Wenn Meta einen rollierenden `Date Range` liefert, verwendet der Analyzer den Tag nach dem Ende des Bereichs als kanonisches Snapshot-Datum. Dadurch erzeugen zwei Automationen, die dieselben abgeschlossenen Insights unter unterschiedlichen Export-Ordnerdaten liefern, keine doppelten oder widersprüchlichen Snapshots.

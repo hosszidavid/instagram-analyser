@@ -1,348 +1,173 @@
-# Instagram Followers Analyzer
+# Instagram Followers Analyzer v0.6
 
-A private-first, browser-based Instagram relationship and Insights analyzer.
-
-Current version: **v0.14**
-
-The application is designed to process Instagram exports locally in the browser, analyze follower relationships, track Insights over time, and optionally synchronize exports from a public Google Drive archive.
-
-No Instagram login is required.
-
----
-
-## Features
-
-### Instagram relationship analysis
-
-The analyzer supports Instagram relationship exports and provides:
-
+## Fő navigáció
+- Overview
 - Followers
-- Following
-- Not Following Back
-- Search
-- Sorting
-- Clickable Instagram profile links
-- CSV export
-- Persistent Keep / Heart markers
-- Session-based reviewed state
-- Open Next workflow for rapid account review
+- Insights
+- Cohorts
 
-The app can read the original Instagram ZIP export directly or individual JSON files.
+## Insights trend grafikon
+A kézzel mentett Insights snapshotokból egy közös, kapcsolható grafikon épül.
 
-Recognized relationship files include:
-
-- `followers_*.json`
-- `following.json`
-
----
-
-## Current and Reference datasets
-
-The application uses two relationship datasets:
-
-### Current
-
-The latest active Instagram relationship state.
-
-When using Google Drive sync, **Current is always the newest complete dated export** containing both:
-
-- `following.json`
-- at least one `followers_*.json`
-
-### Reference
-
-Reference is used for relationship comparison.
-
-When using Google Drive sync, Reference is loaded **only** from a folder named:
-
-```text
-Reference
-```
-
-The folder name is matched case-insensitively.
-
-A valid Reference folder must contain:
-
-- `following.json`
-- at least one `followers_*.json`
-
-The second-newest dated export is **never automatically used as Reference**.
-
-If no valid Reference folder exists, Reference remains empty.
-
----
-
-## Relationship comparison
-
-When both Current and Reference are available, the Overview can calculate:
-
-- New followers
-- Lost followers
-- New following
-- Accounts unfollowed by you
-
-Reference filtering is also available inside the Followers workflow.
-
-Available modes:
-
-- Show all
-- Hide accounts present in Reference
-- Show only accounts present in Reference
-
----
-
-## Keep / Heart system
-
-Accounts can be marked with a persistent Heart / Keep state.
-
-This is independent from Reference.
-
-Typical purpose:
-
-- protect accounts you do not want to unfollow
-- manually mark important profiles
-- maintain a personal keep-list
-
-Heart data is stored locally in the browser.
-
----
-
-## Review workflow
-
-The application includes a lightweight profile-review workflow.
-
-Each account can have a session-only reviewed state.
-
-The **Open Next** button:
-
-1. finds the next visible unreviewed account
-2. marks it reviewed
-3. opens the Instagram profile
-
-Reviewed state uses session storage and is intentionally temporary.
-
----
-
-# Insights
-
-Instagram Insights exports can be loaded and analyzed alongside relationship data.
-
-Currently supported account-level metrics include:
-
+Kapcsolható sorozatok:
 - Followers
 - Following
 - Follows
 - Unfollows
+- Accounts reached
+- Profile visits
+
+Két skála:
+- Raw values
+- Indexed (first point = 100)
+
+Az indexelt nézet különösen akkor hasznos, amikor nagyon eltérő nagyságrendű mutatókat akarsz egymásra helyezve összehasonlítani.
+
+## Snapshot kezelés
+A snapshotok:
+- kézzel menthetők
+- egyenként inaktiválhatók
+- újra aktiválhatók
+- egyenként végleg törölhetők
+
+Az inaktív snapshot megmarad az adatbázisban, de kimarad a grafikonból.
+
+A snapshot most az aktuális `Following` számot is elmenti a relationship exportból, ezért ez is rajzolható az Insights trendgrafikonra.
+
+## Cohorts
+A follow-back idő közvetlenül a `following` és `followers` timestamp különbségéből számolódik.
+
+A megjelenített idősávok már nem kumulatívak:
+- 1. nap = 0–1 nap
+- 2. nap = 1–2 nap
+- 3. nap = 2–3 nap
+- 4–7. nap = 3–7 nap
+
+Tehát aki az 1. napon visszakövetett, nem jelenik meg újra a 2. vagy 3. napi értékben.
+
+## Adatbázis export / import
+A teljes tartós helyi adatbázis exportálható JSON fájlba:
+- Heart / Keep profilok
+- Insights snapshotok
+- snapshot aktív/inaktív állapot
+
+Ezt a JSON-t egy másik eszközön be lehet importálni.
+
+Ez jelenleg a biztonságos, backend nélküli többeszközös workflow.
+
+## Online sync
+Automatikus többeszközös szinkronhoz külön backend + felhasználói azonosítás szükséges.
+Ez nincs beépítve a v0.6-ba.
+
+
+## v0.7 chart polish
+
+- filigránabb, visszafogottabb grafikon
+- minden snapshot valódi pontként jelenik meg
+- több snapshot esetén a pontokat finom vonal köti össze
+- hover, fókusz, click és touch/tap esetén tooltip jelenik meg
+- tooltip mutatja:
+  - mutató nevét
+  - dátumot
+  - pontos értéket
+- Indexed módban a tooltip az indexelt és a valódi értéket is megmutatja
+- mobilon kisebb, sűrűbb grafikon
+
+
+## v0.8 chart geometry fix
+
+- az SVG többé nem nyújtja szét a grafikont
+- a pontok valódi körök maradnak
+- a tengelyszámok és dátumok nem torzulnak
+- a legend és a grafikon sorozatszínei pontosan egyeznek
+- még vékonyabb, filigránabb vonalak és grid
+- hover/tap tooltip és több snapshot közötti összekötő vonal megmaradt
+
+
+## v0.9 palette adjustment
+
+A grafikon és a felső kapcsolók színei most már sokkal jobban elkülönülnek:
+
+- Followers: lila
+- Following: teal
+- Follows: zöld
+- Unfollows: piros
+- Accounts reached: narancs
+- Profile visits: kék
+
+A legend és a grafikon továbbra is pontosan ugyanazt a színpalettát használja.
+
+
+## v0.10 mobile + PDF report
+
+### Mobile
+- az app teljes szélessége a viewporton belül marad
+- a széles snapshot táblázat saját vízszintes scrollt kap, nem nyújtja szét az oldalt
+- a metric kapcsolók külön vízszintes scroll-sávként működnek
+- a mobil grafikon külön, kompakt 520×320-as koordinátarendszert használ
+- a tengelyfeliratok mobilon nagyobbak és olvashatóbbak
+- a grafikon továbbra is filigrán marad
+
+### Export PDF
+Az új `Export PDF` gomb egy letisztult report nézetet készít:
+- aktuális fő Insights számok
+- Followers / Following
+- Follows / Unfollows
 - Net follower change
 - Accounts reached
 - Profile visits
-- External link taps
 - Content interactions
-- Non-follower reach
-- Non-follower engagement
+- az aktuálisan beállított trendgrafikon
+- legutóbbi aktív snapshotok
 
-The actual available values depend on the contents of the Instagram export.
+A gomb a böngésző natív nyomtatási/PDF dialógusát nyitja meg.
+Desktopon `Save as PDF`, iPhone/iPad esetén a rendszer PDF/Print megosztási folyamata használható.
 
----
 
-## Insights snapshots
+## v0.11 mobile viewport containment
 
-Insights can be stored as dated snapshots.
+- a teljes dokumentum szélessége mobilon fixen a viewporton belül marad
+- az app shell már nem használ oldalirányban túlnyúló külső szélességet
+- `overflow-x: clip` védi a page/root szintet iOS Safari alatt is
+- csak a szándékos belső elemek scrollozhatók oldalra:
+  - felső navigáció
+  - Followers tabok
+  - grafikon metric kapcsolók
+  - snapshot táblázat
+- a széles táblázat és a `max-content` navigáció nem tudja többé széthúzni a teljes oldalt
+- a fixed Open next gomb szélessége is viewporton belül marad
 
-Snapshots contain the available Insights metrics together with the current Following count.
+## v0.13 - Public Google Drive sync without Google billing
 
-Snapshots are stored locally in the browser.
+This version removes the Google Drive API key requirement.
 
-If another snapshot already exists for the same date, it is updated instead of duplicated.
+### Why a tiny bridge is still needed
+Google's public Drive folder page can be opened by anyone who has the link, but a GitHub Pages browser app cannot reliably read that cross-origin HTML because of browser CORS isolation.
 
-Snapshots can individually be:
+v0.13 therefore includes `cloudflare-worker.js`, a tiny read-only bridge.
 
-- enabled
-- disabled
-- deleted
-
-Disabled snapshots remain stored but are excluded from the chart.
-
----
-
-## Automatic snapshot on Drive Sync
-
-A normal **Sync Drive** operation:
-
-1. finds the newest complete dated export
-2. loads it as Current
-3. loads Reference only from the special `Reference` folder
-4. loads the newest available Insights
-5. creates or updates the snapshot for that export date
-
-Only the newest export is processed into the snapshot history during a normal sync.
-
----
-
-## Scan Drive History
-
-The Insights page includes:
-
-**Scan Drive history**
-
-This performs an explicit historical scan of the Drive archive.
-
-It:
-
-- scans all dated exports
-- excludes the special Reference folder
-- finds historical Insights data
-- creates missing snapshots
-- updates existing snapshots with the same date
-- uses the dated export's `following.json` for the historical Following count when available
-
-This allows the complete chart history to be reconstructed from previously archived Instagram exports.
-
-The scan does not change Current or Reference.
-
----
-
-# Insights chart
-
-The Insights chart is a multi-series timeline.
-
-Available chart series:
-
-- Followers
-- Following
-- Follows
-- Unfollows
-- Accounts reached
-- Profile visits
-
-Each metric uses a clearly distinct color.
-
-Chart features:
-
-- individual snapshot points
-- connected trend lines
-- hover values on desktop
-- tap values on mobile
-- responsive mobile layout
-- selectable metrics
-- Raw values mode
-- Indexed mode
-
-### Indexed mode
-
-Indexed mode normalizes the first value of each selected series to `100`.
-
-This makes metrics with very different absolute scales visually comparable.
-
-For example:
-
-```text
-Followers         5,000
-Accounts reached 20,000
-Profile visits      800
-```
-
-can still be compared by relative change.
-
-The tooltip continues to show the real value.
-
----
-
-# Cohorts
-
-Follow-back cohorts are calculated from relationship timestamps contained in the current Instagram export.
-
-For mutual relationships where you followed the account first, the analyzer calculates:
-
-```text
-follow-back delay =
-follower timestamp - following timestamp
-```
-
-Cohort buckets are mutually exclusive:
-
-- 1st day
-- 2nd day
-- 3rd day
-- Days 4–7
-
-The analyzer also calculates:
-
-- follow-back rate
-- median follow-back time
-- suggested review threshold
-
-Historical relationship snapshots are not required for currently existing mutual relationships because the relationship timestamps already contain the relevant timing information.
-
----
-
-# Google Drive Sync
-
-The analyzer can use a **public Google Drive folder** as an Instagram export archive.
-
-No Google login is required.
-
-No Google Drive API key is required.
-
-No Google Cloud billing account is required.
-
-No OAuth token is used.
-
----
-
-## Public Drive architecture
-
-```text
-Public Google Drive folder
-        ↓
-Cloudflare Worker
-        ↓
-Instagram Followers Analyzer
-```
-
-A small Cloudflare Worker is used as a read-only bridge.
-
-This is necessary because a browser application hosted on GitHub Pages cannot directly read Google Drive's public folder HTML due to browser CORS restrictions.
-
-The included file is:
-
-```text
-cloudflare-worker.js
-```
-
----
-
-## Cloudflare Worker privacy
-
-The Worker:
-
-- has no Google account credentials
+The worker:
+- has no Google account access
 - has no Google API key
-- has no Instagram credentials
 - has no OAuth token
 - stores no Instagram data
-- can only request files already publicly accessible through Google Drive
-- adds the CORS headers required by the browser application
+- only fetches pages/files that Google Drive already exposes publicly
+- adds CORS headers so the analyzer can read them
 
----
+### One-time setup
 
-## Cloudflare Worker setup
-
-Create a Cloudflare Worker and replace the default code with the contents of:
-
-```text
-cloudflare-worker.js
-```
-
-Deploy the Worker.
-
-You will receive a URL similar to:
+1. Create a free Cloudflare account.
+2. Open **Workers & Pages**.
+3. Create a Worker.
+4. Replace the default Worker code with the complete contents of `cloudflare-worker.js`.
+5. Deploy it.
+6. Copy the Worker URL, for example:
 
 ```text
 https://instagram-drive-bridge.example.workers.dev
 ```
 
-Then configure `config.js`:
+7. Put that URL into `config.js`:
 
 ```js
 window.IFA_CONFIG = {
@@ -350,235 +175,109 @@ window.IFA_CONFIG = {
 };
 ```
 
-No Google configuration is required.
+8. Upload the updated app files to GitHub Pages.
+9. Press **Sync Drive**.
 
----
+No Google Cloud billing account or Google Drive API key is required.
 
-## Drive folder URL
+### Drive behavior
 
-The public Google Drive folder URL is entered directly in the application.
+The app recursively scans the public folder and recognizes export dates from:
+- `meta-YYYY-MMM-DD-...`
+- `instagram-...-YYYY-MM-DD-...`
+- generic `YYYY-MM-DD` path fragments
 
-Example:
+It looks for:
+- `followers_*.json`
+- `following.json`
+- `audience_insights.json`
+- `content_interactions.json`
+- `profiles_reached.json`
 
-```text
-https://drive.google.com/drive/folders/FOLDER_ID
-```
+Newest complete relationship export:
+- loaded as **Current**
 
-The URL is not hard-coded into the repository.
+Previous dated complete relationship export:
+- loaded as **Reference**
 
-After entering it once, the browser remembers it locally.
+Latest Insights:
+- automatically upserted into snapshot history for that export date
 
----
+### Important limitation
 
-## Drive archive discovery
+This no-key method reads Google's public embedded-folder HTML rather than the official Drive API. Google can change that HTML in the future. If that happens, the bridge parser may need a small update.
 
-The analyzer recursively scans the complete folder tree.
-
-The folder structure does not need to be manually selected.
-
-Dates can currently be recognized from structures such as:
-
-```text
-meta-2026-Sep-07-10-28-43
-```
-
-and:
-
-```text
-instagram-accountname-2026-09-07-...
-```
-
-as well as generic:
-
-```text
-YYYY-MM-DD
-```
-
-path fragments.
-
----
-
-## Files detected during Drive sync
-
-Relationship files:
-
-```text
-followers_*.json
-following.json
-```
-
-Insights files currently recognized:
-
-```text
-audience_insights.json
-content_interactions.json
-profiles_reached.json
-```
-
-Other files are ignored unless required by the Instagram parser.
-
----
-
-# Local storage and privacy
-
-Instagram ZIP and JSON source files are processed locally in the browser.
-
-Drive synchronization also avoids permanent storage of downloaded source files.
-
-For Drive data:
-
-- requests use `cache: "no-store"`
-- the Cloudflare Worker sends `Cache-Control: no-store`
-- downloaded JSON exists temporarily in browser memory
-- temporary source data is released after parsing
-- raw Drive JSON is not saved as files on the device
-
-Persistent browser storage contains only derived application data such as:
-
-- Hearts / Keep markers
-- Insights snapshots
-- settings
-- saved Drive folder URL
-
-Reviewed state is session-only.
-
----
-
-# Database export and import
-
-The persistent local application state can be exported manually.
-
-Database export currently includes:
-
-- Hearts / Keep markers
-- Insights snapshots
-
-The exported database can be imported on another device.
-
-This provides a backend-free manual synchronization method.
-
----
-
-# PDF report
-
-The application can generate a printable report using **Export PDF**.
-
-The report includes available data such as:
-
-- Followers
-- Following
-- Follows
-- Unfollows
-- Net follower change
-- Accounts reached
-- Profile visits
-- Content interactions
-- current trend chart
-- recent active snapshots
-
-The browser's native Print / Save as PDF workflow is used.
-
----
-
-# Languages
-
-The interface supports:
-
-- English
-- German
-- Hungarian
-
-Language preference is remembered locally.
-
----
-
-# Deployment
-
-The application is fully static.
-
-Required files include:
-
-```text
-index.html
-styles.css
-app.js
-config.js
-README.md
-```
-
-For Drive synchronization also deploy:
-
-```text
-cloudflare-worker.js
-```
-
-The main application can be hosted directly through GitHub Pages.
-
-No build process is required.
-
----
-
-# Important limitation of public Drive sync
-
-The no-API-key Drive integration reads Google's public embedded-folder representation rather than the official Google Drive API.
-
-Google may change the structure of this public folder representation in the future.
-
-If that happens, `cloudflare-worker.js` may require a parser update.
-
-This is the intentional tradeoff for:
-
+This is intentionally the tradeoff for:
 - no Google billing
-- no Google API key
-- no OAuth
-- no Google account access
+- no Google OAuth
+- no Google Drive API key
+- no private Drive access
 
----
 
-# Development history
+## v0.14 - Reference folder + explicit history scan + no-store
 
-<small>
+### Reference behavior
+- The second-newest dated export is **never** used as Reference.
+- Reference is loaded only when a folder segment named exactly `Reference`
+  (case-insensitive) exists under the shared Drive tree and contains:
+  - `following.json`
+  - at least one `followers_*.json`
+- If no valid `Reference` folder exists, Reference stays empty.
 
-### v0.14
-Reference-folder contract, explicit historical Drive scan, no-store Drive processing, repository-safe Drive URL handling.
+### Normal `Sync Drive`
+- Finds the newest complete dated export outside `Reference`.
+- Loads that export as Current.
+- Loads Reference only from `Reference`.
+- Saves/updates only the newest export's Insights snapshot.
 
-### v0.13
-Public Google Drive synchronization through a Cloudflare Worker without Google API key, OAuth, or billing.
+### `Scan Drive history`
+A new button in Insights scans every dated non-Reference export and:
+- parses its Insights
+- creates missing historical snapshots
+- updates same-date snapshots instead of duplicating them
+- uses that dated export's `following.json` for the historical Following count when available
+- never changes Current or Reference
 
-### v0.12
-Initial Google Drive synchronization prototype using the official Drive API.
+### Device/storage behavior
+Drive JSON is not saved as files on the device.
+- fetch calls use `cache: "no-store"`
+- the Cloudflare bridge replies with `Cache-Control: no-store`
+- raw JSON strings exist only temporarily in browser memory
+- after parsing, temporary source arrays are cleared
+- only derived app state and snapshots remain in localStorage
 
-### v0.11
-Mobile viewport containment and horizontal overflow fixes.
+The Drive folder URL is no longer hard-coded in the repository. After entering it once,
+the browser remembers it in localStorage.
 
-### v0.10
-Mobile chart improvements and PDF report export.
 
-### v0.9
-High-contrast chart series palette.
+## v0.15 - README reader and compact mobile import UI
 
-### v0.8
-Correct SVG geometry, circular data points, undistorted chart labels.
+- Built-in README reader with EN / DE / HU documentation files.
+- README is available from the top controls on desktop and from the hamburger menu on mobile.
+- Mobile secondary header controls are moved into a compact hamburger menu.
+- Current and Reference import cards remain unchanged on desktop.
+- On mobile they are displayed side-by-side as compact cards.
+- Mobile import uses a small Add button instead of the large drag-and-drop area.
+- Mobile loaded status shows only the source file count.
+- Full follower / following / not-following-back import status remains visible on desktop.
 
-### v0.7
-Interactive chart points, connected trend lines, hover/tap tooltips.
+## v0.17 - Daily Drive model + automatic Insights history
 
-### v0.6
-Simplified application architecture, manual Insights snapshots, multi-series trend chart, database export/import, exclusive follow-back cohorts.
+Drive Sync now treats scheduled `followers_*.json` files as positive follower observations/events. The observations are de-duplicated across all dated Drive exports, while the newest available `following.json` is used as the current Following state. This mode is intended for daily follow-back checking.
 
-### v0.5
-Simplified top-level navigation and consolidated Followers workflow.
+Scheduled follower data is not treated as authoritative proof that an older follower still follows you. Lost followers must be checked with a manual full export compared against a full Reference export.
 
-### v0.4
-Instagram Insights support, reviewed-state workflow, Open Next, mobile improvements.
+Normal **Sync Drive** now automatically builds every available dated Insights snapshot. `Scan Drive history` remains as a manual rebuild/repair action.
 
-### v0.3
-Persistent Hearts, relationship history concepts, cohorts and cleanup tools.
+Meta Insights labels are normalized before parsing, so capitalization and punctuation variants such as `Date range` / `Date Range`, `Accounts reached` / `Accounts Reached`, `Content interactions` / `Content Interactions`, and `Non-followers` / `Non-Followers` map to the same canonical metrics.
 
-### v0.2
-Direct Instagram ZIP import, multilingual UI and Reference filtering.
+If several exports exist for the same date, available Audience, Interactions and Reach data are merged into one dated snapshot. Missing metrics are not invented.
 
-### v0.1
-Initial browser-based followers/following JSON analyzer.
+The experimental Drive cleanup/history-export function from v0.16 has been removed. Raw scheduled exports should be retained for now.
 
-</small>
+### Development history
+
+- **v0.17** Daily follower-event Drive model, automatic complete Insights-history sync, normalized Meta labels, manual full-export reconciliation, Drive cleaner removed.
+- **v0.16** Experimental compact Drive history archive prototype, removed in v0.17.
+
+**Insights date handling:** when Meta supplies a rolling `Date Range`, the analyzer uses the day after the range end as the canonical snapshot date. This prevents two automations delivering the same closed-day Insights under different export-folder dates from creating duplicate or conflicting snapshots.

@@ -2,7 +2,7 @@
 
 Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
 
-Aktuális verzió: **v0.14**
+Aktuális verzió: **v0.17**
 
 Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
 
@@ -578,30 +578,23 @@ Első böngészőalapú followers/following JSON analyzer.
 
 </small>
 
-## v0.16 - Kompakt Drive history archívum
+## v0.17 - Napi Drive modell + automatikus Insights history
 
-Az Insights rész új **Drive cleanup history export** gombot kapott.
+A Drive szinkron most a scheduled `followers_*.json` fájlokat pozitív follower eseményként / megfigyelésként kezeli. Az események minden dátumozott Drive exportból össze lesznek fésülve és deduplikálva, miközben a legfrissebb elérhető `following.json` adja az aktuális Following állapotot. Ez a mód napi follow-back ellenőrzésre szolgál.
 
-Az export végigolvassa a megosztott Drive összes teljes, dátumozott Instagram exportját, de kihagyja:
-- a legújabb dátumozott exportot (Current)
-- a speciális `Reference` mappát
+A scheduled follower adatok nem bizonyítják, hogy egy régebbi follower jelenleg is követ. Az elveszett followereket manuális teljes export és teljes Reference export összehasonlításával kell ellenőrizni.
 
-Egyetlen `instagram-history.json` fájlt készít, amely megőrzi:
-- a történeti Insights snapshotokat
-- a kompakt followers/following állapotokat a relationship timestampjeikkel
-- follower/following darabszámokat
-- mutual és not-following-back darabszámokat
-- az egymást követő állapotok közötti relationship változásokat
-- napi follower churn adatokat
-- az első/utolsó follower-megfigyelést és a follower ciklusok számát
+A normál **Drive szinkron** most automatikusan felépíti az összes elérhető dátumozott Insights snapshotot. A `Drive előzmények beolvasása` gomb kézi újraépítő/javító funkcióként megmarad.
 
-Ha a Drive-on már van korábbi `instagram-history.json`, azt az új export beolvassa és összefésüli az új köztes adatokkal, így a korábban tömörített history nem vész el.
+Az Insights parser a Meta labeljeit beolvasás előtt normalizálja, így például a `Date range` / `Date Range`, `Accounts reached` / `Accounts Reached`, `Content interactions` / `Content Interactions` és `Non-followers` / `Non-Followers` ugyanarra a kanonikus metrikára kerül.
 
-A letöltés után:
-1. töltsd fel az `instagram-history.json` fájlt a megosztott Drive gyökerébe
-2. futtass egy Drive Syncet és ellenőrizd, hogy a kompakt history betöltődött
-3. csak ezután töröld kézzel a régi köztes nyers exportmappákat
+Ha ugyanarra a dátumra több export van, az elérhető Audience, Interactions és Reach adatok egyetlen napi snapshotba lesznek összefésülve. Hiányzó metrikát az app nem talál ki.
 
-A normál Drive Sync automatikusan megkeresi az `instagram-history.json` fájlt, és visszatölti belőle a történeti Insights adatokat. A kompakt relationship history memóriába is betöltődik, így később használható retention/churn fejlesztésekhez.
+A v0.16 kísérleti Drive cleanup/history-export funkciója kikerült. A nyers scheduled exportokat egyelőre érdemes megtartani.
 
-Az app soha nem töröl automatikusan Drive-tartalmat.
+### Fejlesztési történet
+
+- **v0.17** Napi follower-event Drive modell, automatikus teljes Insights-history szinkron, normalizált Meta labelek, manuális full-export reconciliation, Drive cleaner kivezetve.
+- **v0.16** Kísérleti kompakt Drive history archívum, v0.17-ben kivezetve.
+
+**Insights dátumkezelés:** ha a Meta gördülő `Date Range` értéket ad, az analyzer a tartomány utolsó napját követő napot használja kanonikus snapshot dátumként. Így két automatizálás ugyanahhoz a lezárt Insights adatnaphoz tartozó exportja nem hoz létre duplikált vagy egymással ütköző snapshotot.
