@@ -281,3 +281,10 @@ The experimental Drive cleanup/history-export function from v0.16 has been remov
 - **v0.16** Experimental compact Drive history archive prototype, removed in v0.17.
 
 **Insights date handling:** when Meta supplies a rolling `Date Range`, the analyzer uses the day after the range end as the canonical snapshot date. This prevents two automations delivering the same closed-day Insights under different export-folder dates from creating duplicate or conflicting snapshots.
+
+## v0.18 - Review workflow polish
+
+- Relationship rows now show the full available timestamp down to seconds.
+- `Open next` continues from the most recently opened visible profile instead of jumping back to the first unopened row. After reaching the end of the current visible list it wraps to any earlier unopened rows.
+- Profile review uses one reusable named Instagram tab/window instead of creating a fresh browser window for every `Open next`.
+- Added `Hide hearted` to the relationship-list filters.

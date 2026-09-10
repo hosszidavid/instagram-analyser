@@ -2,7 +2,7 @@
 
 Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
 
-Aktuális verzió: **v0.17**
+Aktuális verzió: **v0.18**
 
 Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
 
@@ -598,3 +598,10 @@ A v0.16 kísérleti Drive cleanup/history-export funkciója kikerült. A nyers s
 - **v0.16** Kísérleti kompakt Drive history archívum, v0.17-ben kivezetve.
 
 **Insights dátumkezelés:** ha a Meta gördülő `Date Range` értéket ad, az analyzer a tartomány utolsó napját követő napot használja kanonikus snapshot dátumként. Így két automatizálás ugyanahhoz a lezárt Insights adatnaphoz tartozó exportja nem hoz létre duplikált vagy egymással ütköző snapshotot.
+
+## v0.18 - Review workflow finomítás
+
+- A relationship sorok a rendelkezésre álló timestampet másodperc pontosságig mutatják.
+- Az `Open next` a legutóbb megnyitott látható profiltól folytatja a sort, nem ugrik vissza a legfelső meg nem nyitott elemhez. A lista végén szükség esetén visszafordul a korábbi meg nem nyitott elemekhez.
+- A profil-ellenőrzés egy újrahasznált, névvel ellátott Instagram fület/ablakot használ, nem nyit minden `Open next` lépésnél új böngészőablakot.
+- Új `Szívezettek elrejtése` lista-szűrő.

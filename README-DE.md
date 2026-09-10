@@ -2,7 +2,7 @@
 
 Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
 
-Aktuelle Version: **v0.17**
+Aktuelle Version: **v0.18**
 
 Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
 
@@ -600,3 +600,10 @@ Die experimentelle Drive-Cleanup/History-Export-Funktion aus v0.16 wurde entfern
 - **v0.16** Experimenteller kompakter Drive-History-Archiv-Prototyp, in v0.17 entfernt.
 
 **Insights-Datumslogik:** Wenn Meta einen rollierenden `Date Range` liefert, verwendet der Analyzer den Tag nach dem Ende des Bereichs als kanonisches Snapshot-Datum. Dadurch erzeugen zwei Automationen, die dieselben abgeschlossenen Insights unter unterschiedlichen Export-Ordnerdaten liefern, keine doppelten oder widersprüchlichen Snapshots.
+
+## v0.18 - Review-Workflow-Politur
+
+- Beziehungszeilen zeigen den verfügbaren Zeitstempel jetzt bis auf Sekunden genau.
+- `Nächstes öffnen` setzt ab dem zuletzt geöffneten sichtbaren Profil fort, statt zum ersten ungeöffneten Eintrag zurückzuspringen. Am Listenende wird bei Bedarf zu früheren ungeöffneten Einträgen zurückgesprungen.
+- Die Profilprüfung verwendet einen wiederverwendeten benannten Instagram-Tab/ein Fenster, statt bei jedem Schritt ein neues Browserfenster zu öffnen.
+- Neuer Filter `Markierte ausblenden`.
