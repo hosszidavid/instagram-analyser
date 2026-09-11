@@ -43,16 +43,16 @@
       <article class="upload-card">
         <div class="card-head">
           <div>
-            <p class="eyebrow" data-i18n="currentExport">CURRENT EXPORT</p>
-            <h2 data-i18n="currentTitle">Current Instagram export</h2>
+            <p class="eyebrow" id="fullCardEyebrow" data-i18n="fullCheckpoint">FULL CHECKPOINT</p>
+            <h2 id="fullCardTitle" data-i18n="currentTitle">Full follower checkpoint</h2>
           </div>
           <button class="button ghost" id="clearCurrentBtn" type="button" data-i18n="clear">Clear</button>
         </div>
         <label class="dropzone" id="currentDropzone">
           <input id="currentFiles" type="file" accept=".zip,.json,application/zip,application/json" multiple />
           <span class="mobile-drop-title" data-i18n="add">Add</span>
-          <span class="drop-title" data-i18n="chooseCurrent">Choose Instagram ZIP or JSON files</span>
-          <span class="drop-copy" data-i18n="dropHint">Drop the original Instagram export ZIP here, or select followers/following JSON files.</span>
+          <span class="drop-title" data-i18n="chooseCurrent">Choose current full Instagram export</span>
+          <span class="drop-copy" data-i18n="dropHint">Drop a complete Instagram ZIP here, or select full followers/following JSON files.</span>
         </label>
         <div class="file-status" id="currentStatus" data-i18n="nothingLoaded">Nothing loaded.</div>
       </article>
@@ -105,10 +105,10 @@
       </div>
 
       <div class="drive-meta" id="driveMeta">
-        <span><b data-i18n="driveLatest">Latest export</b><strong id="driveLatestDate">—</strong></span>
-        <span><b data-i18n="drivePrevious">Previous export</b><strong id="drivePreviousDate">—</strong></span>
-        <span><b data-i18n="driveExportsFound">Exports found</b><strong id="driveExportCount">0</strong></span>
-        <span><b data-i18n="driveFilesFound">Relevant files</b><strong id="driveFileCount">0</strong></span>
+        <span><b data-i18n="driveLatest">Latest Daily</b><strong id="driveLatestDate">—</strong></span>
+        <span><b data-i18n="drivePrevious">Last Full</b><strong id="drivePreviousDate">—</strong></span>
+        <span><b data-i18n="driveExportsFound">Reference</b><strong id="driveExportCount">—</strong></span>
+        <span><b data-i18n="driveFilesFound">Daily exports</b><strong id="driveFileCount">0</strong></span>
       </div>
 
       <div class="file-status drive-message" id="driveMessage" data-i18n="driveReady">Ready to scan the public folder.</div>
@@ -200,6 +200,20 @@
         <button class="tab" data-view="notFollowingBack" type="button">
           <span data-i18n="notFollowingBack">Not Following Back</span><strong id="notFollowingBackCount">0</strong>
         </button>
+        <button class="tab" data-view="unfollowed" type="button">
+          <span data-i18n="unfollowed">Unfollowed</span><strong id="unfollowedCount">—</strong>
+        </button>
+        <button class="tab" data-view="renamed" type="button">
+          <span data-i18n="renamed">Renamed</span><strong id="renamedCount">0</strong>
+        </button>
+      </div>
+
+      <div class="list-requirement" id="listRequirement" hidden>
+        <div><strong id="listRequirementTitle"></strong><span id="listRequirementCopy"></span></div>
+        <div class="list-requirement-actions">
+          <button class="button" id="requireSyncBtn" type="button" data-i18n="syncDriveAction">Sync Drive</button>
+          <button class="button ghost" id="requireFullBtn" type="button" data-i18n="addFullAction">Add Full Export</button>
+        </div>
       </div>
 
       <div class="toolbar">
@@ -289,6 +303,24 @@
         </article>
       </div>
 
+
+      <div class="my-following-panel">
+        <div class="section-title-row compact-section-head">
+          <div><p class="eyebrow" data-i18n="myFollowingActivity">MY FOLLOWING ACTIVITY</p><h2 data-i18n="myFollowingTitle">Your daily follow activity</h2></div>
+          <div class="activity-range">
+            <label class="field compact-field"><span class="field-label" data-i18n="activityFrom">From</span><input id="myActivityFrom" class="text-input" type="date" /></label>
+            <label class="field compact-field"><span class="field-label" data-i18n="activityTo">To</span><input id="myActivityTo" class="text-input" type="date" /></label>
+          </div>
+        </div>
+        <div class="metric-grid activity-metrics">
+          <article class="metric-card"><span data-i18n="followedByMe">Followed by me</span><strong id="myActivityFollowed">0</strong></article>
+          <article class="metric-card"><span data-i18n="unfollowedByMe">Unfollowed by me</span><strong id="myActivityUnfollowed">0</strong></article>
+          <article class="metric-card"><span data-i18n="netFollowing">Net following</span><strong id="myActivityNet">0</strong></article>
+          <article class="metric-card"><span data-i18n="refollowedByMe">Refollowed</span><strong id="myActivityRefollowed">0</strong></article>
+        </div>
+        <div id="myActivityDailyList" class="activity-daily-list"></div>
+        <div class="empty-state compact-empty" id="myActivityEmpty"><span data-i18n="activityNoData">Drive Sync is required for daily Following activity.</span></div>
+      </div>
 
       <div class="insight-history-panel">
         <div class="section-title-row compact-section-head">

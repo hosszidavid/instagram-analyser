@@ -1,4 +1,4 @@
-# Instagram Followers Analyzer v0.6
+# Instagram Followers Analyzer v0.20
 
 ## Fő navigáció
 - Overview
@@ -304,3 +304,35 @@ The sync key is never placed in `config.js`. It is entered once in the app on ea
 Existing v0.18 Hearts are migrated automatically. Legacy local Hearts use timestamp `0`, so newer cloud-side removals take precedence. Heart removals are retained as tombstones in the synced state to prevent an older device from restoring them later.
 
 The local Heart cache remains available if the network is unavailable. A manual `Sync hearts` button is available, and connected clients also sync on startup, when returning to the app, and after Heart changes.
+
+## v0.20 - Full checkpoints, Unfollowed and My Following Activity
+
+The data sources are now explicitly separated:
+
+- **Reference** stays isolated and is loaded only from the Drive `Reference` folder or a manual Reference import.
+- **Daily Sync** uses only scheduled exports outside `Reference` and `Full Exports`.
+- **Full Checkpoint** is a complete follower/following snapshot. A manually loaded full export has priority. If none is loaded, the latest complete export found under Drive `Full Exports` becomes the read-only **Last Full** fallback.
+
+The Daily Sync operational model remains unchanged. The old Current upload card is now the Full Checkpoint card and no longer displays Daily Sync files.
+
+### Unfollowed
+
+A new `Unfollowed` list compares every follower observed by Daily Sync up to the effective Full Checkpoint cutoff against the follower list in that Full Checkpoint. Daily events after the Full Checkpoint are excluded.
+
+### Identity changes / renames
+
+Probable username changes are detected when a disappearing username and a newly appearing username have the exact same relationship timestamp. Evidence can come from follower timestamps, following timestamps, consecutive Daily Following snapshots, Reference vs Full, or consecutive Full checkpoints.
+
+Rename candidates are excluded from New Follower, New Following, Not Following Back, Unfollowed and Unfollowed by me calculations, and are shown separately under `Renamed` for manual verification.
+
+### My Following Activity
+
+Insights now contains a separate My Following Activity panel. It is derived only from consecutive Daily `following.json` snapshots: Followed by me, Unfollowed by me, Net following and Refollowed.
+
+`recently_unfollowed_profiles.json` is **not** used to count your own unfollows. It is used only as supplementary identity/FBID evidence and for refollow detection.
+
+### Insights missing values
+
+Missing Insight metrics remain `null` / `—`. They are no longer converted to zero in the chart, and a Drive rebuild overwrites stale zero values with the actual missing state.
+
+Full Exports and Reference are explicitly excluded from Daily Insights history. The analyzer never scans or mixes a separate automation folder that is outside the configured public Drive root.

@@ -2,7 +2,7 @@
 
 Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
 
-Aktuelle Version: **v0.19**
+Aktuelle Version: **v0.20**
 
 Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
 
@@ -623,3 +623,35 @@ Der Sync-Schlüssel wird nicht in `config.js` gespeichert. Er wird auf jedem Ger
 Bestehende v0.18-Hearts werden automatisch migriert. Legacy-Hearts erhalten den Zeitstempel `0`, sodass neuere cloudseitige Entfernungen Vorrang haben. Entfernte Hearts bleiben als Tombstone-Einträge im synchronisierten Zustand erhalten, damit ein älteres Gerät sie später nicht versehentlich wiederherstellt.
 
 Der lokale Heart-Cache bleibt auch bei Netzwerkproblemen verfügbar. Zusätzlich zum manuellen `Hearts synchronisieren` erfolgt die Synchronisierung beim Start, beim Zurückkehren zur App und nach Heart-Änderungen.
+
+## v0.20 - Full Checkpoints, Unfollowed und My Following Activity
+
+Die Datenquellen sind jetzt ausdrücklich getrennt:
+
+- **Reference** bleibt isoliert und wird nur aus dem Drive-Ordner `Reference` oder einem manuellen Reference-Import geladen.
+- **Daily Sync** verwendet nur Scheduled Exports außerhalb von `Reference` und `Full Exports`.
+- **Full Checkpoint** ist ein vollständiger Follower/Following-Snapshot. Ein manuell geladener Full-Export hat Vorrang. Ohne manuellen Full wird der neueste vollständige Export unter Drive `Full Exports` als schreibgeschützter **Last Full** Fallback verwendet.
+
+Das bestehende Daily-Sync-Datenmodell bleibt unverändert. Das frühere Current-Upload-Panel ist jetzt das Full-Checkpoint-Panel und zeigt keine Daily-Sync-Dateien mehr.
+
+### Unfollowed
+
+Die neue `Unfollowed`-Liste vergleicht alle von Daily Sync bis zum Full-Checkpoint-Cutoff beobachteten Follower mit der vollständigen Follower-Liste des Full Checkpoints. Daily-Ereignisse nach dem Full Checkpoint werden ausgeschlossen.
+
+### Identity Changes / Renames
+
+Wahrscheinliche Username-Änderungen werden erkannt, wenn ein verschwindender und ein neu erscheinender Username exakt denselben Relationship-Zeitstempel besitzen. Die Evidenz kann aus Follower-Zeitstempeln, Following-Zeitstempeln, aufeinanderfolgenden Daily-Following-Snapshots, Reference vs Full oder aufeinanderfolgenden Full Checkpoints stammen.
+
+Rename-Kandidaten werden aus New Follower, New Following, Not Following Back, Unfollowed und Unfollowed by me ausgeschlossen und separat unter `Renamed` zur manuellen Prüfung angezeigt.
+
+### My Following Activity
+
+Insights enthält jetzt ein separates My-Following-Activity-Panel. Es wird ausschließlich aus aufeinanderfolgenden Daily-`following.json`-Snapshots berechnet: Von mir gefolgt, Von mir entfolgt, Netto Following und Erneut gefolgt.
+
+`recently_unfollowed_profiles.json` wird **nicht** zum Zählen deiner eigenen Unfollows verwendet. Es dient nur als ergänzende Identity/FBID-Evidenz und zur Refollow-Erkennung.
+
+### Fehlende Insights-Werte
+
+Fehlende Insight-Metriken bleiben `null` / `—`. Sie werden im Chart nicht mehr zu Null konvertiert, und ein Drive-Rebuild kann alte falsche Nullwerte auf den tatsächlichen fehlenden Zustand zurücksetzen.
+
+Full Exports und Reference sind ausdrücklich aus der Daily-Insights-History ausgeschlossen. Der Analyzer scannt oder mischt keinen separaten Automation-Ordner außerhalb des konfigurierten öffentlichen Drive-Roots.

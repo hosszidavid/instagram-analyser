@@ -2,7 +2,7 @@
 
 Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
 
-Aktuális verzió: **v0.19**
+Aktuális verzió: **v0.20**
 
 Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
 
@@ -621,3 +621,35 @@ A sync key nem kerül a `config.js` fájlba. Minden eszközön egyszer kell mega
 A meglévő v0.18 Heartok automatikusan migrálódnak. A régi lokális Heartok `0` timestampet kapnak, ezért egy frissebb cloud oldali eltávolítás elsőbbséget élvez. A Heart eltávolítások tombstone rekordként megmaradnak a szinkronizált állapotban, így egy régebbi eszköz nem tudja később véletlenül visszahozni őket.
 
 A lokális Heart cache hálózati hiba esetén is megmarad. Van kézi `Hearts szinkron` gomb, ezen kívül a kapcsolódott kliensek induláskor, az apphoz visszatérve és Heart módosítás után is szinkronizálnak.
+
+## v0.20 - Full checkpointok, Unfollowed és My Following Activity
+
+Az adatforrások most explicit módon szét vannak választva:
+
+- **Reference** érintetlen és csak a Drive `Reference` mappájából vagy manuális Reference importból töltődik.
+- **Daily Sync** csak a `Reference` és `Full Exports` mappákon kívüli scheduled exportokat használja.
+- **Full Checkpoint** teljes follower/following snapshot. A manuálisan betöltött full elsőbbséget élvez. Ha nincs manuális full, a Drive `Full Exports` mappájában talált legfrissebb teljes export lesz a read-only **Last Full** fallback.
+
+A Daily Sync működő adatmodellje változatlan maradt. A korábbi Current upload panel most Full Checkpoint panel, és nem jeleníti meg a Daily Sync fájlokat.
+
+### Unfollowed
+
+Az új `Unfollowed` lista a Daily Sync által a Full Checkpoint cutoff időpontjáig valaha megfigyelt followereket hasonlítja össze a Full Checkpoint teljes follower listájával. A Full után érkező napi események nem kerülnek bele.
+
+### Identity changes / rename
+
+A rendszer probable username-váltást detektál, ha egy eltűnő és egy új username pontosan ugyanazzal a relationship timestamppel rendelkezik. Az evidence jöhet follower timestampből, following timestampből, egymást követő Daily Following snapshotokból, Reference vs Full összevetésből vagy egymást követő Full checkpointokból.
+
+A rename candidate-ek ki vannak zárva a New Follower, New Following, Not Following Back, Unfollowed és Unfollowed by me számításokból, és külön `Renamed` listában ellenőrizhetők.
+
+### My Following Activity
+
+Az Insights új My Following Activity panelje kizárólag az egymást követő Daily `following.json` snapshotokból számol: Bekövettem, Kikövettem, Nettó following és Újrakövettem.
+
+A `recently_unfollowed_profiles.json` **nem** növeli a saját kikövetéseid számát. Csak kiegészítő identity/FBID evidence-ként és refollow detektálásra használjuk.
+
+### Insights hiányzó értékek
+
+A hiányzó Insights metrikák `null` / `—` értéken maradnak. A chart nem alakítja őket többé 0-vá, és a Drive rebuild a korábban hibásan elmentett 0 értéket is vissza tudja állítani valódi hiányzó állapotra.
+
+A Full Exports és a Reference explicit módon ki van zárva a Daily Insights historyból. Az analyzer nem néz bele és nem kever adatot a beállított nyilvános Drive rooton kívüli másik automation mappából.
