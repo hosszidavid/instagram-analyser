@@ -2,7 +2,7 @@
 
 Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
 
-Aktuális verzió: **v0.22.2**
+Aktuális verzió: **v0.23.1**
 
 Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
 
@@ -722,3 +722,14 @@ Az `All-time Followers` most minden olyan canonical accountot jelent, amely bár
 Az `Unfollowers` most ugyanezt a történeti follower identity registryt használja, a kiválasztott Full checkpoint időpontjáig levágva, majd kivonja belőle a Fullban jelen lévő followereket. Ezzel megszűnik az a vakfolt, amikor egy csak Full exportban megjelent follower később soha nem kerülhetett volna az Unfollowers listába.
 
 A jelenlegi `Followers` logikája nem változott: ha van Full, Full + azóta új Daily follower eventek; Full nélkül a Daily baseline/history fallback marad.
+
+## v0.23 - Design polish
+
+A jóváhagyott látványterv designnyelve bekerült a tényleges felületbe, a relationship adatmodell módosítása nélkül.
+
+- Új, saját Followers Analyzer vektoros logó és favicon.
+- Branded header és finomított felső utility gombok.
+- Lágyabb oldal-atmoszféra, egyértelműbb paneltagolás, finomított kártyák, inputok és aktív navigáció.
+- Tudatosabb színakcentusok az Insights és az interaktív vezérlők körül.
+- A Growth Trends megkapta a jóváhagyott chart nyelvet: magasabb plot, sima multi-series vonalak, enyhe area fill, vertikális guide-ok, tisztább pontok és egy dátumhoz tartozó összes aktív metrikát mutató, panelen belül maradó tooltip.
+- A responsive működés, Daily Sync, Full Checkpoint, Heart Sync, identity kezelés és minden számítási logika változatlan.

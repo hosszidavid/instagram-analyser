@@ -1,4 +1,4 @@
-# Instagram Followers Analyzer v0.22.2
+# Instagram Followers Analyzer v0.23.1
 
 ## Fő navigáció
 - Overview
@@ -405,3 +405,14 @@ NFB now combines:
 `Unfollowers` now uses the same historical follower identity registry, cut off at the selected Full checkpoint, and subtracts the followers present in that Full. This closes the previous blind spot where a follower visible only in a Full export could never later become an Unfollower.
 
 Current `Followers` logic is unchanged: Full + newer Daily follower events when a Full exists, otherwise the Daily baseline/history fallback.
+
+## v0.23 - Visual polish
+
+The approved visual concept has been implemented in the actual interface without changing the relationship data model.
+
+- New original Followers Analyzer vector mark and favicon.
+- Branded header and refined top utility actions.
+- Softer page atmosphere, section separation, cards, inputs and active navigation states.
+- More deliberate accent use across Insights and interactive controls.
+- Growth Trends now uses the approved chart language: taller plot, smooth multi-series lines, subtle area fills, vertical guides, clearer points and a grouped date tooltip that remains clamped inside the chart panel.
+- Existing responsive behavior, Daily Sync, Full Checkpoints, Heart Sync, identity handling and calculation logic are unchanged.

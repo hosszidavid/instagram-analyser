@@ -2,7 +2,7 @@
 
 Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
 
-Aktuelle Version: **v0.22.2**
+Aktuelle Version: **v0.23.1**
 
 Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
 
@@ -724,3 +724,14 @@ NFB verwendet jetzt:
 `Unfollowers` verwendet nun dieselbe historische Follower-Identity-Registry, zeitlich bis zum ausgewählten Full Checkpoint begrenzt, und zieht davon die im Full vorhandenen Follower ab. Damit ist die bisherige Lücke geschlossen, bei der ein nur in einem Full Export sichtbarer Follower später nie als Unfollower erscheinen konnte.
 
 Die aktuelle `Followers`-Logik bleibt unverändert: Full + neuere Daily-Follower-Ereignisse, wenn ein Full vorhanden ist; ohne Full bleibt der Daily-Baseline/History-Fallback.
+
+## v0.23 - Design-Polish
+
+Die freigegebene Designsprache wurde in die echte Oberfläche übernommen, ohne das Relationship-Datenmodell zu verändern.
+
+- Neues eigenes Followers-Analyzer-Vektorlogo und Favicon.
+- Gebrandeter Header und verfeinerte Utility-Buttons.
+- Ruhigere Seitenatmosphäre, klarere Panel-Trennung sowie verfeinerte Karten, Eingaben und aktive Navigation.
+- Bewusstere Farbakzente in Insights und interaktiven Controls.
+- Growth Trends nutzt jetzt die freigegebene Chart-Sprache: höherer Plot, weiche Multi-Series-Linien, dezente Area-Fills, vertikale Guides, klarere Punkte und ein gruppierter Datums-Tooltip, der im Chart-Panel bleibt.
+- Responsive Verhalten, Daily Sync, Full Checkpoints, Heart Sync, Identity-Handling und Berechnungslogik bleiben unverändert.

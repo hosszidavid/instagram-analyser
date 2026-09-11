@@ -2223,16 +2223,16 @@ function drawInsightsGrowthChart(snaps){
 
   const metricMeta={
     followers:{label:t("followers"),className:"series-followers",color:"#7c3aed"},
-    following:{label:t("following"),className:"series-following",color:"#0f766e"},
-    follows:{label:t("follows"),className:"series-follows",color:"#16a34a"},
-    unfollows:{label:t("unfollows"),className:"series-unfollows",color:"#dc2626"},
-    reached:{label:t("accountsReached"),className:"series-reached",color:"#ea580c"},
-    profileVisits:{label:t("profileVisits"),className:"series-profileVisits",color:"#2563eb"}
+    following:{label:t("following"),className:"series-following",color:"#10b981"},
+    follows:{label:t("follows"),className:"series-follows",color:"#ec4899"},
+    unfollows:{label:t("unfollows"),className:"series-unfollows",color:"#f97316"},
+    reached:{label:t("accountsReached"),className:"series-reached",color:"#2563eb"},
+    profileVisits:{label:t("profileVisits"),className:"series-profileVisits",color:"#a855f7"}
   };
 
   const mode=els.chartScaleMode.value;
   const mobile=window.matchMedia("(max-width: 620px)").matches;
-  const w=mobile?520:1200,h=mobile?320:300;
+  const w=mobile?520:1200,h=mobile?340:360;
   const pL=mobile?50:58,pR=mobile?18:24,pT=mobile?24:24,pB=mobile?48:44;
   svg.setAttribute("viewBox",`0 0 ${w} ${h}`);
 
@@ -2260,11 +2260,13 @@ function drawInsightsGrowthChart(snaps){
   const yFor=value=>pT+(hi-value)/range*(h-pT-pB);
   const plotBottom=h-pB;
 
-  const defs=selected.map(metric=>`<linearGradient id="area-${metric}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${metricMeta[metric].color}" stop-opacity=".16"/><stop offset="100%" stop-color="${metricMeta[metric].color}" stop-opacity="0"/></linearGradient>`).join("");
+  const areaTopOpacity=selected.length===1?".12":".045";
+  const defs=selected.map(metric=>`<linearGradient id="area-${metric}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${metricMeta[metric].color}" stop-opacity="${areaTopOpacity}"/><stop offset="100%" stop-color="${metricMeta[metric].color}" stop-opacity="0"/></linearGradient>`).join("");
   const grids=[0,.25,.5,.75,1].map(r=>{
     const y=pT+r*(h-pT-pB),val=hi-r*(hi-lo),label=mode==="indexed"?val.toFixed(0):Math.round(val).toLocaleString();
     return`<line class="chart-gridline" x1="${pL}" y1="${y}" x2="${w-pR}" y2="${y}"/><text class="chart-axis" x="4" y="${y+4}">${label}</text>`;
   }).join("");
+  const verticalGrids=active.map(s=>`<line class="chart-gridline chart-gridline-vertical" x1="${xFor(s.timestamp)}" y1="${pT}" x2="${xFor(s.timestamp)}" y2="${plotBottom}"/>`).join("");
   const labels=active.map(s=>`<text class="chart-axis chart-date-label" x="${xFor(s.timestamp)}" y="${h-14}" text-anchor="middle">${escapeHtml(shortDate(s.timestamp))}</text>`).join("");
 
   let pointIndex=0;
@@ -2276,18 +2278,18 @@ function drawInsightsGrowthChart(snaps){
     }
     if(current.length)segments.push(current);
 
-    const area=selected.length===1?segments.filter(seg=>seg.length>1).map(seg=>{
+    const area=segments.filter(seg=>seg.length>1).map(seg=>{
       const line=smoothChartPath(seg);
       const first=seg[0],last=seg.at(-1);
       return`<path class="chart-area ${metricMeta[ser.metric].className}" d="${line} L${last.x} ${plotBottom} L${first.x} ${plotBottom} Z" fill="url(#area-${ser.metric})"/>`;
-    }).join(""):"";
+    }).join("");
 
     const lines=segments.map(seg=>`<path class="chart-line ${metricMeta[ser.metric].className}" d="${smoothChartPath(seg)}"/>`).join("");
-    const dots=segments.flat().map(q=>`<circle class="chart-point ${metricMeta[ser.metric].className}" data-chart-point="${q.key}" cx="${q.x}" cy="${q.y}" r="3.4"/><circle class="chart-hit" cx="${q.x}" cy="${q.y}" r="15" tabindex="0" data-chart-key="${q.key}" data-chart-series="${ser.metric}" data-chart-date="${escapeAttribute(shortDate(q.snapshot.timestamp))}" data-chart-raw="${q.rawValue}" data-chart-plot="${q.plotValue}"/>`).join("");
+    const dots=segments.flat().map(q=>`<circle class="chart-point ${metricMeta[ser.metric].className}" data-chart-point="${q.key}" cx="${q.x}" cy="${q.y}" r="3.4"/><circle class="chart-hit" cx="${q.x}" cy="${q.y}" r="15" tabindex="0" data-chart-key="${q.key}" data-chart-series="${ser.metric}" data-chart-date="${escapeAttribute(shortDate(q.snapshot.timestamp))}" data-chart-timestamp="${q.snapshot.timestamp}" data-chart-raw="${q.rawValue}" data-chart-plot="${q.plotValue}"/>`).join("");
     return area+lines+dots;
   }).join("");
 
-  svg.innerHTML=`<defs>${defs}</defs>${grids}<line class="chart-hover-guide" x1="0" y1="${pT}" x2="0" y2="${plotBottom}"/>${labels}${paths}`;
+  svg.innerHTML=`<defs>${defs}</defs>${grids}${verticalGrids}<line class="chart-hover-guide" x1="0" y1="${pT}" x2="0" y2="${plotBottom}"/>${labels}${paths}`;
   const guide=svg.querySelector(".chart-hover-guide");
   let pinnedKey=null;
 
@@ -2297,23 +2299,40 @@ function drawInsightsGrowthChart(snaps){
   };
 
   const show=(hit,{pin=false}={})=>{
-    const metric=hit.dataset.chartSeries,raw=Number(hit.dataset.chartRaw),plot=Number(hit.dataset.chartPlot),label=metricMeta[metric]?.label||metric;
-    const value=mode==="indexed"?`${plot.toFixed(1)} · ${raw.toLocaleString()}`:raw.toLocaleString();
-    tooltip.innerHTML=`<strong>${escapeHtml(label)}</strong><span>${escapeHtml(hit.dataset.chartDate)}</span><b>${escapeHtml(value)}</b>`;
+    const timestamp=Number(hit.dataset.chartTimestamp);
+    const snapshot=active.find(s=>s.timestamp===timestamp);
+    const rows=selected.map(metric=>{
+      const raw=snapshot?.[metric];
+      if(raw===null||raw===undefined||raw===""||!Number.isFinite(Number(raw)))return null;
+      const numeric=Number(raw);
+      let display=numeric.toLocaleString();
+      if(mode==="indexed"){
+        const ser=series.find(x=>x.metric===metric);
+        const plot=ser?.rows.find(r=>r.s.timestamp===timestamp)?.plot;
+        if(Number.isFinite(plot))display=`${plot.toFixed(1)} · ${display}`;
+      }
+      return`<div class="chart-tooltip-row"><i style="--series-color:${metricMeta[metric].color}"></i><span>${escapeHtml(metricMeta[metric].label)}</span><b>${escapeHtml(display)}</b></div>`;
+    }).filter(Boolean).join("");
+
+    tooltip.innerHTML=`<strong class="chart-tooltip-date">${escapeHtml(hit.dataset.chartDate)}</strong><div class="chart-tooltip-values">${rows}</div>`;
     tooltip.classList.add("visible");tooltip.classList.remove("below");
 
     clearActive();
-    svg.querySelector(`[data-chart-point="${CSS.escape(hit.dataset.chartKey)}"]`)?.classList.add("active");
+    svg.querySelectorAll(`[data-chart-timestamp="${CSS.escape(String(timestamp))}"]`).forEach(pointHit=>{
+      const key=pointHit.dataset.chartKey;
+      svg.querySelector(`[data-chart-point="${CSS.escape(key)}"]`)?.classList.add("active");
+    });
+
     const cx=Number(hit.getAttribute("cx")),cy=Number(hit.getAttribute("cy"));
     if(guide){guide.setAttribute("x1",cx);guide.setAttribute("x2",cx);guide.classList.add("visible");}
 
     const cardRect=els.insightsChartCard.getBoundingClientRect(),svgRect=svg.getBoundingClientRect();
     const pointLeft=(cx/w)*svgRect.width+(svgRect.left-cardRect.left),pointTop=(cy/h)*svgRect.height+(svgRect.top-cardRect.top);
-    const tw=tooltip.offsetWidth||120,th=tooltip.offsetHeight||64;
-    const left=Math.max(8+tw/2,Math.min(cardRect.width-8-tw/2,pointLeft));
-    const enoughAbove=pointTop-th-14>=8;
-    const top=enoughAbove?pointTop-th-12:Math.min(cardRect.height-th-8,pointTop+12);
-    tooltip.style.left=`${left}px`;tooltip.style.top=`${Math.max(8,top)}px`;
+    const tw=tooltip.offsetWidth||220,th=tooltip.offsetHeight||120;
+    const left=Math.max(10+tw/2,Math.min(cardRect.width-10-tw/2,pointLeft));
+    const enoughAbove=pointTop-th-16>=10;
+    const top=enoughAbove?pointTop-th-14:Math.min(cardRect.height-th-10,pointTop+14);
+    tooltip.style.left=`${left}px`;tooltip.style.top=`${Math.max(10,top)}px`;
     tooltip.classList.toggle("below",!enoughAbove);
     if(pin)pinnedKey=hit.dataset.chartKey;
   };
