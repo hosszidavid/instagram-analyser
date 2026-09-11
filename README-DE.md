@@ -2,7 +2,7 @@
 
 Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
 
-Aktuelle Version: **v0.20**
+Aktuelle Version: **v0.22.2**
 
 Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
 
@@ -655,3 +655,72 @@ Insights enthält jetzt ein separates My-Following-Activity-Panel. Es wird aussc
 Fehlende Insight-Metriken bleiben `null` / `—`. Sie werden im Chart nicht mehr zu Null konvertiert, und ein Drive-Rebuild kann alte falsche Nullwerte auf den tatsächlichen fehlenden Zustand zurücksetzen.
 
 Full Exports und Reference sind ausdrücklich aus der Daily-Insights-History ausgeschlossen. Der Analyzer scannt oder mischt keinen separaten Automation-Ordner außerhalb des konfigurierten öffentlichen Drive-Roots.
+
+## v0.21 - Rekonstruiertes NFB, Growth-Details und Following-Kohorten
+
+Diese Version hält die zwei Follower-Modelle bewusst getrennt.
+
+Die **historische Follower-Evidenz** wird weiterhin aus dem ersten Scheduled-Full-Baseline plus allen Daily-Follower-Ereignissen aufgebaut. Sie versorgt `Unfollowers` und historische/Lifecycle-Ansichten.
+
+Die **NFB-Rekonstruktion** startet beim effektiven Full Checkpoint (manueller Current Full, falls vorhanden, sonst Drive Last Full), ergänzt nur spätere Daily-Follower-Ereignisse und vergleicht diesen rekonstruierten Zustand mit dem neuesten Daily `following.json`. Überlappende Full/Daily-Datensätze werden anhand kanonischer Identität plus exaktem Relationship-Zeitstempel dedupliziert. Die Full-Grenze wird aus Relationship-Evidenz und nicht aus ZIP-Uhrzeiten abgeleitet, wodurch keine Zeitzonenannahme nötig ist.
+
+`Unfollowed` heißt jetzt **Unfollowers**. Der bisherige Reference-basierte Quick-Changes-Wert heißt **Lost followers since Reference**.
+
+Weitere Änderungen:
+
+- Hide Reference Matches shown/hidden Zähler korrigiert;
+- Open Next aktiviert denselben gerenderten Profil-`<a>`-Link wie ein manueller Username-Klick und verwendet kein `window.open()` mehr, damit beim Öffnen der Instagram-App kein `about:blank` Tab zurückbleibt;
+- modernere Growth-Trends-Kurven, dezente Single-Series-Fläche, aktiver Guide und innerhalb der Chart-Karte begrenzter Tooltip;
+- Growth-Trends-Tage können aufgeklappt werden und zeigen Account-Ereignisse des Tages;
+- My Following Activity steht nun unter Growth Trends als klar getrenntes Panel;
+- Cohorts enthält zusätzlich eine **Following Cohort Analysis** aus aufeinanderfolgenden Daily-Following-Snapshots und Rename-resolved Follow-Zyklen.
+
+Favicon und allgemeiner Visual-Atmosphere-Polish bleiben absichtlich für den separaten Polish-Durchgang.
+
+## v0.22 - Followers-Fallback, All-time Followers und sichtbare Datenquellen
+
+Diese Version schließt das Relationship-State-Modell vor der separaten visuellen Polish-Runde ab.
+
+### Followers
+
+Followers hat jetzt immer einen nutzbaren Fallback:
+
+- mit Full Checkpoint startet die App von dieser vollständigen Follower-Liste und ergänzt nur neuere Daily-Follower-Ereignisse;
+- ohne Full Checkpoint wird der erste Daily-Baseline plus alle späteren Daily-Follower-Ereignisse verwendet.
+
+Unter der Liste zeigt ein kurzer, leicht verständlicher Hinweis, aus welchen Daten die Ansicht berechnet wurde.
+
+### All-time Followers
+
+Die neue Ansicht **All-time Followers** behält das historische Modell: Sie führt alle Accounts zusammen, die Daily Sync jemals als Follower gesehen hat. Sie bleibt bewusst getrennt von der rekonstruierten aktuellen Followers-Ansicht.
+
+### Auswahl des Following-Snapshots
+
+Daily `following.json` und Full Checkpoint sind beide vollständige Following-Snapshots. Die App versucht jetzt, den neueren Snapshot anhand der Erstellungs-/Änderungszeit der Datei zu wählen, nicht anhand des Export-Dateinamens oder der letzten Follow-Aktion.
+
+Der interne Zeitstempel von `following.json` in ZIP-Dateien wird direkt gelesen. Für öffentliche Drive-JSON-Dateien gibt der Cloudflare Worker Googles `Last-Modified` Header weiter, wenn er verfügbar ist.
+
+Wenn die genaue Reihenfolge nicht bestimmt werden kann, bleibt Daily Sync der konservative automatische Fallback. Ein kompakter Details-Bereich zeigt die verwendete Quelle und erlaubt für die aktuelle Sitzung einen Override zwischen Automatisch, Daily Sync und Full Checkpoint.
+
+### Not Following Back
+
+NFB verwendet jetzt:
+
+- aus Full + neueren Daily-Follows rekonstruierte Followers, oder ohne Full den Daily-History-Fallback;
+- den nach der Quellenlogik neuesten vollständigen Following-Snapshot;
+- Rename-Auflösung vor dem Vergleich.
+
+### Weitere Änderungen
+
+- Growth Trends hat einen klareren Disclosure-Pfeil für Tagesdetails.
+- Follower-orientierte Ansichten verwenden jetzt die richtige Beziehung für Timestamp-Texte.
+- Full Checkpoints werden, wenn möglich, nach der internen Following-Dateizeit sortiert.
+- Für die Drive-Dateizeit muss der Cloudflare Worker neu deployt werden.
+
+## v0.22.2 - Einheitliche historische Follower-Evidenz
+
+`All-time Followers` umfasst jetzt jeden kanonischen Account, der in einem verfügbaren Relationship-Export jemals als Follower erschienen ist: Reference, Daily-Follower-Historie, Drive Full Exports und manuell geladene Full Checkpoints. Rename-Aliase werden vor dem Zählen zusammengeführt.
+
+`Unfollowers` verwendet nun dieselbe historische Follower-Identity-Registry, zeitlich bis zum ausgewählten Full Checkpoint begrenzt, und zieht davon die im Full vorhandenen Follower ab. Damit ist die bisherige Lücke geschlossen, bei der ein nur in einem Full Export sichtbarer Follower später nie als Unfollower erscheinen konnte.
+
+Die aktuelle `Followers`-Logik bleibt unverändert: Full + neuere Daily-Follower-Ereignisse, wenn ein Full vorhanden ist; ohne Full bleibt der Daily-Baseline/History-Fallback.

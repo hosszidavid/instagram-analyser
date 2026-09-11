@@ -2,7 +2,7 @@
 
 Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
 
-Aktuális verzió: **v0.20**
+Aktuális verzió: **v0.22.2**
 
 Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
 
@@ -653,3 +653,72 @@ A `recently_unfollowed_profiles.json` **nem** növeli a saját kikövetéseid sz
 A hiányzó Insights metrikák `null` / `—` értéken maradnak. A chart nem alakítja őket többé 0-vá, és a Drive rebuild a korábban hibásan elmentett 0 értéket is vissza tudja állítani valódi hiányzó állapotra.
 
 A Full Exports és a Reference explicit módon ki van zárva a Daily Insights historyból. Az analyzer nem néz bele és nem kever adatot a beállított nyilvános Drive rooton kívüli másik automation mappából.
+
+## v0.21 - Rekonstruált NFB, Growth részletek és Following cohortok
+
+Ebben a verzióban szándékosan külön marad a két follower-modell.
+
+A **történeti follower evidence** továbbra is az első scheduled Full baseline-ból és az összes Daily follower eventből épül. Ezt használja az `Unfollowers` és minden történeti/lifecycle jellegű nézet.
+
+Az **NFB rekonstrukció** az effektív Full Checkpointból indul (ha van manuális Current Full, abból; különben a Drive Last Fullból), majd csak az ezt követő Daily follower eventeket adja hozzá, és ezt hasonlítja a legfrissebb Daily `following.json` állapothoz. A Full/Daily átfedéseket canonical identity + pontos relationship timestamp alapján deduplikáljuk. A Full határát relationship evidence alapján határozzuk meg, nem ZIP-óra alapján, ezért a modell nem épít timezone-feltételezésre.
+
+Az `Unfollowed` neve **Unfollowers** lett. A Quick Changes korábbi Reference-alapú mutatója **Lost followers since Reference** néven jelenik meg.
+
+További változások:
+
+- javítva a Hide Reference Matches shown/hidden számláló;
+- az Open Next ugyanazt a renderelt profil `<a>` linket aktiválja, mint a kézi username-kattintás, `window.open()` nélkül, így nem marad orphan `about:blank` böngészőlap az Instagram app megnyitásakor;
+- modernebb Growth Trends görbe, finom single-series area, aktív guide és a charton belül clampelt tooltip;
+- a Growth Trends dátumai lenyithatók, és megmutatják a napi fiókszintű eseményeket (új megfigyelt follower, általam bekövetett, általam kikövetett);
+- a My Following Activity a Growth Trends után, külön panelként került az Insights aljára;
+- a Cohorts új **Following Cohort Analysis** panelt kapott, amely kizárólag egymást követő Daily Following snapshotokból és rename-resolved follow ciklusokból számol.
+
+A favicon és az általános vizuális atmosphere polish szándékosan a külön polish körre marad.
+
+## v0.22 - Followers fallback, All-time Followers és látható adatforrások
+
+Ez a verzió lezárja a relationship-state modellt a külön vizuális polish kör előtt.
+
+### Followers
+
+A Followers nézetnek most mindig van használható fallbackje:
+
+- ha van Full Checkpoint, abból indulunk és csak az annál újabb Daily follower eseményeket adjuk hozzá;
+- ha nincs Full Checkpoint, az első Daily baseline + az összes későbbi Daily follower esemény adja a fallback állapotot.
+
+A lista alatt egy rövid, hétköznapi nyelvű sor mutatja, miből számol az app.
+
+### All-time Followers
+
+Új **All-time Followers** nézet készült. Ez a történeti modell: összefésüli az összes fiókot, akit a Daily Sync valaha followerként látott. Szándékosan külön van a rekonstruált aktuális Followers nézettől.
+
+### Following snapshot kiválasztása
+
+A Daily `following.json` és a Full Checkpoint is teljes Following snapshot. Az app most a fájl generálási/módosítási ideje alapján próbálja kiválasztani a frissebbet, nem az export fájlnevéből vagy a legutóbbi follow actionből.
+
+A ZIP-en belüli `following.json` időpontját közvetlenül olvassuk. A publikus Drive JSON fájloknál a Cloudflare Worker továbbadja a Google `Last-Modified` fejlécét, ha az elérhető.
+
+Ha a pontos sorrend nem állapítható meg, automatikusan a Daily Sync marad a konzervatív fallback. Egy kicsi Részletek vezérlő megmutatja a használt forrást, és session szinten válthatsz Automatic, Daily Sync és Full Checkpoint között.
+
+### Not Following Back
+
+Az NFB most ebből épül:
+
+- Full + újabb Daily followerek alapján rekonstruált Followers, vagy Full nélkül a Daily történeti fallback;
+- a forrásválasztás szerint legfrissebb teljes Following snapshot;
+- rename resolution az összevetés előtt.
+
+### Egyéb
+
+- A Growth Trends napi lenyitása egyértelműbb disclosure nyilat kapott.
+- A follower-alapú nézetek timestampei most a megfelelő follower kapcsolatot jelölik.
+- A Full checkpointok sorrendezése ahol lehet a belső Following fájl idejét használja.
+- A Drive fájlidő továbbításához a Cloudflare Workert újra kell deployolni.
+
+## v0.22.2 - Egységes történeti follower evidence
+
+Az `All-time Followers` most minden olyan canonical accountot jelent, amely bármely elérhető relationship exportban valaha followerként szerepelt: Reference, Daily follower history, Drive Full Exports és manuálisan betöltött Full checkpointok. A rename aliasok számlálás előtt összevonódnak.
+
+Az `Unfollowers` most ugyanezt a történeti follower identity registryt használja, a kiválasztott Full checkpoint időpontjáig levágva, majd kivonja belőle a Fullban jelen lévő followereket. Ezzel megszűnik az a vakfolt, amikor egy csak Full exportban megjelent follower később soha nem kerülhetett volna az Unfollowers listába.
+
+A jelenlegi `Followers` logikája nem változott: ha van Full, Full + azóta új Daily follower eventek; Full nélkül a Daily baseline/history fallback marad.

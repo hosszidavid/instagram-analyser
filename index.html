@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Instagram Followers Analyzer</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=0.22.2" />
 </head>
 <body>
   <main class="app-shell">
@@ -153,7 +153,7 @@
           </div>
           <div class="change-list">
             <div><span data-i18n="newFollowers">New followers</span><strong id="newFollowersCount">0</strong></div>
-            <div><span data-i18n="lostFollowers">Lost followers</span><strong id="lostFollowersCount">0</strong></div>
+            <div><span data-i18n="lostFollowers">Lost followers since Reference</span><strong id="lostFollowersCount">0</strong></div>
             <div><span data-i18n="newFollowing">New following</span><strong id="newFollowingCount">0</strong></div>
             <div><span data-i18n="unfollowedByYou">Unfollowed by you</span><strong id="unfollowedByYouCount">0</strong></div>
           </div>
@@ -200,8 +200,11 @@
         <button class="tab" data-view="notFollowingBack" type="button">
           <span data-i18n="notFollowingBack">Not Following Back</span><strong id="notFollowingBackCount">0</strong>
         </button>
+        <button class="tab" data-view="allTimeFollowers" type="button">
+          <span data-i18n="allTimeFollowers">All-time Followers</span><strong id="allTimeFollowersCount">0</strong>
+        </button>
         <button class="tab" data-view="unfollowed" type="button">
-          <span data-i18n="unfollowed">Unfollowed</span><strong id="unfollowedCount">—</strong>
+          <span data-i18n="unfollowed">Unfollowers</span><strong id="unfollowedCount">—</strong>
         </button>
         <button class="tab" data-view="renamed" type="button">
           <span data-i18n="renamed">Renamed</span><strong id="renamedCount">0</strong>
@@ -250,6 +253,7 @@
       </div>
 
       <div class="summary-line" id="summaryLine"></div>
+      <div class="data-source-note" id="dataSourceNote"></div>
       <div class="user-list" id="userList"></div>
 
       <div class="empty-state" id="emptyState">
@@ -304,25 +308,7 @@
       </div>
 
 
-      <div class="my-following-panel">
-        <div class="section-title-row compact-section-head">
-          <div><p class="eyebrow" data-i18n="myFollowingActivity">MY FOLLOWING ACTIVITY</p><h2 data-i18n="myFollowingTitle">Your daily follow activity</h2></div>
-          <div class="activity-range">
-            <label class="field compact-field"><span class="field-label" data-i18n="activityFrom">From</span><input id="myActivityFrom" class="text-input" type="date" /></label>
-            <label class="field compact-field"><span class="field-label" data-i18n="activityTo">To</span><input id="myActivityTo" class="text-input" type="date" /></label>
-          </div>
-        </div>
-        <div class="metric-grid activity-metrics">
-          <article class="metric-card"><span data-i18n="followedByMe">Followed by me</span><strong id="myActivityFollowed">0</strong></article>
-          <article class="metric-card"><span data-i18n="unfollowedByMe">Unfollowed by me</span><strong id="myActivityUnfollowed">0</strong></article>
-          <article class="metric-card"><span data-i18n="netFollowing">Net following</span><strong id="myActivityNet">0</strong></article>
-          <article class="metric-card"><span data-i18n="refollowedByMe">Refollowed</span><strong id="myActivityRefollowed">0</strong></article>
-        </div>
-        <div id="myActivityDailyList" class="activity-daily-list"></div>
-        <div class="empty-state compact-empty" id="myActivityEmpty"><span data-i18n="activityNoData">Drive Sync is required for daily Following activity.</span></div>
-      </div>
-
-      <div class="insight-history-panel">
+      <div class="insight-history-panel subsection-panel">
         <div class="section-title-row compact-section-head">
           <div>
             <p class="eyebrow" data-i18n="growthTrends">GROWTH TRENDS</p>
@@ -372,6 +358,24 @@
         </div>
       </div>
 
+      <div class="my-following-panel subsection-panel">
+        <div class="section-title-row compact-section-head">
+          <div><p class="eyebrow" data-i18n="myFollowingActivity">MY FOLLOWING ACTIVITY</p><h2 data-i18n="myFollowingTitle">Your daily follow activity</h2></div>
+          <div class="activity-range">
+            <label class="field compact-field"><span class="field-label" data-i18n="activityFrom">From</span><input id="myActivityFrom" class="text-input" type="date" /></label>
+            <label class="field compact-field"><span class="field-label" data-i18n="activityTo">To</span><input id="myActivityTo" class="text-input" type="date" /></label>
+          </div>
+        </div>
+        <div class="metric-grid activity-metrics">
+          <article class="metric-card"><span data-i18n="followedByMe">Followed by me</span><strong id="myActivityFollowed">0</strong></article>
+          <article class="metric-card"><span data-i18n="unfollowedByMe">Unfollowed by me</span><strong id="myActivityUnfollowed">0</strong></article>
+          <article class="metric-card"><span data-i18n="netFollowing">Net following</span><strong id="myActivityNet">0</strong></article>
+          <article class="metric-card"><span data-i18n="refollowedByMe">Refollowed</span><strong id="myActivityRefollowed">0</strong></article>
+        </div>
+        <div id="myActivityDailyList" class="activity-daily-list"></div>
+        <div class="empty-state compact-empty" id="myActivityEmpty"><span data-i18n="activityNoData">Drive Sync is required for daily Following activity.</span></div>
+      </div>
+
       <div class="empty-state insight-empty" id="insightEmpty">
         <strong data-i18n="noInsights">No Instagram Insights found.</strong>
         <span data-i18n="noInsightsCopy">Use a full Instagram export that includes Past Instagram Insights.</span>
@@ -395,6 +399,32 @@
 
       <div class="cohort-grid" id="cohortGrid"></div>
       <div class="summary-line" id="cohortHint"></div>
+
+      <div class="following-cohort-panel subsection-panel">
+        <div class="section-title-row compact-section-head">
+          <div>
+            <p class="eyebrow" data-i18n="followingCohortAnalysis">FOLLOWING COHORT ANALYSIS</p>
+            <h2 data-i18n="followingCohortTitle">How long do you keep following new accounts?</h2>
+          </div>
+        </div>
+
+        <div class="metric-grid following-cohort-metrics">
+          <article class="metric-card"><span data-i18n="followingCohortTracked">Tracked follow cycles</span><strong id="followingCohortTracked">0</strong></article>
+          <article class="metric-card"><span data-i18n="followingCohortStill">Still following</span><strong id="followingCohortStill">0</strong></article>
+          <article class="metric-card"><span data-i18n="followingCohortLeft">Unfollowed later</span><strong id="followingCohortLeft">0</strong></article>
+          <article class="metric-card"><span data-i18n="followingCohortRetention">Current retention</span><strong id="followingCohortRetention">—</strong></article>
+        </div>
+
+        <div class="cohort-grid following-retention-grid" id="followingRetentionGrid"></div>
+
+        <div class="following-cohort-days-head">
+          <p class="eyebrow" data-i18n="followingCohortAccounts">Following cohorts by day</p>
+        </div>
+        <div class="following-cohort-days" id="followingCohortDays"></div>
+        <div class="empty-state compact-empty" id="followingCohortEmpty">
+          <span data-i18n="followingCohortNoData">Daily Sync needs at least two Following snapshots for this analysis.</span>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -425,7 +455,7 @@
     </section>
   </div>
 
-  <script src="config.js"></script>
-  <script src="app.js"></script>
+  <script src="config.js?v=0.22.2"></script>
+  <script src="app.js?v=0.22.2"></script>
 </body>
 </html>

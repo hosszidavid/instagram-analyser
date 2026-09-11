@@ -1,4 +1,4 @@
-# Instagram Followers Analyzer v0.20
+# Instagram Followers Analyzer v0.22.2
 
 ## Fő navigáció
 - Overview
@@ -336,3 +336,72 @@ Insights now contains a separate My Following Activity panel. It is derived only
 Missing Insight metrics remain `null` / `—`. They are no longer converted to zero in the chart, and a Drive rebuild overwrites stale zero values with the actual missing state.
 
 Full Exports and Reference are explicitly excluded from Daily Insights history. The analyzer never scans or mixes a separate automation folder that is outside the configured public Drive root.
+
+## v0.21 - Reconstructed NFB, Growth detail and Following cohorts
+
+This release keeps the two follower models deliberately separate.
+
+**Historical follower evidence** is still built from the first scheduled Full baseline plus every Daily follower event. It powers `Unfollowers` and other historical/lifecycle views.
+
+**NFB reconstruction** now starts from the effective Full Checkpoint (manual Current Full if present, otherwise Drive Last Full), then adds only later Daily follower events and compares that reconstructed follower state with the newest Daily `following.json`. Overlapping Full/Daily records are deduplicated by canonical identity and exact relationship timestamp. The Full boundary is derived from relationship evidence rather than ZIP clock metadata, so the model does not depend on timezone assumptions.
+
+`Unfollowed` is renamed to **Unfollowers**. Quick Changes now labels the older Reference-based metric **Lost followers since Reference**.
+
+Other changes:
+
+- fixed the Hide Reference Matches shown/hidden counter;
+- Open Next now activates the same rendered profile `<a>` used by a manual username click instead of `window.open()`, preventing orphaned `about:blank` tabs when Instagram opens in the native app;
+- Growth Trends uses smoother paths, a subtle single-series area, an active guide and a tooltip clamped inside the chart card;
+- Growth Trends dates can be expanded to show account-level Daily events (new follower observations, followed by you, unfollowed by you);
+- My Following Activity moved below Growth Trends as its own separated panel;
+- Cohorts now also includes **Following Cohort Analysis**, derived only from consecutive Daily Following snapshots and rename-resolved follow cycles.
+
+The favicon and broader visual-atmosphere polish are intentionally deferred to the separate polish pass.
+
+## v0.22 - Current followers fallback, All-time Followers and visible data sources
+
+This release finishes the relationship-state model before the separate visual polish round.
+
+### Followers
+
+Followers now always has a usable state:
+
+- when a Full Checkpoint exists, the app starts from that complete follower list and adds only newer Daily follower events;
+- when no Full Checkpoint exists, it falls back to the first Daily baseline plus every later Daily follower event.
+
+The source is shown below the list in a short, plain-language note.
+
+### All-time Followers
+
+A new **All-time Followers** view keeps the historical model: it merges every follower account ever observed by Daily Sync. It is intentionally separate from the reconstructed current Followers view.
+
+### Following snapshot selection
+
+Daily `following.json` files and Full Checkpoints are both complete Following snapshots. The app now tries to select the newer snapshot from the file-generation/modification time rather than the export filename or the latest follow action.
+
+ZIP-internal `following.json` timestamps are read directly. For public Drive JSON files, the Cloudflare Worker now forwards Google's public `Last-Modified` header when available.
+
+If exact file ordering is unavailable, Daily Sync remains the conservative automatic fallback. A compact Details control shows which source is being used and allows a session-only override between Automatic, Daily Sync and Full Checkpoint.
+
+### Not Following Back
+
+NFB now combines:
+
+- current Followers reconstructed from Full + newer Daily follows, or the Daily historical fallback when no Full exists;
+- the newest complete Following snapshot chosen by the source-selection logic above;
+- rename resolution before comparison.
+
+### Other changes
+
+- Growth Trends has a clearer disclosure control for opening daily account details.
+- Follower-oriented views now show follower timestamps with the correct relationship label.
+- Full checkpoint ordering prefers the internal Following file time where available.
+- The Cloudflare Worker must be redeployed for Drive file modification-time forwarding.
+
+## v0.22.2 - Unified historical follower evidence
+
+`All-time Followers` now means every canonical account that has ever appeared as a follower in any available relationship export: Reference, Daily follower history, Drive Full Exports and manually loaded Full checkpoints. Rename aliases are merged before counting.
+
+`Unfollowers` now uses the same historical follower identity registry, cut off at the selected Full checkpoint, and subtracts the followers present in that Full. This closes the previous blind spot where a follower visible only in a Full export could never later become an Unfollower.
+
+Current `Followers` logic is unchanged: Full + newer Daily follower events when a Full exists, otherwise the Daily baseline/history fallback.

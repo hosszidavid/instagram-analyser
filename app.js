@@ -5,7 +5,7 @@ const translations = {
     chooseCurrent:"Choose current full Instagram export",dropHint:"Drop a complete Instagram ZIP here, or select full followers/following JSON files.",
     chooseReference:"Choose reference ZIP or JSON files",referenceHint:"Optional. Use an older Instagram export as the comparison reference.",nothingLoaded:"No manual full loaded.",noReference:"No reference loaded.",
     overview:"Overview",followers:"Followers",following:"Following",notFollowingBack:"Not Following Back",insights:"Insights",cohorts:"Cohorts",cleanup:"Cleanup",mutuals:"Mutuals",
-    quickChanges:"QUICK CHANGES",referenceComparison:"Reference comparison",newFollowers:"New followers",lostFollowers:"Lost followers",newFollowing:"New following",unfollowedByYou:"Unfollowed by you",
+    quickChanges:"QUICK CHANGES",referenceComparison:"Reference comparison",newFollowers:"New followers",lostFollowers:"Lost followers since Reference",newFollowing:"New following",unfollowedByYou:"Unfollowed by you",
     keepList:"KEEP LIST",heartedProfiles:"Hearted profiles",savedLocally:"saved",
     search:"Search",searchPlaceholder:"Search users...",referenceFilter:"Reference filter",referenceAll:"Show all",referenceHide:"Hide reference matches",referenceOnly:"Show only reference matches",
     sort:"Sort",newestFirst:"Newest first",oldestFirst:"Oldest first",nameAsc:"Name A–Z",nameDesc:"Name Z–A",exportCsv:"Export CSV",
@@ -18,7 +18,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALYSIS",cohortTitle:"How fast do new follows convert?",followBackRate:"Follow-back rate",medianTime:"Median follow-back time",followedInCohorts:"Tracked follows",suggestedThreshold:"Suggested threshold",
     within1:"Within 1 day",within2:"Within 2 days",within3:"Within 3 days",within7:"Within 7 days",cohortNeedHistory:"Cohorts are calculated directly from the follow timestamps in the current export.",days:"days",
     cleanupCandidates:"CLEANUP CANDIDATES",cleanupTitle:"Prioritized accounts to review",cleanupNote:"The score currently uses only relationship data available from followers/following exports. Hearted profiles are excluded.",
-    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Daily Instagram archive",driveSyncCopy:"Paste the public Drive folder link. Daily exports are used for tracking; Reference and Full Exports remain isolated.",driveFolderLink:"Public Drive folder link",syncDrive:"Sync Drive",driveNotSynced:"Not synced",driveSyncing:"Scanning Drive…",driveSynced:"Synced",driveReady:"Ready to scan the public folder.",driveLatest:"Latest Daily",drivePrevious:"Last Full",driveExportsFound:"Reference",driveFilesFound:"Daily exports",driveApiKeyMissing:"",driveBridgeMissing:"The public Drive bridge is not configured yet. Add your Cloudflare Worker URL to config.js once; no Google API key or billing is needed.",driveInvalidLink:"This does not look like a Google Drive folder link.",driveNoExports:"No dated Instagram exports with followers/following files were found under this folder.",driveSyncComplete:"Drive sync complete. Daily tracking, Reference, Full Exports and Insights were loaded as separate data sources.",driveSyncFailed:"Drive sync failed",driveAutoSnapshot:"Insights history was updated automatically.",driveNoPrevious:"None",driveScanningFolder:"Scanning folders and files…",driveDownloading:"Downloading relevant JSON files…",scanDriveHistory:"Scan Drive history",driveHistoryScanning:"Rebuilding all dated Drive Insights…",driveHistoryComplete:"Drive Insights history rebuilt.",driveHistoryAdded:"snapshots added",driveHistoryUpdated:"snapshots updated",driveHistoryNoInsights:"No dated Insights exports were found.",driveReferenceFolder:"Reference folder",driveReferenceFound:"Loaded from Drive reference folder",driveReferenceMissing:"No reference folder found",readme:"README",documentation:"DOCUMENTATION",add:"Add",sourceFilesShort:"{files} source file(s)",readmeLoadError:"Could not load the README file.",driveDailyModeNote:"Daily Sync keeps positive follower observations and full daily Following snapshots. Lost followers are verified only against a Full Checkpoint.",driveFollowerListNote:"Observed follower events from Daily Sync. This is not a verified current follower snapshot.",driveNfbListNote:"No follow-back observed in Daily Sync. Rename candidates are excluded.",loadedDriveDaily:"{files} daily source file(s) · {followers} observed follower records · {following} latest following · {notFollowing} no follow-back observed",hideHearted:"Hide hearted",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Sync hearts",heartSyncLocal:"Local only",heartSyncSyncing:"Syncing...",heartSyncSynced:"Cloud synced",heartSyncReady:"Enter the same sync key that is stored as HEARTS_SYNC_KEY in the Cloudflare Worker.",heartSyncDone:"Hearts synchronized.",heartSyncNoKey:"Enter your Heart Sync key first.",heartSyncInvalidKey:"Heart Sync key was rejected.",heartSyncError:"Heart Sync failed",heartSyncAuto:"Heart changes sync automatically while a key is saved.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manual upload",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"No full checkpoint available.",driveReferenceLoadedShort:"Loaded",driveFullMissing:"None",unfollowed:"Unfollowed",renamed:"Renamed",unfollowedNeedsSync:"Daily Sync is required to reconstruct accounts that were observed as followers.",unfollowedNeedsFull:"A Full Checkpoint is required to verify which observed followers are no longer present.",syncDriveAction:"Sync Drive",addFullAction:"Add Full Export",unfollowedCutoff:"Compared only through the Full Checkpoint cutoff: {date}.",baselineFollowerLost:"Reference follower, absent from latest Full Checkpoint",joinedThenLeft:"Joined during tracking, later absent",renameEvidenceFollower:"Follower timestamp",renameEvidenceFollowing:"Following timestamp",renameConfidenceHigh:"High confidence",renameConfidenceLikely:"Likely",myFollowingActivity:"MY FOLLOWING ACTIVITY",myFollowingTitle:"Your daily follow activity",followedByMe:"Followed by me",unfollowedByMe:"Unfollowed by me",netFollowing:"Net following",refollowedByMe:"Refollowed",activityFrom:"From",activityTo:"To",activityNoData:"Drive Sync is required for daily Following activity.",activityFollowed:"Followed",activityUnfollowed:"Unfollowed",activityRefollow:"Refollow",detectedBetweenSnapshots:"Detected between daily snapshots"
+    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Daily Instagram archive",driveSyncCopy:"Paste the public Drive folder link. Daily exports are used for tracking; Reference and Full Exports remain isolated.",driveFolderLink:"Public Drive folder link",syncDrive:"Sync Drive",driveNotSynced:"Not synced",driveSyncing:"Scanning Drive…",driveSynced:"Synced",driveReady:"Ready to scan the public folder.",driveLatest:"Latest Daily",drivePrevious:"Last Full",driveExportsFound:"Reference",driveFilesFound:"Daily exports",driveApiKeyMissing:"",driveBridgeMissing:"The public Drive bridge is not configured yet. Add your Cloudflare Worker URL to config.js once; no Google API key or billing is needed.",driveInvalidLink:"This does not look like a Google Drive folder link.",driveNoExports:"No dated Instagram exports with followers/following files were found under this folder.",driveSyncComplete:"Drive sync complete. Daily tracking, Reference, Full Exports and Insights were loaded as separate data sources.",driveSyncFailed:"Drive sync failed",driveAutoSnapshot:"Insights history was updated automatically.",driveNoPrevious:"None",driveScanningFolder:"Scanning folders and files…",driveDownloading:"Downloading relevant JSON files…",scanDriveHistory:"Scan Drive history",driveHistoryScanning:"Rebuilding all dated Drive Insights…",driveHistoryComplete:"Drive Insights history rebuilt.",driveHistoryAdded:"snapshots added",driveHistoryUpdated:"snapshots updated",driveHistoryNoInsights:"No dated Insights exports were found.",driveReferenceFolder:"Reference folder",driveReferenceFound:"Loaded from Drive reference folder",driveReferenceMissing:"No reference folder found",readme:"README",documentation:"DOCUMENTATION",add:"Add",sourceFilesShort:"{files} source file(s)",readmeLoadError:"Could not load the README file.",driveDailyModeNote:"Daily Sync keeps positive follower observations and full daily Following snapshots. Lost followers are verified only against a Full Checkpoint.",driveFollowerListNote:"Observed follower events from Daily Sync. This is not a verified current follower snapshot.",driveNfbListNote:"NFB is reconstructed from the latest Full Checkpoint plus later Daily follower events. Rename candidates are excluded.",loadedDriveDaily:"{files} daily source file(s) · {followers} observed follower records · {following} latest following · {notFollowing} no follow-back observed",hideHearted:"Hide hearted",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Sync hearts",heartSyncLocal:"Local only",heartSyncSyncing:"Syncing...",heartSyncSynced:"Cloud synced",heartSyncReady:"Enter the same sync key that is stored as HEARTS_SYNC_KEY in the Cloudflare Worker.",heartSyncDone:"Hearts synchronized.",heartSyncNoKey:"Enter your Heart Sync key first.",heartSyncInvalidKey:"Heart Sync key was rejected.",heartSyncError:"Heart Sync failed",heartSyncAuto:"Heart changes sync automatically while a key is saved.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manual upload",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"No full checkpoint available.",driveReferenceLoadedShort:"Loaded",driveFullMissing:"None",unfollowed:"Unfollowers",renamed:"Renamed",unfollowedNeedsSync:"Daily Sync is required to reconstruct accounts that were observed as followers.",unfollowedNeedsFull:"A Full Checkpoint is required to verify which observed followers are no longer present.",syncDriveAction:"Sync Drive",addFullAction:"Add Full Export",unfollowedCutoff:"Compared only through the Full Checkpoint cutoff: {date}.",baselineFollowerLost:"Reference follower, absent from latest Full Checkpoint",joinedThenLeft:"Joined during tracking, later absent",renameEvidenceFollower:"Follower timestamp",renameEvidenceFollowing:"Following timestamp",renameConfidenceHigh:"High confidence",renameConfidenceLikely:"Likely",myFollowingActivity:"MY FOLLOWING ACTIVITY",myFollowingTitle:"Your daily follow activity",followedByMe:"Followed by me",unfollowedByMe:"Unfollowed by me",netFollowing:"Net following",refollowedByMe:"Refollowed",activityFrom:"From",activityTo:"To",activityNoData:"Drive Sync is required for daily Following activity.",activityFollowed:"Followed",activityUnfollowed:"Unfollowed",activityRefollow:"Refollow",detectedBetweenSnapshots:"Detected between daily snapshots",growthDailyDetails:"Daily account details",newFollowersObserved:"New followers observed",noDailyDetails:"No account-level Daily events for this date.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"How long do you keep following new accounts?",followingCohortTracked:"Tracked follow cycles",followingCohortStill:"Still following",followingCohortLeft:"Unfollowed later",followingCohortRetention:"Current retention",followingRetention1:"1 day retention",followingRetention2:"2 day retention",followingRetention3:"3 day retention",followingRetention7:"7 day retention",followingCohortNoData:"Daily Sync needs at least two Following snapshots for this analysis.",followingCohortAccounts:"Following cohorts by day",statusStillFollowing:"Still following",statusUnfollowedLater:"Unfollowed later",eligible:"eligible",nfbFullBasis:"NFB basis: {full} Full + later Daily follower events.",follows:"Follows",unfollows:"Unfollows",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Load at least one export that contains follower data.",sourceDetails:"Details",sourceAuto:"Automatic",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following list",sourceFollowersLabel:"Followers list",sourceOverride:"Choose source",sourceOverrideActive:"Manual source choice is active for this session.",sourceTimeUnknown:"exact file time unavailable",followersSourceFull:"Built from the latest Full export plus {count} newer Daily follows.",followersSourceFallback:"No Full export yet, so this uses the first Daily baseline plus every Daily follow seen since.",followersSourceManualOnly:"Using the manually loaded Full export.",followingSourceDaily:"Using the Daily Following list because it is the newest complete list.",followingSourceFull:"Using the Full export Following list because it is the newest complete list.",followingSourceFallbackDaily:"Using the latest Daily Following list. Exact file times could not be compared.",followingSourceFallbackFull:"Using the Full export Following list because no Daily Following list is available.",nfbSourceFull:"Compared from the latest Full follower list plus {count} newer Daily follows, against the newest complete Following list.",nfbSourceFallback:"No Full export yet, so NFB uses all follower records seen in Daily Sync against the newest complete Following list.",allTimeSource:"Everyone who has appeared as a follower in any available export.",unfollowersSource:"People seen as followers before, but no longer present in the latest Full export.",renamedSource:"Uses matching relationship timestamps to spot likely username changes.",sourceSnapshot:"Snapshot",sourceAccounts:"accounts",sourceWhyDaily:"Daily file is newer",sourceWhyFull:"Full file is newer",sourceWhyOverride:"chosen manually",sourceWhyFallback:"exact file order unavailable",growthOpenDetails:"Open day details"
   },
   de: {
     eyebrow:"LOKALER INSTAGRAM ANALYZER",privacyCopy:"Deine Dateien werden ausschließlich in diesem Browser verarbeitet.",processedLocally:"Lokal verarbeitet",language:"Sprache",
@@ -26,7 +26,7 @@ const translations = {
     chooseCurrent:"Aktuellen vollständigen Instagram-Export auswählen",dropHint:"Ziehe einen vollständigen Instagram-ZIP hierher oder wähle vollständige Followers-/Following-JSON-Dateien.",
     chooseReference:"Referenz-ZIP oder JSON-Dateien auswählen",referenceHint:"Optional. Verwende einen älteren Instagram-Export als Vergleichsreferenz.",nothingLoaded:"Kein manueller Full-Export geladen.",noReference:"Keine Referenz geladen.",
     overview:"Übersicht",followers:"Follower",following:"Gefolgt",notFollowingBack:"Folgen nicht zurück",insights:"Insights",cohorts:"Kohorten",cleanup:"Bereinigung",mutuals:"Gegenseitig",
-    quickChanges:"SCHNELLE ÄNDERUNGEN",referenceComparison:"Referenzvergleich",newFollowers:"Neue Follower",lostFollowers:"Verlorene Follower",newFollowing:"Neu gefolgt",unfollowedByYou:"Von dir entfolgt",
+    quickChanges:"SCHNELLE ÄNDERUNGEN",referenceComparison:"Referenzvergleich",newFollowers:"Neue Follower",lostFollowers:"Verlorene Follower seit Reference",newFollowing:"Neu gefolgt",unfollowedByYou:"Von dir entfolgt",
     keepList:"KEEP-LISTE",heartedProfiles:"Markierte Profile",savedLocally:"gespeichert",
     search:"Suchen",searchPlaceholder:"Nutzer suchen...",referenceFilter:"Referenzfilter",referenceAll:"Alle anzeigen",referenceHide:"Referenztreffer ausblenden",referenceOnly:"Nur Referenztreffer anzeigen",
     sort:"Sortierung",newestFirst:"Neueste zuerst",oldestFirst:"Älteste zuerst",nameAsc:"Name A–Z",nameDesc:"Name Z–A",exportCsv:"CSV exportieren",
@@ -39,7 +39,7 @@ const translations = {
     cohortAnalysis:"FOLLOW-KOHORTENANALYSE",cohortTitle:"Wie schnell konvertieren neue Follows?",followBackRate:"Follow-back-Rate",medianTime:"Median Follow-back-Zeit",followedInCohorts:"Beobachtete Follows",suggestedThreshold:"Empfohlene Schwelle",
     within1:"Innerhalb 1 Tag",within2:"Innerhalb 2 Tagen",within3:"Innerhalb 3 Tagen",within7:"Innerhalb 7 Tagen",cohortNeedHistory:"Die Kohorten werden direkt aus den Follow-Zeitstempeln des aktuellen Exports berechnet.",days:"Tage",
     cleanupCandidates:"BEREINIGUNGSKANDIDATEN",cleanupTitle:"Priorisierte Accounts zur Prüfung",cleanupNote:"Der Score nutzt derzeit nur Beziehungsdaten aus Followers/Following-Exporten. Markierte Profile werden ausgeschlossen.",
-    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Tägliches Instagram-Archiv",driveSyncCopy:"Füge den öffentlichen Drive-Ordnerlink ein. Daily-Exporte dienen dem Tracking; Reference und Full Exports bleiben getrennt.",driveFolderLink:"Öffentlicher Drive-Ordnerlink",syncDrive:"Drive synchronisieren",driveNotSynced:"Nicht synchronisiert",driveSyncing:"Drive wird durchsucht…",driveSynced:"Synchronisiert",driveReady:"Bereit, den öffentlichen Ordner zu durchsuchen.",driveLatest:"Neuester Daily",drivePrevious:"Letzter Full",driveExportsFound:"Reference",driveFilesFound:"Daily-Exporte",driveApiKeyMissing:"",driveBridgeMissing:"Die öffentliche Drive-Bridge ist noch nicht konfiguriert. Trage einmal die Cloudflare-Worker-URL in config.js ein; ein Google-API-Schlüssel oder Billing ist nicht nötig.",driveInvalidLink:"Das sieht nicht wie ein Google-Drive-Ordnerlink aus.",driveNoExports:"Unter diesem Ordner wurden keine datierten Instagram-Exporte mit Followers/Following-Dateien gefunden.",driveSyncComplete:"Drive-Sync abgeschlossen. Daily Tracking, Reference, Full Exports und Insights wurden als getrennte Datenquellen geladen.",driveSyncFailed:"Drive-Sync fehlgeschlagen",driveAutoSnapshot:"Der Insights-Verlauf wurde automatisch aktualisiert.",driveNoPrevious:"Keine",driveScanningFolder:"Ordner und Dateien werden durchsucht…",driveDownloading:"Relevante JSON-Dateien werden geladen…",scanDriveHistory:"Drive-Verlauf scannen",driveHistoryScanning:"Alle datierten Drive-Insights werden neu aufgebaut…",driveHistoryComplete:"Drive-Insights-Verlauf neu aufgebaut.",driveHistoryAdded:"Snapshots hinzugefügt",driveHistoryUpdated:"Snapshots aktualisiert",driveHistoryNoInsights:"Keine datierten Insights-Exporte gefunden.",driveReferenceFolder:"Reference-Ordner",driveReferenceFound:"Aus dem Drive-Ordner Reference geladen",driveReferenceMissing:"Kein Reference-Ordner gefunden",readme:"README",documentation:"DOKUMENTATION",add:"Hinzufügen",sourceFilesShort:"{files} Quelldatei(en)",readmeLoadError:"Die README-Datei konnte nicht geladen werden.",driveDailyModeNote:"Daily Sync speichert positive Follower-Beobachtungen und vollständige tägliche Following-Snapshots. Verlorene Follower werden nur gegen einen Full Checkpoint verifiziert.",driveFollowerListNote:"Beobachtete Follower-Ereignisse aus Daily Sync. Dies ist kein verifizierter aktueller Follower-Snapshot.",driveNfbListNote:"Kein Follow-back in Daily Sync beobachtet. Rename-Kandidaten werden ausgeschlossen.",loadedDriveDaily:"{files} Daily-Quelldatei(en) · {followers} beobachtete Follower · {following} neuester Following-Stand · {notFollowing} ohne beobachteten Follow-back",hideHearted:"Markierte ausblenden",heartSync:"HEART SYNC",heartSyncKey:"Sync-Schlüssel",heartSyncButton:"Hearts synchronisieren",heartSyncLocal:"Nur lokal",heartSyncSyncing:"Synchronisierung...",heartSyncSynced:"Cloud-synchronisiert",heartSyncReady:"Gib denselben Sync-Schlüssel ein, der im Cloudflare Worker als HEARTS_SYNC_KEY gespeichert ist.",heartSyncDone:"Hearts synchronisiert.",heartSyncNoKey:"Gib zuerst deinen Heart-Sync-Schlüssel ein.",heartSyncInvalidKey:"Der Heart-Sync-Schlüssel wurde abgelehnt.",heartSyncError:"Heart Sync fehlgeschlagen",heartSyncAuto:"Heart-Änderungen werden automatisch synchronisiert, solange ein Schlüssel gespeichert ist.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manueller Upload",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"Kein Full Checkpoint verfügbar.",driveReferenceLoadedShort:"Geladen",driveFullMissing:"Keiner",unfollowed:"Entfolgt",renamed:"Umbenannt",unfollowedNeedsSync:"Daily Sync ist erforderlich, um beobachtete Follower zu rekonstruieren.",unfollowedNeedsFull:"Ein Full Checkpoint ist erforderlich, um zu prüfen, welche beobachteten Follower nicht mehr vorhanden sind.",syncDriveAction:"Drive synchronisieren",addFullAction:"Full Export hinzufügen",unfollowedCutoff:"Vergleich nur bis zum Full-Checkpoint-Cutoff: {date}.",baselineFollowerLost:"Reference-Follower, im neuesten Full Checkpoint nicht vorhanden",joinedThenLeft:"Während des Trackings hinzugekommen und später nicht mehr vorhanden",renameEvidenceFollower:"Follower-Zeitstempel",renameEvidenceFollowing:"Following-Zeitstempel",renameConfidenceHigh:"Hohe Sicherheit",renameConfidenceLikely:"Wahrscheinlich",myFollowingActivity:"MEINE FOLLOWING-AKTIVITÄT",myFollowingTitle:"Deine tägliche Follow-Aktivität",followedByMe:"Von mir gefolgt",unfollowedByMe:"Von mir entfolgt",netFollowing:"Netto Following",refollowedByMe:"Erneut gefolgt",activityFrom:"Von",activityTo:"Bis",activityNoData:"Drive Sync ist für die tägliche Following-Aktivität erforderlich.",activityFollowed:"Gefolgt",activityUnfollowed:"Entfolgt",activityRefollow:"Refollow",detectedBetweenSnapshots:"Zwischen Daily Snapshots erkannt"
+    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Tägliches Instagram-Archiv",driveSyncCopy:"Füge den öffentlichen Drive-Ordnerlink ein. Daily-Exporte dienen dem Tracking; Reference und Full Exports bleiben getrennt.",driveFolderLink:"Öffentlicher Drive-Ordnerlink",syncDrive:"Drive synchronisieren",driveNotSynced:"Nicht synchronisiert",driveSyncing:"Drive wird durchsucht…",driveSynced:"Synchronisiert",driveReady:"Bereit, den öffentlichen Ordner zu durchsuchen.",driveLatest:"Neuester Daily",drivePrevious:"Letzter Full",driveExportsFound:"Reference",driveFilesFound:"Daily-Exporte",driveApiKeyMissing:"",driveBridgeMissing:"Die öffentliche Drive-Bridge ist noch nicht konfiguriert. Trage einmal die Cloudflare-Worker-URL in config.js ein; ein Google-API-Schlüssel oder Billing ist nicht nötig.",driveInvalidLink:"Das sieht nicht wie ein Google-Drive-Ordnerlink aus.",driveNoExports:"Unter diesem Ordner wurden keine datierten Instagram-Exporte mit Followers/Following-Dateien gefunden.",driveSyncComplete:"Drive-Sync abgeschlossen. Daily Tracking, Reference, Full Exports und Insights wurden als getrennte Datenquellen geladen.",driveSyncFailed:"Drive-Sync fehlgeschlagen",driveAutoSnapshot:"Der Insights-Verlauf wurde automatisch aktualisiert.",driveNoPrevious:"Keine",driveScanningFolder:"Ordner und Dateien werden durchsucht…",driveDownloading:"Relevante JSON-Dateien werden geladen…",scanDriveHistory:"Drive-Verlauf scannen",driveHistoryScanning:"Alle datierten Drive-Insights werden neu aufgebaut…",driveHistoryComplete:"Drive-Insights-Verlauf neu aufgebaut.",driveHistoryAdded:"Snapshots hinzugefügt",driveHistoryUpdated:"Snapshots aktualisiert",driveHistoryNoInsights:"Keine datierten Insights-Exporte gefunden.",driveReferenceFolder:"Reference-Ordner",driveReferenceFound:"Aus dem Drive-Ordner Reference geladen",driveReferenceMissing:"Kein Reference-Ordner gefunden",readme:"README",documentation:"DOKUMENTATION",add:"Hinzufügen",sourceFilesShort:"{files} Quelldatei(en)",readmeLoadError:"Die README-Datei konnte nicht geladen werden.",driveDailyModeNote:"Daily Sync speichert positive Follower-Beobachtungen und vollständige tägliche Following-Snapshots. Verlorene Follower werden nur gegen einen Full Checkpoint verifiziert.",driveFollowerListNote:"Beobachtete Follower-Ereignisse aus Daily Sync. Dies ist kein verifizierter aktueller Follower-Snapshot.",driveNfbListNote:"NFB wird aus dem neuesten Full Checkpoint plus späteren Daily-Follower-Ereignissen rekonstruiert. Rename-Kandidaten werden ausgeschlossen.",loadedDriveDaily:"{files} Daily-Quelldatei(en) · {followers} beobachtete Follower · {following} neuester Following-Stand · {notFollowing} ohne beobachteten Follow-back",hideHearted:"Markierte ausblenden",heartSync:"HEART SYNC",heartSyncKey:"Sync-Schlüssel",heartSyncButton:"Hearts synchronisieren",heartSyncLocal:"Nur lokal",heartSyncSyncing:"Synchronisierung...",heartSyncSynced:"Cloud-synchronisiert",heartSyncReady:"Gib denselben Sync-Schlüssel ein, der im Cloudflare Worker als HEARTS_SYNC_KEY gespeichert ist.",heartSyncDone:"Hearts synchronisiert.",heartSyncNoKey:"Gib zuerst deinen Heart-Sync-Schlüssel ein.",heartSyncInvalidKey:"Der Heart-Sync-Schlüssel wurde abgelehnt.",heartSyncError:"Heart Sync fehlgeschlagen",heartSyncAuto:"Heart-Änderungen werden automatisch synchronisiert, solange ein Schlüssel gespeichert ist.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manueller Upload",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"Kein Full Checkpoint verfügbar.",driveReferenceLoadedShort:"Geladen",driveFullMissing:"Keiner",unfollowed:"Unfollowers",renamed:"Umbenannt",unfollowedNeedsSync:"Daily Sync ist erforderlich, um beobachtete Follower zu rekonstruieren.",unfollowedNeedsFull:"Ein Full Checkpoint ist erforderlich, um zu prüfen, welche beobachteten Follower nicht mehr vorhanden sind.",syncDriveAction:"Drive synchronisieren",addFullAction:"Full Export hinzufügen",unfollowedCutoff:"Vergleich nur bis zum Full-Checkpoint-Cutoff: {date}.",baselineFollowerLost:"Reference-Follower, im neuesten Full Checkpoint nicht vorhanden",joinedThenLeft:"Während des Trackings hinzugekommen und später nicht mehr vorhanden",renameEvidenceFollower:"Follower-Zeitstempel",renameEvidenceFollowing:"Following-Zeitstempel",renameConfidenceHigh:"Hohe Sicherheit",renameConfidenceLikely:"Wahrscheinlich",myFollowingActivity:"MEINE FOLLOWING-AKTIVITÄT",myFollowingTitle:"Deine tägliche Follow-Aktivität",followedByMe:"Von mir gefolgt",unfollowedByMe:"Von mir entfolgt",netFollowing:"Netto Following",refollowedByMe:"Erneut gefolgt",activityFrom:"Von",activityTo:"Bis",activityNoData:"Drive Sync ist für die tägliche Following-Aktivität erforderlich.",activityFollowed:"Gefolgt",activityUnfollowed:"Entfolgt",activityRefollow:"Refollow",detectedBetweenSnapshots:"Zwischen Daily Snapshots erkannt",growthDailyDetails:"Tägliche Account-Details",newFollowersObserved:"Neue beobachtete Follower",noDailyDetails:"Für dieses Datum gibt es keine Account-Ereignisse aus Daily Sync.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"Wie lange folgst du neu gefolgten Accounts?",followingCohortTracked:"Erfasste Follow-Zyklen",followingCohortStill:"Noch gefolgt",followingCohortLeft:"Später entfolgt",followingCohortRetention:"Aktuelle Retention",followingRetention1:"1-Tag-Retention",followingRetention2:"2-Tage-Retention",followingRetention3:"3-Tage-Retention",followingRetention7:"7-Tage-Retention",followingCohortNoData:"Daily Sync benötigt mindestens zwei Following-Snapshots für diese Analyse.",followingCohortAccounts:"Following-Kohorten nach Tag",statusStillFollowing:"Noch gefolgt",statusUnfollowedLater:"Später entfolgt",eligible:"auswertbar",nfbFullBasis:"NFB-Basis: {full} Full + spätere Daily-Follower-Ereignisse.",follows:"Follows",unfollows:"Unfollows",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Für die All-time-Follower-Historie ist Daily Sync erforderlich.",sourceDetails:"Details",sourceAuto:"Automatisch",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following-Liste",sourceFollowersLabel:"Follower-Liste",sourceOverride:"Quelle wählen",sourceOverrideActive:"Die manuelle Quellenwahl gilt für diese Sitzung.",sourceTimeUnknown:"exakte Dateizeit nicht verfügbar",followersSourceFull:"Basiert auf dem neuesten Full-Export plus {count} neueren Daily-Follows.",followersSourceFallback:"Noch kein Full-Export. Daher werden der erste Daily-Baseline und alle seitdem gesehenen Daily-Follows verwendet.",followersSourceManualOnly:"Der manuell geladene Full-Export wird verwendet.",followingSourceDaily:"Die Daily-Following-Liste wird verwendet, weil sie die neueste vollständige Liste ist.",followingSourceFull:"Die Following-Liste des Full-Exports wird verwendet, weil sie die neueste vollständige Liste ist.",followingSourceFallbackDaily:"Die neueste Daily-Following-Liste wird verwendet. Die exakten Dateizeiten konnten nicht verglichen werden.",followingSourceFallbackFull:"Die Following-Liste des Full-Exports wird verwendet, weil keine Daily-Following-Liste verfügbar ist.",nfbSourceFull:"Vergleicht den neuesten Full-Followerstand plus {count} neuere Daily-Follows mit der neuesten vollständigen Following-Liste.",nfbSourceFallback:"Noch kein Full-Export. NFB verwendet daher alle in Daily Sync gesehenen Follower gegen die neueste vollständige Following-Liste.",allTimeSource:"Fasst alle Follower-Accounts zusammen, die jemals in Daily Sync gesehen wurden.",unfollowersSource:"Accounts, die früher als Follower gesehen wurden, aber im neuesten Full Export nicht mehr vorhanden sind.",renamedSource:"Nutzt identische Relationship-Zeitstempel, um wahrscheinliche Username-Wechsel zu erkennen.",sourceSnapshot:"Snapshot",sourceAccounts:"Accounts",sourceWhyDaily:"Daily-Datei ist neuer",sourceWhyFull:"Full-Datei ist neuer",sourceWhyOverride:"manuell gewählt",sourceWhyFallback:"exakte Dateireihenfolge nicht verfügbar",growthOpenDetails:"Tagesdetails öffnen"
   },
   hu: {
     eyebrow:"HELYI INSTAGRAM ELEMZŐ",privacyCopy:"A fájlok feldolgozása kizárólag ebben a böngészőben történik.",processedLocally:"Helyben feldolgozva",language:"Nyelv",
@@ -47,7 +47,7 @@ const translations = {
     chooseCurrent:"Aktuális teljes Instagram export kiválasztása",dropHint:"Dobd ide a teljes Instagram ZIP-et, vagy válaszd ki a teljes followers/following JSON fájlokat.",
     chooseReference:"Referencia ZIP vagy JSON fájlok kiválasztása",referenceHint:"Opcionális. Egy korábbi Instagram exportot használhatsz összehasonlítási referenciaként.",nothingLoaded:"Nincs manuális full betöltve.",noReference:"Nincs referencia betöltve.",
     overview:"Áttekintés",followers:"Követők",following:"Követéseim",notFollowingBack:"Nem követnek vissza",insights:"Insights",cohorts:"Cohortok",cleanup:"Kikövetés",mutuals:"Kölcsönös követések",
-    quickChanges:"GYORS VÁLTOZÁSOK",referenceComparison:"Referencia összehasonlítás",newFollowers:"Új követők",lostFollowers:"Elvesztett követők",newFollowing:"Új követéseim",unfollowedByYou:"Általam kikövetve",
+    quickChanges:"GYORS VÁLTOZÁSOK",referenceComparison:"Referencia összehasonlítás",newFollowers:"Új követők",lostFollowers:"Elvesztett követők a Reference óta",newFollowing:"Új követéseim",unfollowedByYou:"Általam kikövetve",
     keepList:"KEEP LISTA",heartedProfiles:"Szívezett profilok",savedLocally:"mentve",
     search:"Keresés",searchPlaceholder:"Felhasználók keresése...",referenceFilter:"Referencia szűrő",referenceAll:"Összes megjelenítése",referenceHide:"Referencia találatok elrejtése",referenceOnly:"Csak referencia találatok",
     sort:"Rendezés",newestFirst:"Legújabb elöl",oldestFirst:"Legrégebbi elöl",nameAsc:"Név A–Z",nameDesc:"Név Z–A",exportCsv:"CSV export",
@@ -60,7 +60,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALÍZIS",cohortTitle:"Milyen gyorsan követnek vissza az új követések?",followBackRate:"Visszakövetési arány",medianTime:"Medián visszakövetési idő",followedInCohorts:"Követett profilok",suggestedThreshold:"Javasolt határ",
     within1:"1 napon belül",within2:"2 napon belül",within3:"3 napon belül",within7:"7 napon belül",cohortNeedHistory:"A cohort elemzés közvetlenül az aktuális export követési időbélyegeiből készül.",days:"nap",
     cleanupCandidates:"KIKÖVETÉSI JELÖLTEK",cleanupTitle:"Prioritás szerint rendezett profilok",cleanupNote:"A pontszám jelenleg csak a followers/following exportokból elérhető kapcsolati adatokat használja. A szívezett profilokat kizárjuk.",
-    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények",driveSyncEyebrow:"GOOGLE DRIVE SZINKRON",driveSyncTitle:"Napi Instagram archívum",driveSyncCopy:"Illeszd be a nyilvános Drive mappa linkjét. A Daily exportok trackingre szolgálnak; a Reference és a Full Exports elkülönítve marad.",driveFolderLink:"Nyilvános Drive mappa link",syncDrive:"Drive szinkron",driveNotSynced:"Nincs szinkronizálva",driveSyncing:"Drive átvizsgálása…",driveSynced:"Szinkronizálva",driveReady:"Készen áll a nyilvános mappa átvizsgálására.",driveLatest:"Legújabb Daily",drivePrevious:"Utolsó Full",driveExportsFound:"Reference",driveFilesFound:"Daily exportok",driveApiKeyMissing:"",driveBridgeMissing:"A nyilvános Drive bridge még nincs beállítva. Egyszer add hozzá a Cloudflare Worker URL-jét a config.js fájlhoz; Google API-kulcs és billing nem kell.",driveInvalidLink:"Ez nem tűnik Google Drive mappalinknek.",driveNoExports:"Ebben a mappában nem találtam dátumozott Instagram exportot followers/following fájlokkal.",driveSyncComplete:"Drive szinkron kész. A Daily tracking, Reference, Full Exports és Insights külön adatforrásként lett betöltve.",driveSyncFailed:"A Drive szinkron sikertelen",driveAutoSnapshot:"Az Insights előzmények automatikusan frissültek.",driveNoPrevious:"Nincs",driveScanningFolder:"Mappák és fájlok átvizsgálása…",driveDownloading:"Releváns JSON fájlok letöltése…",scanDriveHistory:"Drive előzmények beolvasása",driveHistoryScanning:"Az összes dátumozott Drive Insights újraépítése…",driveHistoryComplete:"Drive Insights előzmények újraépítve.",driveHistoryAdded:"új snapshot",driveHistoryUpdated:"frissített snapshot",driveHistoryNoInsights:"Nem találtam dátumozott Insights exportot.",driveReferenceFolder:"Reference mappa",driveReferenceFound:"Betöltve a Drive Reference mappájából",driveReferenceMissing:"Nem található Reference mappa",readme:"README",documentation:"DOKUMENTÁCIÓ",add:"Hozzáadás",sourceFilesShort:"{files} forrásfájl",readmeLoadError:"A README fájl nem tölthető be.",driveDailyModeNote:"A Daily Sync pozitív follower megfigyeléseket és teljes napi Following snapshotokat tart meg. Az elveszett followereket csak Full Checkpoint ellen hitelesítjük.",driveFollowerListNote:"A Daily Syncben megfigyelt follower események. Ez nem hitelesített aktuális follower snapshot.",driveNfbListNote:"A Daily Syncben nincs megfigyelt follow-back. A rename candidate-ek ki vannak zárva.",loadedDriveDaily:"{files} Daily forrásfájl · {followers} megfigyelt follower · {following} legfrissebb following · {notFollowing} megfigyelt follow-back nélkül",hideHearted:"Szívezettek elrejtése",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Hearts szinkron",heartSyncLocal:"Csak lokális",heartSyncSyncing:"Szinkronizálás...",heartSyncSynced:"Cloud szinkronizálva",heartSyncReady:"Add meg ugyanazt a Sync Keyt, amit a Cloudflare Workerben HEARTS_SYNC_KEY néven mentettél.",heartSyncDone:"A Heartok szinkronizálva.",heartSyncNoKey:"Előbb add meg a Heart Sync keyt.",heartSyncInvalidKey:"A Heart Sync key nem megfelelő.",heartSyncError:"A Heart Sync sikertelen",heartSyncAuto:"A Heart módosítások automatikusan szinkronizálódnak, amíg a key el van mentve.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manuális feltöltés",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"Nincs elérhető full checkpoint.",driveReferenceLoadedShort:"Betöltve",driveFullMissing:"Nincs",unfollowed:"Unfollowed",renamed:"Renamed",unfollowedNeedsSync:"Daily Sync szükséges ahhoz, hogy vissza tudjuk építeni a valaha megfigyelt followereket.",unfollowedNeedsFull:"Full Checkpoint szükséges annak ellenőrzéséhez, hogy a megfigyelt followerek közül kik nincsenek már jelen.",syncDriveAction:"Drive szinkron",addFullAction:"Full Export hozzáadása",unfollowedCutoff:"Az összevetés csak a Full Checkpoint cutoff időpontjáig tart: {date}.",baselineFollowerLost:"Reference follower, aki nincs a legutóbbi Full Checkpointban",joinedThenLeft:"Tracking közben érkezett, később már nincs jelen",renameEvidenceFollower:"Follower timestamp",renameEvidenceFollowing:"Following timestamp",renameConfidenceHigh:"Magas bizonyosság",renameConfidenceLikely:"Valószínű",myFollowingActivity:"MY FOLLOWING ACTIVITY",myFollowingTitle:"Saját napi követési aktivitás",followedByMe:"Bekövettem",unfollowedByMe:"Kikövettem",netFollowing:"Nettó following",refollowedByMe:"Újrakövettem",activityFrom:"Ettől",activityTo:"Eddig",activityNoData:"A napi Following aktivitáshoz Drive Sync szükséges.",activityFollowed:"Bekövetve",activityUnfollowed:"Kikövetve",activityRefollow:"Refollow",detectedBetweenSnapshots:"Napi snapshotok között észlelve"
+    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények",driveSyncEyebrow:"GOOGLE DRIVE SZINKRON",driveSyncTitle:"Napi Instagram archívum",driveSyncCopy:"Illeszd be a nyilvános Drive mappa linkjét. A Daily exportok trackingre szolgálnak; a Reference és a Full Exports elkülönítve marad.",driveFolderLink:"Nyilvános Drive mappa link",syncDrive:"Drive szinkron",driveNotSynced:"Nincs szinkronizálva",driveSyncing:"Drive átvizsgálása…",driveSynced:"Szinkronizálva",driveReady:"Készen áll a nyilvános mappa átvizsgálására.",driveLatest:"Legújabb Daily",drivePrevious:"Utolsó Full",driveExportsFound:"Reference",driveFilesFound:"Daily exportok",driveApiKeyMissing:"",driveBridgeMissing:"A nyilvános Drive bridge még nincs beállítva. Egyszer add hozzá a Cloudflare Worker URL-jét a config.js fájlhoz; Google API-kulcs és billing nem kell.",driveInvalidLink:"Ez nem tűnik Google Drive mappalinknek.",driveNoExports:"Ebben a mappában nem találtam dátumozott Instagram exportot followers/following fájlokkal.",driveSyncComplete:"Drive szinkron kész. A Daily tracking, Reference, Full Exports és Insights külön adatforrásként lett betöltve.",driveSyncFailed:"A Drive szinkron sikertelen",driveAutoSnapshot:"Az Insights előzmények automatikusan frissültek.",driveNoPrevious:"Nincs",driveScanningFolder:"Mappák és fájlok átvizsgálása…",driveDownloading:"Releváns JSON fájlok letöltése…",scanDriveHistory:"Drive előzmények beolvasása",driveHistoryScanning:"Az összes dátumozott Drive Insights újraépítése…",driveHistoryComplete:"Drive Insights előzmények újraépítve.",driveHistoryAdded:"új snapshot",driveHistoryUpdated:"frissített snapshot",driveHistoryNoInsights:"Nem találtam dátumozott Insights exportot.",driveReferenceFolder:"Reference mappa",driveReferenceFound:"Betöltve a Drive Reference mappájából",driveReferenceMissing:"Nem található Reference mappa",readme:"README",documentation:"DOKUMENTÁCIÓ",add:"Hozzáadás",sourceFilesShort:"{files} forrásfájl",readmeLoadError:"A README fájl nem tölthető be.",driveDailyModeNote:"A Daily Sync pozitív follower megfigyeléseket és teljes napi Following snapshotokat tart meg. Az elveszett followereket csak Full Checkpoint ellen hitelesítjük.",driveFollowerListNote:"A Daily Syncben megfigyelt follower események. Ez nem hitelesített aktuális follower snapshot.",driveNfbListNote:"Az NFB a legutóbbi Full Checkpointból és az azt követő Daily follower eseményekből épül újra. A rename candidate-ek ki vannak zárva.",loadedDriveDaily:"{files} Daily forrásfájl · {followers} megfigyelt follower · {following} legfrissebb following · {notFollowing} megfigyelt follow-back nélkül",hideHearted:"Szívezettek elrejtése",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Hearts szinkron",heartSyncLocal:"Csak lokális",heartSyncSyncing:"Szinkronizálás...",heartSyncSynced:"Cloud szinkronizálva",heartSyncReady:"Add meg ugyanazt a Sync Keyt, amit a Cloudflare Workerben HEARTS_SYNC_KEY néven mentettél.",heartSyncDone:"A Heartok szinkronizálva.",heartSyncNoKey:"Előbb add meg a Heart Sync keyt.",heartSyncInvalidKey:"A Heart Sync key nem megfelelő.",heartSyncError:"A Heart Sync sikertelen",heartSyncAuto:"A Heart módosítások automatikusan szinkronizálódnak, amíg a key el van mentve.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manuális feltöltés",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"Nincs elérhető full checkpoint.",driveReferenceLoadedShort:"Betöltve",driveFullMissing:"Nincs",unfollowed:"Unfollowers",renamed:"Renamed",unfollowedNeedsSync:"Daily Sync szükséges ahhoz, hogy vissza tudjuk építeni a valaha megfigyelt followereket.",unfollowedNeedsFull:"Full Checkpoint szükséges annak ellenőrzéséhez, hogy a megfigyelt followerek közül kik nincsenek már jelen.",syncDriveAction:"Drive szinkron",addFullAction:"Full Export hozzáadása",unfollowedCutoff:"Az összevetés csak a Full Checkpoint cutoff időpontjáig tart: {date}.",baselineFollowerLost:"Reference follower, aki nincs a legutóbbi Full Checkpointban",joinedThenLeft:"Tracking közben érkezett, később már nincs jelen",renameEvidenceFollower:"Follower timestamp",renameEvidenceFollowing:"Following timestamp",renameConfidenceHigh:"Magas bizonyosság",renameConfidenceLikely:"Valószínű",myFollowingActivity:"MY FOLLOWING ACTIVITY",myFollowingTitle:"Saját napi követési aktivitás",followedByMe:"Bekövettem",unfollowedByMe:"Kikövettem",netFollowing:"Nettó following",refollowedByMe:"Újrakövettem",activityFrom:"Ettől",activityTo:"Eddig",activityNoData:"A napi Following aktivitáshoz Drive Sync szükséges.",activityFollowed:"Bekövetve",activityUnfollowed:"Kikövetve",activityRefollow:"Refollow",detectedBetweenSnapshots:"Napi snapshotok között észlelve",growthDailyDetails:"Napi fiók-részletek",newFollowersObserved:"Új megfigyelt followerek",noDailyDetails:"Ehhez a dátumhoz nincs fiókszintű Daily esemény.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"Mennyi ideig követed az újonnan bekövetett fiókokat?",followingCohortTracked:"Követett follow ciklusok",followingCohortStill:"Még követed",followingCohortLeft:"Később kikövetted",followingCohortRetention:"Aktuális retention",followingRetention1:"1 napos retention",followingRetention2:"2 napos retention",followingRetention3:"3 napos retention",followingRetention7:"7 napos retention",followingCohortNoData:"Ehhez az elemzéshez legalább két Daily Following snapshot szükséges.",followingCohortAccounts:"Following cohortok napok szerint",statusStillFollowing:"Még követed",statusUnfollowedLater:"Később kikövetted",eligible:"értékelhető",nfbFullBasis:"NFB alap: {full} Full + az azt követő Daily follower események.",follows:"Bekövetések",unfollows:"Kikövetések",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Tölts be legalább egy olyan exportot, amely follower adatokat tartalmaz.",sourceDetails:"Részletek",sourceAuto:"Automatikus",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following lista",sourceFollowersLabel:"Followers lista",sourceOverride:"Forrás választása",sourceOverrideActive:"Ebben a sessionben kézzel választott forrás van használatban.",sourceTimeUnknown:"a pontos fájlidő nem elérhető",followersSourceFull:"A legutóbbi Full exportból indul, és hozzáad {count} újabb Daily bekövetést.",followersSourceFallback:"Még nincs Full export, ezért az első Daily baseline-ból és azóta minden megfigyelt Daily bekövetésből épül.",followersSourceManualOnly:"A kézzel betöltött Full export van használatban.",followingSourceDaily:"A Daily Following listát használjuk, mert ez a frissebb teljes lista.",followingSourceFull:"A Full export Following listáját használjuk, mert ez a frissebb teljes lista.",followingSourceFallbackDaily:"A legutóbbi Daily Following listát használjuk. A pontos fájlidőket nem lehetett összehasonlítani.",followingSourceFallbackFull:"A Full export Following listáját használjuk, mert nincs Daily Following lista.",nfbSourceFull:"A legutóbbi Full follower listát és {count} újabb Daily bekövetést hasonlít össze a legfrissebb teljes Following listával.",nfbSourceFallback:"Még nincs Full export, ezért az NFB a Daily Syncben valaha látott followereket hasonlítja a legfrissebb teljes Following listával.",allTimeSource:"Összefésüli az összes fiókot, akit a Daily Sync valaha followerként látott.",unfollowersSource:"Minden valaha megfigyelt followert összevet a legutóbbi Full checkpointtal.",renamedSource:"Azonos relationship timestampek alapján keresi a valószínű username-váltásokat.",sourceSnapshot:"Snapshot",sourceAccounts:"fiók",sourceWhyDaily:"a Daily fájl frissebb",sourceWhyFull:"a Full fájl frissebb",sourceWhyOverride:"kézzel kiválasztva",sourceWhyFallback:"a pontos fájlsorrend nem állapítható meg",growthOpenDetails:"Napi részletek megnyitása"
   }
 };
 
@@ -95,7 +95,8 @@ const state = {
   identityChanges: [],
   aliasMap: new Map(),
   renamedKeys: new Set(),
-  identityFbids: new Map()
+  identityFbids: new Map(),
+  followingSourceOverride: sessionStorage.getItem("ifa-following-source") || "auto"
 };
 rebuildHeartSet();
 
@@ -175,9 +176,9 @@ function setLocalHeart(username,hearted,updatedAt=Date.now()){
 
 const els = Object.fromEntries([
   "languageSelect","driveFolderUrl","syncDriveBtn","driveState","driveStateText","driveMessage","driveLatestDate","drivePreviousDate","driveExportCount","driveFileCount","currentFiles","referenceFiles","currentDropzone","referenceDropzone","currentStatus","referenceStatus","clearCurrentBtn","clearReferenceBtn",
-  "searchInput","referenceMode","sortSelect","exportCsvBtn","summaryLine","userList","emptyState","metricFollowers","metricFollowing","metricMutuals","metricNfb",
-  "newFollowersCount","lostFollowersCount","newFollowingCount","unfollowedByYouCount","heartedCount","heartSyncState","heartSyncKey","heartSyncBtn","heartSyncMessage","followersCount","followingCount","notFollowingBackCount","unfollowedCount","renamedCount","fullCardEyebrow","fullCardTitle","listRequirement","listRequirementTitle","listRequirementCopy","requireSyncBtn","requireFullBtn",
-  "mobileMenuToggle","topActions","openReadmeBtn","readmeOverlay","closeReadmeBtn","readmeContent","exportPdfBtn","exportDatabaseBtn","importDatabaseInput","saveInsightSnapshotBtn","scanDriveHistoryBtn","clearSnapshotsBtn","chartScaleMode","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","insightSnapshotCount","insightsGrowthChart","insightsChartCard","insightsChartTooltip","insightSnapshotTableBody","insightsGrowthEmpty","insightEmpty","myActivityFrom","myActivityTo","myActivityFollowed","myActivityUnfollowed","myActivityNet","myActivityRefollowed","myActivityDailyList","myActivityEmpty","openNextWrap","openNextBtn","openNextRemaining","hideHearted","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint"
+  "searchInput","referenceMode","sortSelect","exportCsvBtn","summaryLine","dataSourceNote","userList","emptyState","metricFollowers","metricFollowing","metricMutuals","metricNfb",
+  "newFollowersCount","lostFollowersCount","newFollowingCount","unfollowedByYouCount","heartedCount","heartSyncState","heartSyncKey","heartSyncBtn","heartSyncMessage","followersCount","followingCount","notFollowingBackCount","allTimeFollowersCount","unfollowedCount","renamedCount","fullCardEyebrow","fullCardTitle","listRequirement","listRequirementTitle","listRequirementCopy","requireSyncBtn","requireFullBtn",
+  "mobileMenuToggle","topActions","openReadmeBtn","readmeOverlay","closeReadmeBtn","readmeContent","exportPdfBtn","exportDatabaseBtn","importDatabaseInput","saveInsightSnapshotBtn","scanDriveHistoryBtn","clearSnapshotsBtn","chartScaleMode","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","insightSnapshotCount","insightsGrowthChart","insightsChartCard","insightsChartTooltip","insightSnapshotTableBody","insightsGrowthEmpty","insightEmpty","myActivityFrom","myActivityTo","myActivityFollowed","myActivityUnfollowed","myActivityNet","myActivityRefollowed","myActivityDailyList","myActivityEmpty","openNextWrap","openNextBtn","openNextRemaining","hideHearted","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint","followingCohortTracked","followingCohortStill","followingCohortLeft","followingCohortRetention","followingRetentionGrid","followingCohortDays","followingCohortEmpty"
 ].map(id=>[id,document.querySelector("#"+id)]));
 
 const navItems=[...document.querySelectorAll(".nav-item")];
@@ -711,7 +712,15 @@ async function downloadDriveSource(file,bridge,cache=null){
     throw new Error(`${file.name}: Public Drive bridge ${response.status}: ${body.slice(0,220)}`);
   }
 
-  const source={name:(file.path||[file.name]).join("/"),text:await response.text()};
+  const modifiedHeader=response.headers.get("x-ifa-source-last-modified")||response.headers.get("last-modified")||null;
+  const modifiedAt=modifiedHeader&&Number.isFinite(Date.parse(modifiedHeader))?Date.parse(modifiedHeader):null;
+  const source={
+    name:(file.path||[file.name]).join("/"),
+    text:await response.text(),
+    modifiedAt,
+    modifiedHeader,
+    modifiedOrigin:modifiedAt!=null?"drive-header":null
+  };
   if(cache)cache.set(key,source);
   return source;
 }
@@ -732,6 +741,94 @@ async function downloadDriveBlob(file,bridge){
     throw new Error(`${file.name}: Public Drive bridge ${response.status}: ${body.slice(0,220)}`);
   }
   return response.blob();
+}
+
+
+const META_EXPORT_TIME_ZONE="America/Los_Angeles";
+
+function pad2(value){return String(value).padStart(2,"0")}
+
+function clockKeyFromParts(year,month,day,hour,minute,second){
+  if(![year,month,day,hour,minute,second].every(Number.isFinite))return null;
+  return `${year}-${pad2(month)}-${pad2(day)}T${pad2(hour)}:${pad2(minute)}:${pad2(second)}`;
+}
+
+function zipDosClockKey(dateBits,timeBits){
+  const year=1980+((dateBits>>9)&0x7f);
+  const month=(dateBits>>5)&0x0f;
+  const day=dateBits&0x1f;
+  const hour=(timeBits>>11)&0x1f;
+  const minute=(timeBits>>5)&0x3f;
+  const second=(timeBits&0x1f)*2;
+  if(month<1||month>12||day<1||day>31||hour>23||minute>59||second>59)return null;
+  return clockKeyFromParts(year,month,day,hour,minute,second);
+}
+
+function timeZoneOffsetMs(date,timeZone=META_EXPORT_TIME_ZONE){
+  try{
+    const parts=new Intl.DateTimeFormat("en-US",{
+      timeZone,year:"numeric",month:"2-digit",day:"2-digit",
+      hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"
+    }).formatToParts(date);
+    const get=type=>Number(parts.find(p=>p.type===type)?.value);
+    const asUtc=Date.UTC(get("year"),get("month")-1,get("day"),get("hour"),get("minute"),get("second"));
+    return asUtc-date.getTime();
+  }catch{return null}
+}
+
+function metaClockKeyToEpochMs(key){
+  const m=/^(20\d{2})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})$/.exec(String(key||""));
+  if(!m)return null;
+  const naive=Date.UTC(Number(m[1]),Number(m[2])-1,Number(m[3]),Number(m[4]),Number(m[5]),Number(m[6]));
+  let guess=naive;
+  for(let i=0;i<2;i++){
+    const offset=timeZoneOffsetMs(new Date(guess));
+    if(offset==null)return null;
+    guess=naive-offset;
+  }
+  return guess;
+}
+
+function metaClockKeyFromEpochMs(ms){
+  if(!Number.isFinite(Number(ms)))return null;
+  try{
+    const parts=new Intl.DateTimeFormat("en-US",{
+      timeZone:META_EXPORT_TIME_ZONE,
+      year:"numeric",month:"2-digit",day:"2-digit",
+      hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"
+    }).formatToParts(new Date(Number(ms)));
+    const get=type=>Number(parts.find(p=>p.type===type)?.value);
+    return clockKeyFromParts(get("year"),get("month"),get("day"),get("hour"),get("minute"),get("second"));
+  }catch{return null}
+}
+
+function sourceClockInfo(source){
+  if(source?.clockKey){
+    return{
+      clockKey:source.clockKey,
+      epochMs:metaClockKeyToEpochMs(source.clockKey),
+      origin:source.clockOrigin||"zip-entry"
+    };
+  }
+  if(Number.isFinite(Number(source?.modifiedAt))){
+    return{
+      clockKey:metaClockKeyFromEpochMs(Number(source.modifiedAt)),
+      epochMs:Number(source.modifiedAt),
+      origin:source.modifiedOrigin||"drive-header"
+    };
+  }
+  return{clockKey:null,epochMs:null,origin:null};
+}
+
+function formatSourceTime(epochMs,clockKey=null){
+  if(Number.isFinite(Number(epochMs))){
+    try{
+      return new Intl.DateTimeFormat(state.lang==="hu"?"hu-HU":state.lang==="de"?"de-DE":"en-GB",{
+        year:"numeric",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"
+      }).format(new Date(Number(epochMs)));
+    }catch{}
+  }
+  return clockKey?clockKey.replace("T"," "):t("sourceTimeUnknown");
 }
 
 function mergeInsightMetrics(base,extra){
@@ -772,7 +869,14 @@ function followingCandidateFromSource(source){
   const maxTimestamp=Math.max(...rows.map(r=>r.timestamp??-Infinity));
   const following=new Map();
   rows.forEach(r=>putNewest(following,r));
-  return {following,maxTimestamp:Number.isFinite(maxTimestamp)?maxTimestamp:null};
+  const clock=sourceClockInfo(source);
+  return{
+    following,
+    maxTimestamp:Number.isFinite(maxTimestamp)?maxTimestamp:null,
+    generatedAt:clock.epochMs,
+    clockKey:clock.clockKey,
+    clockOrigin:clock.origin
+  };
 }
 
 async function bestFollowingCandidate(files,bridge,cache=null){
@@ -781,9 +885,14 @@ async function bestFollowingCandidate(files,bridge,cache=null){
     const source=await downloadDriveSource(file,bridge,cache);
     const candidate=followingCandidateFromSource(source);
     if(!candidate)continue;
+    const generated=candidate.generatedAt??-Infinity;
+    const bestGenerated=best?.generatedAt??-Infinity;
     const score=candidate.maxTimestamp??-Infinity;
     const bestScore=best?.maxTimestamp??-Infinity;
-    if(!best||score>bestScore||(score===bestScore&&candidate.following.size>best.following.size)){
+    if(!best
+      ||generated>bestGenerated
+      ||(generated===bestGenerated&&score>bestScore)
+      ||(generated===bestGenerated&&score===bestScore&&candidate.following.size>best.following.size)){
       best=candidate;
     }
   }
@@ -818,11 +927,23 @@ async function collectDriveFollowingSnapshots(files,bridge,cache=null){
   const byDate=new Map();
   for(const pkg of packages){
     const candidate=await bestFollowingCandidate(pkg.files,bridge,cache);if(!candidate)continue;
-    const row={date:pkg.date,key:pkg.key,following:candidate.following,maxTimestamp:candidate.maxTimestamp};
+    const row={
+      date:pkg.date,key:pkg.key,following:candidate.following,maxTimestamp:candidate.maxTimestamp,
+      generatedAt:candidate.generatedAt,clockKey:candidate.clockKey,clockOrigin:candidate.clockOrigin,source:"daily"
+    };
     const old=byDate.get(pkg.date);
-    if(!old||(row.maxTimestamp??-Infinity)>(old.maxTimestamp??-Infinity)||((row.maxTimestamp??-Infinity)===(old.maxTimestamp??-Infinity)&&row.following.size>old.following.size))byDate.set(pkg.date,row);
+    const rowGenerated=row.generatedAt??-Infinity,oldGenerated=old?.generatedAt??-Infinity;
+    if(!old
+      ||rowGenerated>oldGenerated
+      ||(rowGenerated===oldGenerated&&(row.maxTimestamp??-Infinity)>(old.maxTimestamp??-Infinity))
+      ||(rowGenerated===oldGenerated&&(row.maxTimestamp??-Infinity)===(old.maxTimestamp??-Infinity)&&row.following.size>old.following.size)){
+      byDate.set(pkg.date,row);
+    }
   }
-  return[...byDate.values()].sort((a,b)=>a.date.localeCompare(b.date));
+  return[...byDate.values()].sort((a,b)=>
+    ((a.generatedAt??-Infinity)-(b.generatedAt??-Infinity))
+    ||String(a.date||"").localeCompare(String(b.date||""))
+  );
 }
 
 function extractRecentlyUnfollowed(data){
@@ -855,8 +976,19 @@ function maxRelationshipTimestamp(dataset){
   let max=null;for(const map of[dataset?.followers,dataset?.following])for(const row of map?.values?.()||[])if(Number.isFinite(Number(row.timestamp))){const ts=Number(row.timestamp);if(max==null||ts>max)max=ts}return max;
 }
 function checkpointFromImported(imported,{date=null,source="drive",sourceCount=0,label=""}={}){
-  const evidenceCutoff=maxRelationshipTimestamp(imported.dataset),derivedDay=evidenceCutoff?new Date(evidenceCutoff*1000).toISOString().slice(0,10):null,checkpointDate=date||derivedDay;
-  return{dataset:imported.dataset,insights:imported.insights||null,recentlyUnfollowed:imported.recentlyUnfollowed||[],date:checkpointDate,timestamp:checkpointDate?dateToNoonTimestamp(checkpointDate):evidenceCutoff,evidenceCutoff:evidenceCutoff||null,source,sourceCount,label};
+  const evidenceCutoff=maxRelationshipTimestamp(imported.dataset);
+  const derivedDay=evidenceCutoff?new Date(evidenceCutoff*1000).toISOString().slice(0,10):null;
+  const generatedDay=imported.followingGeneratedAt?new Date(imported.followingGeneratedAt).toISOString().slice(0,10):null;
+  const checkpointDate=generatedDay||date||derivedDay;
+  return{
+    dataset:imported.dataset,insights:imported.insights||null,recentlyUnfollowed:imported.recentlyUnfollowed||[],
+    date:checkpointDate,timestamp:checkpointDate?dateToNoonTimestamp(checkpointDate):evidenceCutoff,
+    evidenceCutoff:evidenceCutoff||null,
+    followingGeneratedAt:imported.followingGeneratedAt??null,
+    followingClockKey:imported.followingClockKey??null,
+    followingClockOrigin:imported.followingClockOrigin??null,
+    source,sourceCount,label
+  };
 }
 async function collectDriveFullCheckpoints(files,bridge,cache=null){
   const results=[];
@@ -867,8 +999,11 @@ async function collectDriveFullCheckpoints(files,bridge,cache=null){
   for(const pkg of packages){
     try{const sources=await downloadDriveSources(pkg.files,bridge,cache),imported=buildImportFromSources(sources);if(!imported.dataset.followers.size||!imported.dataset.following.size)continue;results.push(checkpointFromImported(imported,{date:pkg.date,source:"drive",sourceCount:sources.length,label:pkg.key}))}catch(err){console.warn("Full Export package skipped:",pkg.key,err)}
   }
-  const unique=new Map();for(const cp of results){const sig=[cp.date||"",cp.dataset.followers.size,cp.dataset.following.size,cp.evidenceCutoff||""].join("|");if(!unique.has(sig))unique.set(sig,cp)}
-  return[...unique.values()].sort((a,b)=>((a.evidenceCutoff??a.timestamp??0)-(b.evidenceCutoff??b.timestamp??0))||String(a.date||"").localeCompare(String(b.date||"")));
+  const unique=new Map();for(const cp of results){const sig=[cp.date||"",cp.dataset.followers.size,cp.dataset.following.size,cp.followingGeneratedAt??cp.evidenceCutoff??""].join("|");if(!unique.has(sig))unique.set(sig,cp)}
+  return[...unique.values()].sort((a,b)=>
+    ((a.followingGeneratedAt??a.evidenceCutoff??a.timestamp??0)-(b.followingGeneratedAt??b.evidenceCutoff??b.timestamp??0))
+    ||String(a.date||"").localeCompare(String(b.date||""))
+  );
 }
 
 
@@ -876,8 +1011,11 @@ async function collectDriveFullCheckpoints(files,bridge,cache=null){
 function effectiveFullCheckpoint(){return state.manualFull||state.driveFull||null}
 function allFullCheckpoints(){
   const rows=[...state.fullHistory];if(state.manualFull)rows.push(state.manualFull);const unique=new Map();
-  for(const cp of rows){const sig=[cp.date||"",cp.dataset?.followers?.size||0,cp.dataset?.following?.size||0,cp.evidenceCutoff||""].join("|");unique.set(sig,cp)}
-  return[...unique.values()].sort((a,b)=>(a.evidenceCutoff??a.timestamp??0)-(b.evidenceCutoff??b.timestamp??0));
+  for(const cp of rows){const sig=[cp.date||"",cp.dataset?.followers?.size||0,cp.dataset?.following?.size||0,cp.followingGeneratedAt??cp.evidenceCutoff??""].join("|");unique.set(sig,cp)}
+  return[...unique.values()].sort((a,b)=>
+    (a.followingGeneratedAt??a.evidenceCutoff??a.timestamp??0)
+    -(b.followingGeneratedAt??b.evidenceCutoff??b.timestamp??0)
+  );
 }
 function addRenameEvidence(store,oldRow,newRow,relation,source){
   if(!oldRow||!newRow)return;const oldKey=oldRow.username.toLowerCase(),newKey=newRow.username.toLowerCase();if(oldKey===newKey)return;const id=`${oldKey}=>${newKey}`;
@@ -911,8 +1049,272 @@ function isRenamedIdentity(rawKey){const key=String(rawKey||"").toLowerCase();re
 function canonicalRows(map){const out=new Map();for(const[key,row]of map||[]){const canonical=canonicalKey(key),old=out.get(canonical);if(!old||(row.timestamp??-Infinity)>(old.timestamp??-Infinity))out.set(canonical,row)}return out}
 function canonicalKeySet(map){return new Set([...canonicalRows(map).keys()])}
 function computeNotFollowingBack(dataset){
-  const out=new Map();if(!dataset)return out;const followers=canonicalKeySet(dataset.followers);for(const[key,row]of dataset.following){const canonical=canonicalKey(key);if(isRenamedIdentity(key))continue;if(!followers.has(canonical))out.set(key,row)}return out;
+  const out=new Map();
+  if(!dataset)return out;
+  const followers=canonicalKeySet(dataset.followers);
+  for(const[key,row]of dataset.following){
+    const canonical=canonicalKey(key);
+    if(isRenamedIdentity(key))continue;
+    if(!followers.has(canonical))out.set(key,row);
+  }
+  return out;
 }
+
+function mergeFollowerEvidence(target,map){
+  for(const[key,row]of map||[]){
+    const canonical=canonicalKey(key);
+    const old=target.get(canonical);
+
+    // Later sources are allowed to replace an equal-timestamp row so the
+    // newest known username / href wins after alias resolution.
+    if(!old||(row.timestamp??-Infinity)>=(old.timestamp??-Infinity)){
+      target.set(canonical,row);
+    }
+  }
+  return target;
+}
+
+/*
+ * Shared historical follower registry.
+ *
+ * "All-time Followers" is deliberately broader than Daily Sync:
+ * any export that proves an account was a follower contributes evidence.
+ * Rename aliases are resolved before counting, so old/new usernames remain
+ * one canonical identity.
+ */
+function allTimeFollowerEvidence(){
+  const out=new Map();
+
+  if(state.referenceLoaded){
+    mergeFollowerEvidence(out,state.reference.followers);
+  }
+
+  if(state.driveDailySynced){
+    mergeFollowerEvidence(out,state.driveFollowerEvents);
+  }else if(state.currentOrigin==="drive-daily"&&state.currentLoaded){
+    mergeFollowerEvidence(out,state.current.followers);
+  }
+
+  for(const cp of allFullCheckpoints()){
+    mergeFollowerEvidence(out,cp.dataset?.followers);
+  }
+
+  return out;
+}
+
+function hasHistoricalFollowerEvidence(){
+  return allTimeFollowerEvidence().size>0;
+}
+
+/*
+ * Historical evidence that already existed by the selected Full checkpoint.
+ * This powers Unfollowers. Evidence after the checkpoint must not turn into
+ * a false unfollower.
+ */
+function historicalFollowerEvidenceUntil(full){
+  const out=new Map();
+  if(!full)return out;
+
+  // Reference is a fixed historical baseline by design.
+  if(state.referenceLoaded){
+    mergeFollowerEvidence(out,state.reference.followers);
+  }
+
+  const cutoffMs=followerCheckpointBoundaryMs(full);
+  const cutoffDay=full.date||null;
+
+  for(const event of state.dailyFollowerEvents){
+    const eventMs=Number.isFinite(Number(event.timestamp))
+      ?Number(event.timestamp)*1000
+      :null;
+
+    let include=false;
+    if(eventMs!=null&&cutoffMs!=null)include=eventMs<=cutoffMs;
+    else if(event.sourceDate&&cutoffDay)include=event.sourceDate<=cutoffDay;
+
+    if(include){
+      mergeFollowerEvidence(out,new Map([[event.username.toLowerCase(),event]]));
+    }
+  }
+
+  // Include every Full checkpoint that is not newer than the effective Full.
+  // The effective Full itself is included too; it disappears again when we
+  // subtract currentFull below, but keeping it here makes the evidence model
+  // complete and consistent.
+  const selectedTime=Number.isFinite(Number(full.followingGeneratedAt))
+    ?Number(full.followingGeneratedAt)
+    :Number.isFinite(Number(full.evidenceCutoff))
+      ?Number(full.evidenceCutoff)*1000
+      :null;
+
+  for(const cp of allFullCheckpoints()){
+    let include=false;
+    const cpTime=Number.isFinite(Number(cp.followingGeneratedAt))
+      ?Number(cp.followingGeneratedAt)
+      :Number.isFinite(Number(cp.evidenceCutoff))
+        ?Number(cp.evidenceCutoff)*1000
+        :null;
+
+    if(selectedTime!=null&&cpTime!=null)include=cpTime<=selectedTime;
+    else if(cp.date&&full.date)include=cp.date<=full.date;
+    else include=cp===full;
+
+    if(include)mergeFollowerEvidence(out,cp.dataset?.followers);
+  }
+
+  return out;
+}
+
+function followerCheckpointBoundaryMs(full){
+  if(!full)return null;
+
+  if(Number.isFinite(Number(full.followingGeneratedAt))){
+    return Number(full.followingGeneratedAt);
+  }
+
+  let boundary=Number.isFinite(Number(full.evidenceCutoff))?Number(full.evidenceCutoff)*1000:null;
+  const fullRows=canonicalRows(full.dataset.followers);
+
+  for(const event of state.dailyFollowerEvents){
+    if(!Number.isFinite(Number(event.timestamp)))continue;
+    const canonical=canonicalKey(event.username.toLowerCase());
+    const fullRow=fullRows.get(canonical);
+    if(!fullRow||Number(fullRow.timestamp)!==Number(event.timestamp))continue;
+    const eventMs=Number(event.timestamp)*1000;
+    boundary=boundary==null?eventMs:Math.max(boundary,eventMs);
+  }
+  return boundary;
+}
+
+function reconstructedCurrentFollowers(){
+  const full=effectiveFullCheckpoint();
+
+  if(!full){
+    return{
+      followers:state.driveDailySynced?canonicalRows(state.driveFollowerEvents):new Map(),
+      base:"daily-all-time",
+      addedDailyCount:0,
+      boundaryMs:null
+    };
+  }
+
+  const out=canonicalRows(full.dataset.followers);
+  if(!state.driveDailySynced){
+    return{
+      followers:out,
+      base:"full-only",
+      addedDailyCount:0,
+      boundaryMs:followerCheckpointBoundaryMs(full)
+    };
+  }
+
+  const boundaryMs=followerCheckpointBoundaryMs(full);
+  const checkpointDay=full.date||null;
+  const fullKeys=canonicalKeySet(full.dataset.followers);
+  const addedCanonical=new Set();
+
+  for(const event of state.dailyFollowerEvents){
+    const eventMs=Number.isFinite(Number(event.timestamp))?Number(event.timestamp)*1000:null;
+    let isAfter=false;
+
+    if(eventMs!=null&&boundaryMs!=null)isAfter=eventMs>boundaryMs;
+    else if(event.sourceDate&&checkpointDay)isAfter=event.sourceDate>checkpointDay;
+
+    if(!isAfter)continue;
+
+    const canonical=canonicalKey(event.username.toLowerCase());
+    const old=out.get(canonical);
+    if(!old||(event.timestamp??-Infinity)>(old.timestamp??-Infinity))out.set(canonical,event);
+    if(!fullKeys.has(canonical))addedCanonical.add(canonical);
+  }
+
+  return{
+    followers:out,
+    base:"full-plus-daily",
+    addedDailyCount:addedCanonical.size,
+    boundaryMs
+  };
+}
+
+function latestDailyFollowingSnapshot(){
+  if(!state.dailyFollowingSnapshots.length)return null;
+  const withClock=state.dailyFollowingSnapshots
+    .filter(row=>Number.isFinite(Number(row.generatedAt)))
+    .sort((a,b)=>Number(a.generatedAt)-Number(b.generatedAt));
+  return withClock.at(-1)||state.dailyFollowingSnapshots.at(-1);
+}
+
+function followingSourceSelection(){
+  const full=effectiveFullCheckpoint();
+  const daily=state.driveDailySynced?latestDailyFollowingSnapshot():null;
+  const override=["auto","daily","full"].includes(state.followingSourceOverride)
+    ?state.followingSourceOverride
+    :"auto";
+
+  const dailyChoice=daily?{
+    kind:"daily",following:daily.following,
+    generatedAt:daily.generatedAt??null,clockKey:daily.clockKey??null,
+    count:daily.following.size,label:daily.date||t("sourceDaily")
+  }:null;
+
+  const fullChoice=full?{
+    kind:"full",following:full.dataset.following,
+    generatedAt:full.followingGeneratedAt??null,clockKey:full.followingClockKey??null,
+    count:full.dataset.following.size,label:full.date||t("sourceFull")
+  }:null;
+
+  if((override==="daily"&&!dailyChoice)||(override==="full"&&!fullChoice)){
+    state.followingSourceOverride="auto";
+    sessionStorage.setItem("ifa-following-source","auto");
+  }
+
+  if(override==="daily"&&dailyChoice)return{...dailyChoice,reason:"override",override};
+  if(override==="full"&&fullChoice)return{...fullChoice,reason:"override",override};
+
+  if(dailyChoice&&fullChoice){
+    const dailyAt=Number.isFinite(Number(dailyChoice.generatedAt))?Number(dailyChoice.generatedAt):null;
+    const fullAt=Number.isFinite(Number(fullChoice.generatedAt))?Number(fullChoice.generatedAt):null;
+
+    if(dailyAt!=null&&fullAt!=null){
+      if(fullAt>dailyAt)return{...fullChoice,reason:"full-newer",override:"auto"};
+      return{...dailyChoice,reason:"daily-newer",override:"auto"};
+    }
+
+    return{...dailyChoice,reason:"uncertain",override:"auto"};
+  }
+
+  if(dailyChoice)return{...dailyChoice,reason:"daily-only",override:"auto"};
+  if(fullChoice)return{...fullChoice,reason:"full-only",override:"auto"};
+
+  if(state.currentLoaded){
+    return{
+      kind:"current",following:state.current.following,
+      generatedAt:null,clockKey:null,count:state.current.following.size,
+      label:"Current",reason:"fallback",override:"auto"
+    };
+  }
+
+  return{
+    kind:"none",following:new Map(),
+    generatedAt:null,clockKey:null,count:0,label:"—",reason:"none",override:"auto"
+  };
+}
+
+function operationalFollowingForNfb(){
+  return followingSourceSelection().following;
+}
+
+function reconstructedFollowersForNfb(){
+  return reconstructedCurrentFollowers().followers;
+}
+
+function computeOperationalNotFollowingBack(){
+  return computeNotFollowingBack({
+    followers:reconstructedCurrentFollowers().followers,
+    following:followingSourceSelection().following
+  });
+}
+
 function compareMapsAliasAware(oldMap,newMap){
   const oldCanonical=canonicalRows(oldMap),newCanonical=canonicalRows(newMap);return{
     added:[...newCanonical.entries()].filter(([key])=>!oldCanonical.has(key)&&!isRenamedIdentity(key)).map(([,row])=>row),
@@ -920,14 +1322,13 @@ function compareMapsAliasAware(oldMap,newMap){
   };
 }
 function observedFollowersUntil(full){
-  const out=new Map();if(!full)return out;const cutoff=full.evidenceCutoff,day=full.date;
-  for(const row of state.dailyFollowerEvents){const withinTs=Number.isFinite(Number(row.timestamp))&&cutoff!=null?Number(row.timestamp)<=cutoff:null,withinDay=row.sourceDate&&day?row.sourceDate<=day:false;if(withinTs===true||(withinTs==null&&withinDay)){const canonical=canonicalKey(row.username.toLowerCase()),old=out.get(canonical);if(!old||(row.timestamp??-Infinity)>(old.timestamp??-Infinity))out.set(canonical,row)}}return out;
+  return historicalFollowerEvidenceUntil(full);
 }
 function fullPresenceWindow(canonical){
   const fulls=allFullCheckpoints();let lastPresent=null,firstAbsentAfter=null;for(const cp of fulls){const set=canonicalKeySet(cp.dataset.followers);if(set.has(canonical)){lastPresent=cp;firstAbsentAfter=null}else if(lastPresent&&!firstAbsentAfter)firstAbsentAfter=cp}return{lastPresent,firstAbsentAfter};
 }
 function computeUnfollowedRows(){
-  if(!state.driveDailySynced)return[];const full=effectiveFullCheckpoint();if(!full)return[];const observed=observedFollowersUntil(full),currentFull=canonicalKeySet(full.dataset.followers),referenceFollowers=state.referenceLoaded?canonicalKeySet(state.reference.followers):new Set(),rows=[];
+  const full=effectiveFullCheckpoint();if(!full)return[];const observed=observedFollowersUntil(full),currentFull=canonicalKeySet(full.dataset.followers),referenceFollowers=state.referenceLoaded?canonicalKeySet(state.reference.followers):new Set(),rows=[];
   for(const[canonical,row]of observed){if(currentFull.has(canonical)||isRenamedIdentity(canonical))continue;const window=fullPresenceWindow(canonical),baseline=referenceFollowers.has(canonical);let meta=baseline?t("baselineFollowerLost"):t("joinedThenLeft");if(window.lastPresent?.date&&window.firstAbsentAfter?.date)meta+=` · ${window.lastPresent.date} → ${window.firstAbsentAfter.date}`;rows.push({...row,_kind:"unfollowed",_canonical:canonical,_meta:meta})}return rows;
 }
 function computeFollowingActivity(){
@@ -1160,7 +1561,14 @@ function setupFileInput(input,dropzone,target){
 async function loadFiles(files,target){
   const status=target==="full"?els.currentStatus:els.referenceStatus;status.textContent=t("processing");
   try{
-    const sources=[];for(const file of files){if(file.name.toLowerCase().endsWith(".zip"))sources.push(...await extractInstagramJsonFilesFromZip(file));else if(file.name.toLowerCase().endsWith(".json"))sources.push({name:file.name,text:await file.text()})}
+    const sources=[];for(const file of files){
+      if(file.name.toLowerCase().endsWith(".zip"))sources.push(...await extractInstagramJsonFilesFromZip(file));
+      else if(file.name.toLowerCase().endsWith(".json"))sources.push({
+        name:file.name,text:await file.text(),
+        modifiedAt:Number.isFinite(Number(file.lastModified))?Number(file.lastModified):null,
+        modifiedOrigin:"local-file"
+      });
+    }
     const imported=buildImportFromSources(sources);
     if(target==="full"){
       if(!imported.dataset.followers.size||!imported.dataset.following.size)throw new Error(t("noRecognized"));const date=inferSnapshotDayFromFiles(files,imported.dataset);state.manualFull=checkpointFromImported(imported,{date,source:"manual",sourceCount:sources.length,label:files.map(file=>file.name).join(", ")});
@@ -1185,13 +1593,16 @@ async function extractInstagramJsonFilesFromZip(file){
   const total=view.getUint16(eocd+10,true),central=view.getUint32(eocd+16,true);let off=central,candidates=[];
   for(let i=0;i<total;i++){
     if(view.getUint32(off,true)!==0x02014b50)throw new Error(t("invalidZip"));
-    const compression=view.getUint16(off+10,true),compressedSize=view.getUint32(off+20,true),uncompressedSize=view.getUint32(off+24,true),fileNameLength=view.getUint16(off+28,true),extraLength=view.getUint16(off+30,true),commentLength=view.getUint16(off+32,true),localHeaderOffset=view.getUint32(off+42,true);
+    const compression=view.getUint16(off+10,true),dosTime=view.getUint16(off+12,true),dosDate=view.getUint16(off+14,true),compressedSize=view.getUint32(off+20,true),uncompressedSize=view.getUint32(off+24,true),fileNameLength=view.getUint16(off+28,true),extraLength=view.getUint16(off+30,true),commentLength=view.getUint16(off+32,true),localHeaderOffset=view.getUint32(off+42,true);
     const name=new TextDecoder().decode(bytes.slice(off+46,off+46+fileNameLength)),base=name.split("/").pop().toLowerCase();
-    if(base==="following.json"||/^followers(?:_\d+)?\.json$/i.test(base)||base==="recently_unfollowed_profiles.json"||["audience_insights.json","content_interactions.json","profiles_reached.json"].includes(base))candidates.push({name,compression,compressedSize,uncompressedSize,localHeaderOffset});
+    if(base==="following.json"||/^followers(?:_\d+)?\.json$/i.test(base)||base==="recently_unfollowed_profiles.json"||["audience_insights.json","content_interactions.json","profiles_reached.json"].includes(base))candidates.push({name,compression,compressedSize,uncompressedSize,localHeaderOffset,clockKey:zipDosClockKey(dosDate,dosTime)});
     off+=46+fileNameLength+extraLength+commentLength;
   }
   if(!candidates.length)throw new Error(t("noRecognized"));
-  const out=[];for(const entry of candidates)out.push({name:entry.name,text:await extractZipEntryText(buffer,entry)});return out;
+  const out=[];for(const entry of candidates)out.push({
+    name:entry.name,text:await extractZipEntryText(buffer,entry),
+    clockKey:entry.clockKey||null,clockOrigin:entry.clockKey?"zip-entry":null
+  });return out;
 }
 function findEOCD(bytes){const min=Math.max(0,bytes.length-65557);for(let i=bytes.length-22;i>=min;i--)if(bytes[i]===0x50&&bytes[i+1]===0x4b&&bytes[i+2]===0x05&&bytes[i+3]===0x06)return i;return-1}
 async function extractZipEntryText(buffer,entry){
@@ -1204,10 +1615,43 @@ async function extractZipEntryText(buffer,entry){
 }
 
 function buildImportFromSources(sources){
-  const followers=new Map(),following=new Map(),recentlyUnfollowed=[];let recognized=0;const insightParts={audience:null,interactions:null,reach:null};
-  for(const s of sources){let data;try{data=JSON.parse(s.text)}catch{throw new Error(`${s.name}: ${t("invalidJson")}.`)}const base=s.name.toLowerCase().split("/").pop();if(base==="following.json"){recognized++;extractFollowing(data).forEach(e=>putNewest(following,e));continue}if(/^followers(?:_\d+)?\.json$/i.test(base)){recognized++;extractFollowers(data).forEach(e=>putNewest(followers,e));continue}if(base==="recently_unfollowed_profiles.json"){recentlyUnfollowed.push(...extractRecentlyUnfollowed(data));continue}if(base==="audience_insights.json"||data?.organic_insights_audience)insightParts.audience=data;else if(base==="content_interactions.json"||data?.organic_insights_interactions)insightParts.interactions=data;else if(base==="profiles_reached.json"||data?.organic_insights_reach)insightParts.reach=data}
-  if(!recognized)throw new Error(t("noRecognized"));const nfb=new Map();for(const[k,v]of following)if(!followers.has(k))nfb.set(k,v);return{dataset:{followers,following,notFollowingBack:nfb},insights:parseInsights(insightParts),recentlyUnfollowed};
+  const followers=new Map(),following=new Map(),recentlyUnfollowed=[];let recognized=0;
+  let followingGeneratedAt=null,followingClockKey=null,followingClockOrigin=null;
+  const insightParts={audience:null,interactions:null,reach:null};
+
+  for(const s of sources){
+    let data;try{data=JSON.parse(s.text)}catch{throw new Error(`${s.name}: ${t("invalidJson")}.`)}
+    const base=s.name.toLowerCase().split("/").pop();
+
+    if(base==="following.json"){
+      recognized++;
+      extractFollowing(data).forEach(e=>putNewest(following,e));
+      const clock=sourceClockInfo(s);
+      if(clock.epochMs!=null&&(followingGeneratedAt==null||clock.epochMs>followingGeneratedAt)){
+        followingGeneratedAt=clock.epochMs;followingClockKey=clock.clockKey;followingClockOrigin=clock.origin;
+      }else if(followingGeneratedAt==null&&clock.clockKey){
+        followingClockKey=clock.clockKey;followingClockOrigin=clock.origin;
+      }
+      continue;
+    }
+
+    if(/^followers(?:_\d+)?\.json$/i.test(base)){recognized++;extractFollowers(data).forEach(e=>putNewest(followers,e));continue}
+    if(base==="recently_unfollowed_profiles.json"){recentlyUnfollowed.push(...extractRecentlyUnfollowed(data));continue}
+    if(base==="audience_insights.json"||data?.organic_insights_audience)insightParts.audience=data;
+    else if(base==="content_interactions.json"||data?.organic_insights_interactions)insightParts.interactions=data;
+    else if(base==="profiles_reached.json"||data?.organic_insights_reach)insightParts.reach=data;
+  }
+
+  if(!recognized)throw new Error(t("noRecognized"));
+  const nfb=new Map();for(const[k,v]of following)if(!followers.has(k))nfb.set(k,v);
+  return{
+    dataset:{followers,following,notFollowingBack:nfb},
+    insights:parseInsights(insightParts),
+    recentlyUnfollowed,
+    followingGeneratedAt,followingClockKey,followingClockOrigin
+  };
 }
+
 function insightMap(root,key){
   const direct=root?.[key]?.[0]?.string_map_data;
   if(direct)return direct;
@@ -1304,32 +1748,272 @@ function putNewest(map,e){const k=e.username.toLowerCase(),old=map.get(k);if(!ol
 function renderAll(){renderOverview();renderList();renderInsights();renderCohorts();updateOpenNext()}
 function countMutualsAliasAware(dataset){const followers=canonicalKeySet(dataset.followers);let count=0;for(const key of dataset.following.keys())if(followers.has(canonicalKey(key)))count++;return count}
 function renderOverview(){
-  const c=state.currentLoaded?state.current:(effectiveFullCheckpoint()?.dataset||emptyDataset()),nfb=computeNotFollowingBack(c);els.metricFollowers.textContent=c.followers.size;els.metricFollowing.textContent=c.following.size;els.metricMutuals.textContent=countMutualsAliasAware(c);els.metricNfb.textContent=nfb.size;els.heartedCount.textContent=state.hearts.size;
-  const changes=referenceChanges();els.newFollowersCount.textContent=changes.newFollowers??"—";els.lostFollowersCount.textContent=changes.lostFollowers??"—";els.newFollowingCount.textContent=changes.newFollowing??"—";els.unfollowedByYouCount.textContent=changes.unfollowedByYou??"—";
+  const currentFollowers=reconstructedCurrentFollowers().followers;
+  const selectedFollowing=followingSourceSelection().following;
+  const nfb=computeOperationalNotFollowingBack();
+  els.metricFollowers.textContent=currentFollowers.size;
+  els.metricFollowing.textContent=selectedFollowing.size;
+  els.metricMutuals.textContent=Math.max(0,selectedFollowing.size-nfb.size);
+  els.metricNfb.textContent=nfb.size;
+  els.heartedCount.textContent=state.hearts.size;
+  const changes=referenceChanges();
+  els.newFollowersCount.textContent=changes.newFollowers??"—";
+  els.lostFollowersCount.textContent=changes.lostFollowers??"—";
+  els.newFollowingCount.textContent=changes.newFollowing??"—";
+  els.unfollowedByYouCount.textContent=changes.unfollowedByYou??"—";
 }
 function referenceChanges(){
-  if(!state.referenceLoaded)return{newFollowers:0,lostFollowers:null,newFollowing:0,unfollowedByYou:0};const full=effectiveFullCheckpoint(),primary=state.currentLoaded?state.current:(full?.dataset||emptyDataset()),followerChanges=full?compareMapsAliasAware(state.reference.followers,full.dataset.followers):{added:[],removed:[]},followingChanges=primary.following.size?compareMapsAliasAware(state.reference.following,primary.following):{added:[],removed:[]};return{newFollowers:full?followerChanges.added.length:0,lostFollowers:full?followerChanges.removed.length:null,newFollowing:followingChanges.added.length,unfollowedByYou:followingChanges.removed.length};
+  if(!state.referenceLoaded)return{newFollowers:0,lostFollowers:null,newFollowing:0,unfollowedByYou:0};
+  const full=effectiveFullCheckpoint();
+  const following=followingSourceSelection().following;
+  const followerChanges=full?compareMapsAliasAware(state.reference.followers,full.dataset.followers):{added:[],removed:[]};
+  const followingChanges=following.size?compareMapsAliasAware(state.reference.following,following):{added:[],removed:[]};
+  return{
+    newFollowers:full?followerChanges.added.length:0,
+    lostFollowers:full?followerChanges.removed.length:null,
+    newFollowing:followingChanges.added.length,
+    unfollowedByYou:followingChanges.removed.length
+  };
 }
 function renderListRequirement(){
-  if(state.view!=="unfollowed"){els.listRequirement.hidden=true;return}const missingSync=!state.driveDailySynced,missingFull=!effectiveFullCheckpoint();if(!missingSync&&!missingFull){els.listRequirement.hidden=true;return}els.listRequirement.hidden=false;els.requireSyncBtn.hidden=!missingSync;els.requireFullBtn.hidden=!missingFull;els.listRequirementTitle.textContent=t("unfollowed");const copies=[];if(missingSync)copies.push(t("unfollowedNeedsSync"));if(missingFull)copies.push(t("unfollowedNeedsFull"));els.listRequirementCopy.textContent=copies.join(" ");
+  const isUnfollowers=state.view==="unfollowed";
+  const isAllTime=state.view==="allTimeFollowers";
+
+  if(!isUnfollowers&&!isAllTime){
+    els.listRequirement.hidden=true;
+    return;
+  }
+
+  const missingEvidence=isAllTime&&!hasHistoricalFollowerEvidence();
+  const missingFull=isUnfollowers&&!effectiveFullCheckpoint();
+
+  if(!missingEvidence&&!missingFull){
+    els.listRequirement.hidden=true;
+    return;
+  }
+
+  els.listRequirement.hidden=false;
+  els.requireSyncBtn.hidden=true;
+  els.requireFullBtn.hidden=!missingFull;
+  els.listRequirementTitle.textContent=isAllTime?t("allTimeFollowers"):t("unfollowed");
+
+  const copies=[];
+  if(missingEvidence)copies.push(t("allTimeNeedsSync"));
+  if(missingFull)copies.push(t("unfollowedNeedsFull"));
+  els.listRequirementCopy.textContent=copies.join(" ");
 }
-function currentVisibleRows(){
+function currentVisibleRows(options={}){
+  const ignoreReference=options.ignoreReference===true;
   let rows=[];
-  if(state.view==="unfollowed"){if(!state.driveDailySynced||!effectiveFullCheckpoint())return[];rows=computeUnfollowedRows()}
-  else if(state.view==="renamed")rows=state.identityChanges.map(change=>({username:change.newUsername,href:change.href,timestamp:change.timestamps.following??change.timestamps.follower??null,_kind:"renamed",_change:change,_meta:`@${change.oldUsername} → @${change.newUsername}`}));
-  else{const c=state.currentLoaded?state.current:(effectiveFullCheckpoint()?.dataset||emptyDataset());if(state.view==="followers")rows=[...c.followers.values()];else if(state.view==="following")rows=[...c.following.values()];else rows=[...computeNotFollowingBack(c).values()]}
-  const ref=state.reference,mode=els.referenceMode.value;if(state.referenceLoaded&&state.view!=="renamed"&&state.view!=="unfollowed"&&mode!=="all"){const refMap=state.view==="followers"?ref.followers:ref.following,refCanonical=canonicalKeySet(refMap);rows=rows.filter(row=>{const has=refCanonical.has(canonicalKey(row.username.toLowerCase()));return mode==="hide"?!has:has})}
-  const q=els.searchInput.value.trim().toLowerCase();if(q)rows=rows.filter(row=>row._kind==="renamed"?(row._change.oldUsername.toLowerCase().includes(q)||row._change.newUsername.toLowerCase().includes(q)):row.username.toLowerCase().includes(q));if(els.hideHearted.checked)rows=rows.filter(row=>!state.hearts.has(canonicalKey(row.username.toLowerCase())));
-  const sort=els.sortSelect.value;rows.sort((a,b)=>sort==="name-asc"?a.username.localeCompare(b.username):sort==="name-desc"?b.username.localeCompare(a.username):sort==="date-asc"?(a.timestamp??0)-(b.timestamp??0):(b.timestamp??0)-(a.timestamp??0));return rows;
+
+  if(state.view==="unfollowed"){
+    if(!effectiveFullCheckpoint())return[];
+    rows=computeUnfollowedRows();
+  }else if(state.view==="allTimeFollowers"){
+    if(!hasHistoricalFollowerEvidence())return[];
+    rows=[...allTimeFollowerEvidence().values()];
+  }else if(state.view==="renamed"){
+    rows=state.identityChanges.map(change=>({
+      username:change.newUsername,
+      href:change.href,
+      timestamp:change.timestamps.following??change.timestamps.follower??null,
+      _kind:"renamed",
+      _change:change,
+      _meta:`@${change.oldUsername} → @${change.newUsername}`
+    }));
+  }else{
+    if(state.view==="followers")rows=[...reconstructedCurrentFollowers().followers.values()];
+    else if(state.view==="following")rows=[...followingSourceSelection().following.values()];
+    else rows=[...computeOperationalNotFollowingBack().values()];
+  }
+
+  const ref=state.reference;
+  const mode=els.referenceMode.value;
+  if(!ignoreReference&&state.referenceLoaded&&state.view!=="renamed"&&state.view!=="unfollowed"&&mode!=="all"){
+    const refMap=(state.view==="followers"||state.view==="allTimeFollowers")?ref.followers:ref.following;
+    const refCanonical=canonicalKeySet(refMap);
+    rows=rows.filter(row=>{
+      const has=refCanonical.has(canonicalKey(row.username.toLowerCase()));
+      return mode==="hide"?!has:has;
+    });
+  }
+
+  const q=els.searchInput.value.trim().toLowerCase();
+  if(q)rows=rows.filter(row=>row._kind==="renamed"
+    ?row._change.oldUsername.toLowerCase().includes(q)||row._change.newUsername.toLowerCase().includes(q)
+    :row.username.toLowerCase().includes(q));
+
+  if(els.hideHearted.checked)rows=rows.filter(row=>!state.hearts.has(canonicalKey(row.username.toLowerCase())));
+
+  const sort=els.sortSelect.value;
+  rows.sort((a,b)=>sort==="name-asc"?a.username.localeCompare(b.username)
+    :sort==="name-desc"?b.username.localeCompare(a.username)
+    :sort==="date-asc"?(a.timestamp??0)-(b.timestamp??0)
+    :(b.timestamp??0)-(a.timestamp??0));
+  return rows;
 }
 function renderList(){
-  renderListRequirement();const c=state.currentLoaded?state.current:(effectiveFullCheckpoint()?.dataset||emptyDataset()),nfb=computeNotFollowingBack(c),unfollowedReady=state.driveDailySynced&&!!effectiveFullCheckpoint();els.followersCount.textContent=c.followers.size;els.followingCount.textContent=c.following.size;els.notFollowingBackCount.textContent=nfb.size;els.unfollowedCount.textContent=unfollowedReady?computeUnfollowedRows().length:"—";els.renamedCount.textContent=state.identityChanges.length;const rows=currentVisibleRows();
-  if(state.view==="unfollowed"&&!unfollowedReady){els.summaryLine.textContent="";els.userList.innerHTML="";els.emptyState.style.display="none";updateOpenNext();return}
-  if(!state.currentLoaded&&!effectiveFullCheckpoint()&&state.view!=="renamed"&&state.view!=="unfollowed"){els.summaryLine.textContent=t("loadPrompt");els.userList.innerHTML="";els.emptyState.style.display="flex";updateOpenNext();return}
-  let extra="";if(state.referenceLoaded&&state.view!=="renamed"&&state.view!=="unfollowed"&&els.referenceMode.value!=="all")extra=` · ${t(els.referenceMode.value==="hide"?"referenceHidden":"referenceOnlyShown",{count:rows.length})}`;if(state.currentOrigin==="drive-daily"){if(state.view==="followers")extra+=` · ${t("driveFollowerListNote")}`;else if(state.view==="notFollowingBack")extra+=` · ${t("driveNfbListNote")}`}
-  if(state.view==="unfollowed"&&unfollowedReady){const full=effectiveFullCheckpoint(),cutoff=full.evidenceCutoff||full.timestamp;if(cutoff)extra+=` · ${t("unfollowedCutoff",{date:fmtDate(cutoff)})}`}
-  els.summaryLine.textContent=t("visibleUsers",{count:rows.length})+extra;els.userList.innerHTML=rows.map(renderUserRow).join("");els.emptyState.style.display=rows.length?"none":"flex";bindHeartButtons();bindProfileLinks();updateOpenNext();
+  renderListRequirement();
+
+  const currentFollowers=reconstructedCurrentFollowers().followers;
+  const selectedFollowing=followingSourceSelection().following;
+  const nfb=computeOperationalNotFollowingBack();
+  const unfollowedReady=!!effectiveFullCheckpoint();
+
+  els.followersCount.textContent=currentFollowers.size;
+  els.followingCount.textContent=selectedFollowing.size;
+  els.notFollowingBackCount.textContent=nfb.size;
+  els.allTimeFollowersCount.textContent=hasHistoricalFollowerEvidence()?allTimeFollowerEvidence().size:"—";
+  els.unfollowedCount.textContent=unfollowedReady?computeUnfollowedRows().length:"—";
+  els.renamedCount.textContent=state.identityChanges.length;
+
+  const rows=currentVisibleRows();
+
+  if(state.view==="unfollowed"&&!unfollowedReady){
+    els.summaryLine.textContent="";
+    els.dataSourceNote.innerHTML="";
+    els.userList.innerHTML="";
+    els.emptyState.style.display="none";
+    updateOpenNext();
+    return;
+  }
+
+  if(state.view==="allTimeFollowers"&&!hasHistoricalFollowerEvidence()){
+    els.summaryLine.textContent="";
+    els.dataSourceNote.innerHTML="";
+    els.userList.innerHTML="";
+    els.emptyState.style.display="none";
+    updateOpenNext();
+    return;
+  }
+
+  if(!state.currentLoaded&&!effectiveFullCheckpoint()&&state.view!=="renamed"&&state.view!=="unfollowed"&&state.view!=="allTimeFollowers"){
+    els.summaryLine.textContent=t("loadPrompt");
+    els.dataSourceNote.innerHTML="";
+    els.userList.innerHTML="";
+    els.emptyState.style.display="flex";
+    updateOpenNext();
+    return;
+  }
+
+  let extra="";
+  if(state.referenceLoaded&&state.view!=="renamed"&&state.view!=="unfollowed"&&els.referenceMode.value!=="all"){
+    if(els.referenceMode.value==="hide"){
+      const beforeReference=currentVisibleRows({ignoreReference:true});
+      const hidden=Math.max(0,beforeReference.length-rows.length);
+      extra+=` · ${t("referenceHidden",{count:hidden})}`;
+    }else{
+      extra+=` · ${t("referenceOnlyShown",{count:rows.length})}`;
+    }
+  }
+
+  if(state.view==="unfollowed"&&unfollowedReady){
+    const full=effectiveFullCheckpoint(),cutoff=full.followingGeneratedAt?Math.floor(full.followingGeneratedAt/1000):(full.evidenceCutoff||full.timestamp);
+    if(cutoff)extra+=` · ${t("unfollowedCutoff",{date:fmtDate(cutoff)})}`;
+  }
+
+  els.summaryLine.textContent=t("visibleUsers",{count:rows.length})+extra;
+  renderDataSourceNote();
+  els.userList.innerHTML=rows.map(renderUserRow).join("");
+  els.emptyState.style.display=rows.length?"none":"flex";
+  bindHeartButtons();
+  bindProfileLinks();
+  bindDataSourceControls();
+  updateOpenNext();
 }
+function followingSelectionReasonText(selection){
+  if(selection.reason==="override")return t("sourceWhyOverride");
+  if(selection.reason==="daily-newer")return t("sourceWhyDaily");
+  if(selection.reason==="full-newer")return t("sourceWhyFull");
+  if(selection.reason==="uncertain")return t("sourceWhyFallback");
+  return "";
+}
+
+function sourceChoiceDetails(selection){
+  const full=effectiveFullCheckpoint();
+  const daily=state.driveDailySynced?latestDailyFollowingSnapshot():null;
+  const dailyTime=daily?formatSourceTime(daily.generatedAt,daily.clockKey):"—";
+  const fullTime=full?formatSourceTime(full.followingGeneratedAt,full.followingClockKey):"—";
+  const selectedTime=formatSourceTime(selection.generatedAt,selection.clockKey);
+  const reason=followingSelectionReasonText(selection);
+
+  return`
+    <div class="source-detail-grid">
+      <div><span>${escapeHtml(t("sourceFollowingLabel"))}</span><strong>${escapeHtml(selection.kind==="daily"?t("sourceDaily"):selection.kind==="full"?t("sourceFull"):"Current")}</strong></div>
+      <div><span>${escapeHtml(t("sourceSnapshot"))}</span><strong>${escapeHtml(selectedTime)}</strong></div>
+      <div><span>${escapeHtml(t("sourceAccounts"))}</span><strong>${selection.count}</strong></div>
+      ${reason?`<div><span>${escapeHtml(t("sourceDetails"))}</span><strong>${escapeHtml(reason)}</strong></div>`:""}
+    </div>
+    <label class="source-override-field">
+      <span>${escapeHtml(t("sourceOverride"))}</span>
+      <select id="followingSourceSelect" class="select source-select">
+        <option value="auto" ${state.followingSourceOverride==="auto"?"selected":""}>${escapeHtml(t("sourceAuto"))}</option>
+        <option value="daily" ${state.followingSourceOverride==="daily"?"selected":""} ${daily?"":"disabled"}>${escapeHtml(t("sourceDaily"))} · ${escapeHtml(dailyTime)}</option>
+        <option value="full" ${state.followingSourceOverride==="full"?"selected":""} ${full?"":"disabled"}>${escapeHtml(t("sourceFull"))} · ${escapeHtml(fullTime)}</option>
+      </select>
+    </label>
+    ${state.followingSourceOverride!=="auto"?`<small>${escapeHtml(t("sourceOverrideActive"))}</small>`:""}
+  `;
+}
+
+function renderDataSourceNote(){
+  if(!els.dataSourceNote)return;
+
+  const full=effectiveFullCheckpoint();
+  const reconstructed=reconstructedCurrentFollowers();
+  const followingSelection=followingSourceSelection();
+  let text="";
+  let details="";
+
+  if(state.view==="followers"){
+    if(full&&reconstructed.base==="full-plus-daily"){
+      text=t("followersSourceFull",{count:reconstructed.addedDailyCount});
+    }else if(full){
+      text=t("followersSourceManualOnly");
+    }else if(state.driveDailySynced){
+      text=t("followersSourceFallback");
+    }
+  }else if(state.view==="following"){
+    if(followingSelection.kind==="daily"){
+      text=followingSelection.reason==="uncertain"?t("followingSourceFallbackDaily"):t("followingSourceDaily");
+    }else if(followingSelection.kind==="full"){
+      text=followingSelection.reason==="full-only"?t("followingSourceFallbackFull"):t("followingSourceFull");
+    }
+    details=sourceChoiceDetails(followingSelection);
+  }else if(state.view==="notFollowingBack"){
+    text=full
+      ?t("nfbSourceFull",{count:reconstructed.addedDailyCount})
+      :t("nfbSourceFallback");
+    details=sourceChoiceDetails(followingSelection);
+  }else if(state.view==="allTimeFollowers"){
+    text=t("allTimeSource");
+  }else if(state.view==="unfollowed"){
+    text=t("unfollowersSource");
+  }else if(state.view==="renamed"){
+    text=t("renamedSource");
+  }
+
+  if(!text){
+    els.dataSourceNote.innerHTML="";
+    return;
+  }
+
+  els.dataSourceNote.innerHTML=details
+    ?`<span>${escapeHtml(text)}</span><details class="source-details"><summary>${escapeHtml(t("sourceDetails"))}</summary><div class="source-details-popover">${details}</div></details>`
+    :`<span>${escapeHtml(text)}</span>`;
+}
+
+function bindDataSourceControls(){
+  const select=document.querySelector("#followingSourceSelect");
+  if(!select)return;
+  select.addEventListener("change",()=>{
+    state.followingSourceOverride=select.value;
+    sessionStorage.setItem("ifa-following-source",state.followingSourceOverride);
+    renderOverview();
+    renderList();
+  });
+}
+
 function renderUserRow(row){
   if(row._kind==="renamed"){const c=row._change,evidence=[];if(c.relations.includes("follower"))evidence.push(t("renameEvidenceFollower"));if(c.relations.includes("following"))evidence.push(t("renameEvidenceFollowing"));const confidence=c.confidence==="high"?t("renameConfidenceHigh"):t("renameConfidenceLikely"),evidenceText=[];if(c.timestamps.follower)evidenceText.push(`${t("renameEvidenceFollower")}: ${fmtDate(c.timestamps.follower)}`);if(c.timestamps.following)evidenceText.push(`${t("renameEvidenceFollowing")}: ${fmtDate(c.timestamps.following)}`);const key=c.newKey,reviewed=state.reviewed.has(key),hearted=state.hearts.has(canonicalKey(key));return`<div class="user-row rename-row"><div class="avatar">${escapeHtml(c.newUsername.charAt(0).toUpperCase())}</div><a class="username" data-profile-key="${escapeAttribute(key)}" href="${escapeAttribute(c.href)}" target="ifa-instagram-review" referrerpolicy="no-referrer">@${escapeHtml(c.oldUsername)} → @${escapeHtml(c.newUsername)}</a><div class="meta">${escapeHtml(`${confidence} · ${evidenceText.join(" · ")||evidence.join(" + ")}`)}</div><span class="review-dot ${reviewed?"reviewed":""}" title="${reviewed?"Opened":"Not opened"}"></span><button class="heart-btn ${hearted?"active":""}" data-heart="${escapeAttribute(key)}" type="button" aria-label="Keep">${hearted?"♥":"♡"}</button></div>`}
   const key=canonicalKey(row.username.toLowerCase()),reviewed=state.reviewed.has(key),hearted=state.hearts.has(key),meta=row._meta||formatMeta(row.timestamp);return`<div class="user-row"><div class="avatar">${escapeHtml(row.username.charAt(0).toUpperCase())}</div><a class="username" data-profile-key="${escapeAttribute(key)}" href="${escapeAttribute(row.href)}" target="ifa-instagram-review" referrerpolicy="no-referrer">@${escapeHtml(row.username)}</a><div class="meta">${escapeHtml(meta)}</div><span class="review-dot ${reviewed?"reviewed":""}" title="${reviewed?"Opened":"Not opened"}"></span><button class="heart-btn ${hearted?"active":""}" data-heart="${escapeAttribute(key)}" type="button" aria-label="Keep">${hearted?"♥":"♡"}</button></div>`;
@@ -1339,9 +2023,39 @@ function setReviewAnchor(key){state.reviewAnchorKey=key||null;if(state.reviewAnc
 function markReviewed(key){state.reviewed.add(key);setReviewAnchor(key);sessionStorage.setItem("ifa-reviewed",JSON.stringify([...state.reviewed]));renderList()}
 function bindProfileLinks(){document.querySelectorAll("[data-profile-key]").forEach(a=>a.addEventListener("click",()=>{const key=a.dataset.profileKey;state.reviewed.add(key);setReviewAnchor(key);sessionStorage.setItem("ifa-reviewed",JSON.stringify([...state.reviewed]));setTimeout(()=>renderList(),0)}))}
 function nextReviewRow(rows){if(!rows.length)return null;const anchorIndex=state.reviewAnchorKey?rows.findIndex(r=>canonicalKey(r.username.toLowerCase())===state.reviewAnchorKey):-1;if(anchorIndex<0)return rows.find(r=>!state.reviewed.has(canonicalKey(r.username.toLowerCase())))||null;for(let step=1;step<=rows.length;step++){const row=rows[(anchorIndex+step)%rows.length];if(!state.reviewed.has(canonicalKey(row.username.toLowerCase())))return row}return null}
-function updateOpenNext(){const blockedUnfollowed=state.view==="unfollowed"&&(!state.driveDailySynced||!effectiveFullCheckpoint());const isList=state.section==="followers"&&!blockedUnfollowed&&(state.currentLoaded||!!effectiveFullCheckpoint()||state.view==="renamed");els.openNextWrap.classList.toggle("visible",isList);if(!isList)return;const rows=currentVisibleRows(),remaining=rows.filter(r=>!state.reviewed.has(canonicalKey(r.username.toLowerCase())));els.openNextBtn.disabled=!remaining.length;els.openNextBtn.querySelector("[data-i18n=openNext]").textContent=remaining.length?t("openNext"):t("allOpened");els.openNextRemaining.textContent=remaining.length?`${remaining.length} ${t("left")}`:""}
-function openNextProfile(){const rows=currentVisibleRows(),next=nextReviewRow(rows);if(!next)return;const key=canonicalKey(next.username.toLowerCase());state.reviewed.add(key);setReviewAnchor(key);sessionStorage.setItem("ifa-reviewed",JSON.stringify([...state.reviewed]));window.open(next.href,"ifa-instagram-review");renderList()}
-function formatMeta(ts){if(!ts)return t("dateUnavailable");const d=new Date(ts*1000);if(Number.isNaN(d.getTime()))return t("dateUnavailable");const locale=state.lang==="de"?"de-DE":state.lang==="hu"?"hu-HU":"en-GB",fmt=new Intl.DateTimeFormat(locale,{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(d);return state.view==="followers"?t("followsSince",{date:fmt}):t("followingSince",{date:fmt})}
+function updateOpenNext(){
+  const blockedUnfollowed=state.view==="unfollowed"&&!effectiveFullCheckpoint();
+  const blockedAllTime=state.view==="allTimeFollowers"&&!hasHistoricalFollowerEvidence();
+  const isList=state.section==="followers"&&!blockedUnfollowed&&!blockedAllTime&&(state.currentLoaded||!!effectiveFullCheckpoint()||state.view==="renamed"||state.view==="allTimeFollowers");
+  els.openNextWrap.classList.toggle("visible",isList);
+  if(!isList)return;
+  const rows=currentVisibleRows(),remaining=rows.filter(r=>!state.reviewed.has(canonicalKey(r.username.toLowerCase())));
+  els.openNextBtn.disabled=!remaining.length;
+  els.openNextBtn.querySelector("[data-i18n=openNext]").textContent=remaining.length?t("openNext"):t("allOpened");
+  els.openNextRemaining.textContent=remaining.length?`${remaining.length} ${t("left")}`:"";
+}
+function openNextProfile(){
+  const rows=currentVisibleRows(),next=nextReviewRow(rows);
+  if(!next)return;
+  const key=canonicalKey(next.username.toLowerCase());
+  const link=[...document.querySelectorAll("[data-profile-key]")].find(a=>a.dataset.profileKey===key);
+  if(link){
+    // Use exactly the same native anchor navigation path as a manual username click.
+    // This avoids window.open() creating an orphaned about:blank tab when the OS
+    // hands the Instagram URL to the native app.
+    link.click();
+    return;
+  }
+}
+function formatMeta(ts){
+  if(!ts)return t("dateUnavailable");
+  const d=new Date(ts*1000);
+  if(Number.isNaN(d.getTime()))return t("dateUnavailable");
+  const locale=state.lang==="de"?"de-DE":state.lang==="hu"?"hu-HU":"en-GB";
+  const fmt=new Intl.DateTimeFormat(locale,{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(d);
+  const followerView=state.view==="followers"||state.view==="allTimeFollowers"||state.view==="unfollowed";
+  return followerView?t("followsSince",{date:fmt}):t("followingSince",{date:fmt});
+}
 
 function persistInsightSnapshots(){
   localStorage.setItem("ifa-insight-snapshots",JSON.stringify(state.insightSnapshots));
@@ -1363,6 +2077,70 @@ function saveInsightSnapshot(){
   renderInsights();
 }
 function fmtMetric(v,suffix=""){return v==null?"—":`${Number(v).toLocaleString()}${suffix}`}
+function dailyFollowerBaselineDate(){
+  const dates=state.dailyFollowerEvents.map(row=>row.sourceDate).filter(Boolean).sort();
+  return dates[0]||null;
+}
+
+function growthDetailsForDate(date){
+  const baselineDate=dailyFollowerBaselineDate();
+  const seen=new Set();
+  const newFollowers=[];
+
+  if(date&&date!==baselineDate){
+    for(const row of state.dailyFollowerEvents){
+      if(row.sourceDate!==date||isRenamedIdentity(row.username.toLowerCase()))continue;
+      const key=`${canonicalKey(row.username.toLowerCase())}|${row.timestamp??""}`;
+      if(seen.has(key))continue;
+      seen.add(key);
+      newFollowers.push(row);
+    }
+    newFollowers.sort((a,b)=>(a.timestamp??0)-(b.timestamp??0));
+  }
+
+  const activity=computeFollowingActivity().find(day=>day.date===date)||null;
+  return{
+    newFollowers,
+    followed:activity?.followed||[],
+    unfollowed:activity?.unfollowed||[]
+  };
+}
+
+function renderGrowthAccountList(rows,{showRefollow=false}={}){
+  if(!rows.length)return`<span class="growth-detail-empty">—</span>`;
+  return rows.map(row=>`<a class="growth-detail-account" href="${escapeAttribute(row.href)}" target="ifa-instagram-review" referrerpolicy="no-referrer"><span>@${escapeHtml(row.username)}</span><small>${row.timestamp?escapeHtml(formatExactDate(row.timestamp)):""}${showRefollow&&row._refollow?` · ${escapeHtml(t("activityRefollow"))}`:""}</small></a>`).join("");
+}
+
+function formatExactDate(ts){
+  if(!ts)return"";
+  const locale=state.lang==="de"?"de-DE":state.lang==="hu"?"hu-HU":"en-GB";
+  return new Intl.DateTimeFormat(locale,{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date(ts*1000));
+}
+
+function renderGrowthSnapshotTableRows(s){
+  const details=growthDetailsForDate(s.id);
+  const detailCount=details.newFollowers.length+details.followed.length+details.unfollowed.length;
+  const detailId=`growth-${String(s.id).replace(/[^a-z0-9_-]/gi,"-")}`;
+
+  return`<tr class="${s.enabled===false?"snapshot-inactive":""}">
+      <td><label class="snapshot-active-toggle"><input type="checkbox" data-snapshot-toggle="${escapeAttribute(s.id)}" ${s.enabled===false?"":"checked"}><span>${s.enabled===false?t("enable"):t("disable")}</span></label></td>
+      <td><button class="growth-expand-button" data-growth-expand="${escapeAttribute(detailId)}" type="button" aria-expanded="false" aria-label="${escapeAttribute(t("growthOpenDetails"))}" ${detailCount?"":"disabled"}><span>${fmtDate(s.timestamp)}</span><b class="growth-chevron">▾</b></button></td>
+      <td>${fmtMetric(s.followers)}</td>
+      <td>${fmtMetric(s.following)}</td>
+      <td>${escapeHtml(s.period||"—")}</td>
+      <td><button class="button ghost danger-ghost snapshot-delete" data-snapshot-delete="${escapeAttribute(s.id)}" type="button">${t("delete")}</button></td>
+    </tr>
+    <tr class="growth-detail-row" data-growth-detail="${escapeAttribute(detailId)}" hidden>
+      <td colspan="6">
+        <div class="growth-detail-panel">
+          <div><h3>${escapeHtml(t("newFollowersObserved"))} · ${details.newFollowers.length}</h3><div class="growth-detail-list">${renderGrowthAccountList(details.newFollowers)}</div></div>
+          <div><h3>${escapeHtml(t("followedByMe"))} · ${details.followed.length}</h3><div class="growth-detail-list">${renderGrowthAccountList(details.followed,{showRefollow:true})}</div></div>
+          <div><h3>${escapeHtml(t("unfollowedByMe"))} · ${details.unfollowed.length}</h3><div class="growth-detail-list">${renderGrowthAccountList(details.unfollowed)}</div></div>
+        </div>
+      </td>
+    </tr>`;
+}
+
 function renderInsights(){
   const x=state.insights;
   els.insightEmpty.style.display=x?"none":"flex";
@@ -1381,20 +2159,7 @@ function renderInsights(){
   els.saveInsightSnapshotBtn.disabled=!x;
   els.insightSnapshotCount.textContent=state.insightSnapshots.length;
 
-  els.insightSnapshotTableBody.innerHTML=[...state.insightSnapshots].reverse().map(s=>`
-    <tr class="${s.enabled===false?"snapshot-inactive":""}">
-      <td>
-        <label class="snapshot-active-toggle">
-          <input type="checkbox" data-snapshot-toggle="${escapeAttribute(s.id)}" ${s.enabled===false?"":"checked"}>
-          <span>${s.enabled===false?t("enable"):t("disable")}</span>
-        </label>
-      </td>
-      <td>${fmtDate(s.timestamp)}</td>
-      <td>${fmtMetric(s.followers)}</td>
-      <td>${fmtMetric(s.following)}</td>
-      <td>${escapeHtml(s.period||"—")}</td>
-      <td><button class="button ghost danger-ghost snapshot-delete" data-snapshot-delete="${escapeAttribute(s.id)}" type="button">${t("delete")}</button></td>
-    </tr>`).join("");
+  els.insightSnapshotTableBody.innerHTML=[...state.insightSnapshots].reverse().map(renderGrowthSnapshotTableRows).join("");
 
   document.querySelectorAll("[data-snapshot-toggle]").forEach(input=>input.addEventListener("change",()=>{
     const s=state.insightSnapshots.find(x=>x.id===input.dataset.snapshotToggle);
@@ -1407,6 +2172,14 @@ function renderInsights(){
       renderInsights();
     }
   }));
+  document.querySelectorAll("[data-growth-expand]").forEach(btn=>btn.addEventListener("click",()=>{
+    const detail=document.querySelector(`[data-growth-detail="${CSS.escape(btn.dataset.growthExpand)}"]`);
+    if(!detail)return;
+    const open=detail.hidden;
+    detail.hidden=!open;
+    btn.setAttribute("aria-expanded",String(open));
+    btn.classList.toggle("open",open);
+  }));
 
   els.insightsGrowthEmpty.style.display=state.insightSnapshots.length?"none":"flex";
   drawInsightsGrowthChart(state.insightSnapshots);
@@ -1418,170 +2191,154 @@ function renderMyFollowingActivity(){
   els.myActivityDailyList.innerHTML=[...rows].reverse().map(day=>{const followedRows=day.followed.map(row=>`<a class="activity-account" href="${escapeAttribute(row.href)}" target="ifa-instagram-review" referrerpolicy="no-referrer"><span>@${escapeHtml(row.username)}</span>${row._refollow?`<small>${escapeHtml(t("activityRefollow"))}</small>`:""}</a>`).join(""),unfollowedRows=day.unfollowed.map(row=>`<a class="activity-account" href="${escapeAttribute(row.href)}" target="ifa-instagram-review" referrerpolicy="no-referrer"><span>@${escapeHtml(row.username)}</span><small>${escapeHtml(t("detectedBetweenSnapshots"))}</small></a>`).join("");return`<details class="activity-day"><summary><strong>${escapeHtml(day.date)}</strong><span>+${day.followed.length} ${escapeHtml(t("activityFollowed"))}</span><span>-${day.unfollowed.length} ${escapeHtml(t("activityUnfollowed"))}</span><b>${day.net>0?"+":""}${day.net}</b></summary><div class="activity-day-body"><div><h3>${escapeHtml(t("activityFollowed"))} · ${day.followed.length}</h3><div class="activity-account-list">${followedRows||"—"}</div></div><div><h3>${escapeHtml(t("activityUnfollowed"))} · ${day.unfollowed.length}</h3><div class="activity-account-list">${unfollowedRows||"—"}</div></div></div></details>`}).join("");
 }
 
+function smoothChartPath(points){
+  if(!points.length)return"";
+  if(points.length===1)return`M${points[0].x} ${points[0].y}`;
+
+  let d=`M${points[0].x} ${points[0].y}`;
+  for(let i=0;i<points.length-1;i++){
+    const prev=points[Math.max(0,i-1)];
+    const p0=points[i];
+    const p1=points[i+1];
+    const next=points[Math.min(points.length-1,i+2)];
+    const dx=p1.x-p0.x;
+    const minY=Math.min(p0.y,p1.y),maxY=Math.max(p0.y,p1.y);
+    const c1x=p0.x+dx*.34;
+    const c2x=p1.x-dx*.34;
+    const c1y=Math.max(minY,Math.min(maxY,p0.y+(p1.y-prev.y)*.16));
+    const c2y=Math.max(minY,Math.min(maxY,p1.y-(next.y-p0.y)*.16));
+    d+=` C${c1x} ${c1y},${c2x} ${c2y},${p1.x} ${p1.y}`;
+  }
+  return d;
+}
+
 function drawInsightsGrowthChart(snaps){
   const svg=els.insightsGrowthChart;
   const tooltip=els.insightsChartTooltip;
-  const active=snaps.filter(s=>s.enabled!==false);
+  const active=snaps.filter(s=>s.enabled!==false).sort((a,b)=>a.timestamp-b.timestamp);
   const selected=[...document.querySelectorAll("[data-chart-metric]:checked")].map(el=>el.dataset.chartMetric);
 
-  hideChartTooltip();
-
-  if(!active.length||!selected.length){
-    svg.innerHTML="";
-    return;
-  }
+  hideChartTooltip(true);
+  if(!active.length||!selected.length){svg.innerHTML="";return;}
 
   const metricMeta={
-    followers:{label:t("followers"),className:"series-followers"},
-    following:{label:t("following"),className:"series-following"},
-    follows:{label:t("follows"),className:"series-follows"},
-    unfollows:{label:t("unfollows"),className:"series-unfollows"},
-    reached:{label:t("accountsReached"),className:"series-reached"},
-    profileVisits:{label:t("profileVisits"),className:"series-profileVisits"}
+    followers:{label:t("followers"),className:"series-followers",color:"#7c3aed"},
+    following:{label:t("following"),className:"series-following",color:"#0f766e"},
+    follows:{label:t("follows"),className:"series-follows",color:"#16a34a"},
+    unfollows:{label:t("unfollows"),className:"series-unfollows",color:"#dc2626"},
+    reached:{label:t("accountsReached"),className:"series-reached",color:"#ea580c"},
+    profileVisits:{label:t("profileVisits"),className:"series-profileVisits",color:"#2563eb"}
   };
 
   const mode=els.chartScaleMode.value;
   const mobile=window.matchMedia("(max-width: 620px)").matches;
-  const w=mobile?520:1200;
-  const h=mobile?320:260;
-  const pL=mobile?50:56;
-  const pR=mobile?18:20;
-  const pT=mobile?20:20;
-  const pB=mobile?42:38;
+  const w=mobile?520:1200,h=mobile?320:300;
+  const pL=mobile?50:58,pR=mobile?18:24,pT=mobile?24:24,pB=mobile?48:44;
   svg.setAttribute("viewBox",`0 0 ${w} ${h}`);
 
   const series=selected.map(metric=>{
-    const rows=active
-      .filter(s=>s[metric]!==null&&s[metric]!==undefined&&s[metric]!=="")
-      .map(s=>({s,value:Number(s[metric])}))
-      .filter(r=>Number.isFinite(r.value));
-
-    if(!rows.length)return null;
-
-    const rawValues=rows.map(r=>r.value);
-    const base=rawValues[0];
-
-    const plotValues=mode==="indexed"
-      ? rawValues.map(v=>base===0?null:(v/base)*100)
-      : rawValues;
-
-    return {metric,rows,rawValues,plotValues};
+    const numeric=active.filter(s=>s[metric]!==null&&s[metric]!==undefined&&s[metric]!=="").map(s=>Number(s[metric])).filter(Number.isFinite);
+    if(!numeric.length)return null;
+    const base=numeric[0];
+    const rows=active.map(s=>{
+      const raw=s[metric]!==null&&s[metric]!==undefined&&s[metric]!==""?Number(s[metric]):null;
+      if(!Number.isFinite(raw))return{s,raw:null,plot:null};
+      const plot=mode==="indexed"?(base===0?null:(raw/base)*100):raw;
+      return{s,raw,plot:Number.isFinite(plot)?plot:null};
+    });
+    return{metric,rows};
   }).filter(Boolean);
 
-  const allValues=series.flatMap(s=>s.plotValues.filter(v=>Number.isFinite(v)));
-  if(!allValues.length){
-    svg.innerHTML="";
-    return;
-  }
+  const allValues=series.flatMap(ser=>ser.rows.map(r=>r.plot).filter(Number.isFinite));
+  if(!allValues.length){svg.innerHTML="";return;}
 
   const min=Math.min(...allValues),max=Math.max(...allValues);
-  const pad=Math.max(mode==="indexed"?2:1,(max-min)*.10);
+  const pad=Math.max(mode==="indexed"?2:1,(max-min)*.12);
   const lo=Math.max(0,min-pad),hi=max+pad,range=Math.max(1,hi-lo);
-
-  const timestamps=active.map(s=>s.timestamp);
-  const firstTs=Math.min(...timestamps),lastTs=Math.max(...timestamps);
-
-  const xFor=(timestamp)=>{
-    if(firstTs===lastTs)return w/2;
-    return pL+(timestamp-firstTs)/(lastTs-firstTs)*(w-pL-pR);
-  };
+  const firstTs=Math.min(...active.map(s=>s.timestamp)),lastTs=Math.max(...active.map(s=>s.timestamp));
+  const xFor=timestamp=>firstTs===lastTs?w/2:pL+(timestamp-firstTs)/(lastTs-firstTs)*(w-pL-pR);
   const yFor=value=>pT+(hi-value)/range*(h-pT-pB);
+  const plotBottom=h-pB;
 
+  const defs=selected.map(metric=>`<linearGradient id="area-${metric}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${metricMeta[metric].color}" stop-opacity=".16"/><stop offset="100%" stop-color="${metricMeta[metric].color}" stop-opacity="0"/></linearGradient>`).join("");
   const grids=[0,.25,.5,.75,1].map(r=>{
-    const y=pT+r*(h-pT-pB);
-    const val=hi-r*(hi-lo);
-    const label=mode==="indexed"?val.toFixed(0):Math.round(val).toLocaleString();
-    return `<line class="chart-gridline" x1="${pL}" y1="${y}" x2="${w-pR}" y2="${y}"/>
-            <text class="chart-axis" x="4" y="${y+4}">${label}</text>`;
+    const y=pT+r*(h-pT-pB),val=hi-r*(hi-lo),label=mode==="indexed"?val.toFixed(0):Math.round(val).toLocaleString();
+    return`<line class="chart-gridline" x1="${pL}" y1="${y}" x2="${w-pR}" y2="${y}"/><text class="chart-axis" x="4" y="${y+4}">${label}</text>`;
   }).join("");
+  const labels=active.map(s=>`<text class="chart-axis chart-date-label" x="${xFor(s.timestamp)}" y="${h-14}" text-anchor="middle">${escapeHtml(shortDate(s.timestamp))}</text>`).join("");
 
-  const labels=active.map(s=>`
-    <text class="chart-axis chart-date-label" x="${xFor(s.timestamp)}" y="${h-13}" text-anchor="middle">${escapeHtml(shortDate(s.timestamp))}</text>
-  `).join("");
-
+  let pointIndex=0;
   const paths=series.map(ser=>{
-    const points=[];
-    ser.rows.forEach((row,i)=>{
-      const plotValue=ser.plotValues[i];
-      if(!Number.isFinite(plotValue))return;
-      points.push({
-        x:xFor(row.s.timestamp),
-        y:yFor(plotValue),
-        snapshot:row.s,
-        rawValue:ser.rawValues[i],
-        plotValue,
-        metric:ser.metric
-      });
-    });
+    const segments=[];let current=[];
+    for(const row of ser.rows){
+      if(row.plot==null){if(current.length)segments.push(current);current=[];continue;}
+      current.push({x:xFor(row.s.timestamp),y:yFor(row.plot),snapshot:row.s,rawValue:row.raw,plotValue:row.plot,metric:ser.metric,key:`cp-${pointIndex++}`});
+    }
+    if(current.length)segments.push(current);
 
-    if(!points.length)return"";
+    const area=selected.length===1?segments.filter(seg=>seg.length>1).map(seg=>{
+      const line=smoothChartPath(seg);
+      const first=seg[0],last=seg.at(-1);
+      return`<path class="chart-area ${metricMeta[ser.metric].className}" d="${line} L${last.x} ${plotBottom} L${first.x} ${plotBottom} Z" fill="url(#area-${ser.metric})"/>`;
+    }).join(""):"";
 
-    const d=points.map((q,i)=>(i?"L":"M")+q.x+" "+q.y).join(" ");
-    const dots=points.map((q,i)=>`
-      <circle
-        class="chart-point ${metricMeta[ser.metric].className}"
-        cx="${q.x}"
-        cy="${q.y}"
-        r="2.8"
-      />
-      <circle
-        class="chart-hit"
-        cx="${q.x}"
-        cy="${q.y}"
-        r="13"
-        tabindex="0"
-        data-chart-series="${ser.metric}"
-        data-chart-date="${escapeAttribute(shortDate(q.snapshot.timestamp))}"
-        data-chart-raw="${q.rawValue}"
-        data-chart-plot="${q.plotValue}"
-      />
-    `).join("");
-
-    return `<path class="chart-line ${metricMeta[ser.metric].className}" d="${d}"/>${dots}`;
+    const lines=segments.map(seg=>`<path class="chart-line ${metricMeta[ser.metric].className}" d="${smoothChartPath(seg)}"/>`).join("");
+    const dots=segments.flat().map(q=>`<circle class="chart-point ${metricMeta[ser.metric].className}" data-chart-point="${q.key}" cx="${q.x}" cy="${q.y}" r="3.4"/><circle class="chart-hit" cx="${q.x}" cy="${q.y}" r="15" tabindex="0" data-chart-key="${q.key}" data-chart-series="${ser.metric}" data-chart-date="${escapeAttribute(shortDate(q.snapshot.timestamp))}" data-chart-raw="${q.rawValue}" data-chart-plot="${q.plotValue}"/>`).join("");
+    return area+lines+dots;
   }).join("");
 
-  svg.innerHTML=grids+labels+paths;
+  svg.innerHTML=`<defs>${defs}</defs>${grids}<line class="chart-hover-guide" x1="0" y1="${pT}" x2="0" y2="${plotBottom}"/>${labels}${paths}`;
+  const guide=svg.querySelector(".chart-hover-guide");
+  let pinnedKey=null;
+
+  const clearActive=()=>{
+    svg.querySelectorAll(".chart-point.active").forEach(p=>p.classList.remove("active"));
+    if(guide)guide.classList.remove("visible");
+  };
+
+  const show=(hit,{pin=false}={})=>{
+    const metric=hit.dataset.chartSeries,raw=Number(hit.dataset.chartRaw),plot=Number(hit.dataset.chartPlot),label=metricMeta[metric]?.label||metric;
+    const value=mode==="indexed"?`${plot.toFixed(1)} · ${raw.toLocaleString()}`:raw.toLocaleString();
+    tooltip.innerHTML=`<strong>${escapeHtml(label)}</strong><span>${escapeHtml(hit.dataset.chartDate)}</span><b>${escapeHtml(value)}</b>`;
+    tooltip.classList.add("visible");tooltip.classList.remove("below");
+
+    clearActive();
+    svg.querySelector(`[data-chart-point="${CSS.escape(hit.dataset.chartKey)}"]`)?.classList.add("active");
+    const cx=Number(hit.getAttribute("cx")),cy=Number(hit.getAttribute("cy"));
+    if(guide){guide.setAttribute("x1",cx);guide.setAttribute("x2",cx);guide.classList.add("visible");}
+
+    const cardRect=els.insightsChartCard.getBoundingClientRect(),svgRect=svg.getBoundingClientRect();
+    const pointLeft=(cx/w)*svgRect.width+(svgRect.left-cardRect.left),pointTop=(cy/h)*svgRect.height+(svgRect.top-cardRect.top);
+    const tw=tooltip.offsetWidth||120,th=tooltip.offsetHeight||64;
+    const left=Math.max(8+tw/2,Math.min(cardRect.width-8-tw/2,pointLeft));
+    const enoughAbove=pointTop-th-14>=8;
+    const top=enoughAbove?pointTop-th-12:Math.min(cardRect.height-th-8,pointTop+12);
+    tooltip.style.left=`${left}px`;tooltip.style.top=`${Math.max(8,top)}px`;
+    tooltip.classList.toggle("below",!enoughAbove);
+    if(pin)pinnedKey=hit.dataset.chartKey;
+  };
 
   svg.querySelectorAll(".chart-hit").forEach(hit=>{
-    const show=(event)=>{
-      const metric=hit.dataset.chartSeries;
-      const raw=Number(hit.dataset.chartRaw);
-      const plot=Number(hit.dataset.chartPlot);
-      const label=metricMeta[metric]?.label||metric;
-      const value=mode==="indexed"
-        ? `${plot.toFixed(1)} · ${raw.toLocaleString()}`
-        : raw.toLocaleString();
-
-      tooltip.innerHTML=`
-        <strong>${escapeHtml(label)}</strong>
-        <span>${escapeHtml(hit.dataset.chartDate)}</span>
-        <b>${escapeHtml(value)}</b>
-      `;
-
-      const cardRect=els.insightsChartCard.getBoundingClientRect();
-      const svgRect=svg.getBoundingClientRect();
-      const cx=Number(hit.getAttribute("cx"));
-      const cy=Number(hit.getAttribute("cy"));
-      const left=(cx/w)*svgRect.width+(svgRect.left-cardRect.left);
-      const top=(cy/h)*svgRect.height+(svgRect.top-cardRect.top);
-
-      tooltip.style.left=`${left}px`;
-      tooltip.style.top=`${top}px`;
-      tooltip.classList.add("visible");
-    };
-
-    hit.addEventListener("mouseenter",show);
-    hit.addEventListener("focus",show);
-    hit.addEventListener("click",show);
-    hit.addEventListener("touchstart",show,{passive:true});
-    hit.addEventListener("mouseleave",hideChartTooltip);
-    hit.addEventListener("blur",hideChartTooltip);
+    hit.addEventListener("pointerenter",event=>{if(event.pointerType!=="touch"&&!pinnedKey)show(hit)});
+    hit.addEventListener("pointerleave",event=>{if(event.pointerType!=="touch"&&!pinnedKey)hideChartTooltip()});
+    hit.addEventListener("focus",()=>{if(!pinnedKey)show(hit)});
+    hit.addEventListener("blur",()=>{if(!pinnedKey)hideChartTooltip()});
+    hit.addEventListener("click",event=>{event.stopPropagation();pinnedKey=hit.dataset.chartKey;show(hit,{pin:true})});
   });
+
+  els.insightsChartCard.onclick=event=>{
+    if(event.target.closest?.(".chart-hit"))return;
+    pinnedKey=null;hideChartTooltip(true);
+  };
 }
 
-function hideChartTooltip(){
+function hideChartTooltip(force=false){
   if(!els.insightsChartTooltip)return;
-  els.insightsChartTooltip.classList.remove("visible");
+  els.insightsChartTooltip.classList.remove("visible","below");
+  if(force||!els.insightsChartTooltip.classList.contains("visible")){
+    els.insightsGrowthChart?.querySelectorAll(".chart-point.active").forEach(p=>p.classList.remove("active"));
+    els.insightsGrowthChart?.querySelector(".chart-hover-guide")?.classList.remove("visible");
+  }
 }
 
 function shortDate(ts){
@@ -1772,7 +2529,98 @@ function renderCohorts(){
     [t("day1"),res.day1],[t("day2"),res.day2],[t("day3"),res.day3],[t("days4to7"),res.days4to7]
   ].map(([label,val])=>`<article class="cohort-card"><strong>${val}</strong><span>${label}</span></article>`).join("");
   els.cohortHint.textContent=(state.currentLoaded||effectiveFullCheckpoint())?t("cohortNeedHistory"):t("loadPrompt");
+  renderFollowingCohorts();
 }
+function followingSnapshotTimestamp(snapshot){
+  if(!snapshot?.date)return null;
+  const ms=Date.parse(`${snapshot.date}T12:00:00Z`);
+  return Number.isFinite(ms)?Math.floor(ms/1000):null;
+}
+
+function computeFollowingCohortAnalysis(){
+  const snaps=state.dailyFollowingSnapshots;
+  if(snaps.length<2)return{events:[],tracked:0,still:0,left:0,retention:null,horizons:[],byDay:[]};
+
+  const activities=computeFollowingActivity();
+  const presence=snaps.map(snapshot=>canonicalKeySet(snapshot.following));
+  const events=[];
+
+  for(const day of activities){
+    const startIndex=snaps.findIndex(s=>s.date===day.date);
+    if(startIndex<0)continue;
+
+    for(const row of day.followed){
+      const canonical=canonicalKey(row.username.toLowerCase());
+      let firstAbsent=null;
+      for(let i=startIndex+1;i<snaps.length;i++){
+        if(!presence[i].has(canonical)){
+          firstAbsent=snaps[i];
+          break;
+        }
+      }
+
+      events.push({
+        ...row,
+        canonical,
+        cohortDate:day.date,
+        startIndex,
+        firstAbsent,
+        stillFollowing:!firstAbsent,
+        _refollow:row._refollow===true
+      });
+    }
+  }
+
+  const latest=snaps.at(-1),latestTs=followingSnapshotTimestamp(latest);
+  const horizons=[1,2,3,7].map(days=>{
+    let eligible=0,retained=0;
+    for(const event of events){
+      const followedAt=Number.isFinite(Number(event.timestamp))?Number(event.timestamp):followingSnapshotTimestamp(snaps[event.startIndex]);
+      if(!followedAt||!latestTs||latestTs<followedAt+days*86400)continue;
+      eligible++;
+      const absentTs=followingSnapshotTimestamp(event.firstAbsent);
+      if(!absentTs||absentTs>followedAt+days*86400)retained++;
+    }
+    return{days,eligible,retained,rate:eligible?retained/eligible*100:null};
+  });
+
+  const byDay=activities.map(day=>{
+    const dayEvents=events.filter(event=>event.cohortDate===day.date);
+    const still=dayEvents.filter(event=>event.stillFollowing).length;
+    return{date:day.date,events:dayEvents,still,left:dayEvents.length-still,retention:dayEvents.length?still/dayEvents.length*100:null};
+  }).filter(day=>day.events.length);
+
+  const still=events.filter(event=>event.stillFollowing).length;
+  return{
+    events,
+    tracked:events.length,
+    still,
+    left:events.length-still,
+    retention:events.length?still/events.length*100:null,
+    horizons,
+    byDay
+  };
+}
+
+function renderFollowingCohorts(){
+  if(!els.followingCohortTracked)return;
+  const res=computeFollowingCohortAnalysis();
+  els.followingCohortTracked.textContent=res.tracked.toLocaleString();
+  els.followingCohortStill.textContent=res.still.toLocaleString();
+  els.followingCohortLeft.textContent=res.left.toLocaleString();
+  els.followingCohortRetention.textContent=res.retention==null?"—":`${res.retention.toFixed(1)}%`;
+
+  const horizonLabels={1:t("followingRetention1"),2:t("followingRetention2"),3:t("followingRetention3"),7:t("followingRetention7")};
+  els.followingRetentionGrid.innerHTML=res.horizons.map(h=>`<article class="cohort-card following-retention-card"><strong>${h.rate==null?"—":`${h.rate.toFixed(1)}%`}</strong><span>${escapeHtml(horizonLabels[h.days])}</span><small>${h.eligible.toLocaleString()} ${escapeHtml(t("eligible"))}</small></article>`).join("");
+
+  els.followingCohortDays.innerHTML=[...res.byDay].reverse().map(day=>{
+    const accounts=day.events.map(event=>`<a class="following-cohort-account" href="${escapeAttribute(event.href)}" target="ifa-instagram-review" referrerpolicy="no-referrer"><span>@${escapeHtml(event.username)}</span><small>${escapeHtml(event.stillFollowing?t("statusStillFollowing"):t("statusUnfollowedLater"))}${event._refollow?` · ${escapeHtml(t("activityRefollow"))}`:""}</small></a>`).join("");
+    return`<details class="following-cohort-day"><summary><strong>${escapeHtml(day.date)}</strong><span>${day.events.length} ${escapeHtml(t("activityFollowed"))}</span><span>${day.still} ${escapeHtml(t("followingCohortStill"))}</span><b>${day.retention==null?"—":`${day.retention.toFixed(1)}%`}</b></summary><div class="following-cohort-account-list">${accounts}</div></details>`;
+  }).join("");
+
+  els.followingCohortEmpty.style.display=res.tracked?"none":"flex";
+}
+
 function computeCohortsFromCurrent(){
   const cohortData=state.currentLoaded?state.current:(effectiveFullCheckpoint()?.dataset||null);
   if(!cohortData)return{tracked:0,converted:0,rate:0,median:null,day1:0,day2:0,day3:0,days4to7:0,threshold:null};

@@ -158,6 +158,13 @@ export default {
           "cache-control": "no-store"
         });
 
+        // Preserve the public Drive file modification time when Google exposes it.
+        // The frontend uses it only for ordering complete Following snapshots.
+        const upstreamLastModified = upstream.headers.get("last-modified");
+        if (upstreamLastModified) {
+          headers.set("x-ifa-source-last-modified", upstreamLastModified);
+        }
+
         return cors(new Response(upstream.body, {
           status: 200,
           headers
@@ -422,6 +429,7 @@ function cors(response) {
   headers.set("access-control-allow-origin", "*");
   headers.set("access-control-allow-methods", "GET, POST, OPTIONS");
   headers.set("access-control-allow-headers", "content-type, authorization");
+  headers.set("access-control-expose-headers", "x-ifa-source-last-modified");
   headers.set("x-content-type-options", "nosniff");
   return new Response(response.body, {
     status: response.status,
