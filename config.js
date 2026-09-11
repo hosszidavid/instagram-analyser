@@ -5,5 +5,5 @@
 // Example:
 // driveBridgeUrl: "https://instagram-drive-bridge.YOURNAME.workers.dev"
 window.IFA_CONFIG = {
-  driveBridgeUrl: ""
+  driveBridgeUrl: "https://white-tree-a353.hosszidavid.workers.dev"
 };
