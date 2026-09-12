@@ -2,7 +2,7 @@
 
 Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
 
-Aktuelle Version: **v0.23.1**
+Aktuelle Version: **v0.24**
 
 Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
 
@@ -735,3 +735,18 @@ Die freigegebene Designsprache wurde in die echte Oberfläche übernommen, ohne 
 - Bewusstere Farbakzente in Insights und interaktiven Controls.
 - Growth Trends nutzt jetzt die freigegebene Chart-Sprache: höherer Plot, weiche Multi-Series-Linien, dezente Area-Fills, vertikale Guides, klarere Punkte und ein gruppierter Datums-Tooltip, der im Chart-Panel bleibt.
 - Responsive Verhalten, Daily Sync, Full Checkpoints, Heart Sync, Identity-Handling und Berechnungslogik bleiben unverändert.
+
+## v0.24 - Optionale SECOND-Kompatibilitätsquelle
+
+Für die spezielle Situation mit zwei parallelen Meta Scheduled Exports gibt es jetzt eine temporäre, strikt getrennte `SECOND`-Quelle.
+
+Die Regeln sind bewusst eng:
+
+- Ein Pfadsegment mit exakt dem Namen `SECOND` (ohne Beachtung der Groß-/Kleinschreibung) ist eine eigene Quelle und wird niemals als Primary Daily, Reference oder Full Exports behandelt.
+- Follower-Evidenz aus Primary und SECOND wird vereinigt und nach Identity/Timestamp dedupliziert.
+- Vollständige Following-Snapshots behalten ihre Quelle; für den effektiven Daily-Stand gewinnt anhand der bestehenden Datei-Zeitmetadaten immer der tatsächlich neuere Snapshot.
+- Insights bleiben Primary-first. SECOND darf nur einen vollständig fehlenden Dateityp ergänzen (`audience_insights.json`, `content_interactions.json`, `profiles_reached.json`). Existiert der Dateityp für den kanonischen Tag in Primary, darf SECOND ihn nicht überschreiben.
+- `recently_unfollowed_profiles.json` bleibt in dieser Kompatibilitätsschicht Primary-only.
+- Die Snapshot-Provenienz speichert, ob die einzelnen Insights-Dateitypen und der Following-Wert aus Primary oder SECOND stammen.
+
+Die Schicht ist später leicht abschaltbar/entfernbar. Im Drive-Panel gibt es einen lokalen Schalter. Auf Code-/Config-Ebene blendet `secondSourceFeature: false` in `config.js` den Schalter aus und ignoriert den gesamten `SECOND`-Baum. Der Cloudflare Worker muss nicht geändert werden.

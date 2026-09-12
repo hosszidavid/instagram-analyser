@@ -2,7 +2,7 @@
 
 Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
 
-Aktuális verzió: **v0.23.1**
+Aktuális verzió: **v0.24**
 
 Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
 
@@ -733,3 +733,18 @@ A jóváhagyott látványterv designnyelve bekerült a tényleges felületbe, a 
 - Tudatosabb színakcentusok az Insights és az interaktív vezérlők körül.
 - A Growth Trends megkapta a jóváhagyott chart nyelvet: magasabb plot, sima multi-series vonalak, enyhe area fill, vertikális guide-ok, tisztább pontok és egy dátumhoz tartozó összes aktív metrikát mutató, panelen belül maradó tooltip.
 - A responsive működés, Daily Sync, Full Checkpoint, Heart Sync, identity kezelés és minden számítási logika változatlan.
+
+## v0.24 - Opcionális SECOND automatizálási kompatibilitási forrás
+
+A két párhuzamos Meta scheduled export speciális helyzetére bekerült egy ideiglenes, szigorúan elkülönített `SECOND` forrás.
+
+A szabályok szándékosan szűkek:
+
+- A Drive útvonalban pontosan `SECOND` nevű path segment (kis- és nagybetűtől függetlenül) külön forrásnak számít. Soha nem kerül a Primary Daily, Reference vagy Full Exports közé.
+- A Primary és SECOND follower evidence összeolvad, identity/timestamp alapján deduplikálva.
+- A teljes Following snapshotok megőrzik a forrásukat; az effektív Daily állapothoz mindig a ténylegesen frissebb snapshot nyer a már használt fájl-generálási metadata alapján.
+- Az Insights Primary-first marad. A SECOND csak egy teljesen hiányzó fájltípust pótolhat (`audience_insights.json`, `content_interactions.json`, `profiles_reached.json`). Ha a Primaryban az adott canonical naphoz megvan a fájltípus, a SECOND nem írhatja felül.
+- A `recently_unfollowed_profiles.json` ebben a kompatibilitási rétegben továbbra is csak Primary forrásból jön.
+- Az Insights snapshot provenance eltárolja, hogy az egyes fájltípusok és a Following érték Primaryból vagy SECONDből érkeztek.
+
+A réteg később egyszerűen kikapcsolható/kivehető. A Drive panelen van helyi kapcsoló. Kódszinten a `config.js` fájlban a `secondSourceFeature: false` elrejti a kapcsolót és teljesen figyelmen kívül hagyja a `SECOND` fát. Cloudflare Worker módosítás nem szükséges.

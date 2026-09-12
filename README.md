@@ -1,4 +1,4 @@
-# Instagram Followers Analyzer v0.23.1
+# Instagram Followers Analyzer v0.24
 
 ## Fő navigáció
 - Overview
@@ -416,3 +416,18 @@ The approved visual concept has been implemented in the actual interface without
 - More deliberate accent use across Insights and interactive controls.
 - Growth Trends now uses the approved chart language: taller plot, smooth multi-series lines, subtle area fills, vertical guides, clearer points and a grouped date tooltip that remains clamped inside the chart panel.
 - Existing responsive behavior, Daily Sync, Full Checkpoints, Heart Sync, identity handling and calculation logic are unchanged.
+
+## v0.24 - Optional SECOND automation compatibility source
+
+A temporary, explicitly isolated `SECOND` source can now be used when two Meta scheduled exports are active at the same time.
+
+The rule set is intentionally narrow:
+
+- A Drive path segment named exactly `SECOND` (case-insensitive) is classified as a separate source. It is never treated as Primary Daily, Reference, or Full Exports.
+- Follower evidence from Primary and SECOND is unioned and deduplicated by identity/timestamp.
+- Complete Following snapshots remain source-aware; for the effective Daily state, the genuinely fresher snapshot wins using the existing file-generation metadata rules.
+- Insights remain Primary-first. SECOND may fill only a whole missing file type (`audience_insights.json`, `content_interactions.json`, or `profiles_reached.json`). If Primary has that file type for the canonical snapshot day, SECOND cannot overwrite it.
+- `recently_unfollowed_profiles.json` stays Primary-only in this compatibility layer.
+- Snapshot provenance stores whether each Insights file type and Following value came from Primary or SECOND.
+
+The layer is deliberately easy to remove. The Drive panel has a local on/off switch. At code/config level, set `secondSourceFeature: false` in `config.js`; this hides the switch and ignores the `SECOND` tree entirely. No Cloudflare Worker change is required.
