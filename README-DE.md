@@ -1,8 +1,66 @@
 # Instagram Followers Analyzer
 
+## v0.25: Persistent Archive + Incremental Sync
+
+v0.25 führt ein dauerhaftes lokales Archiv für die langfristige Nutzung ein. Die rohen Instagram/Meta-Exporte auf Google Drive bleiben das Quellmaterial, während der Browser die normalisierte Historie in IndexedDB speichert.
+
+### Normaler Sync
+
+Beim ersten v0.25-Sync einer bestehenden Installation wird das lokale Archiv einmalig aus den verfügbaren Drive-Quellen aufgebaut. Danach liest Sync weiterhin das Drive-Dateimanifest, lädt und verarbeitet aber nur Dateien, deren Drive File ID noch nicht verarbeitet wurde.
+
+Bereits ingestierte historische Daten bleiben im lokalen Archiv erhalten, auch wenn die ursprüngliche Raw-Datei später aus Drive gelöscht wird.
+
+`Reprocess current Drive files` ist eine sichere Reparaturfunktion. Sie ignoriert den Processed-File-Cache einmalig für Dateien, die noch in Drive vorhanden sind, löscht aber keine bereits archivierte Historie. Verwende sie auch, wenn eine Drive-Datei unter derselben File ID ersetzt wurde oder ein Parser-Fix erneut auf vorhandene Raw-Dateien angewendet werden soll.
+
+### Portabler Database Export / Import
+
+`Export database` erzeugt jetzt ein vollständiges portables normalisiertes Archiv und nicht nur aktuelle Summen. Enthalten sind die Evidenzen, aus denen historische Ansichten wieder aufgebaut werden können:
+
+- Primary- und SECOND-Follower-Events
+- kompakte Daily-Following-Historie
+- Reference
+- Full Checkpoints
+- Insights-Dateievidenz und gespeicherte Snapshots
+- Rename-/Identity-Evidenz, FBID-Mappings und Recently-Unfollowed-Identity-Daten
+- Manifest der verarbeiteten Drive-Dateien und Source Provenance
+- Heart-Datensätze und portable Source-Einstellungen
+
+Auf einem neuen Computer oder Browser zuerst die Database importieren und danach Drive Sync ausführen. Durch das importierte Processed-File-Manifest werden bereits archivierte historische Drive-Quellen übersprungen und nur neue oder noch unbekannte Dateien verarbeitet.
+
+### Jährlicher Archivierungs-Workflow
+
+Unterstützter langfristiger Ablauf:
+
+1. Alle verfügbaren Quellen synchronisieren.
+2. Database exportieren.
+3. Mindestens zwei Backups behalten und eines in einem sauberen Browserprofil testweise importieren.
+4. Nach erfolgreicher Prüfung können alte jährliche Daily-Raw-Exporte bei Bedarf aus Drive gelöscht werden.
+5. Die alte Historie kommt danach aus der Database, Drive liefert nur neuere Raw-Exporte.
+
+Das Löschen einer Raw-Datei aus Drive löscht nicht die bereits ingestierte Historie. Trotzdem ist es sinnvoll, pro Jahr mindestens einen vollständigen Meta-Full-Export zu behalten, da ein zukünftiger Parser Felder nicht wiederherstellen kann, die früher nie normalisiert wurden, wenn die Originaldatei nicht mehr existiert.
+
+### Optionaler `/DATABASE`-Ordner in Drive
+
+Ein Pfadsegment mit dem exakten Namen `DATABASE`, unabhängig von Groß-/Kleinschreibung, ist für portable Database-Checkpoints reserviert. Wenn `Use DATABASE checkpoints from Drive` aktiviert ist, kann Drive Sync zuerst den neuesten kompatiblen Database-Checkpoint laden und anschließend nur die Raw-Quellen weiterverarbeiten. Das ist besonders für das Bootstrap eines neuen Geräts gedacht.
+
+Die Option ist standardmäßig AUS. Eine portable Database enthält konzentrierte Relationship-Historie. Lege sie nur dann in einen öffentlich lesbaren Drive-Ordner, wenn du diese Offenlegung bewusst akzeptierst.
+
+### Source Policy
+
+Reference, Full und SECOND besitzen getrennte Advanced-Source-Policies:
+
+- `Automatic`: lokales Archiv verwenden und neue/frischere Evidenz aus Drive ergänzen.
+- `Local database`: bereits archivierte Evidenz verwenden und diese Quelle beim Sync nicht aus Drive ingestieren.
+- `Drive only`: nur Evidenz verwenden, deren Quelldatei aktuell tatsächlich auf Drive vorhanden ist.
+
+Primary Daily ist bewusst nicht separat umschaltbar. Sein normales Modell ist archivierte Historie plus neue Drive-Dateien.
+
+SECOND bleibt eine entfernbare Kompatibilitätsschicht. Sie kann im Frontend deaktiviert werden; `secondSourceFeature: false` in `config.js` entfernt sie aus aktivem Datenmodell und UI.
+
+
 Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
 
-Aktuelle Version: **v0.24**
+Aktuelle Version: **v0.25**
 
 Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
 

@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Followers Analyzer</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=0.24" />
-  <link rel="stylesheet" href="styles.css?v=0.24" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=0.25" />
+  <link rel="stylesheet" href="styles.css?v=0.25" />
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
       <div class="brand-block">
         <div class="brand-kicker">
-          <img class="brand-mark" src="logo-mark.svg?v=0.24" alt="" aria-hidden="true" />
+          <img class="brand-mark" src="logo-mark.svg?v=0.25" alt="" aria-hidden="true" />
           <p class="eyebrow" data-i18n="eyebrow">LOCAL INSTAGRAM ANALYZER</p>
         </div>
         <h1><span>Followers</span> <span class="brand-accent">Analyzer</span></h1>
@@ -119,11 +119,72 @@
         </label>
       </div>
 
+      <details class="archive-settings" id="archiveSettings">
+        <summary>
+          <span>
+            <b data-i18n="archiveSettingsTitle">Local archive & source policy</b>
+            <small data-i18n="archiveSettingsCopy">IndexedDB keeps normalized history locally; Drive is used only for new or explicitly refreshed source files.</small>
+          </span>
+          <span class="archive-summary-state" id="archiveSummaryState">Local</span>
+        </summary>
+
+        <div class="archive-settings-body">
+          <label class="archive-database-toggle" id="databaseDriveOption">
+            <input id="databaseDriveToggle" type="checkbox" />
+            <span>
+              <b data-i18n="databaseDriveLabel">Use DATABASE checkpoints from Drive</b>
+              <small data-i18n="databaseDriveCopy">Optional. The newest compatible database file in /DATABASE can bootstrap a new browser before incremental sync.</small>
+            </span>
+          </label>
+
+          <div class="archive-source-grid">
+            <label class="field">
+              <span class="field-label" data-i18n="referenceSourcePolicy">Reference source</span>
+              <select id="referenceSourcePolicy" class="select">
+                <option value="auto" data-i18n="sourcePolicyAuto">Automatic</option>
+                <option value="database" data-i18n="sourcePolicyDatabase">Local database</option>
+                <option value="drive" data-i18n="sourcePolicyDrive">Drive only</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="field-label" data-i18n="fullSourcePolicy">Full source</span>
+              <select id="fullSourcePolicy" class="select">
+                <option value="auto" data-i18n="sourcePolicyAuto">Automatic</option>
+                <option value="database" data-i18n="sourcePolicyDatabase">Local database</option>
+                <option value="drive" data-i18n="sourcePolicyDrive">Drive only</option>
+              </select>
+            </label>
+            <label class="field" id="secondSourcePolicyField">
+              <span class="field-label" data-i18n="secondSourcePolicy">SECOND source</span>
+              <select id="secondSourcePolicy" class="select">
+                <option value="auto" data-i18n="sourcePolicyAuto">Automatic</option>
+                <option value="database" data-i18n="sourcePolicyDatabase">Local database</option>
+                <option value="drive" data-i18n="sourcePolicyDrive">Drive only</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="archive-info-row">
+            <span><b data-i18n="archiveThroughLabel">Archive through</b><strong id="archiveThrough">—</strong></span>
+            <span><b data-i18n="archiveFilesLabel">Cached source files</b><strong id="archiveFileCount">0</strong></span>
+            <span><b data-i18n="archiveStorageLabel">Storage</b><strong id="archiveStorageState">IndexedDB</strong></span>
+          </div>
+
+          <div class="archive-actions">
+            <button class="button ghost" id="reprocessDriveBtn" type="button" data-i18n="reprocessDrive">Reprocess current Drive files</button>
+            <small data-i18n="reprocessDriveCopy">Keeps archived history, but ignores the processed-file cache once and reparses files that are still on Drive.</small>
+          </div>
+
+          <p class="archive-privacy-note" data-i18n="databasePrivacyNote">DATABASE is optional. A database export contains concentrated relationship history, so do not place it in a public Drive folder unless you accept that exposure.</p>
+        </div>
+      </details>
+
       <div class="drive-meta" id="driveMeta">
         <span><b data-i18n="driveLatest">Latest Daily</b><strong id="driveLatestDate">—</strong></span>
         <span><b data-i18n="drivePrevious">Last Full</b><strong id="drivePreviousDate">—</strong></span>
         <span><b data-i18n="driveExportsFound">Reference</b><strong id="driveExportCount">—</strong></span>
         <span><b data-i18n="driveFilesFound">Daily exports</b><strong id="driveFileCount">0</strong></span>
+        <span><b data-i18n="archiveThroughShort">Archive</b><strong id="driveArchiveDate">—</strong></span>
       </div>
 
       <div class="file-status drive-message" id="driveMessage" data-i18n="driveReady">Ready to scan the public folder.</div>
@@ -280,7 +341,7 @@
     <section id="insightsSection" class="section-card section-panel">
       <div class="section-title-row insights-head">
         <div class="insights-title-wrap">
-          <span class="section-brand-icon" aria-hidden="true"><img src="logo-mark.svg?v=0.24" alt="" /></span>
+          <span class="section-brand-icon" aria-hidden="true"><img src="logo-mark.svg?v=0.25" alt="" /></span>
           <div>
           <p class="eyebrow" data-i18n="instagramInsights">INSTAGRAM INSIGHTS</p>
           <h2 data-i18n="insightsTitle">Useful account performance</h2>
@@ -473,7 +534,8 @@
     </section>
   </div>
 
-  <script src="config.js?v=0.24"></script>
-  <script src="app.js?v=0.24"></script>
+  <script src="config.js?v=0.25"></script>
+  <script src="archive-store.js?v=0.25"></script>
+  <script src="app.js?v=0.25"></script>
 </body>
 </html>

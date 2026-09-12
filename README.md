@@ -1,4 +1,60 @@
-# Instagram Followers Analyzer v0.24
+# Instagram Followers Analyzer v0.25
+
+## v0.25: Persistent Archive + Incremental Sync
+
+v0.25 introduces a durable local archive for long-term use. Instagram/Meta raw exports on Google Drive remain source material, while the browser keeps normalized history in IndexedDB.
+
+### Normal Sync
+
+The first v0.25 sync on an existing installation builds the local archive from the available Drive sources. After that, Sync still scans the Drive file manifest, but downloads and parses only source files whose Drive file ID has not already been processed. Previously ingested evidence stays in the local archive even if the original raw Drive file is later deleted.
+
+`Reprocess current Drive files` is a safe repair action. It ignores the processed-file cache once for files that still exist on Drive, but it does not erase archived historical evidence. Use it if a Drive file was replaced in place while keeping the same Drive file ID, or after a parser fix that should be reapplied to existing raw files.
+
+### Portable Database Export / Import
+
+`Export database` now creates a complete portable normalized archive, not only a snapshot of current totals. It includes the evidence needed to rebuild historical views:
+
+- Primary and SECOND follower events
+- compact Daily Following history
+- Reference
+- Full checkpoints
+- Insights file evidence and saved snapshots
+- rename / identity inputs, FBID mappings and recently-unfollowed identity evidence
+- processed Drive file manifest and source provenance
+- Heart records and portable app source preferences
+
+On a new browser or computer, import the database first and then run Drive Sync. The imported processed-file manifest lets the app skip historical Drive sources that were already archived and process only new/unseen files.
+
+### Annual archive workflow
+
+A supported long-term workflow is:
+
+1. Sync all available sources.
+2. Export the database.
+3. Keep at least two backups and test-import one into a clean browser profile.
+4. After verification, old raw Daily exports may be removed from Drive if desired.
+5. Keep using the imported/local database as historical evidence and let Drive provide only newer raw exports.
+
+Deleting a raw Drive file does not delete its already-ingested historical data from the local archive. Keeping at least one year-end Full Meta export is still recommended because a future parser cannot recover a field that was never normalized if the original raw export has been deleted.
+
+### Optional `/DATABASE` Drive folder
+
+A folder path segment named exactly `DATABASE` (case-insensitive) is reserved for portable database checkpoint files. When `Use DATABASE checkpoints from Drive` is enabled, Drive Sync can load the newest compatible database checkpoint before processing raw source files. This is useful for bootstrapping a new device.
+
+This option is OFF by default. A portable database contains concentrated relationship history. Do not place it in a publicly readable Drive folder unless you accept that exposure.
+
+### Source policy
+
+Reference, Full and SECOND have independent advanced source policies:
+
+- `Automatic`: use the local archive and refresh/add evidence from Drive.
+- `Local database`: use already archived evidence and do not ingest that source from Drive during Sync.
+- `Drive only`: use evidence represented by files currently present on Drive.
+
+Primary Daily is intentionally not switchable: its normal model is archived history plus new Drive files.
+
+SECOND remains a removable compatibility layer. The frontend switch can disable it, and `secondSourceFeature: false` in `config.js` removes the feature from the active data model/UI.
+
 
 ## Fő navigáció
 - Overview

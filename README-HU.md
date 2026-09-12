@@ -1,8 +1,66 @@
 # Instagram Followers Analyzer
 
+## v0.25: Persistent Archive + Incremental Sync
+
+A v0.25 hosszú távú, tartós lokális archívumot vezet be. A Google Drive-on lévő Instagram/Meta raw exportok továbbra is forrásanyagok, a böngésző pedig IndexedDB-ben tárolja a normalizált historyt.
+
+### Normál Sync
+
+Meglévő telepítésen az első v0.25 Sync egyszer felépíti a lokális archívumot a Drive-on elérhető forrásokból. Ezután a Sync továbbra is lekéri a Drive fájlmanifestet, de csak azokat a forrásfájlokat tölti le és parse-olja, amelyek Drive file ID-ja még nincs feldolgozva.
+
+A korábban ingestált evidence akkor is megmarad a lokális adatbázisban, ha az eredeti raw Drive fájlt később törlöd.
+
+A `Reprocess current Drive files` biztonságos javítási művelet. Egy alkalommal figyelmen kívül hagyja a processed-file cache-t a Drive-on még meglévő fájloknál, de a már archivált történeti adatokat nem törli. Ezt használd akkor is, ha egy Drive fájl tartalma ugyanazon file ID alatt lett lecserélve, vagy egy parser-javítást a meglévő raw fájlokra is újra alkalmazni szeretnél.
+
+### Teljes Database Export / Import
+
+Az `Export database` most már teljes, hordozható normalizált archívumot készít, nem csupán az aktuális számokat menti. Benne van minden olyan evidence, amelyből a history később újraépíthető:
+
+- Primary és SECOND follower eventek
+- tömörített Daily Following history
+- Reference
+- Full checkpointok
+- Insights file evidence és mentett snapshotok
+- rename / identity bemenetek, FBID mappingek és recently-unfollowed identity evidence
+- feldolgozott Drive fájlok manifestje és source provenance
+- Heart rekordok és hordozható source beállítások
+
+Új gépen vagy böngészőben először importáld a Database exportot, utána indíts Drive Syncet. Az importált processed-file manifest miatt az app nem tölti le újra azokat a régi Drive forrásokat, amelyek már szerepelnek az archívumban, csak az új vagy korábban nem látott fájlokat dolgozza fel.
+
+### Év végi archiválási workflow
+
+Támogatott hosszú távú workflow:
+
+1. Szinkronizáld az összes elérhető forrást.
+2. Exportáld a Database-t.
+3. Tarts legalább két backupot, és az egyiket próbáld visszaimportálni egy tiszta böngészőprofilban.
+4. Sikeres ellenőrzés után a régi éves Daily raw exportokat igény szerint törölheted a Drive-ról.
+5. A korábbi historyt ezután az adatbázis adja, a Drive pedig csak az új raw exportokat szolgáltatja.
+
+Egy raw Drive fájl törlése nem törli az abból korábban ingestált történeti adatot. Ettől függetlenül érdemes évente legalább egy év végi teljes Meta Full exportot megtartani, mert ha egy későbbi parser olyan mezőt szeretne használni, amelyet a régi adatbázis még nem normalizált, azt raw export nélkül már nem lehet visszanyerni.
+
+### Opcionális `/DATABASE` Drive mappa
+
+A pontosan `DATABASE` nevű útvonalszegmens, kis- és nagybetűtől függetlenül, hordozható Database checkpointok számára van fenntartva. Ha a `Use DATABASE checkpoints from Drive` kapcsoló aktív, a Drive Sync először be tudja tölteni a legfrissebb kompatibilis Database checkpointot, majd csak ezután dolgozza fel a raw forrásokat. Ez új eszköz bootstrapjához hasznos.
+
+A kapcsoló alapból KI van kapcsolva. A hordozható Database koncentrált relationship historyt tartalmaz, ezért nyilvánosan olvasható Drive mappába csak akkor tedd, ha ezt a kitettséget elfogadod.
+
+### Source policy
+
+A Reference, Full és SECOND egymástól független advanced source policyt kapott:
+
+- `Automatic`: a lokális archívum használata, Drive-ról pedig az új/friss evidence hozzáadása.
+- `Local database`: a már archivált evidence használata, az adott source Drive-ról nem kerül újra ingestálásra.
+- `Drive only`: csak olyan evidence használata, amelyhez a forrásfájl jelenleg ténylegesen megtalálható a Drive-on.
+
+A Primary Daily szándékosan nem választható külön: annak normál modellje a lokális archív history + új Drive fájlok.
+
+A SECOND továbbra is kivehető kompatibilitási réteg. Frontenden kikapcsolható, a `config.js` fájlban pedig a `secondSourceFeature: false` teljesen kikapcsolja az aktív adatmodellből és a UI-ból.
+
+
 Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
 
-Aktuális verzió: **v0.24**
+Aktuális verzió: **v0.25**
 
 Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
 
