@@ -1,6 +1,11 @@
 # Instagram Followers Analyzer
 
-## v0.25: Persistent Archive + Incremental Sync
+### v0.25.1: Unfollowers Full checkpointok szerint
+
+Az Unfollowers lista most aszerint csoportosít, hogy egy fiók melyik Full checkpointban hiányzik először úgy, hogy egy korábbi Fullban még jelen volt. A legfrissebb Fullhoz tartozó veszteségek kerülnek legfelülre. A kiválasztott név/dátum rendezés a csoportokon belül továbbra is működik. Az a történeti follower evidence, amelyhez nem rendelhető Full→Full eltűnés, egy tompa történeti blokkba kerül a lista alján.
+
+
+## v0.25.1: Persistent Archive + Incremental Sync
 
 A v0.25 hosszú távú, tartós lokális archívumot vezet be. A Google Drive-on lévő Instagram/Meta raw exportok továbbra is forrásanyagok, a böngésző pedig IndexedDB-ben tárolja a normalizált historyt.
 

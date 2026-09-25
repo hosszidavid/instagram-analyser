@@ -2154,3 +2154,10 @@ body{
   .archive-source-grid,.archive-info-row{grid-template-columns:1fr}
   .drive-meta{grid-template-columns:1fr 1fr}
 }
+
+
+/* v0.25.1 - Unfollowers grouped by the Full checkpoint where absence was first verified. */
+.unfollowers-group-divider{display:flex;align-items:center;gap:10px;padding:14px 20px 8px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.unfollowers-group-divider::before,.unfollowers-group-divider::after{content:"";height:1px;background:var(--line);flex:1;min-width:16px}
+.unfollowers-group-divider span{white-space:nowrap;opacity:.72}
+@media(max-width:620px){.unfollowers-group-divider{padding:10px 10px 6px;font-size:9px;gap:8px}.unfollowers-group-divider::before,.unfollowers-group-divider::after{min-width:10px}}

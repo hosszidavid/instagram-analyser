@@ -1,6 +1,11 @@
 # Instagram Followers Analyzer
 
-## v0.25: Persistent Archive + Incremental Sync
+### v0.25.1: Unfollowers nach Full-Checkpoint
+
+Die Unfollowers-Liste wird jetzt nach dem Full-Checkpoint gruppiert, in dem ein Account erstmals als fehlend bestätigt wird, nachdem er in einem früheren Full noch vorhanden war. Die neueste Full-Verlustgruppe steht oben. Die gewählte Namens-/Datumsortierung gilt weiterhin innerhalb der Gruppen. Historische Follower-Evidenz ohne zuordenbaren Full-zu-Full-Verlust bleibt in einem dezenten historischen Abschnitt am Ende.
+
+
+## v0.25.1: Persistent Archive + Incremental Sync
 
 v0.25 führt ein dauerhaftes lokales Archiv für die langfristige Nutzung ein. Die rohen Instagram/Meta-Exporte auf Google Drive bleiben das Quellmaterial, während der Browser die normalisierte Historie in IndexedDB speichert.
 

@@ -1,4 +1,9 @@
-# Instagram Followers Analyzer v0.25
+# Instagram Followers Analyzer v0.25.1
+
+### v0.25.1: Unfollowers by Full checkpoint
+
+The Unfollowers list is grouped by the Full checkpoint where an account is first confirmed absent after having been present in an earlier Full checkpoint. The newest Full-loss group is shown first. The selected name/date sort still applies inside each group. Historical follower evidence that cannot be assigned to a Full-to-Full disappearance remains in a muted historical section at the bottom.
+
 
 ## v0.25: Persistent Archive + Incremental Sync
 
