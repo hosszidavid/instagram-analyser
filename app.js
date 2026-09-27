@@ -3144,7 +3144,7 @@ async function exportDatabase(){
   const payload={
     schema:"instagram-followers-analyzer-db",
     version:2,
-    appVersion:"0.25.1",
+    appVersion:"0.25.2",
     exportedAt:new Date().toISOString(),
     archiveThrough:archive.archiveThrough,
     summary:{

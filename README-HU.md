@@ -1,4 +1,8 @@
-# Instagram Followers Analyzer
+# Instagram Followers Analyzer v0.25.2
+
+### v0.25.2: egységes új ikon + PWA assetek
+
+Az alkalmazás minden ikonfelülete most kizárólag a csomagban lévő `logo_new.svg` új artworkből készül. A korábbi `favicon.svg` és `logo-mark.svg` nincs használatban. Az új artwork jelenik meg a böngésző faviconjaként, a felületi brand ikonként, az Apple touch iconként, valamint a normál és maskable PWA ikonokban. Bekerült a `manifest.webmanifest`; service worker és agresszív asset-cache továbbra sincs hozzáadva.
 
 ### v0.25.1: Unfollowers Full checkpointok szerint
 

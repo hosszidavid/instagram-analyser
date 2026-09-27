@@ -1,4 +1,8 @@
-# Instagram Followers Analyzer v0.25.1
+# Instagram Followers Analyzer v0.25.2
+
+### v0.25.2: unified new icon + PWA assets
+
+Every icon surface now derives exclusively from the new `logo_new.svg` artwork included in this package. The previous `favicon.svg` and `logo-mark.svg` are no longer used. The new artwork is used for the browser favicon, in-app brand icon, Apple touch icon, and both regular and maskable PWA icons. `manifest.webmanifest` is included; no service worker or aggressive asset caching was added.
 
 ### v0.25.1: Unfollowers by Full checkpoint
 
