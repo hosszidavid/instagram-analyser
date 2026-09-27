@@ -19,7 +19,7 @@
   const DB_VERSION = 1;
   const STORE_NAME = "kv";
   const ARCHIVE_KEY = "archive";
-  const ARCHIVE_SCHEMA_VERSION = 2;
+  const ARCHIVE_SCHEMA_VERSION = 3;
 
   function emptyArchive() {
     const now = new Date().toISOString();
@@ -30,10 +30,10 @@
       archiveThrough: null,
       processedFiles: {},
       databaseFilesSeen: {},
-      followerEvents: { primary: [], second: [] },
+      driveCache: { rootId: null, folders: {} },
+      followerEvents: { primary: [] },
       following: {
-        primary: { base: null, deltas: [] },
-        second: { base: null, deltas: [] }
+        primary: { base: null, deltas: [] }
       },
       recentlyUnfollowed: [],
       identityFbids: {},
@@ -59,20 +59,31 @@
       ...base,
       ...value,
       schemaVersion: ARCHIVE_SCHEMA_VERSION,
-      processedFiles: value.processedFiles && typeof value.processedFiles === "object" && !Array.isArray(value.processedFiles) ? value.processedFiles : {},
+      processedFiles: Object.fromEntries(Object.entries(
+        value.processedFiles && typeof value.processedFiles === "object" && !Array.isArray(value.processedFiles) ? value.processedFiles : {}
+      ).filter(([, row]) => row?.role !== "second" && !String(row?.path || "").split("/").some(segment => segment.trim().toLowerCase() === "second"))),
       databaseFilesSeen: value.databaseFilesSeen && typeof value.databaseFilesSeen === "object" && !Array.isArray(value.databaseFilesSeen) ? value.databaseFilesSeen : {},
+      driveCache: {
+        rootId: typeof value.driveCache?.rootId === "string" ? value.driveCache.rootId : null,
+        folders: Object.fromEntries(Object.entries(
+          value.driveCache?.folders && typeof value.driveCache.folders === "object" && !Array.isArray(value.driveCache.folders) ? value.driveCache.folders : {}
+        ).filter(([, row]) => !String(row?.path || "").split("/").some(segment => segment.trim().toLowerCase() === "second")))
+      },
       followerEvents: {
-        primary: Array.isArray(value.followerEvents?.primary) ? value.followerEvents.primary : [],
-        second: Array.isArray(value.followerEvents?.second) ? value.followerEvents.second : []
+        primary: Array.isArray(value.followerEvents?.primary) ? value.followerEvents.primary.filter(row => row?.sourceRole !== "second") : []
       },
       following: {
-        primary: normalizeTimeline(value.following?.primary),
-        second: normalizeTimeline(value.following?.second)
+        primary: normalizeTimeline(value.following?.primary)
       },
       recentlyUnfollowed: Array.isArray(value.recentlyUnfollowed) ? value.recentlyUnfollowed : [],
       identityFbids: value.identityFbids && typeof value.identityFbids === "object" && !Array.isArray(value.identityFbids) ? value.identityFbids : {},
-      insightFiles: Array.isArray(value.insightFiles) ? value.insightFiles : [],
-      insightSnapshots: Array.isArray(value.insightSnapshots) ? value.insightSnapshots : [],
+      insightFiles: Array.isArray(value.insightFiles) ? value.insightFiles.filter(row => row?.role !== "second") : [],
+      insightSnapshots: Array.isArray(value.insightSnapshots) ? value.insightSnapshots.filter(row => {
+        const meta = row?.sourceMeta;
+        if (!meta) return true;
+        if (meta.following === "second") return false;
+        return !Object.values(meta.insights || {}).some(source => source === "second");
+      }) : [],
       reference: value.reference && typeof value.reference === "object" ? value.reference : null,
       fullCheckpoints: Array.isArray(value.fullCheckpoints) ? value.fullCheckpoints : []
     };
@@ -414,11 +425,9 @@
   function archiveLatestDate(archiveValue) {
     const archive = normalizeArchive(archiveValue);
     const dates = [];
-    for (const role of ["primary", "second"]) {
-      const timelineDate = timelineLastDate(archive.following[role]);
-      if (timelineDate) dates.push(timelineDate);
-      for (const row of archive.followerEvents[role]) if (row?.sourceDate) dates.push(row.sourceDate);
-    }
+    const timelineDate = timelineLastDate(archive.following.primary);
+    if (timelineDate) dates.push(timelineDate);
+    for (const row of archive.followerEvents.primary) if (row?.sourceDate) dates.push(row.sourceDate);
     for (const row of archive.insightSnapshots) if (row?.id) dates.push(row.id);
     for (const row of archive.fullCheckpoints) if (row?.date) dates.push(row.date);
     return dates.sort().at(-1) || null;
@@ -494,18 +503,20 @@
     merged.createdAt = local.createdAt || incoming.createdAt || new Date().toISOString();
     merged.processedFiles = { ...incoming.processedFiles, ...local.processedFiles };
     merged.databaseFilesSeen = { ...incoming.databaseFilesSeen, ...local.databaseFilesSeen };
+    merged.driveCache = {
+      rootId: local.driveCache?.rootId || incoming.driveCache?.rootId || null,
+      folders: { ...(incoming.driveCache?.folders || {}), ...(local.driveCache?.folders || {}) }
+    };
 
-    for (const role of ["primary", "second"]) {
-      merged.followerEvents[role] = mergeUniqueRows(
-        local.followerEvents[role], incoming.followerEvents[role],
-        row => {
-          const username = String(row?.username || "").toLowerCase();
-          const timestamp = Number.isFinite(Number(row?.timestamp)) ? Number(row.timestamp) : null;
-          return timestamp != null ? `${username}|${timestamp}` : `${username}|day:${row?.sourceDate || ""}`;
-        }
-      );
-      merged.following[role] = mergeTimelines(local.following[role], incoming.following[role]);
-    }
+    merged.followerEvents.primary = mergeUniqueRows(
+      local.followerEvents.primary, incoming.followerEvents.primary,
+      row => {
+        const username = String(row?.username || "").toLowerCase();
+        const timestamp = Number.isFinite(Number(row?.timestamp)) ? Number(row.timestamp) : null;
+        return timestamp != null ? `${username}|${timestamp}` : `${username}|day:${row?.sourceDate || ""}`;
+      }
+    );
+    merged.following.primary = mergeTimelines(local.following.primary, incoming.following.primary);
 
     merged.recentlyUnfollowed = mergeUniqueRows(
       local.recentlyUnfollowed, incoming.recentlyUnfollowed,

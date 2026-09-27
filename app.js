@@ -18,7 +18,7 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALYSIS",cohortTitle:"How fast do new follows convert?",followBackRate:"Follow-back rate",medianTime:"Median follow-back time",followedInCohorts:"Tracked follows",suggestedThreshold:"Suggested threshold",
     within1:"Within 1 day",within2:"Within 2 days",within3:"Within 3 days",within7:"Within 7 days",cohortNeedHistory:"Cohorts are calculated directly from the follow timestamps in the current export.",days:"days",
     cleanupCandidates:"CLEANUP CANDIDATES",cleanupTitle:"Prioritized accounts to review",cleanupNote:"The score currently uses only relationship data available from followers/following exports. Hearted profiles are excluded.",
-    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history",secondSourceLabel:"Use SECOND compatibility source",secondSourceCopy:"Merge follower evidence, use the freshest Following snapshot, and fill only missing Insights files from SECOND.",secondSourceResync:"SECOND source setting changed. Rebuilding Drive data…",secondSourceSummary:"SECOND: {followers} follower file(s) merged · {following} Following snapshot(s) selected · {insights} Insights fallback file(s).",sourceSecond:"SECOND",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Daily Instagram archive",driveSyncCopy:"Paste the public Drive folder link. Daily exports are used for tracking; Reference and Full Exports remain isolated.",driveFolderLink:"Public Drive folder link",syncDrive:"Sync Drive",driveNotSynced:"Not synced",driveSyncing:"Scanning Drive…",driveSynced:"Synced",driveReady:"Ready to scan the public folder.",driveLatest:"Latest Daily",drivePrevious:"Last Full",driveExportsFound:"Reference",driveFilesFound:"Daily exports",driveApiKeyMissing:"",driveBridgeMissing:"The public Drive bridge is not configured yet. Add your Cloudflare Worker URL to config.js once; no Google API key or billing is needed.",driveInvalidLink:"This does not look like a Google Drive folder link.",driveNoExports:"No dated Instagram exports with followers/following files were found under this folder.",driveSyncComplete:"Drive sync complete. Daily tracking, Reference, Full Exports and Insights were loaded as separate data sources.",driveSyncFailed:"Drive sync failed",driveAutoSnapshot:"Insights history was updated automatically.",driveNoPrevious:"None",driveScanningFolder:"Scanning folders and files…",driveDownloading:"Downloading relevant JSON files…",scanDriveHistory:"Scan Drive history",driveHistoryScanning:"Rebuilding all dated Drive Insights…",driveHistoryComplete:"Drive Insights history rebuilt.",driveHistoryAdded:"snapshots added",driveHistoryUpdated:"snapshots updated",driveHistoryNoInsights:"No dated Insights exports were found.",driveReferenceFolder:"Reference folder",driveReferenceFound:"Loaded from Drive reference folder",driveReferenceMissing:"No reference folder found",readme:"README",documentation:"DOCUMENTATION",add:"Add",sourceFilesShort:"{files} source file(s)",readmeLoadError:"Could not load the README file.",driveDailyModeNote:"Daily Sync keeps positive follower observations and full daily Following snapshots. Lost followers are verified only against a Full Checkpoint.",driveFollowerListNote:"Observed follower events from Daily Sync. This is not a verified current follower snapshot.",driveNfbListNote:"NFB is reconstructed from the latest Full Checkpoint plus later Daily follower events. Rename candidates are excluded.",loadedDriveDaily:"{files} daily source file(s) · {followers} observed follower records · {following} latest following · {notFollowing} no follow-back observed",hideHearted:"Hide hearted",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Sync hearts",heartSyncLocal:"Local only",heartSyncSyncing:"Syncing...",heartSyncSynced:"Cloud synced",heartSyncReady:"Enter the same sync key that is stored as HEARTS_SYNC_KEY in the Cloudflare Worker.",heartSyncDone:"Hearts synchronized.",heartSyncNoKey:"Enter your Heart Sync key first.",heartSyncInvalidKey:"Heart Sync key was rejected.",heartSyncError:"Heart Sync failed",heartSyncAuto:"Heart changes sync automatically while a key is saved.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manual upload",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"No full checkpoint available.",driveReferenceLoadedShort:"Loaded",driveFullMissing:"None",unfollowed:"Unfollowers",renamed:"Renamed",unfollowedNeedsSync:"Daily Sync is required to reconstruct accounts that were observed as followers.",unfollowedNeedsFull:"A Full Checkpoint is required to verify which observed followers are no longer present.",syncDriveAction:"Sync Drive",addFullAction:"Add Full Export",unfollowedCutoff:"Compared only through the Full Checkpoint cutoff: {date}.",unfollowersFullGroup:"FULL · {date}",unfollowersHistoricalGroup:"Historical evidence · before comparable Full checkpoints",baselineFollowerLost:"Reference follower, absent from latest Full Checkpoint",joinedThenLeft:"Joined during tracking, later absent",renameEvidenceFollower:"Follower timestamp",renameEvidenceFollowing:"Following timestamp",renameConfidenceHigh:"High confidence",renameConfidenceLikely:"Likely",myFollowingActivity:"MY FOLLOWING ACTIVITY",myFollowingTitle:"Your daily follow activity",followedByMe:"Followed by me",unfollowedByMe:"Unfollowed by me",netFollowing:"Net following",refollowedByMe:"Refollowed",activityFrom:"From",activityTo:"To",activityNoData:"Drive Sync is required for daily Following activity.",activityFollowed:"Followed",activityUnfollowed:"Unfollowed",activityRefollow:"Refollow",detectedBetweenSnapshots:"Detected between daily snapshots",growthDailyDetails:"Daily account details",newFollowersObserved:"New followers observed",noDailyDetails:"No account-level Daily events for this date.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"How long do you keep following new accounts?",followingCohortTracked:"Tracked follow cycles",followingCohortStill:"Still following",followingCohortLeft:"Unfollowed later",followingCohortRetention:"Current retention",followingRetention1:"1 day retention",followingRetention2:"2 day retention",followingRetention3:"3 day retention",followingRetention7:"7 day retention",followingCohortNoData:"Daily Sync needs at least two Following snapshots for this analysis.",followingCohortAccounts:"Following cohorts by day",statusStillFollowing:"Still following",statusUnfollowedLater:"Unfollowed later",eligible:"eligible",nfbFullBasis:"NFB basis: {full} Full + later Daily follower events.",follows:"Follows",unfollows:"Unfollows",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Load at least one export that contains follower data.",sourceDetails:"Details",sourceAuto:"Automatic",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following list",sourceFollowersLabel:"Followers list",sourceOverride:"Choose source",sourceOverrideActive:"Manual source choice is active for this session.",sourceTimeUnknown:"exact file time unavailable",followersSourceFull:"Built from the latest Full export plus {count} newer Daily follows.",followersSourceFallback:"No Full export yet, so this uses the first Daily baseline plus every Daily follow seen since.",followersSourceManualOnly:"Using the manually loaded Full export.",followingSourceDaily:"Using the Daily Following list because it is the newest complete list.",followingSourceFull:"Using the Full export Following list because it is the newest complete list.",followingSourceFallbackDaily:"Using the latest Daily Following list. Exact file times could not be compared.",followingSourceFallbackFull:"Using the Full export Following list because no Daily Following list is available.",nfbSourceFull:"Compared from the latest Full follower list plus {count} newer Daily follows, against the newest complete Following list.",nfbSourceFallback:"No Full export yet, so NFB uses all follower records seen in Daily Sync against the newest complete Following list.",allTimeSource:"Everyone who has appeared as a follower in any available export.",unfollowersSource:"People seen as followers before, but no longer present in the latest Full export.",renamedSource:"Uses matching relationship timestamps to spot likely username changes.",sourceSnapshot:"Snapshot",sourceAccounts:"accounts",sourceWhyDaily:"Daily file is newer",sourceWhyFull:"Full file is newer",sourceWhyOverride:"chosen manually",sourceWhyFallback:"exact file order unavailable",growthOpenDetails:"Open day details",archiveSettingsTitle:"Local archive & source policy",archiveSettingsCopy:"IndexedDB keeps normalized history locally; Drive is used only for new or explicitly refreshed source files.",databaseDriveLabel:"Use DATABASE checkpoints from Drive",databaseDriveCopy:"Optional. The newest compatible database file in /DATABASE can bootstrap a new browser before incremental sync.",referenceSourcePolicy:"Reference source",fullSourcePolicy:"Full source",secondSourcePolicy:"SECOND source",sourcePolicyAuto:"Automatic",sourcePolicyDatabase:"Local database",sourcePolicyDrive:"Drive only",sourcePolicyDriveRefresh:"Drive + database",archiveThroughLabel:"Archive through",archiveFilesLabel:"Cached source files",archiveStorageLabel:"Storage",archiveThroughShort:"Archive",reprocessDrive:"Reprocess current Drive files",reprocessDriveCopy:"Keeps archived history, but ignores the processed-file cache once and reparses files that are still on Drive.",databasePrivacyNote:"DATABASE is optional. A database export contains concentrated relationship history, so do not place it in a public Drive folder unless you accept that exposure.",archiveLocalReady:"Local archive ready",archiveLocalEmpty:"Local archive empty",archiveLoaded:"Local archive loaded through {date}.",archiveSaved:"Local archive updated.",incrementalSummary:"{newFiles} new file(s) processed · {cachedFiles} already cached",databaseBootstrapLoaded:"DATABASE checkpoint loaded through {date}.",databaseBootstrapSkipped:"DATABASE checkpoint already covered by the local archive.",databaseExportReady:"Portable database exported through {date}.",databaseV2Imported:"Portable database imported through {date}.",databaseLegacyImported:"Legacy database imported. Relationship history was not included in that older format.",sourceDatabase:"Database",sourceDrive:"Drive",archiveInitializing:"Loading local archive…"
+    olderThan:"Following older than",noCleanup:"No cleanup candidates.",noCleanupCopy:"Try a lower age threshold or load a current export.",notFollowingReason:"Not following you",oldFollowReason:"Long-term follow",score:"Score",exportDatabase:"Export database",importDatabase:"Import database",growthTrends:"GROWTH TRENDS",growthTrendsTitle:"Compare saved metrics over time",chartScale:"Chart scale",rawValues:"Raw values",indexedValues:"Indexed (first point = 100)",active:"Active",actions:"Actions",disable:"Disable",enable:"Enable",delete:"Delete",databaseImported:"Database imported.",databaseInvalid:"Invalid analyzer database file.",deleteSnapshotConfirm:"Delete this snapshot permanently?",day1:"Day 1",day2:"Day 2",day3:"Day 3",days4to7:"Days 4–7",exportPdf:"Export PDF",pdfNoData:"Load Insights or save at least one snapshot before exporting a PDF.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Generated",pdfCurrentInsights:"Current Insights",pdfSavedTrends:"Saved trends",pdfSnapshotHistory:"Snapshot history",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Daily Instagram archive",driveSyncCopy:"Paste the public Drive folder link. Daily exports are used for tracking; Reference and Full Exports remain isolated.",driveFolderLink:"Public Drive folder link",syncDrive:"Sync Drive",syncDaily:"Sync Daily",syncFull:"Sync Full",syncReference:"Sync Reference",driveDailyComplete:"Daily sync complete.",driveFullComplete:"Full sync complete.",driveReferenceComplete:"Reference sync complete.",driveFullRescanComplete:"Full Drive rescan complete.",driveDailyMissing:"No Daily folder was found under the selected Drive root.",folderCacheSummary:"{cachedFolders} cached folder(s) skipped · {scannedFolders} folder level(s) scanned",clearDriveCache:"Clear sync cache",clearDriveCacheCopy:"Clears only Drive discovery and processed-file markers. Archived history, Hearts and settings stay intact.",clearDriveCacheConfirm:"Clear the Drive sync cache? Archived history, Hearts and settings will remain.",driveCacheCleared:"Drive sync cache cleared. The next sync will rediscover the selected source.",driveNotSynced:"Not synced",driveSyncing:"Scanning Drive…",driveSynced:"Synced",driveReady:"Ready to scan the public folder.",driveLatest:"Latest Daily",drivePrevious:"Last Full",driveExportsFound:"Reference",driveFilesFound:"Daily exports",driveApiKeyMissing:"",driveBridgeMissing:"The public Drive bridge is not configured yet. Add your Cloudflare Worker URL to config.js once; no Google API key or billing is needed.",driveInvalidLink:"This does not look like a Google Drive folder link.",driveNoExports:"No dated Instagram exports with followers/following files were found under this folder.",driveSyncComplete:"Drive sync complete. Daily tracking, Reference, Full Exports and Insights were loaded as separate data sources.",driveSyncFailed:"Drive sync failed",driveAutoSnapshot:"Insights history was updated automatically.",driveNoPrevious:"None",driveScanningFolder:"Scanning folders and files…",driveDownloading:"Downloading relevant JSON files…",scanDriveHistory:"Scan Drive history",driveHistoryScanning:"Rebuilding all dated Drive Insights…",driveHistoryComplete:"Drive Insights history rebuilt.",driveHistoryAdded:"snapshots added",driveHistoryUpdated:"snapshots updated",driveHistoryNoInsights:"No dated Insights exports were found.",driveReferenceFolder:"Reference folder",driveReferenceFound:"Loaded from Drive reference folder",driveReferenceMissing:"No reference folder found",readme:"README",documentation:"DOCUMENTATION",add:"Add",sourceFilesShort:"{files} source file(s)",readmeLoadError:"Could not load the README file.",driveDailyModeNote:"Daily Sync keeps positive follower observations and full daily Following snapshots. Lost followers are verified only against a Full Checkpoint.",driveFollowerListNote:"Observed follower events from Daily Sync. This is not a verified current follower snapshot.",driveNfbListNote:"NFB is reconstructed from the latest Full Checkpoint plus later Daily follower events. Rename candidates are excluded.",loadedDriveDaily:"{files} daily source file(s) · {followers} observed follower records · {following} latest following · {notFollowing} no follow-back observed",hideHearted:"Hide hearted",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Sync hearts",heartSyncLocal:"Local only",heartSyncSyncing:"Syncing...",heartSyncSynced:"Cloud synced",heartSyncReady:"Enter the same sync key that is stored as HEARTS_SYNC_KEY in the Cloudflare Worker.",heartSyncDone:"Hearts synchronized.",heartSyncNoKey:"Enter your Heart Sync key first.",heartSyncInvalidKey:"Heart Sync key was rejected.",heartSyncError:"Heart Sync failed",heartSyncAuto:"Heart changes sync automatically while a key is saved.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manual upload",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"No full checkpoint available.",driveReferenceLoadedShort:"Loaded",driveFullMissing:"None",unfollowed:"Unfollowers",renamed:"Renamed",unfollowedNeedsSync:"Daily Sync is required to reconstruct accounts that were observed as followers.",unfollowedNeedsFull:"A Full Checkpoint is required to verify which observed followers are no longer present.",syncDriveAction:"Sync Drive",addFullAction:"Add Full Export",unfollowedCutoff:"Compared only through the Full Checkpoint cutoff: {date}.",unfollowersFullGroup:"FULL · {date}",unfollowersHistoricalGroup:"Historical evidence · before comparable Full checkpoints",baselineFollowerLost:"Reference follower, absent from latest Full Checkpoint",joinedThenLeft:"Joined during tracking, later absent",renameEvidenceFollower:"Follower timestamp",renameEvidenceFollowing:"Following timestamp",renameConfidenceHigh:"High confidence",renameConfidenceLikely:"Likely",myFollowingActivity:"MY FOLLOWING ACTIVITY",myFollowingTitle:"Your daily follow activity",followedByMe:"Followed by me",unfollowedByMe:"Unfollowed by me",netFollowing:"Net following",refollowedByMe:"Refollowed",activityFrom:"From",activityTo:"To",activityNoData:"Drive Sync is required for daily Following activity.",activityFollowed:"Followed",activityUnfollowed:"Unfollowed",activityRefollow:"Refollow",detectedBetweenSnapshots:"Detected between daily snapshots",growthDailyDetails:"Daily account details",newFollowersObserved:"New followers observed",noDailyDetails:"No account-level Daily events for this date.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"How long do you keep following new accounts?",followingCohortTracked:"Tracked follow cycles",followingCohortStill:"Still following",followingCohortLeft:"Unfollowed later",followingCohortRetention:"Current retention",followingRetention1:"1 day retention",followingRetention2:"2 day retention",followingRetention3:"3 day retention",followingRetention7:"7 day retention",followingCohortNoData:"Daily Sync needs at least two Following snapshots for this analysis.",followingCohortAccounts:"Following cohorts by day",statusStillFollowing:"Still following",statusUnfollowedLater:"Unfollowed later",eligible:"eligible",nfbFullBasis:"NFB basis: {full} Full + later Daily follower events.",follows:"Follows",unfollows:"Unfollows",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Load at least one export that contains follower data.",sourceDetails:"Details",sourceAuto:"Automatic",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following list",sourceFollowersLabel:"Followers list",sourceOverride:"Choose source",sourceOverrideActive:"Manual source choice is active for this session.",sourceTimeUnknown:"exact file time unavailable",followersSourceFull:"Built from the latest Full export plus {count} newer Daily follows.",followersSourceFallback:"No Full export yet, so this uses the first Daily baseline plus every Daily follow seen since.",followersSourceManualOnly:"Using the manually loaded Full export.",followingSourceDaily:"Using the Daily Following list because it is the newest complete list.",followingSourceFull:"Using the Full export Following list because it is the newest complete list.",followingSourceFallbackDaily:"Using the latest Daily Following list. Exact file times could not be compared.",followingSourceFallbackFull:"Using the Full export Following list because no Daily Following list is available.",nfbSourceFull:"Compared from the latest Full follower list plus {count} newer Daily follows, against the newest complete Following list.",nfbSourceFallback:"No Full export yet, so NFB uses all follower records seen in Daily Sync against the newest complete Following list.",allTimeSource:"Everyone who has appeared as a follower in any available export.",unfollowersSource:"People seen as followers before, but no longer present in the latest Full export.",renamedSource:"Uses matching relationship timestamps to spot likely username changes.",sourceSnapshot:"Snapshot",sourceAccounts:"accounts",sourceWhyDaily:"Daily file is newer",sourceWhyFull:"Full file is newer",sourceWhyOverride:"chosen manually",sourceWhyFallback:"exact file order unavailable",growthOpenDetails:"Open day details",archiveSettingsTitle:"Local archive & source policy",archiveSettingsCopy:"IndexedDB keeps normalized history locally; Drive is used only for new or explicitly refreshed source files.",databaseDriveLabel:"Use DATABASE checkpoints from Drive",databaseDriveCopy:"Optional. The newest compatible database file in /DATABASE can bootstrap a new browser before incremental sync.",referenceSourcePolicy:"Reference source",fullSourcePolicy:"Full source",sourcePolicyAuto:"Automatic",sourcePolicyDatabase:"Local database",sourcePolicyDrive:"Drive only",sourcePolicyDriveRefresh:"Drive + database",archiveThroughLabel:"Archive through",archiveFilesLabel:"Cached source files",archiveStorageLabel:"Storage",archiveThroughShort:"Archive",reprocessDrive:"Full Drive Rescan",reprocessDriveCopy:"Checks the complete Daily, Full Exports and Reference trees and reparses current source files. Archived history is preserved.",databasePrivacyNote:"DATABASE is optional. A database export contains concentrated relationship history, so do not place it in a public Drive folder unless you accept that exposure.",archiveLocalReady:"Local archive ready",archiveLocalEmpty:"Local archive empty",archiveLoaded:"Local archive loaded through {date}.",archiveSaved:"Local archive updated.",incrementalSummary:"{newFiles} new file(s) processed · {cachedFiles} already cached",databaseBootstrapLoaded:"DATABASE checkpoint loaded through {date}.",databaseBootstrapSkipped:"DATABASE checkpoint already covered by the local archive.",databaseExportReady:"Portable database exported through {date}.",databaseV2Imported:"Portable database imported through {date}.",databaseLegacyImported:"Legacy database imported. Relationship history was not included in that older format.",sourceDatabase:"Database",sourceDrive:"Drive",archiveInitializing:"Loading local archive…"
   },
   de: {
     eyebrow:"LOKALER INSTAGRAM ANALYZER",privacyCopy:"Deine Dateien werden ausschließlich in diesem Browser verarbeitet.",processedLocally:"Lokal verarbeitet",language:"Sprache",
@@ -39,7 +39,7 @@ const translations = {
     cohortAnalysis:"FOLLOW-KOHORTENANALYSE",cohortTitle:"Wie schnell konvertieren neue Follows?",followBackRate:"Follow-back-Rate",medianTime:"Median Follow-back-Zeit",followedInCohorts:"Beobachtete Follows",suggestedThreshold:"Empfohlene Schwelle",
     within1:"Innerhalb 1 Tag",within2:"Innerhalb 2 Tagen",within3:"Innerhalb 3 Tagen",within7:"Innerhalb 7 Tagen",cohortNeedHistory:"Die Kohorten werden direkt aus den Follow-Zeitstempeln des aktuellen Exports berechnet.",days:"Tage",
     cleanupCandidates:"BEREINIGUNGSKANDIDATEN",cleanupTitle:"Priorisierte Accounts zur Prüfung",cleanupNote:"Der Score nutzt derzeit nur Beziehungsdaten aus Followers/Following-Exporten. Markierte Profile werden ausgeschlossen.",
-    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf",secondSourceLabel:"SECOND-Kompatibilitätsquelle verwenden",secondSourceCopy:"Follower-Evidenz zusammenführen, den neuesten Following-Snapshot verwenden und nur fehlende Insights-Dateien aus SECOND ergänzen.",secondSourceResync:"SECOND-Einstellung geändert. Drive-Daten werden neu aufgebaut…",secondSourceSummary:"SECOND: {followers} Follower-Datei(en) zusammengeführt · {following} Following-Snapshot(s) ausgewählt · {insights} Insights-Fallback-Datei(en).",sourceSecond:"SECOND",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Tägliches Instagram-Archiv",driveSyncCopy:"Füge den öffentlichen Drive-Ordnerlink ein. Daily-Exporte dienen dem Tracking; Reference und Full Exports bleiben getrennt.",driveFolderLink:"Öffentlicher Drive-Ordnerlink",syncDrive:"Drive synchronisieren",driveNotSynced:"Nicht synchronisiert",driveSyncing:"Drive wird durchsucht…",driveSynced:"Synchronisiert",driveReady:"Bereit, den öffentlichen Ordner zu durchsuchen.",driveLatest:"Neuester Daily",drivePrevious:"Letzter Full",driveExportsFound:"Reference",driveFilesFound:"Daily-Exporte",driveApiKeyMissing:"",driveBridgeMissing:"Die öffentliche Drive-Bridge ist noch nicht konfiguriert. Trage einmal die Cloudflare-Worker-URL in config.js ein; ein Google-API-Schlüssel oder Billing ist nicht nötig.",driveInvalidLink:"Das sieht nicht wie ein Google-Drive-Ordnerlink aus.",driveNoExports:"Unter diesem Ordner wurden keine datierten Instagram-Exporte mit Followers/Following-Dateien gefunden.",driveSyncComplete:"Drive-Sync abgeschlossen. Daily Tracking, Reference, Full Exports und Insights wurden als getrennte Datenquellen geladen.",driveSyncFailed:"Drive-Sync fehlgeschlagen",driveAutoSnapshot:"Der Insights-Verlauf wurde automatisch aktualisiert.",driveNoPrevious:"Keine",driveScanningFolder:"Ordner und Dateien werden durchsucht…",driveDownloading:"Relevante JSON-Dateien werden geladen…",scanDriveHistory:"Drive-Verlauf scannen",driveHistoryScanning:"Alle datierten Drive-Insights werden neu aufgebaut…",driveHistoryComplete:"Drive-Insights-Verlauf neu aufgebaut.",driveHistoryAdded:"Snapshots hinzugefügt",driveHistoryUpdated:"Snapshots aktualisiert",driveHistoryNoInsights:"Keine datierten Insights-Exporte gefunden.",driveReferenceFolder:"Reference-Ordner",driveReferenceFound:"Aus dem Drive-Ordner Reference geladen",driveReferenceMissing:"Kein Reference-Ordner gefunden",readme:"README",documentation:"DOKUMENTATION",add:"Hinzufügen",sourceFilesShort:"{files} Quelldatei(en)",readmeLoadError:"Die README-Datei konnte nicht geladen werden.",driveDailyModeNote:"Daily Sync speichert positive Follower-Beobachtungen und vollständige tägliche Following-Snapshots. Verlorene Follower werden nur gegen einen Full Checkpoint verifiziert.",driveFollowerListNote:"Beobachtete Follower-Ereignisse aus Daily Sync. Dies ist kein verifizierter aktueller Follower-Snapshot.",driveNfbListNote:"NFB wird aus dem neuesten Full Checkpoint plus späteren Daily-Follower-Ereignissen rekonstruiert. Rename-Kandidaten werden ausgeschlossen.",loadedDriveDaily:"{files} Daily-Quelldatei(en) · {followers} beobachtete Follower · {following} neuester Following-Stand · {notFollowing} ohne beobachteten Follow-back",hideHearted:"Markierte ausblenden",heartSync:"HEART SYNC",heartSyncKey:"Sync-Schlüssel",heartSyncButton:"Hearts synchronisieren",heartSyncLocal:"Nur lokal",heartSyncSyncing:"Synchronisierung...",heartSyncSynced:"Cloud-synchronisiert",heartSyncReady:"Gib denselben Sync-Schlüssel ein, der im Cloudflare Worker als HEARTS_SYNC_KEY gespeichert ist.",heartSyncDone:"Hearts synchronisiert.",heartSyncNoKey:"Gib zuerst deinen Heart-Sync-Schlüssel ein.",heartSyncInvalidKey:"Der Heart-Sync-Schlüssel wurde abgelehnt.",heartSyncError:"Heart Sync fehlgeschlagen",heartSyncAuto:"Heart-Änderungen werden automatisch synchronisiert, solange ein Schlüssel gespeichert ist.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manueller Upload",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"Kein Full Checkpoint verfügbar.",driveReferenceLoadedShort:"Geladen",driveFullMissing:"Keiner",unfollowed:"Unfollowers",renamed:"Umbenannt",unfollowedNeedsSync:"Daily Sync ist erforderlich, um beobachtete Follower zu rekonstruieren.",unfollowedNeedsFull:"Ein Full Checkpoint ist erforderlich, um zu prüfen, welche beobachteten Follower nicht mehr vorhanden sind.",syncDriveAction:"Drive synchronisieren",addFullAction:"Full Export hinzufügen",unfollowedCutoff:"Vergleich nur bis zum Full-Checkpoint-Cutoff: {date}.",unfollowersFullGroup:"FULL · {date}",unfollowersHistoricalGroup:"Historische Evidenz · vor vergleichbaren Full-Checkpoints",baselineFollowerLost:"Reference-Follower, im neuesten Full Checkpoint nicht vorhanden",joinedThenLeft:"Während des Trackings hinzugekommen und später nicht mehr vorhanden",renameEvidenceFollower:"Follower-Zeitstempel",renameEvidenceFollowing:"Following-Zeitstempel",renameConfidenceHigh:"Hohe Sicherheit",renameConfidenceLikely:"Wahrscheinlich",myFollowingActivity:"MEINE FOLLOWING-AKTIVITÄT",myFollowingTitle:"Deine tägliche Follow-Aktivität",followedByMe:"Von mir gefolgt",unfollowedByMe:"Von mir entfolgt",netFollowing:"Netto Following",refollowedByMe:"Erneut gefolgt",activityFrom:"Von",activityTo:"Bis",activityNoData:"Drive Sync ist für die tägliche Following-Aktivität erforderlich.",activityFollowed:"Gefolgt",activityUnfollowed:"Entfolgt",activityRefollow:"Refollow",detectedBetweenSnapshots:"Zwischen Daily Snapshots erkannt",growthDailyDetails:"Tägliche Account-Details",newFollowersObserved:"Neue beobachtete Follower",noDailyDetails:"Für dieses Datum gibt es keine Account-Ereignisse aus Daily Sync.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"Wie lange folgst du neu gefolgten Accounts?",followingCohortTracked:"Erfasste Follow-Zyklen",followingCohortStill:"Noch gefolgt",followingCohortLeft:"Später entfolgt",followingCohortRetention:"Aktuelle Retention",followingRetention1:"1-Tag-Retention",followingRetention2:"2-Tage-Retention",followingRetention3:"3-Tage-Retention",followingRetention7:"7-Tage-Retention",followingCohortNoData:"Daily Sync benötigt mindestens zwei Following-Snapshots für diese Analyse.",followingCohortAccounts:"Following-Kohorten nach Tag",statusStillFollowing:"Noch gefolgt",statusUnfollowedLater:"Später entfolgt",eligible:"auswertbar",nfbFullBasis:"NFB-Basis: {full} Full + spätere Daily-Follower-Ereignisse.",follows:"Follows",unfollows:"Unfollows",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Für die All-time-Follower-Historie ist Daily Sync erforderlich.",sourceDetails:"Details",sourceAuto:"Automatisch",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following-Liste",sourceFollowersLabel:"Follower-Liste",sourceOverride:"Quelle wählen",sourceOverrideActive:"Die manuelle Quellenwahl gilt für diese Sitzung.",sourceTimeUnknown:"exakte Dateizeit nicht verfügbar",followersSourceFull:"Basiert auf dem neuesten Full-Export plus {count} neueren Daily-Follows.",followersSourceFallback:"Noch kein Full-Export. Daher werden der erste Daily-Baseline und alle seitdem gesehenen Daily-Follows verwendet.",followersSourceManualOnly:"Der manuell geladene Full-Export wird verwendet.",followingSourceDaily:"Die Daily-Following-Liste wird verwendet, weil sie die neueste vollständige Liste ist.",followingSourceFull:"Die Following-Liste des Full-Exports wird verwendet, weil sie die neueste vollständige Liste ist.",followingSourceFallbackDaily:"Die neueste Daily-Following-Liste wird verwendet. Die exakten Dateizeiten konnten nicht verglichen werden.",followingSourceFallbackFull:"Die Following-Liste des Full-Exports wird verwendet, weil keine Daily-Following-Liste verfügbar ist.",nfbSourceFull:"Vergleicht den neuesten Full-Followerstand plus {count} neuere Daily-Follows mit der neuesten vollständigen Following-Liste.",nfbSourceFallback:"Noch kein Full-Export. NFB verwendet daher alle in Daily Sync gesehenen Follower gegen die neueste vollständige Following-Liste.",allTimeSource:"Fasst alle Follower-Accounts zusammen, die jemals in Daily Sync gesehen wurden.",unfollowersSource:"Accounts, die früher als Follower gesehen wurden, aber im neuesten Full Export nicht mehr vorhanden sind.",renamedSource:"Nutzt identische Relationship-Zeitstempel, um wahrscheinliche Username-Wechsel zu erkennen.",sourceSnapshot:"Snapshot",sourceAccounts:"Accounts",sourceWhyDaily:"Daily-Datei ist neuer",sourceWhyFull:"Full-Datei ist neuer",sourceWhyOverride:"manuell gewählt",sourceWhyFallback:"exakte Dateireihenfolge nicht verfügbar",growthOpenDetails:"Tagesdetails öffnen",archiveSettingsTitle:"Lokales Archiv & Quellenrichtlinie",archiveSettingsCopy:"IndexedDB speichert die normalisierte Historie lokal; Drive wird nur für neue oder ausdrücklich neu eingelesene Quelldateien verwendet.",databaseDriveLabel:"DATABASE-Checkpoints aus Drive verwenden",databaseDriveCopy:"Optional. Die neueste kompatible Datenbankdatei in /DATABASE kann einen neuen Browser vor dem inkrementellen Sync starten.",referenceSourcePolicy:"Reference-Quelle",fullSourcePolicy:"Full-Quelle",secondSourcePolicy:"SECOND-Quelle",sourcePolicyAuto:"Automatisch",sourcePolicyDatabase:"Lokale Datenbank",sourcePolicyDrive:"Nur Drive",sourcePolicyDriveRefresh:"Drive + Datenbank",archiveThroughLabel:"Archiv bis",archiveFilesLabel:"Gecachte Quelldateien",archiveStorageLabel:"Speicher",archiveThroughShort:"Archiv",reprocessDrive:"Aktuelle Drive-Dateien neu verarbeiten",reprocessDriveCopy:"Behält archivierte Historie, ignoriert aber einmalig den Processed-File-Cache und parst Dateien neu, die noch auf Drive liegen.",databasePrivacyNote:"DATABASE ist optional. Ein Datenbankexport enthält konzentrierte Relationship-Historie; lege ihn nicht in einen öffentlichen Drive-Ordner, wenn du diese Offenlegung nicht akzeptierst.",archiveLocalReady:"Lokales Archiv bereit",archiveLocalEmpty:"Lokales Archiv leer",archiveLoaded:"Lokales Archiv bis {date} geladen.",archiveSaved:"Lokales Archiv aktualisiert.",incrementalSummary:"{newFiles} neue Datei(en) verarbeitet · {cachedFiles} bereits gecacht",databaseBootstrapLoaded:"DATABASE-Checkpoint bis {date} geladen.",databaseBootstrapSkipped:"DATABASE-Checkpoint ist bereits durch das lokale Archiv abgedeckt.",databaseExportReady:"Portable Datenbank bis {date} exportiert.",databaseV2Imported:"Portable Datenbank bis {date} importiert.",databaseLegacyImported:"Legacy-Datenbank importiert. Relationship-Historie war in diesem älteren Format nicht enthalten.",sourceDatabase:"Datenbank",sourceDrive:"Drive",archiveInitializing:"Lokales Archiv wird geladen…"
+    olderThan:"Gefolgt seit mehr als",noCleanup:"Keine Bereinigungskandidaten.",noCleanupCopy:"Wähle eine niedrigere Altersgrenze oder lade einen aktuellen Export.",notFollowingReason:"Folgt dir nicht",oldFollowReason:"Langfristig gefolgt",score:"Score",exportDatabase:"Datenbank exportieren",importDatabase:"Datenbank importieren",growthTrends:"WACHSTUMSTRENDS",growthTrendsTitle:"Gespeicherte Kennzahlen im Zeitverlauf vergleichen",chartScale:"Diagrammskala",rawValues:"Rohwerte",indexedValues:"Indexiert (erster Punkt = 100)",active:"Aktiv",actions:"Aktionen",disable:"Deaktivieren",enable:"Aktivieren",delete:"Löschen",databaseImported:"Datenbank importiert.",databaseInvalid:"Ungültige Analyzer-Datenbankdatei.",deleteSnapshotConfirm:"Diesen Snapshot dauerhaft löschen?",day1:"Tag 1",day2:"Tag 2",day3:"Tag 3",days4to7:"Tage 4–7",exportPdf:"PDF exportieren",pdfNoData:"Lade Insights oder speichere mindestens einen Snapshot, bevor du ein PDF exportierst.",pdfTitle:"Instagram Follower Report",pdfGenerated:"Erstellt",pdfCurrentInsights:"Aktuelle Insights",pdfSavedTrends:"Gespeicherte Trends",pdfSnapshotHistory:"Snapshot-Verlauf",driveSyncEyebrow:"GOOGLE DRIVE SYNC",driveSyncTitle:"Tägliches Instagram-Archiv",driveSyncCopy:"Füge den öffentlichen Drive-Ordnerlink ein. Daily-Exporte dienen dem Tracking; Reference und Full Exports bleiben getrennt.",driveFolderLink:"Öffentlicher Drive-Ordnerlink",syncDrive:"Drive synchronisieren",syncDaily:"Daily Sync",syncFull:"Full Sync",syncReference:"Reference Sync",driveDailyComplete:"Daily-Sync abgeschlossen.",driveFullComplete:"Full-Sync abgeschlossen.",driveReferenceComplete:"Reference-Sync abgeschlossen.",driveFullRescanComplete:"Vollständiger Drive-Rescan abgeschlossen.",driveDailyMissing:"Unter dem ausgewählten Drive-Stamm wurde kein Daily-Ordner gefunden.",folderCacheSummary:"{cachedFolders} gecachte Ordner übersprungen · {scannedFolders} Ordnerebenen geprüft",clearDriveCache:"Sync-Cache löschen",clearDriveCacheCopy:"Löscht nur Drive-Discovery- und Processed-File-Marker. Archivierte History, Hearts und Einstellungen bleiben erhalten.",clearDriveCacheConfirm:"Drive-Sync-Cache löschen? Archivierte History, Hearts und Einstellungen bleiben erhalten.",driveCacheCleared:"Drive-Sync-Cache gelöscht. Beim nächsten Sync wird die gewählte Quelle neu entdeckt.",driveNotSynced:"Nicht synchronisiert",driveSyncing:"Drive wird durchsucht…",driveSynced:"Synchronisiert",driveReady:"Bereit, den öffentlichen Ordner zu durchsuchen.",driveLatest:"Neuester Daily",drivePrevious:"Letzter Full",driveExportsFound:"Reference",driveFilesFound:"Daily-Exporte",driveApiKeyMissing:"",driveBridgeMissing:"Die öffentliche Drive-Bridge ist noch nicht konfiguriert. Trage einmal die Cloudflare-Worker-URL in config.js ein; ein Google-API-Schlüssel oder Billing ist nicht nötig.",driveInvalidLink:"Das sieht nicht wie ein Google-Drive-Ordnerlink aus.",driveNoExports:"Unter diesem Ordner wurden keine datierten Instagram-Exporte mit Followers/Following-Dateien gefunden.",driveSyncComplete:"Drive-Sync abgeschlossen. Daily Tracking, Reference, Full Exports und Insights wurden als getrennte Datenquellen geladen.",driveSyncFailed:"Drive-Sync fehlgeschlagen",driveAutoSnapshot:"Der Insights-Verlauf wurde automatisch aktualisiert.",driveNoPrevious:"Keine",driveScanningFolder:"Ordner und Dateien werden durchsucht…",driveDownloading:"Relevante JSON-Dateien werden geladen…",scanDriveHistory:"Drive-Verlauf scannen",driveHistoryScanning:"Alle datierten Drive-Insights werden neu aufgebaut…",driveHistoryComplete:"Drive-Insights-Verlauf neu aufgebaut.",driveHistoryAdded:"Snapshots hinzugefügt",driveHistoryUpdated:"Snapshots aktualisiert",driveHistoryNoInsights:"Keine datierten Insights-Exporte gefunden.",driveReferenceFolder:"Reference-Ordner",driveReferenceFound:"Aus dem Drive-Ordner Reference geladen",driveReferenceMissing:"Kein Reference-Ordner gefunden",readme:"README",documentation:"DOKUMENTATION",add:"Hinzufügen",sourceFilesShort:"{files} Quelldatei(en)",readmeLoadError:"Die README-Datei konnte nicht geladen werden.",driveDailyModeNote:"Daily Sync speichert positive Follower-Beobachtungen und vollständige tägliche Following-Snapshots. Verlorene Follower werden nur gegen einen Full Checkpoint verifiziert.",driveFollowerListNote:"Beobachtete Follower-Ereignisse aus Daily Sync. Dies ist kein verifizierter aktueller Follower-Snapshot.",driveNfbListNote:"NFB wird aus dem neuesten Full Checkpoint plus späteren Daily-Follower-Ereignissen rekonstruiert. Rename-Kandidaten werden ausgeschlossen.",loadedDriveDaily:"{files} Daily-Quelldatei(en) · {followers} beobachtete Follower · {following} neuester Following-Stand · {notFollowing} ohne beobachteten Follow-back",hideHearted:"Markierte ausblenden",heartSync:"HEART SYNC",heartSyncKey:"Sync-Schlüssel",heartSyncButton:"Hearts synchronisieren",heartSyncLocal:"Nur lokal",heartSyncSyncing:"Synchronisierung...",heartSyncSynced:"Cloud-synchronisiert",heartSyncReady:"Gib denselben Sync-Schlüssel ein, der im Cloudflare Worker als HEARTS_SYNC_KEY gespeichert ist.",heartSyncDone:"Hearts synchronisiert.",heartSyncNoKey:"Gib zuerst deinen Heart-Sync-Schlüssel ein.",heartSyncInvalidKey:"Der Heart-Sync-Schlüssel wurde abgelehnt.",heartSyncError:"Heart Sync fehlgeschlagen",heartSyncAuto:"Heart-Änderungen werden automatisch synchronisiert, solange ein Schlüssel gespeichert ist.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manueller Upload",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"Kein Full Checkpoint verfügbar.",driveReferenceLoadedShort:"Geladen",driveFullMissing:"Keiner",unfollowed:"Unfollowers",renamed:"Umbenannt",unfollowedNeedsSync:"Daily Sync ist erforderlich, um beobachtete Follower zu rekonstruieren.",unfollowedNeedsFull:"Ein Full Checkpoint ist erforderlich, um zu prüfen, welche beobachteten Follower nicht mehr vorhanden sind.",syncDriveAction:"Drive synchronisieren",addFullAction:"Full Export hinzufügen",unfollowedCutoff:"Vergleich nur bis zum Full-Checkpoint-Cutoff: {date}.",unfollowersFullGroup:"FULL · {date}",unfollowersHistoricalGroup:"Historische Evidenz · vor vergleichbaren Full-Checkpoints",baselineFollowerLost:"Reference-Follower, im neuesten Full Checkpoint nicht vorhanden",joinedThenLeft:"Während des Trackings hinzugekommen und später nicht mehr vorhanden",renameEvidenceFollower:"Follower-Zeitstempel",renameEvidenceFollowing:"Following-Zeitstempel",renameConfidenceHigh:"Hohe Sicherheit",renameConfidenceLikely:"Wahrscheinlich",myFollowingActivity:"MEINE FOLLOWING-AKTIVITÄT",myFollowingTitle:"Deine tägliche Follow-Aktivität",followedByMe:"Von mir gefolgt",unfollowedByMe:"Von mir entfolgt",netFollowing:"Netto Following",refollowedByMe:"Erneut gefolgt",activityFrom:"Von",activityTo:"Bis",activityNoData:"Drive Sync ist für die tägliche Following-Aktivität erforderlich.",activityFollowed:"Gefolgt",activityUnfollowed:"Entfolgt",activityRefollow:"Refollow",detectedBetweenSnapshots:"Zwischen Daily Snapshots erkannt",growthDailyDetails:"Tägliche Account-Details",newFollowersObserved:"Neue beobachtete Follower",noDailyDetails:"Für dieses Datum gibt es keine Account-Ereignisse aus Daily Sync.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"Wie lange folgst du neu gefolgten Accounts?",followingCohortTracked:"Erfasste Follow-Zyklen",followingCohortStill:"Noch gefolgt",followingCohortLeft:"Später entfolgt",followingCohortRetention:"Aktuelle Retention",followingRetention1:"1-Tag-Retention",followingRetention2:"2-Tage-Retention",followingRetention3:"3-Tage-Retention",followingRetention7:"7-Tage-Retention",followingCohortNoData:"Daily Sync benötigt mindestens zwei Following-Snapshots für diese Analyse.",followingCohortAccounts:"Following-Kohorten nach Tag",statusStillFollowing:"Noch gefolgt",statusUnfollowedLater:"Später entfolgt",eligible:"auswertbar",nfbFullBasis:"NFB-Basis: {full} Full + spätere Daily-Follower-Ereignisse.",follows:"Follows",unfollows:"Unfollows",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Für die All-time-Follower-Historie ist Daily Sync erforderlich.",sourceDetails:"Details",sourceAuto:"Automatisch",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following-Liste",sourceFollowersLabel:"Follower-Liste",sourceOverride:"Quelle wählen",sourceOverrideActive:"Die manuelle Quellenwahl gilt für diese Sitzung.",sourceTimeUnknown:"exakte Dateizeit nicht verfügbar",followersSourceFull:"Basiert auf dem neuesten Full-Export plus {count} neueren Daily-Follows.",followersSourceFallback:"Noch kein Full-Export. Daher werden der erste Daily-Baseline und alle seitdem gesehenen Daily-Follows verwendet.",followersSourceManualOnly:"Der manuell geladene Full-Export wird verwendet.",followingSourceDaily:"Die Daily-Following-Liste wird verwendet, weil sie die neueste vollständige Liste ist.",followingSourceFull:"Die Following-Liste des Full-Exports wird verwendet, weil sie die neueste vollständige Liste ist.",followingSourceFallbackDaily:"Die neueste Daily-Following-Liste wird verwendet. Die exakten Dateizeiten konnten nicht verglichen werden.",followingSourceFallbackFull:"Die Following-Liste des Full-Exports wird verwendet, weil keine Daily-Following-Liste verfügbar ist.",nfbSourceFull:"Vergleicht den neuesten Full-Followerstand plus {count} neuere Daily-Follows mit der neuesten vollständigen Following-Liste.",nfbSourceFallback:"Noch kein Full-Export. NFB verwendet daher alle in Daily Sync gesehenen Follower gegen die neueste vollständige Following-Liste.",allTimeSource:"Fasst alle Follower-Accounts zusammen, die jemals in Daily Sync gesehen wurden.",unfollowersSource:"Accounts, die früher als Follower gesehen wurden, aber im neuesten Full Export nicht mehr vorhanden sind.",renamedSource:"Nutzt identische Relationship-Zeitstempel, um wahrscheinliche Username-Wechsel zu erkennen.",sourceSnapshot:"Snapshot",sourceAccounts:"Accounts",sourceWhyDaily:"Daily-Datei ist neuer",sourceWhyFull:"Full-Datei ist neuer",sourceWhyOverride:"manuell gewählt",sourceWhyFallback:"exakte Dateireihenfolge nicht verfügbar",growthOpenDetails:"Tagesdetails öffnen",archiveSettingsTitle:"Lokales Archiv & Quellenrichtlinie",archiveSettingsCopy:"IndexedDB speichert die normalisierte Historie lokal; Drive wird nur für neue oder ausdrücklich neu eingelesene Quelldateien verwendet.",databaseDriveLabel:"DATABASE-Checkpoints aus Drive verwenden",databaseDriveCopy:"Optional. Die neueste kompatible Datenbankdatei in /DATABASE kann einen neuen Browser vor dem inkrementellen Sync starten.",referenceSourcePolicy:"Reference-Quelle",fullSourcePolicy:"Full-Quelle",sourcePolicyAuto:"Automatisch",sourcePolicyDatabase:"Lokale Datenbank",sourcePolicyDrive:"Nur Drive",sourcePolicyDriveRefresh:"Drive + Datenbank",archiveThroughLabel:"Archiv bis",archiveFilesLabel:"Gecachte Quelldateien",archiveStorageLabel:"Speicher",archiveThroughShort:"Archiv",reprocessDrive:"Aktuelle Drive-Dateien neu verarbeiten",reprocessDriveCopy:"Behält archivierte Historie, ignoriert aber einmalig den Processed-File-Cache und parst Dateien neu, die noch auf Drive liegen.",databasePrivacyNote:"DATABASE ist optional. Ein Datenbankexport enthält konzentrierte Relationship-Historie; lege ihn nicht in einen öffentlichen Drive-Ordner, wenn du diese Offenlegung nicht akzeptierst.",archiveLocalReady:"Lokales Archiv bereit",archiveLocalEmpty:"Lokales Archiv leer",archiveLoaded:"Lokales Archiv bis {date} geladen.",archiveSaved:"Lokales Archiv aktualisiert.",incrementalSummary:"{newFiles} neue Datei(en) verarbeitet · {cachedFiles} bereits gecacht",databaseBootstrapLoaded:"DATABASE-Checkpoint bis {date} geladen.",databaseBootstrapSkipped:"DATABASE-Checkpoint ist bereits durch das lokale Archiv abgedeckt.",databaseExportReady:"Portable Datenbank bis {date} exportiert.",databaseV2Imported:"Portable Datenbank bis {date} importiert.",databaseLegacyImported:"Legacy-Datenbank importiert. Relationship-Historie war in diesem älteren Format nicht enthalten.",sourceDatabase:"Datenbank",sourceDrive:"Drive",archiveInitializing:"Lokales Archiv wird geladen…"
   },
   hu: {
     eyebrow:"HELYI INSTAGRAM ELEMZŐ",privacyCopy:"A fájlok feldolgozása kizárólag ebben a böngészőben történik.",processedLocally:"Helyben feldolgozva",language:"Nyelv",
@@ -60,12 +60,10 @@ const translations = {
     cohortAnalysis:"FOLLOW COHORT ANALÍZIS",cohortTitle:"Milyen gyorsan követnek vissza az új követések?",followBackRate:"Visszakövetési arány",medianTime:"Medián visszakövetési idő",followedInCohorts:"Követett profilok",suggestedThreshold:"Javasolt határ",
     within1:"1 napon belül",within2:"2 napon belül",within3:"3 napon belül",within7:"7 napon belül",cohortNeedHistory:"A cohort elemzés közvetlenül az aktuális export követési időbélyegeiből készül.",days:"nap",
     cleanupCandidates:"KIKÖVETÉSI JELÖLTEK",cleanupTitle:"Prioritás szerint rendezett profilok",cleanupNote:"A pontszám jelenleg csak a followers/following exportokból elérhető kapcsolati adatokat használja. A szívezett profilokat kizárjuk.",
-    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények",secondSourceLabel:"SECOND kompatibilitási forrás használata",secondSourceCopy:"A follower evidence összeolvad, a legfrissebb Following snapshot nyer, és csak a hiányzó Insights fájlokat pótoljuk a SECOND-ből.",secondSourceResync:"A SECOND forrás beállítása megváltozott. A Drive adatok újraépülnek…",secondSourceSummary:"SECOND: {followers} follower fájl összefésülve · {following} Following snapshot kiválasztva · {insights} Insights fallback fájl.",sourceSecond:"SECOND",driveSyncEyebrow:"GOOGLE DRIVE SZINKRON",driveSyncTitle:"Napi Instagram archívum",driveSyncCopy:"Illeszd be a nyilvános Drive mappa linkjét. A Daily exportok trackingre szolgálnak; a Reference és a Full Exports elkülönítve marad.",driveFolderLink:"Nyilvános Drive mappa link",syncDrive:"Drive szinkron",driveNotSynced:"Nincs szinkronizálva",driveSyncing:"Drive átvizsgálása…",driveSynced:"Szinkronizálva",driveReady:"Készen áll a nyilvános mappa átvizsgálására.",driveLatest:"Legújabb Daily",drivePrevious:"Utolsó Full",driveExportsFound:"Reference",driveFilesFound:"Daily exportok",driveApiKeyMissing:"",driveBridgeMissing:"A nyilvános Drive bridge még nincs beállítva. Egyszer add hozzá a Cloudflare Worker URL-jét a config.js fájlhoz; Google API-kulcs és billing nem kell.",driveInvalidLink:"Ez nem tűnik Google Drive mappalinknek.",driveNoExports:"Ebben a mappában nem találtam dátumozott Instagram exportot followers/following fájlokkal.",driveSyncComplete:"Drive szinkron kész. A Daily tracking, Reference, Full Exports és Insights külön adatforrásként lett betöltve.",driveSyncFailed:"A Drive szinkron sikertelen",driveAutoSnapshot:"Az Insights előzmények automatikusan frissültek.",driveNoPrevious:"Nincs",driveScanningFolder:"Mappák és fájlok átvizsgálása…",driveDownloading:"Releváns JSON fájlok letöltése…",scanDriveHistory:"Drive előzmények beolvasása",driveHistoryScanning:"Az összes dátumozott Drive Insights újraépítése…",driveHistoryComplete:"Drive Insights előzmények újraépítve.",driveHistoryAdded:"új snapshot",driveHistoryUpdated:"frissített snapshot",driveHistoryNoInsights:"Nem találtam dátumozott Insights exportot.",driveReferenceFolder:"Reference mappa",driveReferenceFound:"Betöltve a Drive Reference mappájából",driveReferenceMissing:"Nem található Reference mappa",readme:"README",documentation:"DOKUMENTÁCIÓ",add:"Hozzáadás",sourceFilesShort:"{files} forrásfájl",readmeLoadError:"A README fájl nem tölthető be.",driveDailyModeNote:"A Daily Sync pozitív follower megfigyeléseket és teljes napi Following snapshotokat tart meg. Az elveszett followereket csak Full Checkpoint ellen hitelesítjük.",driveFollowerListNote:"A Daily Syncben megfigyelt follower események. Ez nem hitelesített aktuális follower snapshot.",driveNfbListNote:"Az NFB a legutóbbi Full Checkpointból és az azt követő Daily follower eseményekből épül újra. A rename candidate-ek ki vannak zárva.",loadedDriveDaily:"{files} Daily forrásfájl · {followers} megfigyelt follower · {following} legfrissebb following · {notFollowing} megfigyelt follow-back nélkül",hideHearted:"Szívezettek elrejtése",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Hearts szinkron",heartSyncLocal:"Csak lokális",heartSyncSyncing:"Szinkronizálás...",heartSyncSynced:"Cloud szinkronizálva",heartSyncReady:"Add meg ugyanazt a Sync Keyt, amit a Cloudflare Workerben HEARTS_SYNC_KEY néven mentettél.",heartSyncDone:"A Heartok szinkronizálva.",heartSyncNoKey:"Előbb add meg a Heart Sync keyt.",heartSyncInvalidKey:"A Heart Sync key nem megfelelő.",heartSyncError:"A Heart Sync sikertelen",heartSyncAuto:"A Heart módosítások automatikusan szinkronizálódnak, amíg a key el van mentve.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manuális feltöltés",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"Nincs elérhető full checkpoint.",driveReferenceLoadedShort:"Betöltve",driveFullMissing:"Nincs",unfollowed:"Unfollowers",renamed:"Renamed",unfollowedNeedsSync:"Daily Sync szükséges ahhoz, hogy vissza tudjuk építeni a valaha megfigyelt followereket.",unfollowedNeedsFull:"Full Checkpoint szükséges annak ellenőrzéséhez, hogy a megfigyelt followerek közül kik nincsenek már jelen.",syncDriveAction:"Drive szinkron",addFullAction:"Full Export hozzáadása",unfollowedCutoff:"Az összevetés csak a Full Checkpoint cutoff időpontjáig tart: {date}.",unfollowersFullGroup:"FULL · {date}",unfollowersHistoricalGroup:"Történeti evidence · összehasonlítható Full checkpoint előtt",baselineFollowerLost:"Reference follower, aki nincs a legutóbbi Full Checkpointban",joinedThenLeft:"Tracking közben érkezett, később már nincs jelen",renameEvidenceFollower:"Follower timestamp",renameEvidenceFollowing:"Following timestamp",renameConfidenceHigh:"Magas bizonyosság",renameConfidenceLikely:"Valószínű",myFollowingActivity:"MY FOLLOWING ACTIVITY",myFollowingTitle:"Saját napi követési aktivitás",followedByMe:"Bekövettem",unfollowedByMe:"Kikövettem",netFollowing:"Nettó following",refollowedByMe:"Újrakövettem",activityFrom:"Ettől",activityTo:"Eddig",activityNoData:"A napi Following aktivitáshoz Drive Sync szükséges.",activityFollowed:"Bekövetve",activityUnfollowed:"Kikövetve",activityRefollow:"Refollow",detectedBetweenSnapshots:"Napi snapshotok között észlelve",growthDailyDetails:"Napi fiók-részletek",newFollowersObserved:"Új megfigyelt followerek",noDailyDetails:"Ehhez a dátumhoz nincs fiókszintű Daily esemény.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"Mennyi ideig követed az újonnan bekövetett fiókokat?",followingCohortTracked:"Követett follow ciklusok",followingCohortStill:"Még követed",followingCohortLeft:"Később kikövetted",followingCohortRetention:"Aktuális retention",followingRetention1:"1 napos retention",followingRetention2:"2 napos retention",followingRetention3:"3 napos retention",followingRetention7:"7 napos retention",followingCohortNoData:"Ehhez az elemzéshez legalább két Daily Following snapshot szükséges.",followingCohortAccounts:"Following cohortok napok szerint",statusStillFollowing:"Még követed",statusUnfollowedLater:"Később kikövetted",eligible:"értékelhető",nfbFullBasis:"NFB alap: {full} Full + az azt követő Daily follower események.",follows:"Bekövetések",unfollows:"Kikövetések",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Tölts be legalább egy olyan exportot, amely follower adatokat tartalmaz.",sourceDetails:"Részletek",sourceAuto:"Automatikus",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following lista",sourceFollowersLabel:"Followers lista",sourceOverride:"Forrás választása",sourceOverrideActive:"Ebben a sessionben kézzel választott forrás van használatban.",sourceTimeUnknown:"a pontos fájlidő nem elérhető",followersSourceFull:"A legutóbbi Full exportból indul, és hozzáad {count} újabb Daily bekövetést.",followersSourceFallback:"Még nincs Full export, ezért az első Daily baseline-ból és azóta minden megfigyelt Daily bekövetésből épül.",followersSourceManualOnly:"A kézzel betöltött Full export van használatban.",followingSourceDaily:"A Daily Following listát használjuk, mert ez a frissebb teljes lista.",followingSourceFull:"A Full export Following listáját használjuk, mert ez a frissebb teljes lista.",followingSourceFallbackDaily:"A legutóbbi Daily Following listát használjuk. A pontos fájlidőket nem lehetett összehasonlítani.",followingSourceFallbackFull:"A Full export Following listáját használjuk, mert nincs Daily Following lista.",nfbSourceFull:"A legutóbbi Full follower listát és {count} újabb Daily bekövetést hasonlít össze a legfrissebb teljes Following listával.",nfbSourceFallback:"Még nincs Full export, ezért az NFB a Daily Syncben valaha látott followereket hasonlítja a legfrissebb teljes Following listával.",allTimeSource:"Összefésüli az összes fiókot, akit a Daily Sync valaha followerként látott.",unfollowersSource:"Minden valaha megfigyelt followert összevet a legutóbbi Full checkpointtal.",renamedSource:"Azonos relationship timestampek alapján keresi a valószínű username-váltásokat.",sourceSnapshot:"Snapshot",sourceAccounts:"fiók",sourceWhyDaily:"a Daily fájl frissebb",sourceWhyFull:"a Full fájl frissebb",sourceWhyOverride:"kézzel kiválasztva",sourceWhyFallback:"a pontos fájlsorrend nem állapítható meg",growthOpenDetails:"Napi részletek megnyitása",archiveSettingsTitle:"Lokális archívum és forráskezelés",archiveSettingsCopy:"Az IndexedDB helyben tartja a normalizált historyt; a Drive csak az új vagy kifejezetten újrafeldolgozott forrásfájlokhoz kell.",databaseDriveLabel:"DATABASE checkpointok használata Drive-ról",databaseDriveCopy:"Opcionális. A /DATABASE mappa legfrissebb kompatibilis adatbázisa egy új böngészőt fel tud építeni az incremental sync előtt.",referenceSourcePolicy:"Reference forrás",fullSourcePolicy:"Full forrás",secondSourcePolicy:"SECOND forrás",sourcePolicyAuto:"Automatikus",sourcePolicyDatabase:"Lokális adatbázis",sourcePolicyDrive:"Csak Drive",sourcePolicyDriveRefresh:"Drive + adatbázis",archiveThroughLabel:"Archívum eddig",archiveFilesLabel:"Cache-elt forrásfájlok",archiveStorageLabel:"Tárolás",archiveThroughShort:"Archívum",reprocessDrive:"Aktuális Drive fájlok újrafeldolgozása",reprocessDriveCopy:"A már archivált history megmarad, de egyszer figyelmen kívül hagyja a processed-file cache-t, és újra feldolgozza a Drive-on még meglévő fájlokat.",databasePrivacyNote:"A DATABASE opcionális. Az adatbázis-export koncentrált relationship historyt tartalmaz, ezért csak akkor tedd nyilvános Drive mappába, ha ezt a kitettséget elfogadod.",archiveLocalReady:"Lokális archívum kész",archiveLocalEmpty:"A lokális archívum üres",archiveLoaded:"Lokális archívum betöltve eddig: {date}.",archiveSaved:"Lokális archívum frissítve.",incrementalSummary:"{newFiles} új fájl feldolgozva · {cachedFiles} már cache-elve",databaseBootstrapLoaded:"DATABASE checkpoint betöltve eddig: {date}.",databaseBootstrapSkipped:"A DATABASE checkpointot a lokális archívum már lefedi.",databaseExportReady:"Hordozható adatbázis exportálva eddig: {date}.",databaseV2Imported:"Hordozható adatbázis importálva eddig: {date}.",databaseLegacyImported:"Régi adatbázis importálva. A relationship history abban a régi formátumban még nem szerepelt.",sourceDatabase:"Adatbázis",sourceDrive:"Drive",archiveInitializing:"Lokális archívum betöltése…"
+    olderThan:"Ennél régebb óta követem",noCleanup:"Nincs kikövetési jelölt.",noCleanupCopy:"Állíts alacsonyabb időhatárt vagy tölts be aktuális exportot.",notFollowingReason:"Nem követ vissza",oldFollowReason:"Régi követés",score:"Pontszám",exportDatabase:"Adatbázis export",importDatabase:"Adatbázis import",growthTrends:"NÖVEKEDÉSI TRENDEK",growthTrendsTitle:"Mentett mutatók összehasonlítása időben",chartScale:"Grafikon skála",rawValues:"Nyers értékek",indexedValues:"Indexelt (első pont = 100)",active:"Aktív",actions:"Műveletek",disable:"Inaktiválás",enable:"Aktiválás",delete:"Törlés",databaseImported:"Adatbázis importálva.",databaseInvalid:"Érvénytelen analyzer adatbázisfájl.",deleteSnapshotConfirm:"Végleg törlöd ezt a snapshotot?",day1:"1. nap",day2:"2. nap",day3:"3. nap",days4to7:"4–7. nap",exportPdf:"PDF export",pdfNoData:"A PDF export előtt tölts be Insights adatot vagy ments legalább egy snapshotot.",pdfTitle:"Instagram Followers Report",pdfGenerated:"Készült",pdfCurrentInsights:"Aktuális Insights",pdfSavedTrends:"Mentett trendek",pdfSnapshotHistory:"Snapshot előzmények",driveSyncEyebrow:"GOOGLE DRIVE SZINKRON",driveSyncTitle:"Napi Instagram archívum",driveSyncCopy:"Illeszd be a nyilvános Drive mappa linkjét. A Daily exportok trackingre szolgálnak; a Reference és a Full Exports elkülönítve marad.",driveFolderLink:"Nyilvános Drive mappa link",syncDrive:"Drive szinkron",syncDaily:"Daily Sync",syncFull:"Full Sync",syncReference:"Reference Sync",driveDailyComplete:"Daily szinkron kész.",driveFullComplete:"Full szinkron kész.",driveReferenceComplete:"Reference szinkron kész.",driveFullRescanComplete:"Teljes Drive újraellenőrzés kész.",driveDailyMissing:"A kiválasztott Drive gyökérben nem található Daily mappa.",folderCacheSummary:"{cachedFolders} cache-elt mappa kihagyva · {scannedFolders} mappaszint ellenőrizve",clearDriveCache:"Sync cache törlése",clearDriveCacheCopy:"Csak a Drive discovery és processed-file jelöléseket törli. Az archivált history, Heartok és beállítások megmaradnak.",clearDriveCacheConfirm:"Törlöd a Drive sync cache-t? Az archivált history, Heartok és beállítások megmaradnak.",driveCacheCleared:"A Drive sync cache törölve. A következő szinkron újra felderíti a kiválasztott forrást.",driveNotSynced:"Nincs szinkronizálva",driveSyncing:"Drive átvizsgálása…",driveSynced:"Szinkronizálva",driveReady:"Készen áll a nyilvános mappa átvizsgálására.",driveLatest:"Legújabb Daily",drivePrevious:"Utolsó Full",driveExportsFound:"Reference",driveFilesFound:"Daily exportok",driveApiKeyMissing:"",driveBridgeMissing:"A nyilvános Drive bridge még nincs beállítva. Egyszer add hozzá a Cloudflare Worker URL-jét a config.js fájlhoz; Google API-kulcs és billing nem kell.",driveInvalidLink:"Ez nem tűnik Google Drive mappalinknek.",driveNoExports:"Ebben a mappában nem találtam dátumozott Instagram exportot followers/following fájlokkal.",driveSyncComplete:"Drive szinkron kész. A Daily tracking, Reference, Full Exports és Insights külön adatforrásként lett betöltve.",driveSyncFailed:"A Drive szinkron sikertelen",driveAutoSnapshot:"Az Insights előzmények automatikusan frissültek.",driveNoPrevious:"Nincs",driveScanningFolder:"Mappák és fájlok átvizsgálása…",driveDownloading:"Releváns JSON fájlok letöltése…",scanDriveHistory:"Drive előzmények beolvasása",driveHistoryScanning:"Az összes dátumozott Drive Insights újraépítése…",driveHistoryComplete:"Drive Insights előzmények újraépítve.",driveHistoryAdded:"új snapshot",driveHistoryUpdated:"frissített snapshot",driveHistoryNoInsights:"Nem találtam dátumozott Insights exportot.",driveReferenceFolder:"Reference mappa",driveReferenceFound:"Betöltve a Drive Reference mappájából",driveReferenceMissing:"Nem található Reference mappa",readme:"README",documentation:"DOKUMENTÁCIÓ",add:"Hozzáadás",sourceFilesShort:"{files} forrásfájl",readmeLoadError:"A README fájl nem tölthető be.",driveDailyModeNote:"A Daily Sync pozitív follower megfigyeléseket és teljes napi Following snapshotokat tart meg. Az elveszett followereket csak Full Checkpoint ellen hitelesítjük.",driveFollowerListNote:"A Daily Syncben megfigyelt follower események. Ez nem hitelesített aktuális follower snapshot.",driveNfbListNote:"Az NFB a legutóbbi Full Checkpointból és az azt követő Daily follower eseményekből épül újra. A rename candidate-ek ki vannak zárva.",loadedDriveDaily:"{files} Daily forrásfájl · {followers} megfigyelt follower · {following} legfrissebb following · {notFollowing} megfigyelt follow-back nélkül",hideHearted:"Szívezettek elrejtése",heartSync:"HEART SYNC",heartSyncKey:"Sync key",heartSyncButton:"Hearts szinkron",heartSyncLocal:"Csak lokális",heartSyncSyncing:"Szinkronizálás...",heartSyncSynced:"Cloud szinkronizálva",heartSyncReady:"Add meg ugyanazt a Sync Keyt, amit a Cloudflare Workerben HEARTS_SYNC_KEY néven mentettél.",heartSyncDone:"A Heartok szinkronizálva.",heartSyncNoKey:"Előbb add meg a Heart Sync keyt.",heartSyncInvalidKey:"A Heart Sync key nem megfelelő.",heartSyncError:"A Heart Sync sikertelen",heartSyncAuto:"A Heart módosítások automatikusan szinkronizálódnak, amíg a key el van mentve.",fullCheckpoint:"FULL CHECKPOINT",currentFull:"CURRENT FULL",lastFull:"LAST FULL",fullSourceManual:"Manuális feltöltés",fullSourceDrive:"Drive · Full Exports",fullNoCheckpoint:"Nincs elérhető full checkpoint.",driveReferenceLoadedShort:"Betöltve",driveFullMissing:"Nincs",unfollowed:"Unfollowers",renamed:"Renamed",unfollowedNeedsSync:"Daily Sync szükséges ahhoz, hogy vissza tudjuk építeni a valaha megfigyelt followereket.",unfollowedNeedsFull:"Full Checkpoint szükséges annak ellenőrzéséhez, hogy a megfigyelt followerek közül kik nincsenek már jelen.",syncDriveAction:"Drive szinkron",addFullAction:"Full Export hozzáadása",unfollowedCutoff:"Az összevetés csak a Full Checkpoint cutoff időpontjáig tart: {date}.",unfollowersFullGroup:"FULL · {date}",unfollowersHistoricalGroup:"Történeti evidence · összehasonlítható Full checkpoint előtt",baselineFollowerLost:"Reference follower, aki nincs a legutóbbi Full Checkpointban",joinedThenLeft:"Tracking közben érkezett, később már nincs jelen",renameEvidenceFollower:"Follower timestamp",renameEvidenceFollowing:"Following timestamp",renameConfidenceHigh:"Magas bizonyosság",renameConfidenceLikely:"Valószínű",myFollowingActivity:"MY FOLLOWING ACTIVITY",myFollowingTitle:"Saját napi követési aktivitás",followedByMe:"Bekövettem",unfollowedByMe:"Kikövettem",netFollowing:"Nettó following",refollowedByMe:"Újrakövettem",activityFrom:"Ettől",activityTo:"Eddig",activityNoData:"A napi Following aktivitáshoz Drive Sync szükséges.",activityFollowed:"Bekövetve",activityUnfollowed:"Kikövetve",activityRefollow:"Refollow",detectedBetweenSnapshots:"Napi snapshotok között észlelve",growthDailyDetails:"Napi fiók-részletek",newFollowersObserved:"Új megfigyelt followerek",noDailyDetails:"Ehhez a dátumhoz nincs fiókszintű Daily esemény.",followingCohortAnalysis:"FOLLOWING COHORT ANALYSIS",followingCohortTitle:"Mennyi ideig követed az újonnan bekövetett fiókokat?",followingCohortTracked:"Követett follow ciklusok",followingCohortStill:"Még követed",followingCohortLeft:"Később kikövetted",followingCohortRetention:"Aktuális retention",followingRetention1:"1 napos retention",followingRetention2:"2 napos retention",followingRetention3:"3 napos retention",followingRetention7:"7 napos retention",followingCohortNoData:"Ehhez az elemzéshez legalább két Daily Following snapshot szükséges.",followingCohortAccounts:"Following cohortok napok szerint",statusStillFollowing:"Még követed",statusUnfollowedLater:"Később kikövetted",eligible:"értékelhető",nfbFullBasis:"NFB alap: {full} Full + az azt követő Daily follower események.",follows:"Bekövetések",unfollows:"Kikövetések",allTimeFollowers:"All-time Followers",allTimeNeedsSync:"Tölts be legalább egy olyan exportot, amely follower adatokat tartalmaz.",sourceDetails:"Részletek",sourceAuto:"Automatikus",sourceDaily:"Daily Sync",sourceFull:"Full Checkpoint",sourceFollowingLabel:"Following lista",sourceFollowersLabel:"Followers lista",sourceOverride:"Forrás választása",sourceOverrideActive:"Ebben a sessionben kézzel választott forrás van használatban.",sourceTimeUnknown:"a pontos fájlidő nem elérhető",followersSourceFull:"A legutóbbi Full exportból indul, és hozzáad {count} újabb Daily bekövetést.",followersSourceFallback:"Még nincs Full export, ezért az első Daily baseline-ból és azóta minden megfigyelt Daily bekövetésből épül.",followersSourceManualOnly:"A kézzel betöltött Full export van használatban.",followingSourceDaily:"A Daily Following listát használjuk, mert ez a frissebb teljes lista.",followingSourceFull:"A Full export Following listáját használjuk, mert ez a frissebb teljes lista.",followingSourceFallbackDaily:"A legutóbbi Daily Following listát használjuk. A pontos fájlidőket nem lehetett összehasonlítani.",followingSourceFallbackFull:"A Full export Following listáját használjuk, mert nincs Daily Following lista.",nfbSourceFull:"A legutóbbi Full follower listát és {count} újabb Daily bekövetést hasonlít össze a legfrissebb teljes Following listával.",nfbSourceFallback:"Még nincs Full export, ezért az NFB a Daily Syncben valaha látott followereket hasonlítja a legfrissebb teljes Following listával.",allTimeSource:"Összefésüli az összes fiókot, akit a Daily Sync valaha followerként látott.",unfollowersSource:"Minden valaha megfigyelt followert összevet a legutóbbi Full checkpointtal.",renamedSource:"Azonos relationship timestampek alapján keresi a valószínű username-váltásokat.",sourceSnapshot:"Snapshot",sourceAccounts:"fiók",sourceWhyDaily:"a Daily fájl frissebb",sourceWhyFull:"a Full fájl frissebb",sourceWhyOverride:"kézzel kiválasztva",sourceWhyFallback:"a pontos fájlsorrend nem állapítható meg",growthOpenDetails:"Napi részletek megnyitása",archiveSettingsTitle:"Lokális archívum és forráskezelés",archiveSettingsCopy:"Az IndexedDB helyben tartja a normalizált historyt; a Drive csak az új vagy kifejezetten újrafeldolgozott forrásfájlokhoz kell.",databaseDriveLabel:"DATABASE checkpointok használata Drive-ról",databaseDriveCopy:"Opcionális. A /DATABASE mappa legfrissebb kompatibilis adatbázisa egy új böngészőt fel tud építeni az incremental sync előtt.",referenceSourcePolicy:"Reference forrás",fullSourcePolicy:"Full forrás",sourcePolicyAuto:"Automatikus",sourcePolicyDatabase:"Lokális adatbázis",sourcePolicyDrive:"Csak Drive",sourcePolicyDriveRefresh:"Drive + adatbázis",archiveThroughLabel:"Archívum eddig",archiveFilesLabel:"Cache-elt forrásfájlok",archiveStorageLabel:"Tárolás",archiveThroughShort:"Archívum",reprocessDrive:"Full Drive Rescan",reprocessDriveCopy:"A teljes Daily, Full Exports és Reference fát ellenőrzi, és újra feldolgozza az aktuális forrásfájlokat. Az archivált history megmarad.",databasePrivacyNote:"A DATABASE opcionális. Az adatbázis-export koncentrált relationship historyt tartalmaz, ezért csak akkor tedd nyilvános Drive mappába, ha ezt a kitettséget elfogadod.",archiveLocalReady:"Lokális archívum kész",archiveLocalEmpty:"A lokális archívum üres",archiveLoaded:"Lokális archívum betöltve eddig: {date}.",archiveSaved:"Lokális archívum frissítve.",incrementalSummary:"{newFiles} új fájl feldolgozva · {cachedFiles} már cache-elve",databaseBootstrapLoaded:"DATABASE checkpoint betöltve eddig: {date}.",databaseBootstrapSkipped:"A DATABASE checkpointot a lokális archívum már lefedi.",databaseExportReady:"Hordozható adatbázis exportálva eddig: {date}.",databaseV2Imported:"Hordozható adatbázis importálva eddig: {date}.",databaseLegacyImported:"Régi adatbázis importálva. A relationship history abban a régi formátumban még nem szerepelt.",sourceDatabase:"Adatbázis",sourceDrive:"Drive",archiveInitializing:"Lokális archívum betöltése…"
   }
 };
 
-const SECOND_SOURCE_STORAGE="ifa-second-source-enabled";
-const SECOND_SOURCE_FEATURE=window.IFA_CONFIG?.secondSourceFeature!==false;
 const DATABASE_DRIVE_FEATURE=window.IFA_CONFIG?.databaseDriveFeature!==false;
 const ARCHIVE_STORE=window.IFA_ARCHIVE_STORE;
 const SOURCE_POLICY_VALUES=new Set(["auto","database","drive"]);
@@ -74,9 +72,7 @@ function storedSourcePolicy(key){
   const value=localStorage.getItem(key)||"auto";
   return SOURCE_POLICY_VALUES.has(value)?value:"auto";
 }
-function secondSourceActive(){
-  return SECOND_SOURCE_FEATURE&&state.secondSourceEnabled===true;
-}
+
 
 const state = {
   lang: localStorage.getItem("ifa-language") || "en",
@@ -113,8 +109,6 @@ const state = {
   renamedKeys: new Set(),
   identityFbids: new Map(),
   followingSourceOverride: sessionStorage.getItem("ifa-following-source") || "auto",
-  secondSourceEnabled: SECOND_SOURCE_FEATURE&&localStorage.getItem(SECOND_SOURCE_STORAGE)!=="false",
-  secondSourceStats:{foundFiles:0,followerFiles:0,followingSelected:0,insightFallbackFiles:0},
   archive: ARCHIVE_STORE?ARCHIVE_STORE.emptyArchive():null,
   archiveReady:false,
   archiveSaveTimer:null,
@@ -122,11 +116,10 @@ const state = {
   databaseDriveEnabled:DATABASE_DRIVE_FEATURE&&localStorage.getItem("ifa-database-drive-enabled")==="true",
   referenceSourcePolicy:storedSourcePolicy("ifa-reference-source-policy"),
   fullSourcePolicy:storedSourcePolicy("ifa-full-source-policy"),
-  secondSourcePolicy:storedSourcePolicy("ifa-second-source-policy"),
-  forceDriveReprocess:false,
-  incrementalStats:{newFiles:0,cachedFiles:0,databaseLoaded:false},
+  incrementalStats:{newFiles:0,cachedFiles:0,cachedFolders:0,scannedFolders:0,databaseLoaded:false},
   archiveStorageError:null
 };
+for(const key of["ifa-second-source-enabled","ifa-second-source-policy"])localStorage.removeItem(key);
 rebuildHeartSet();
 
 function emptyDataset(){return{followers:new Map(),following:new Map(),notFollowingBack:new Map()}}
@@ -204,7 +197,7 @@ function setLocalHeart(username,hearted,updatedAt=Date.now()){
 }
 
 const els = Object.fromEntries([
-  "languageSelect","driveFolderUrl","syncDriveBtn","driveState","driveStateText","driveMessage","driveLatestDate","drivePreviousDate","driveExportCount","driveFileCount","driveArchiveDate","secondSourceOption","secondSourceToggle","archiveSettings","archiveSummaryState","databaseDriveOption","databaseDriveToggle","referenceSourcePolicy","fullSourcePolicy","secondSourcePolicy","secondSourcePolicyField","archiveThrough","archiveFileCount","archiveStorageState","reprocessDriveBtn","currentFiles","referenceFiles","currentDropzone","referenceDropzone","currentStatus","referenceStatus","clearCurrentBtn","clearReferenceBtn",
+  "languageSelect","driveFolderUrl","syncDailyBtn","syncFullBtn","syncReferenceBtn","driveState","driveStateText","driveMessage","driveLatestDate","drivePreviousDate","driveExportCount","driveFileCount","driveArchiveDate","archiveSettings","archiveSummaryState","databaseDriveOption","databaseDriveToggle","referenceSourcePolicy","fullSourcePolicy","archiveThrough","archiveFileCount","archiveStorageState","reprocessDriveBtn","clearDriveCacheBtn","currentFiles","referenceFiles","currentDropzone","referenceDropzone","currentStatus","referenceStatus","clearCurrentBtn","clearReferenceBtn",
   "searchInput","referenceMode","sortSelect","exportCsvBtn","summaryLine","dataSourceNote","userList","emptyState","metricFollowers","metricFollowing","metricMutuals","metricNfb",
   "newFollowersCount","lostFollowersCount","newFollowingCount","unfollowedByYouCount","heartedCount","heartSyncState","heartSyncKey","heartSyncBtn","heartSyncMessage","followersCount","followingCount","notFollowingBackCount","allTimeFollowersCount","unfollowedCount","renamedCount","fullCardEyebrow","fullCardTitle","listRequirement","listRequirementTitle","listRequirementCopy","requireSyncBtn","requireFullBtn",
   "mobileMenuToggle","topActions","openReadmeBtn","readmeOverlay","closeReadmeBtn","readmeContent","exportPdfBtn","exportDatabaseBtn","importDatabaseInput","saveInsightSnapshotBtn","scanDriveHistoryBtn","clearSnapshotsBtn","chartScaleMode","insightsPeriod","insightFollowers","insightFollows","insightUnfollows","insightNet","insightReach","insightVisits","insightLinks","insightInteractions","insightNonFollowerReach","insightNonFollowerEngagement","insightSnapshotCount","insightsGrowthChart","insightsChartCard","insightsChartTooltip","insightSnapshotTableBody","insightsGrowthEmpty","insightEmpty","myActivityFrom","myActivityTo","myActivityFollowed","myActivityUnfollowed","myActivityNet","myActivityRefollowed","myActivityDailyList","myActivityEmpty","openNextWrap","openNextBtn","openNextRemaining","hideHearted","cohortRate","cohortMedian","cohortTracked","cohortThreshold","cohortGrid","cohortHint","followingCohortTracked","followingCohortStill","followingCohortLeft","followingCohortRetention","followingRetentionGrid","followingCohortDays","followingCohortEmpty"
@@ -359,13 +352,8 @@ els.driveFolderUrl.addEventListener("change",()=>{
   localStorage.setItem("ifa-drive-folder-url",state.driveFolderUrl);
 });
 
-function initializeSecondSourceUi(){
-  if(!els.secondSourceOption||!els.secondSourceToggle)return;
-  els.secondSourceOption.hidden=!SECOND_SOURCE_FEATURE;
-  els.secondSourceToggle.checked=secondSourceActive();
-}
 
-initializeSecondSourceUi();
+
 function initializeArchiveControls(){
   if(els.databaseDriveOption)els.databaseDriveOption.hidden=!DATABASE_DRIVE_FEATURE;
   if(els.databaseDriveToggle){
@@ -374,21 +362,9 @@ function initializeArchiveControls(){
   }
   if(els.referenceSourcePolicy)els.referenceSourcePolicy.value=state.referenceSourcePolicy;
   if(els.fullSourcePolicy)els.fullSourcePolicy.value=state.fullSourcePolicy;
-  if(els.secondSourcePolicy)els.secondSourcePolicy.value=state.secondSourcePolicy;
-  if(els.secondSourcePolicyField)els.secondSourcePolicyField.hidden=!SECOND_SOURCE_FEATURE;
 }
 initializeArchiveControls();
 
-els.secondSourceToggle?.addEventListener("change",async()=>{
-  if(!SECOND_SOURCE_FEATURE)return;
-  state.secondSourceEnabled=els.secondSourceToggle.checked===true;
-  localStorage.setItem(SECOND_SOURCE_STORAGE,state.secondSourceEnabled?"true":"false");
-  hydrateRuntimeFromArchive();
-  if(els.driveFolderUrl.value.trim()&&state.secondSourcePolicy!=="database"){
-    setDriveUi("syncing",t("secondSourceResync"));
-    await syncPublicDrive();
-  }
-});
 
 els.databaseDriveToggle?.addEventListener("change",()=>{
   state.databaseDriveEnabled=DATABASE_DRIVE_FEATURE&&els.databaseDriveToggle.checked===true;
@@ -405,14 +381,12 @@ function bindSourcePolicyControl(element,stateKey,storageKey){
 }
 bindSourcePolicyControl(els.referenceSourcePolicy,"referenceSourcePolicy","ifa-reference-source-policy");
 bindSourcePolicyControl(els.fullSourcePolicy,"fullSourcePolicy","ifa-full-source-policy");
-bindSourcePolicyControl(els.secondSourcePolicy,"secondSourcePolicy","ifa-second-source-policy");
 
-els.reprocessDriveBtn?.addEventListener("click",async()=>{
-  state.forceDriveReprocess=true;
-  await syncPublicDrive({forceReprocess:true});
-});
-
-els.syncDriveBtn.addEventListener("click",()=>syncPublicDrive());
+els.reprocessDriveBtn?.addEventListener("click",fullDriveRescan);
+els.clearDriveCacheBtn?.addEventListener("click",clearDriveSyncCache);
+els.syncDailyBtn?.addEventListener("click",()=>syncPublicDrive({mode:"daily"}));
+els.syncFullBtn?.addEventListener("click",()=>syncPublicDrive({mode:"full"}));
+els.syncReferenceBtn?.addEventListener("click",()=>syncPublicDrive({mode:"reference"}));
 
 setupFileInput(els.currentFiles,els.currentDropzone,"full");
 setupFileInput(els.referenceFiles,els.referenceDropzone,"reference");
@@ -432,7 +406,7 @@ els.chartScaleMode.addEventListener("change",renderInsights);
 document.querySelectorAll("[data-chart-metric]").forEach(el=>el.addEventListener("change",renderInsights));
 els.clearSnapshotsBtn.addEventListener("click",()=>{state.insightSnapshots=[];persistInsightSnapshots();renderInsights()});
 els.openNextBtn.addEventListener("click",openNextProfile);
-els.requireSyncBtn?.addEventListener("click",syncPublicDrive);
+els.requireSyncBtn?.addEventListener("click",()=>syncPublicDrive({mode:"daily"}));
 els.requireFullBtn?.addEventListener("click",()=>els.currentFiles?.click());
 els.myActivityFrom?.addEventListener("change",renderMyFollowingActivity);
 els.myActivityTo?.addEventListener("change",renderMyFollowingActivity);
@@ -623,24 +597,20 @@ function isDriveRelevantFile(name){
 function normalizedFolderSegment(value){
   return String(value||"").toLowerCase().replace(/[_-]+/g," ").replace(/\s+/g," ").trim();
 }
-function isSecondDriveFile(file){
-  return (file.path||[]).some(segment=>String(segment).trim().toLowerCase()==="second");
-}
+
 function isDatabaseDriveFile(file){
   return (file.path||[]).some(segment=>String(segment).trim().toLowerCase()==="database");
 }
 function isFullExportsDriveFile(file){
-  return !isSecondDriveFile(file)&&!isDatabaseDriveFile(file)&&(file.path||[]).some(segment=>normalizedFolderSegment(segment)==="full exports");
+  return !isDatabaseDriveFile(file)&&(file.path||[]).some(segment=>normalizedFolderSegment(segment)==="full exports");
 }
 function isReferenceDriveFile(file){
-  return !isSecondDriveFile(file)&&!isDatabaseDriveFile(file)&&(file.path||[]).some(segment=>String(segment).trim().toLowerCase()==="reference");
+  return !isDatabaseDriveFile(file)&&(file.path||[]).some(segment=>String(segment).trim().toLowerCase()==="reference");
 }
 function isDailyDriveFile(file){
-  return !isDatabaseDriveFile(file)&&!isSecondDriveFile(file)&&!isReferenceDriveFile(file)&&!isFullExportsDriveFile(file);
+  return !isDatabaseDriveFile(file)&&!isReferenceDriveFile(file)&&!isFullExportsDriveFile(file);
 }
-function isSecondDailyDriveFile(file){
-  return secondSourceActive()&&isSecondDriveFile(file);
-}
+
 
 function isDriveInsightFile(name){
   return DRIVE_INSIGHT_NAMES.has(String(name||"").toLowerCase());
@@ -670,34 +640,37 @@ function humanizeDriveError(err){
   return msg;
 }
 
-async function walkDriveFolder(folderId,path,out,bridge,visited,resourceKey=""){
-  if(visited.has(folderId))return;
-  visited.add(folderId);
-
+async function listDriveFolder(folderId,bridge,resourceKey=""){
   const params=new URLSearchParams({folderId});
   if(resourceKey)params.set("resourceKey",resourceKey);
-
   const response=await fetch(`${bridge}/list?${params.toString()}`,{cache:"no-store"});
   if(!response.ok){
     const body=await response.text();
     throw new Error(`Public Drive bridge ${response.status}: ${body.slice(0,240)}`);
   }
-
   const data=await response.json();
   if(data.error)throw new Error(data.error);
+  return Array.isArray(data.items)?data.items:[];
+}
 
-  for(const item of data.items||[]){
-    if(item.mimeType===DRIVE_FOLDER_MIME){
-      await walkDriveFolder(
-        item.id,
-        [...path,item.name],
-        out,
-        bridge,
-        visited,
-        item.resourceKey||""
-      );
-    }else{
-      out.push({...item,path:[...path,item.name]});
+async function walkDriveFolder(folderId,path,out,bridge,visited=new Set(),resourceKey="",concurrency=4){
+  const queue=[{folderId,path,resourceKey}];
+  const limit=Math.max(1,Math.min(6,Number(concurrency)||4));
+  while(queue.length){
+    const batch=[];
+    while(queue.length&&batch.length<limit){
+      const node=queue.shift();
+      if(visited.has(node.folderId))continue;
+      visited.add(node.folderId);batch.push(node);
+    }
+    if(!batch.length)continue;
+    const listed=await Promise.all(batch.map(async node=>({node,items:await listDriveFolder(node.folderId,bridge,node.resourceKey)})));
+    for(const {node,items} of listed){
+      for(const item of items){
+        if(item.mimeType===DRIVE_FOLDER_MIME){
+          queue.push({folderId:item.id,path:[...node.path,item.name],resourceKey:item.resourceKey||""});
+        }else out.push({...item,path:[...node.path,item.name]});
+      }
     }
   }
 }
@@ -1001,7 +974,7 @@ async function collectDriveFollowerEvents(files,bridge,cache=null){
     const source=await downloadDriveSource(file,bridge,cache);
     let data;try{data=JSON.parse(source.text)}catch{throw new Error(`${source.name}: ${t("invalidJson")}.`)}
     const sourceDate=inferDriveExportDate(file);
-    const sourceRole=isSecondDriveFile(file)?"second":"primary";
+    const sourceRole="primary";
     for(const row of extractFollowers(data)){
       putNewest(followers,row);
       const eventKey=`${row.username.toLowerCase()}|${row.timestamp??""}`;
@@ -1011,7 +984,7 @@ async function collectDriveFollowerEvents(files,bridge,cache=null){
     }
   }
   events.sort((a,b)=>(a.timestamp??0)-(b.timestamp??0));
-  return{followers,events,sourceCount:followerFiles.length,secondSourceCount:followerFiles.filter(isSecondDriveFile).length};
+  return{followers,events,sourceCount:followerFiles.length};
 }
 
 function isFollowingSnapshotFresher(candidate,current){
@@ -1041,18 +1014,7 @@ async function collectDriveFollowingSnapshots(files,bridge,cache=null,sourceRole
   );
 }
 
-function mergeFollowingSnapshotSources(primarySnapshots,secondSnapshots){
-  const byDate=new Map();
-  for(const row of primarySnapshots||[])byDate.set(row.date,row);
-  for(const row of secondSnapshots||[]){
-    const old=byDate.get(row.date);
-    if(isFollowingSnapshotFresher(row,old))byDate.set(row.date,row);
-  }
-  return[...byDate.values()].sort((a,b)=>
-    ((a.generatedAt??-Infinity)-(b.generatedAt??-Infinity))
-    ||String(a.date||"").localeCompare(String(b.date||""))
-  );
-}
+
 
 function extractRecentlyUnfollowed(data){
   if(!Array.isArray(data))return[];const rows=[];
@@ -1364,7 +1326,7 @@ function followingSourceSelection(){
   const dailyChoice=daily?{
     kind:"daily",following:daily.following,
     generatedAt:daily.generatedAt??null,clockKey:daily.clockKey??null,
-    count:daily.following.size,label:`${daily.date||t("sourceDaily")}${daily.source==="second"?` · ${t("sourceSecond")}`:""}`,dailyRole:daily.source||"primary"
+    count:daily.following.size,label:daily.date||t("sourceDaily"),dailyRole:"primary"
   }:null;
 
   const fullChoice=full?{
@@ -1576,67 +1538,7 @@ function consolidateInsightRows(rows){
   return byDay;
 }
 
-async function syncDriveInsightsFromDiscovered(discovered,bridge,cache=null){
-  const primaryFiles=discovered.filter(isDailyDriveFile);
-  const secondFiles=secondSourceActive()?discovered.filter(isSecondDailyDriveFile):[];
-  const primary=consolidateInsightRows(await collectInsightPackages(primaryFiles,"primary",bridge,cache));
-  const second=consolidateInsightRows(await collectInsightPackages(secondFiles,"second",bridge,cache));
-  const days=new Set([...primary.keys(),...second.keys()]);
-  const bySnapshotDay=[];
-  let fallbackFiles=0;
 
-  for(const day of [...days].sort()){
-    const p=primary.get(day)||null,s=second.get(day)||null;
-    let insights=null;
-    const sourceMeta={insights:{audience:null,interactions:null,reach:null},following:null};
-
-    for(const kind of ["audience","interactions","reach"]){
-      const chosen=p?.kinds?.[kind]||s?.kinds?.[kind]||null;
-      if(!chosen)continue;
-      insights=mergeInsightMetrics(insights,chosen.metrics);
-      sourceMeta.insights[kind]=chosen.role;
-      if(chosen.role==="second")fallbackFiles++;
-    }
-    if(!insights)continue;
-
-    const followingCandidate=chooseFresherFollowingCandidate(p?.followingCandidate||null,s?.followingCandidate||null);
-    if(followingCandidate){
-      const pCandidate=p?.followingCandidate||null;
-      sourceMeta.following=followingCandidate===pCandidate?"primary":"second";
-    }
-
-    bySnapshotDay.push({
-      day,
-      insights,
-      followingCount:followingCandidate?.following?.size??null,
-      sourceMeta
-    });
-  }
-
-  let found=0,added=0,updated=0;
-  let latestSnapshot=null;
-
-  for(const row of bySnapshotDay){
-    found++;
-    const idx=state.insightSnapshots.findIndex(s=>s.id===row.day);
-    const existing=idx>=0?state.insightSnapshots[idx]:null;
-    const snapshot={...snapshotFromInsights(row.day,row.insights,row.followingCount,existing),sourceMeta:row.sourceMeta};
-
-    if(idx>=0){
-      state.insightSnapshots[idx]=snapshot;
-      updated++;
-    }else{
-      state.insightSnapshots.push(snapshot);
-      added++;
-    }
-    latestSnapshot=snapshot;
-  }
-
-  state.insightSnapshots.sort((a,b)=>a.timestamp-b.timestamp);
-  persistInsightSnapshots();
-
-  return {found,added,updated,latestSnapshot,fallbackFiles};
-}
 
 
 /* ========================================================================== 
@@ -1653,8 +1555,8 @@ function archiveHasHistory(archive=state.archive){
   if(!archive)return false;
   return !!(
     archive.reference||archive.fullCheckpoints?.length||archive.insightSnapshots?.length||archive.insightFiles?.length||
-    archive.followerEvents?.primary?.length||archive.followerEvents?.second?.length||
-    ARCHIVE_STORE.timelineEntries(archive.following?.primary).length||ARCHIVE_STORE.timelineEntries(archive.following?.second).length
+    archive.followerEvents?.primary?.length||
+    ARCHIVE_STORE.timelineEntries(archive.following?.primary).length
   );
 }
 function archiveProcessed(file){return !!(file?.id&&state.archive?.processedFiles?.[file.id])}
@@ -1675,7 +1577,9 @@ function inferDatabaseCheckpointDate(file){
   m=joined.match(/(20\d{2})[-_.](\d{2})[-_.](\d{2})/);
   return m?`${m[1]}-${m[2]}-${m[3]}`:null;
 }
-function sourceFilePresent(id){return !!(id&&state.drivePresentFileIds.has(id))}
+function sourceFilePresent(id){
+  return !!(id&&(state.drivePresentFileIds.has(id)||state.archive?.processedFiles?.[id]));
+}
 function checkpointIsDrivePresent(checkpoint){
   const ids=checkpoint?.sourceFileIds||[];
   return ids.length>0&&ids.some(sourceFilePresent);
@@ -1684,20 +1588,8 @@ function referenceIsDrivePresent(reference){
   const ids=reference?.sourceFileIds||[];
   return ids.length>0&&ids.some(sourceFilePresent);
 }
-function secondTimelineForRuntime(){
-  if(!secondSourceActive())return{base:null,deltas:[]};
-  const timeline=state.archive?.following?.second||{base:null,deltas:[]};
-  if(state.secondSourcePolicy!=="drive")return timeline;
-  const entries=ARCHIVE_STORE.timelineEntries(timeline);
-  // A delta chain needs its prior entries. In Drive-only debug mode we use it
-  // only when the complete chain is still represented by files on Drive.
-  return entries.length&&entries.every(entry=>sourceFilePresent(entry.sourceFileId))?timeline:{base:null,deltas:[]};
-}
-function secondFollowerEventsForRuntime(){
-  if(!secondSourceActive())return[];
-  const rows=state.archive?.followerEvents?.second||[];
-  return state.secondSourcePolicy==="drive"?rows.filter(row=>sourceFilePresent(row.sourceFileId)):rows;
-}
+
+
 function eventRowFromArchive(row){
   if(!row?.username)return null;
   return{username:String(row.username),href:`https://www.instagram.com/${encodeURIComponent(row.username)}/`,timestamp:Number.isFinite(Number(row.timestamp))?Number(row.timestamp):null,sourceDate:row.sourceDate||null,sourceRole:row.sourceRole||"primary",sourceFileId:row.sourceFileId||null};
@@ -1747,56 +1639,32 @@ function applyEntryToRoleMap(roleMap,entry,isBase){
   return roleMap;
 }
 function buildEffectiveFollowingRuntime(){
-  const primaryEntries=ARCHIVE_STORE.timelineEntries(state.archive?.following?.primary);
-  const secondEntries=ARCHIVE_STORE.timelineEntries(secondTimelineForRuntime());
-  const byPrimary=new Map(primaryEntries.map((entry,index)=>[entry.date,{entry,index}]));
-  const bySecond=new Map(secondEntries.map((entry,index)=>[entry.date,{entry,index}]));
-  const dates=[...new Set([...byPrimary.keys(),...bySecond.keys()].filter(Boolean))].sort();
-  let primaryMap=new Map(),secondMap=new Map(),previousEffective=null,latest=null,latestEntry=null;
+  const entries=ARCHIVE_STORE.timelineEntries(state.archive?.following?.primary);
+  let currentMap=new Map(),previous=null,latest=null,latestEntry=null;
   const metas=[],activities=[];
-  let primarySeen=0,secondSeen=0,secondSelected=0;
-
-  for(const date of dates){
-    const p=byPrimary.get(date)||null,s=bySecond.get(date)||null;
-    if(p){applyEntryToRoleMap(primaryMap,p.entry,primarySeen===0);primarySeen++}
-    if(s){applyEntryToRoleMap(secondMap,s.entry,secondSeen===0);secondSeen++}
-    let chosen=null,chosenMap=null,source=null;
-    if(p&&s){
-      if(followingEntryIsFresher(s.entry,p.entry)){chosen=s.entry;chosenMap=secondMap;source="second";secondSelected++}
-      else{chosen=p.entry;chosenMap=primaryMap;source="primary"}
-    }else if(p){chosen=p.entry;chosenMap=primaryMap;source="primary"}
-    else if(s){chosen=s.entry;chosenMap=secondMap;source="second";secondSelected++}
-    if(!chosen||!chosenMap)continue;
-
-    const effectiveMap=new Map(chosenMap);
-    const meta={date,generatedAt:chosen.generatedAt??null,clockKey:chosen.clockKey??null,clockOrigin:chosen.clockOrigin??null,maxTimestamp:chosen.maxTimestamp??null,source,count:effectiveMap.size,sourceFileId:chosen.sourceFileId||null,packageKey:chosen.packageKey||null};
+  entries.forEach((entry,index)=>{
+    applyEntryToRoleMap(currentMap,entry,index===0);
+    const effectiveMap=new Map(currentMap);
+    const meta={date:entry.date,generatedAt:entry.generatedAt??null,clockKey:entry.clockKey??null,clockOrigin:entry.clockOrigin??null,maxTimestamp:entry.maxTimestamp??null,source:"primary",count:effectiveMap.size,sourceFileId:entry.sourceFileId||null,packageKey:entry.packageKey||null};
     metas.push(meta);
-    if(previousEffective){
-      const diff=mapsDiffRows(previousEffective.map,effectiveMap);
-      activities.push({date,previousDate:previousEffective.meta.date,source,followedRaw:diff.added,unfollowedRaw:diff.removed});
+    if(previous){
+      const diff=mapsDiffRows(previous.map,effectiveMap);
+      activities.push({date:meta.date,previousDate:previous.meta.date,source:"primary",followedRaw:diff.added,unfollowedRaw:diff.removed});
     }
-    previousEffective={map:effectiveMap,meta};
-    if(!latestEntry||followingEntryIsFresher(chosen,latestEntry)){
-      latestEntry=chosen;
-      latest={...meta,following:effectiveMap};
+    previous={map:effectiveMap,meta};
+    if(!latestEntry||followingEntryIsFresher(entry,latestEntry)){
+      latestEntry=entry;latest={...meta,following:effectiveMap};
     }
-  }
-
+  });
   state.dailyFollowingSnapshots=metas;
   state.dailyFollowingActivities=activities;
   state.latestDailyFollowingSnapshot=latest;
-  return{latest,secondSelected};
+  return{latest};
 }
 function buildFollowerRuntime(){
-  // Primary and SECOND can contain the exact same follower event. Keep one
-  // logical event so Daily details and counts are never inflated. Primary is
-  // intentionally inserted first and therefore wins exact duplicates.
-  const logical=new Map();
-  for(const archived of [...(state.archive?.followerEvents?.primary||[]),...secondFollowerEventsForRuntime()]){
-    const row=eventRowFromArchive(archived);if(!row)continue;
-    const key=followerEventKey(row);if(!logical.has(key))logical.set(key,row);
-  }
-  const rows=[...logical.values()].sort((a,b)=>(a.timestamp??0)-(b.timestamp??0)||String(a.username).localeCompare(String(b.username)));
+  const rows=(state.archive?.followerEvents?.primary||[])
+    .map(eventRowFromArchive).filter(Boolean)
+    .sort((a,b)=>(a.timestamp??0)-(b.timestamp??0)||String(a.username).localeCompare(String(b.username)));
   state.dailyFollowerEvents=rows;
   const map=new Map();for(const row of rows)putNewest(map,row);
   state.driveFollowerEvents=map;
@@ -1815,44 +1683,34 @@ function runtimeFullsFromArchive(){
     (Number(a.followingGeneratedAt??a.evidenceCutoff??a.timestamp??0)-Number(b.followingGeneratedAt??b.evidenceCutoff??b.timestamp??0))||String(a.date||"").localeCompare(String(b.date||""))
   );
 }
-function insightFileAllowed(row){
-  if(row?.role!=="second")return true;
-  if(!secondSourceActive())return false;
-  if(state.secondSourcePolicy==="drive")return sourceFilePresent(row.sourceFileId);
-  return true;
-}
+
 function rebuildInsightsFromArchive(){
-  const primary=new Map(),second=new Map();
-  const targets={primary,second};
+  const primary=new Map();
   for(const row of state.archive?.insightFiles||[]){
-    if(!row?.day||!row?.kind||!insightFileAllowed(row))continue;
-    const role=row.role==="second"?"second":"primary",target=targets[role];
-    const day=target.get(row.day)||{day:row.day,kinds:{audience:null,interactions:null,reach:null}};
+    if(!row?.day||!row?.kind)continue;
+    const day=primary.get(row.day)||{day:row.day,kinds:{audience:null,interactions:null,reach:null}};
     const current=day.kinds[row.kind];
     if(!current||(row.freshness??-Infinity)>(current.freshness??-Infinity))day.kinds[row.kind]=row;
-    target.set(row.day,day);
+    primary.set(row.day,day);
   }
-  const days=[...new Set([...primary.keys(),...second.keys()])].sort();
   const existing=new Map((state.archive?.insightSnapshots||[]).map(row=>[row.id,row]));
-  let fallbackFiles=0;
-  for(const day of days){
-    const p=primary.get(day),s=second.get(day);let insights=null;
+  for(const day of [...primary.keys()].sort()){
+    const p=primary.get(day);let insights=null;
     const sourceMeta={insights:{audience:null,interactions:null,reach:null},following:null};
     for(const kind of["audience","interactions","reach"]){
-      const chosen=p?.kinds?.[kind]||s?.kinds?.[kind]||null;if(!chosen)continue;
-      insights=mergeInsightMetrics(insights,chosen.metrics);sourceMeta.insights[kind]=chosen.role;
-      if(chosen.role==="second")fallbackFiles++;
+      const chosen=p?.kinds?.[kind]||null;if(!chosen)continue;
+      insights=mergeInsightMetrics(insights,chosen.metrics);sourceMeta.insights[kind]="primary";
     }
     if(!insights)continue;
     const followingMeta=state.dailyFollowingSnapshots.find(row=>row.date===day)||null;
-    sourceMeta.following=followingMeta?.source||null;
+    sourceMeta.following=followingMeta?"primary":null;
     const old=existing.get(day)||null;
     existing.set(day,{...snapshotFromInsights(day,insights,followingMeta?.count??null,old),sourceMeta});
   }
   state.insightSnapshots=[...existing.values()].map(row=>({...row,enabled:row.enabled!==false})).sort((a,b)=>a.timestamp-b.timestamp);
   state.archive.insightSnapshots=state.insightSnapshots;
   localStorage.setItem("ifa-insight-snapshots",JSON.stringify(state.insightSnapshots));
-  return{found:days.length,fallbackFiles,latestSnapshot:state.insightSnapshots.at(-1)||null};
+  return{found:primary.size,latestSnapshot:state.insightSnapshots.at(-1)||null};
 }
 function hydrateRuntimeFromArchive(){
   if(!state.archive||!ARCHIVE_STORE)return;
@@ -1870,7 +1728,7 @@ function hydrateRuntimeFromArchive(){
   state.driveDailySynced=!!(following.latest?.following?.size||state.archive.followerEvents.primary.length);
   if(following.latest?.following?.size){
     state.current=buildObservedDriveDataset(followers,following.latest.following);state.currentLoaded=true;state.currentOrigin="drive-daily";
-    state.currentSourceCount=archiveRoleFileCount("primary")+(secondSourceActive()?archiveRoleFileCount("second"):0);
+    state.currentSourceCount=archiveRoleFileCount("primary");
   }else if(!state.manualFull){
     state.current=emptyDataset();state.currentLoaded=false;state.currentSourceCount=0;state.currentOrigin="none";
   }
@@ -1878,12 +1736,6 @@ function hydrateRuntimeFromArchive(){
   const insightResult=rebuildInsightsFromArchive();
   state.insights=insightsFromSnapshot(insightResult.latestSnapshot);
   state.currentSnapshotTimestamp=insightResult.latestSnapshot?.timestamp??(following.latest?.date?dateToNoonTimestamp(following.latest.date):null);
-  state.secondSourceStats={
-    foundFiles:archiveRoleFileCount("second"),
-    followerFiles:new Set((state.archive.followerEvents.second||[]).map(row=>row.sourceFileId).filter(Boolean)).size,
-    followingSelected:following.secondSelected,
-    insightFallbackFiles:insightResult.fallbackFiles
-  };
   rebuildIdentityChanges();updateArchiveUi();updateStatuses();renderAll();
 }
 function updateArchiveUi(){
@@ -1945,7 +1797,7 @@ function addFullCheckpointToArchive(checkpoint,sourceFileIds=[]){
   }else state.archive.fullCheckpoints.push(serialized);
   return idx<0;
 }
-async function ingestDailyDriveFile(file,role,bridge,cache,force=false){
+async function ingestDailyDriveFile(file,bridge,cache,force=false){
   if(!force&&archiveProcessed(file))return{processed:false,cached:true};
   const base=String(file.name||"").toLowerCase();
   if(!isDriveRelevantFile(base))return{processed:false,cached:false};
@@ -1953,23 +1805,23 @@ async function ingestDailyDriveFile(file,role,bridge,cache,force=false){
   try{data=JSON.parse(source.text)}catch{throw new Error(`${file.name}: ${t("invalidJson")}`)}
   let kind="other";
   if(/^followers(?:_\d+)?\.json$/i.test(base)){
-    kind="followers";addFollowerEventsToArchive(role,extractFollowers(data),file);
+    kind="followers";addFollowerEventsToArchive("primary",extractFollowers(data),file);
   }else if(base==="following.json"){
     kind="following";
     const imported=buildImportFromSources([source]);
     const snapshot={date:inferDriveExportDate(file),following:imported.dataset.following,generatedAt:imported.followingGeneratedAt??source.modifiedAt??null,clockKey:imported.followingClockKey??null,clockOrigin:imported.followingClockOrigin??source.modifiedOrigin??null};
-    const result=ARCHIVE_STORE.upsertFollowingSnapshot(state.archive.following[role],snapshot,file.id,inferDriveExportKey(file),false);
-    if(result.timeline)state.archive.following[role]=result.timeline;
-  }else if(base==="recently_unfollowed_profiles.json"&&role==="primary"){
+    const result=ARCHIVE_STORE.upsertFollowingSnapshot(state.archive.following.primary,snapshot,file.id,inferDriveExportKey(file),false);
+    if(result.timeline)state.archive.following.primary=result.timeline;
+  }else if(base==="recently_unfollowed_profiles.json"){
     kind="recently-unfollowed";addRecentlyUnfollowedToArchive(extractRecentlyUnfollowed(data),file);
   }else if(isDriveInsightFile(base)){
-    kind=`insight-${driveInsightKind(file)}`;addInsightFileRecord(file,role,driveInsightKind(file),parseInsightSources([source]),source);
+    kind=`insight-${driveInsightKind(file)}`;addInsightFileRecord(file,"primary",driveInsightKind(file),parseInsightSources([source]),source);
   }
-  markArchiveProcessed(file,role,kind,inferDriveExportDate(file));
+  markArchiveProcessed(file,"primary",kind,inferDriveExportDate(file));
   return{processed:true,cached:false};
 }
 async function ingestReferenceFromDrive(files,bridge,cache,force=false){
-  if(state.referenceSourcePolicy==="database"||!files.length)return 0;
+  if(!files.length)return 0;
   const relevant=files.filter(f=>String(f.name).toLowerCase()==="following.json"||/^followers(?:_\d+)?\.json$/i.test(String(f.name).toLowerCase()));
   const names=new Set(relevant.map(f=>String(f.name).toLowerCase()));
   if(!names.has("following.json")||![...names].some(name=>/^followers(?:_\d+)?\.json$/i.test(name)))return 0;
@@ -1983,7 +1835,7 @@ async function ingestReferenceFromDrive(files,bridge,cache,force=false){
   return relevant.length;
 }
 async function ingestFullsFromDrive(files,bridge,cache,force=false){
-  if(state.fullSourcePolicy==="database"||!files.length)return 0;
+  if(!files.length)return 0;
   let processed=0;
   for(const file of files.filter(f=>/\.zip$/i.test(String(f.name)))){
     if(!force&&archiveProcessed(file))continue;
@@ -2043,83 +1895,185 @@ function calculateArchiveThrough(){
   return state.archive.archiveThrough;
 }
 
-async function syncPublicDrive({forceReprocess=false}={}){
+function ensureDriveCache(rootId){
+  if(!state.archive.driveCache||state.archive.driveCache.rootId!==rootId){
+    state.archive.driveCache={rootId,folders:{}};
+  }
+  if(!state.archive.driveCache.folders||typeof state.archive.driveCache.folders!=="object")state.archive.driveCache.folders={};
+  return state.archive.driveCache;
+}
+function cacheDriveFolder(folder,path,kind,extra={}){
+  if(!folder?.id)return;
+  const cache=state.archive.driveCache;
+  cache.folders[folder.id]={...(cache.folders[folder.id]||{}),id:folder.id,name:folder.name||"",path:(path||[]).join("/"),kind,lastSeenAt:new Date().toISOString(),...extra};
+}
+function processedUnderPath(path){
+  const prefix=(Array.isArray(path)?path.join("/"):String(path||"")).replace(/\/$/,"")+"/";
+  return Object.values(state.archive?.processedFiles||{}).some(row=>String(row?.path||"").startsWith(prefix));
+}
+function folderCached(folder,path){
+  return !!(folder?.id&&(state.archive?.driveCache?.folders?.[folder.id]?.complete||processedUnderPath(path)));
+}
+function addPresentFiles(files){
+  for(const file of files||[])if(file?.id)state.drivePresentFileIds.add(file.id);
+}
+function directDriveFiles(items,path){
+  return(items||[]).filter(item=>item.mimeType!==DRIVE_FOLDER_MIME).map(item=>({...item,path:[...path,item.name]}));
+}
+function findNamedDriveFolder(items,name){
+  const target=normalizedFolderSegment(name);
+  return(items||[]).find(item=>item.mimeType===DRIVE_FOLDER_MIME&&normalizedFolderSegment(item.name)===target)||null;
+}
+function inferFolderDate(folder){
+  return inferDriveExportDate({path:[folder?.name||""]})||"";
+}
+async function driveSyncContext(){
   const bridge=driveBridgeUrl(),url=els.driveFolderUrl.value.trim(),rootId=extractDriveFolderId(url),rootResourceKey=extractDriveResourceKey(url);
   state.driveFolderUrl=url;localStorage.setItem("ifa-drive-folder-url",url);
-  if(!rootId){setDriveUi("error",t("driveInvalidLink"));return}
-  if(!bridge){setDriveUi("error",t("driveBridgeMissing"));return}
+  if(!rootId)throw new Error(t("driveInvalidLink"));
+  if(!bridge)throw new Error(t("driveBridgeMissing"));
   if(!state.archiveReady)await initializePersistentArchive();
-
-  els.syncDriveBtn.disabled=true;
-  if(els.reprocessDriveBtn)els.reprocessDriveBtn.disabled=true;
-  setDriveUi("syncing",t("driveScanningFolder"));
-  try{
-    const discovered=[],cache=new Map();
-    await walkDriveFolder(rootId,[],discovered,bridge,new Set(),rootResourceKey);
-    state.drivePresentFileIds=new Set(discovered.map(file=>file.id).filter(Boolean));
-
-    const bootstrap=await maybeBootstrapFromDriveDatabase(discovered,bridge,cache);
-    if(bootstrap?.loaded)state.incrementalStats.databaseLoaded=true;
-
-    const primaryDaily=discovered.filter(isDailyDriveFile).filter(file=>isDriveRelevantFile(file.name));
-    const secondDaily=secondSourceActive()&&state.secondSourcePolicy!=="database"
-      ?discovered.filter(isSecondDriveFile).filter(file=>!isDatabaseDriveFile(file)).filter(file=>isDriveRelevantFile(file.name))
-      :[];
-    const referenceFiles=discovered.filter(isReferenceDriveFile);
-    const fullFiles=discovered.filter(isFullExportsDriveFile);
-
-    const candidates=[...primaryDaily,...secondDaily];
-    let newFiles=0,cachedFiles=0;
-    const sortedCandidates=[...candidates].sort((a,b)=>
-      String(inferDriveExportDate(a)||"").localeCompare(String(inferDriveExportDate(b)||""))||archiveFilePath(a).localeCompare(archiveFilePath(b))
-    );
-
-    setDriveUi("syncing",t("driveDownloading"));
-    for(const file of sortedCandidates){
-      const role=isSecondDriveFile(file)?"second":"primary";
-      if(!forceReprocess&&archiveProcessed(file)){cachedFiles++;continue}
-      const result=await ingestDailyDriveFile(file,role,bridge,cache,forceReprocess);
+  ensureDriveCache(rootId);
+  const rootItems=await listDriveFolder(rootId,bridge,rootResourceKey);
+  return{bridge,url,rootId,rootResourceKey,rootItems,cache:new Map()};
+}
+function setSyncButtonsDisabled(disabled){
+  for(const el of[els.syncDailyBtn,els.syncFullBtn,els.syncReferenceBtn,els.reprocessDriveBtn,els.clearDriveCacheBtn,els.scanDriveHistoryBtn,els.requireSyncBtn])if(el)el.disabled=disabled;
+}
+async function maybeBootstrapDatabaseFromRoot(ctx){
+  if(!DATABASE_DRIVE_FEATURE||!state.databaseDriveEnabled||archiveHasHistory())return null;
+  const folder=findNamedDriveFolder(ctx.rootItems,"database");if(!folder)return null;
+  const files=[],path=[folder.name];
+  await walkDriveFolder(folder.id,path,files,ctx.bridge,new Set(),folder.resourceKey||"",4);
+  addPresentFiles(files);
+  return maybeBootstrapFromDriveDatabase(files,ctx.bridge,ctx.cache);
+}
+async function syncDailySource(ctx,{forceReprocess=false,fullTree=false}={}){
+  const dailyFolder=findNamedDriveFolder(ctx.rootItems,"daily");
+  if(!dailyFolder)throw new Error(t("driveDailyMissing"));
+  const dailyPath=[dailyFolder.name];
+  const items=await listDriveFolder(dailyFolder.id,ctx.bridge,dailyFolder.resourceKey||"");
+  const direct=directDriveFiles(items,dailyPath).filter(file=>isDriveRelevantFile(file.name));
+  const parents=items.filter(item=>item.mimeType===DRIVE_FOLDER_MIME).sort((a,b)=>inferFolderDate(a).localeCompare(inferFolderDate(b))||String(a.name).localeCompare(String(b.name)));
+  const activeParent=parents.at(-1)||null;
+  let newFiles=0,cachedFiles=0,cachedFolders=0,scannedFolders=1;
+  const processFiles=async files=>{
+    addPresentFiles(files);
+    const sorted=[...files].filter(file=>isDriveRelevantFile(file.name)).sort((a,b)=>String(inferDriveExportDate(a)||"").localeCompare(String(inferDriveExportDate(b)||""))||archiveFilePath(a).localeCompare(archiveFilePath(b)));
+    for(const file of sorted){
+      if(!forceReprocess&&archiveProcessed(file)){cachedFiles++;continue;}
+      const result=await ingestDailyDriveFile(file,ctx.bridge,ctx.cache,forceReprocess);
       if(result.processed)newFiles++;else if(result.cached)cachedFiles++;
     }
+  };
+  await processFiles(direct);
 
-    newFiles+=await ingestReferenceFromDrive(referenceFiles,bridge,cache,forceReprocess);
-    newFiles+=await ingestFullsFromDrive(fullFiles,bridge,cache,forceReprocess);
-
-    calculateArchiveThrough();
-    state.archive.lastDriveSync=new Date().toISOString();
-    await persistLocalArchive();
-    hydrateRuntimeFromArchive();
-
-    const latestDaily=state.latestDailyFollowingSnapshot?.date||state.archive.archiveThrough||"—";
-    els.driveLatestDate.textContent=latestDaily;
-    els.drivePreviousDate.textContent=state.driveFull?.date||t("driveFullMissing");
-    els.driveExportCount.textContent=state.referenceLoaded?t("driveReferenceLoadedShort"):t("driveReferenceMissing");
-    els.driveFileCount.textContent=String(primaryDaily.filter(file=>String(file.name).toLowerCase()==="following.json").length);
-
-    state.incrementalStats={newFiles,cachedFiles,databaseLoaded:bootstrap?.loaded===true};
-    state.driveLastSync=Date.now();
-    state.forceDriveReprocess=false;
-    cache.clear();
-
-    const secondSummary=secondSourceActive()&&state.secondSourceStats.foundFiles
-      ?` ${t("secondSourceSummary",{followers:state.secondSourceStats.followerFiles,following:state.secondSourceStats.followingSelected,insights:state.secondSourceStats.insightFallbackFiles})}`
-      :"";
-    const dbSummary=bootstrap?.loaded?` ${t("databaseBootstrapLoaded",{date:bootstrap.date||state.archive.archiveThrough||"—"})}`:"";
-    const incremental=t("incrementalSummary",{newFiles,cachedFiles});
-    setDriveUi("synced",`${t("driveSyncComplete")} ${incremental}. ${t("lastFull")}: ${state.driveFull?.date||t("driveFullMissing")}. ${state.insightSnapshots.length} ${t("insightSnapshotsSaved")}.${secondSummary}${dbSummary}`);
-  }catch(err){
-    console.error("Drive sync:",err);
-    setDriveUi("error",`${t("driveSyncFailed")}: ${humanizeDriveError(err)}`);
-  }finally{
-    els.syncDriveBtn.disabled=false;
-    if(els.reprocessDriveBtn)els.reprocessDriveBtn.disabled=false;
+  for(const parent of parents){
+    const parentPath=[...dailyPath,parent.name];
+    const isActive=parent.id===activeParent?.id;
+    const canSeal=!isActive;
+    if(!fullTree&&canSeal&&folderCached(parent,parentPath)){
+      cacheDriveFolder(parent,parentPath,"daily-parent",{sealed:true,complete:true});cachedFolders++;continue;
+    }
+    const childItems=await listDriveFolder(parent.id,ctx.bridge,parent.resourceKey||"");scannedFolders++;
+    const directParent=directDriveFiles(childItems,parentPath).filter(file=>isDriveRelevantFile(file.name));
+    await processFiles(directParent);
+    const exports=childItems.filter(item=>item.mimeType===DRIVE_FOLDER_MIME).sort((a,b)=>inferFolderDate(a).localeCompare(inferFolderDate(b))||String(a.name).localeCompare(String(b.name)));
+    for(const exportFolder of exports){
+      const exportPath=[...parentPath,exportFolder.name];
+      if(!fullTree&&folderCached(exportFolder,exportPath)){
+        cacheDriveFolder(exportFolder,exportPath,"daily-export",{complete:true});cachedFolders++;continue;
+      }
+      const files=[];
+      await walkDriveFolder(exportFolder.id,exportPath,files,ctx.bridge,new Set(),exportFolder.resourceKey||"",4);scannedFolders++;
+      await processFiles(files);
+      cacheDriveFolder(exportFolder,exportPath,"daily-export",{complete:true,exportDate:inferFolderDate(exportFolder)||null});
+    }
+    cacheDriveFolder(parent,parentPath,"daily-parent",{sealed:canSeal,complete:true,active:isActive});
   }
+  return{newFiles,cachedFiles,cachedFolders,scannedFolders};
 }
-
+async function collectTargetFolderFiles(ctx,name,{fullTree=false}={}){
+  const folder=findNamedDriveFolder(ctx.rootItems,name);if(!folder)return{folder:null,files:[],scannedFolders:0,cachedFolders:0};
+  const path=[folder.name],items=await listDriveFolder(folder.id,ctx.bridge,folder.resourceKey||"");
+  const files=directDriveFiles(items,path);let scannedFolders=1,cachedFolders=0;
+  for(const child of items.filter(item=>item.mimeType===DRIVE_FOLDER_MIME)){
+    const childPath=[...path,child.name];
+    if(!fullTree&&folderCached(child,childPath)){cacheDriveFolder(child,childPath,`${normalizedFolderSegment(name)}-folder`,{complete:true});cachedFolders++;continue;}
+    const nested=[];await walkDriveFolder(child.id,childPath,nested,ctx.bridge,new Set(),child.resourceKey||"",4);scannedFolders++;
+    files.push(...nested);cacheDriveFolder(child,childPath,`${normalizedFolderSegment(name)}-folder`,{complete:true});
+  }
+  addPresentFiles(files);return{folder,files,scannedFolders,cachedFolders};
+}
+async function syncFullSource(ctx,{forceReprocess=false,fullTree=false}={}){
+  const target=await collectTargetFolderFiles(ctx,"full exports",{fullTree});
+  if(!target.folder)return{newFiles:0,cachedFiles:0,cachedFolders:0,scannedFolders:0,missing:true};
+  const relevant=target.files.filter(isFullExportsDriveFile);
+  const cachedFiles=forceReprocess?0:relevant.filter(archiveProcessed).length;
+  const processed=await ingestFullsFromDrive(relevant,ctx.bridge,ctx.cache,forceReprocess);
+  return{newFiles:processed,cachedFiles,cachedFolders:target.cachedFolders,scannedFolders:target.scannedFolders};
+}
+async function syncReferenceSource(ctx,{forceReprocess=true,fullTree=false}={}){
+  const target=await collectTargetFolderFiles(ctx,"reference",{fullTree});
+  if(!target.folder)return{newFiles:0,cachedFiles:0,cachedFolders:0,scannedFolders:0,missing:true};
+  const relevant=target.files.filter(isReferenceDriveFile).filter(file=>String(file.name).toLowerCase()==="following.json"||/^followers(?:_\d+)?\.json$/i.test(String(file.name).toLowerCase()));
+  const alreadyCached=relevant.filter(archiveProcessed).length;
+  // Reference is tiny and may be intentionally replaced in place. A dedicated
+  // Reference sync therefore refreshes its relationship files even when Drive
+  // reuses the same file IDs. This keeps the button deterministic and safe.
+  const processed=await ingestReferenceFromDrive(relevant,ctx.bridge,ctx.cache,forceReprocess);
+  return{newFiles:Math.max(0,processed-alreadyCached),cachedFiles:alreadyCached,cachedFolders:target.cachedFolders,scannedFolders:target.scannedFolders};
+}
+function refreshDriveMetaUi(){
+  const latestDaily=state.latestDailyFollowingSnapshot?.date||state.archive.archiveThrough||"—";
+  if(els.driveLatestDate)els.driveLatestDate.textContent=latestDaily;
+  if(els.drivePreviousDate)els.drivePreviousDate.textContent=state.driveFull?.date||t("driveFullMissing");
+  if(els.driveExportCount)els.driveExportCount.textContent=state.referenceLoaded?t("driveReferenceLoadedShort"):t("driveReferenceMissing");
+  if(els.driveFileCount)els.driveFileCount.textContent=String(ARCHIVE_STORE.timelineEntries(state.archive?.following?.primary).length);
+}
+async function syncPublicDrive({mode="daily",forceReprocess=false,fullTree=false}={}){
+  setSyncButtonsDisabled(true);setDriveUi("syncing",t("driveScanningFolder"));
+  try{
+    const ctx=await driveSyncContext();
+    if(fullTree)state.drivePresentFileIds=new Set();
+    const bootstrap=await maybeBootstrapDatabaseFromRoot(ctx);
+    let stats={newFiles:0,cachedFiles:0,cachedFolders:0,scannedFolders:0};
+    if(mode==="daily")stats=await syncDailySource(ctx,{forceReprocess,fullTree});
+    else if(mode==="full")stats=await syncFullSource(ctx,{forceReprocess,fullTree});
+    else if(mode==="reference")stats=await syncReferenceSource(ctx,{forceReprocess:true,fullTree});
+    else if(mode==="all"){
+      const daily=await syncDailySource(ctx,{forceReprocess,fullTree:true});
+      const full=await syncFullSource(ctx,{forceReprocess,fullTree:true});
+      const reference=await syncReferenceSource(ctx,{forceReprocess,fullTree:true});
+      stats={newFiles:daily.newFiles+full.newFiles+reference.newFiles,cachedFiles:daily.cachedFiles+full.cachedFiles+reference.cachedFiles,cachedFolders:daily.cachedFolders+full.cachedFolders+reference.cachedFolders,scannedFolders:daily.scannedFolders+full.scannedFolders+reference.scannedFolders};
+    }
+    calculateArchiveThrough();state.archive.lastDriveSync=new Date().toISOString();
+    await persistLocalArchive();hydrateRuntimeFromArchive();refreshDriveMetaUi();
+    state.incrementalStats={...stats,databaseLoaded:bootstrap?.loaded===true};state.driveLastSync=Date.now();ctx.cache.clear();
+    const dbSummary=bootstrap?.loaded?` ${t("databaseBootstrapLoaded",{date:bootstrap.date||state.archive.archiveThrough||"—"})}`:"";
+    const label=mode==="daily"?t("driveDailyComplete"):mode==="full"?t("driveFullComplete"):mode==="reference"?t("driveReferenceComplete"):t("driveFullRescanComplete");
+    setDriveUi("synced",`${label} ${t("incrementalSummary",{newFiles:stats.newFiles,cachedFiles:stats.cachedFiles})} · ${t("folderCacheSummary",{cachedFolders:stats.cachedFolders,scannedFolders:stats.scannedFolders})}.${dbSummary}`);
+  }catch(err){
+    console.error("Drive sync:",err);setDriveUi("error",`${t("driveSyncFailed")}: ${humanizeDriveError(err)}`);
+  }finally{setSyncButtonsDisabled(false);}
+}
 async function scanDriveHistory(){
-  // v0.25: this is now a safe reprocess. It never deletes archived evidence;
-  // it only ignores processed-file markers once for files that still exist.
-  await syncPublicDrive({forceReprocess:true});
+  // Insights history belongs to Daily. Re-scan the complete Daily tree without
+  // touching Full or Reference sources.
+  await syncPublicDrive({mode:"daily",forceReprocess:true,fullTree:true});
+}
+async function fullDriveRescan(){
+  await syncPublicDrive({mode:"all",forceReprocess:true,fullTree:true});
+}
+async function clearDriveSyncCache(){
+  if(!state.archiveReady)await initializePersistentArchive();
+  if(!confirm(t("clearDriveCacheConfirm")))return;
+  state.archive.processedFiles={};
+  state.archive.databaseFilesSeen={};
+  state.archive.driveCache={rootId:extractDriveFolderId(els.driveFolderUrl.value.trim())||null,folders:{}};
+  state.drivePresentFileIds=new Set();
+  await persistLocalArchive();
+  setDriveUi("idle",t("driveCacheCleared"));
 }
 
 function dateToNoonTimestamp(day){
@@ -2451,7 +2405,9 @@ function currentVisibleRows(options={}){
   const ref=state.reference;
   const mode=els.referenceMode.value;
   if(!ignoreReference&&state.referenceLoaded&&state.view!=="renamed"&&state.view!=="unfollowed"&&mode!=="all"){
-    const refMap=(state.view==="followers"||state.view==="allTimeFollowers")?ref.followers:ref.following;
+    const refMap=state.view==="notFollowingBack"
+      ?computeNotFollowingBack(ref)
+      :(state.view==="followers"||state.view==="allTimeFollowers")?ref.followers:ref.following;
     const refCanonical=canonicalKeySet(refMap);
     rows=rows.filter(row=>{
       const has=refCanonical.has(canonicalKey(row.username.toLowerCase()));
@@ -3143,16 +3099,14 @@ async function exportDatabase(){
   const through=archive.archiveThrough||new Date().toISOString().slice(0,10);
   const payload={
     schema:"instagram-followers-analyzer-db",
-    version:2,
-    appVersion:"0.25.2",
+    version:3,
+    appVersion:"0.26.0",
     exportedAt:new Date().toISOString(),
     archiveThrough:archive.archiveThrough,
     summary:{
       processedFiles:Object.keys(archive.processedFiles||{}).length,
       primaryFollowerEvents:archive.followerEvents.primary.length,
-      secondFollowerEvents:archive.followerEvents.second.length,
       primaryFollowingSnapshots:ARCHIVE_STORE.timelineEntries(archive.following.primary).length,
-      secondFollowingSnapshots:ARCHIVE_STORE.timelineEntries(archive.following.second).length,
       fullCheckpoints:archive.fullCheckpoints.length,
       insightSnapshots:archive.insightSnapshots.length,
       reference:!!archive.reference
@@ -3161,11 +3115,9 @@ async function exportDatabase(){
     userState:{
       heartRecords:state.heartRecords,
       driveFolderUrl:state.driveFolderUrl||"",
-      secondSourceEnabled:state.secondSourceEnabled===true,
       sourcePolicies:{
         reference:state.referenceSourcePolicy,
-        full:state.fullSourcePolicy,
-        second:state.secondSourcePolicy
+        full:state.fullSourcePolicy
       }
     }
   };
@@ -3196,16 +3148,10 @@ async function importDatabaseFile(){
       if(!state.driveFolderUrl&&payload.userState?.driveFolderUrl){
         state.driveFolderUrl=String(payload.userState.driveFolderUrl);localStorage.setItem("ifa-drive-folder-url",state.driveFolderUrl);els.driveFolderUrl.value=state.driveFolderUrl;
       }
-      if(SECOND_SOURCE_FEATURE&&typeof payload.userState?.secondSourceEnabled==="boolean"){
-        state.secondSourceEnabled=payload.userState.secondSourceEnabled;
-        localStorage.setItem(SECOND_SOURCE_STORAGE,state.secondSourceEnabled?"true":"false");
-        if(els.secondSourceToggle)els.secondSourceToggle.checked=state.secondSourceEnabled;
-      }
       const policies=payload.userState?.sourcePolicies||{};
       for(const [key,stateKey,storageKey,element] of [
         [policies.reference,"referenceSourcePolicy","ifa-reference-source-policy",els.referenceSourcePolicy],
-        [policies.full,"fullSourcePolicy","ifa-full-source-policy",els.fullSourcePolicy],
-        [policies.second,"secondSourcePolicy","ifa-second-source-policy",els.secondSourcePolicy]
+        [policies.full,"fullSourcePolicy","ifa-full-source-policy",els.fullSourcePolicy]
       ]){
         if(!SOURCE_POLICY_VALUES.has(key))continue;
         state[stateKey]=key;localStorage.setItem(storageKey,key);if(element)element.value=key;

@@ -1,81 +1,42 @@
-# Instagram Followers Analyzer v0.25.2
+# Instagram Followers Analyzer v0.26.0
 
-### v0.25.2: einheitliches neues Icon + PWA-Assets
+## v0.26.0: schneller Quellen-Sync, sichere Reference-Filterung, SECOND entfernt
 
-Alle Icon-Flächen werden jetzt ausschließlich aus dem neuen `logo_new.svg`-Artwork dieses Pakets erzeugt. Die bisherigen Dateien `favicon.svg` und `logo-mark.svg` werden nicht mehr verwendet. Das neue Artwork dient als Browser-Favicon, In-App-Brand-Icon, Apple-Touch-Icon sowie als reguläres und maskierbares PWA-Icon. `manifest.webmanifest` wurde ergänzt; ein Service Worker oder aggressives Asset-Caching wurde bewusst nicht hinzugefügt.
+### Getrennte Drive-Synchronisierung
 
-### v0.25.1: Unfollowers nach Full-Checkpoint
+Im Drive-Panel gibt es jetzt drei gezielte Aktionen:
 
-Die Unfollowers-Liste wird jetzt nach dem Full-Checkpoint gruppiert, in dem ein Account erstmals als fehlend bestätigt wird, nachdem er in einem früheren Full noch vorhanden war. Die neueste Full-Verlustgruppe steht oben. Die gewählte Namens-/Datumsortierung gilt weiterhin innerhalb der Gruppen. Historische Follower-Evidenz ohne zuordenbaren Full-zu-Full-Verlust bleibt in einem dezenten historischen Abschnitt am Ende.
+- **Sync Daily** prüft nur die Quelle `Daily`. Bereits vollständig verarbeitete Daily-Parent- und Export-Ordner werden gecacht und übersprungen. Der neueste Daily-Parent bleibt aktiv, damit neue Export-Ordner gefunden werden, ohne alte Zweige erneut zu traversieren.
+- **Sync Full** prüft nur `Full Exports` und verarbeitet neue Full-Dateien anhand ihrer Drive File ID.
+- **Sync Reference** aktualisiert nur den kleinen Relationship-Satz im Ordner `Reference`. Die Relationship-Dateien werden absichtlich erneut gelesen, damit auch ein in-place ersetztes Reference mit gleicher Drive ID erkannt wird.
 
+Ein normaler Daily-Sync traversiert dadurch nicht mehr rekursiv den gesamten historischen Drive-Baum. Root und aktiver Daily-Zweig werden geprüft, abgeschlossene Zweige bleiben Cache-Treffer.
 
-## v0.25.1: Persistent Archive + Incremental Sync
+### Full Drive Rescan
 
-v0.25 führt ein dauerhaftes lokales Archiv für die langfristige Nutzung ein. Die rohen Instagram/Meta-Exporte auf Google Drive bleiben das Quellmaterial, während der Browser die normalisierte Historie in IndexedDB speichert.
+**Full Drive Rescan** ist der bewusst langsamere Pfad. Daily, Full Exports und Reference werden erneut vollständig traversiert und die aktuellen Quelldateien neu verarbeitet. Das ist für Drive-Umstrukturierungen oder eine vollständige Quellenprüfung gedacht.
 
-### Normaler Sync
+### Clear sync cache
 
-Beim ersten v0.25-Sync einer bestehenden Installation wird das lokale Archiv einmalig aus den verfügbaren Drive-Quellen aufgebaut. Danach liest Sync weiterhin das Drive-Dateimanifest, lädt und verarbeitet aber nur Dateien, deren Drive File ID noch nicht verarbeitet wurde.
+**Clear sync cache** entfernt nur Drive-Discovery- und Processed-File-Marker. Normalisierte Relationship-History, Full Checkpoints, Reference-Daten, Insights-History, Hearts und Einstellungen bleiben erhalten. Beim nächsten Sync wird die gewählte Drive-Quelle neu entdeckt und verarbeitet und anschließend wieder in das bestehende Archiv gemerged.
 
-Bereits ingestierte historische Daten bleiben im lokalen Archiv erhalten, auch wenn die ursprüngliche Raw-Datei später aus Drive gelöscht wird.
+### View-spezifisches Reference Matching
 
-`Reprocess current Drive files` ist eine sichere Reparaturfunktion. Sie ignoriert den Processed-File-Cache einmalig für Dateien, die noch in Drive vorhanden sind, löscht aber keine bereits archivierte Historie. Verwende sie auch, wenn eine Drive-Datei unter derselben File ID ersetzt wurde oder ein Parser-Fix erneut auf vorhandene Raw-Dateien angewendet werden soll.
+Reference wird jetzt immer mit der gleichen Datenmenge wie die aktuelle Ansicht verglichen:
 
-### Portabler Database Export / Import
+- Followers: Current Followers gegen Reference Followers.
+- Following: Current Following gegen Reference Following.
+- Not Following Back: Current NFB gegen Reference NFB.
 
-`Export database` erzeugt jetzt ein vollständiges portables normalisiertes Archiv und nicht nur aktuelle Summen. Enthalten sind die Evidenzen, aus denen historische Ansichten wieder aufgebaut werden können:
+Ein Account, der in Reference noch mutual war, aktuell aber NFB ist, kann dadurch nicht mehr durch **Hide reference matches** verborgen werden.
 
-- Primary- und SECOND-Follower-Events
-- kompakte Daily-Following-Historie
-- Reference
-- Full Checkpoints
-- Insights-Dateievidenz und gespeicherte Snapshots
-- Rename-/Identity-Evidenz, FBID-Mappings und Recently-Unfollowed-Identity-Daten
-- Manifest der verarbeiteten Drive-Dateien und Source Provenance
-- Heart-Datensätze und portable Source-Einstellungen
+### SECOND entfernt
 
-Auf einem neuen Computer oder Browser zuerst die Database importieren und danach Drive Sync ausführen. Durch das importierte Processed-File-Manifest werden bereits archivierte historische Drive-Quellen übersprungen und nur neue oder noch unbekannte Dateien verarbeitet.
+Die temporäre SECOND-Kompatibilitätsschicht wurde aus aktiver UI, Source Classification und Runtime-Datenmodell entfernt. Beim Laden älterer v0.24/v0.25-Datenbanken entfernt die Archiv-Normalisierung Legacy-SECOND-Processed-Files, Folder-Cache-Einträge, Follower-Events, Following-History und SECOND-abgeleitete Insights-Snapshots. Alte Config-Felder wie `secondSourceFeature` werden ignoriert.
 
-### Jährlicher Archivierungs-Workflow
+### Persistentes lokales Archiv
 
-Unterstützter langfristiger Ablauf:
-
-1. Alle verfügbaren Quellen synchronisieren.
-2. Database exportieren.
-3. Mindestens zwei Backups behalten und eines in einem sauberen Browserprofil testweise importieren.
-4. Nach erfolgreicher Prüfung können alte jährliche Daily-Raw-Exporte bei Bedarf aus Drive gelöscht werden.
-5. Die alte Historie kommt danach aus der Database, Drive liefert nur neuere Raw-Exporte.
-
-Das Löschen einer Raw-Datei aus Drive löscht nicht die bereits ingestierte Historie. Trotzdem ist es sinnvoll, pro Jahr mindestens einen vollständigen Meta-Full-Export zu behalten, da ein zukünftiger Parser Felder nicht wiederherstellen kann, die früher nie normalisiert wurden, wenn die Originaldatei nicht mehr existiert.
-
-### Optionaler `/DATABASE`-Ordner in Drive
-
-Ein Pfadsegment mit dem exakten Namen `DATABASE`, unabhängig von Groß-/Kleinschreibung, ist für portable Database-Checkpoints reserviert. Wenn `Use DATABASE checkpoints from Drive` aktiviert ist, kann Drive Sync zuerst den neuesten kompatiblen Database-Checkpoint laden und anschließend nur die Raw-Quellen weiterverarbeiten. Das ist besonders für das Bootstrap eines neuen Geräts gedacht.
-
-Die Option ist standardmäßig AUS. Eine portable Database enthält konzentrierte Relationship-Historie. Lege sie nur dann in einen öffentlich lesbaren Drive-Ordner, wenn du diese Offenlegung bewusst akzeptierst.
-
-### Source Policy
-
-Reference, Full und SECOND besitzen getrennte Advanced-Source-Policies:
-
-- `Automatic`: lokales Archiv verwenden und neue/frischere Evidenz aus Drive ergänzen.
-- `Local database`: bereits archivierte Evidenz verwenden und diese Quelle beim Sync nicht aus Drive ingestieren.
-- `Drive only`: nur Evidenz verwenden, deren Quelldatei aktuell tatsächlich auf Drive vorhanden ist.
-
-Primary Daily ist bewusst nicht separat umschaltbar. Sein normales Modell ist archivierte Historie plus neue Drive-Dateien.
-
-SECOND bleibt eine entfernbare Kompatibilitätsschicht. Sie kann im Frontend deaktiviert werden; `secondSourceFeature: false` in `config.js` entfernt sie aus aktivem Datenmodell und UI.
-
-
-Ein datenschutzorientierter, browserbasierter Instagram-Analyzer für Beziehungen und Insights.
-
-Aktuelle Version: **v0.25**
-
-Die Anwendung verarbeitet Instagram-Exporte lokal im Browser, analysiert Follower-Beziehungen, verfolgt Insights über die Zeit und kann Exporte optional automatisch aus einem öffentlichen Google-Drive-Archiv synchronisieren.
-
-Eine Instagram-Anmeldung ist nicht erforderlich.
-
----
+Die normalisierte History bleibt in IndexedDB gespeichert und ist Bestandteil des portablen Database Export/Import. Raw-Dateien auf Drive bleiben Quellmaterial, während bereits archivierte normalisierte Evidenz nach einem geprüften Datenbank-Backup auch nach dem Löschen älterer Raw-Exporte erhalten bleiben kann.
 
 ## Funktionen
 
@@ -802,18 +763,3 @@ Die freigegebene Designsprache wurde in die echte Oberfläche übernommen, ohne 
 - Bewusstere Farbakzente in Insights und interaktiven Controls.
 - Growth Trends nutzt jetzt die freigegebene Chart-Sprache: höherer Plot, weiche Multi-Series-Linien, dezente Area-Fills, vertikale Guides, klarere Punkte und ein gruppierter Datums-Tooltip, der im Chart-Panel bleibt.
 - Responsive Verhalten, Daily Sync, Full Checkpoints, Heart Sync, Identity-Handling und Berechnungslogik bleiben unverändert.
-
-## v0.24 - Optionale SECOND-Kompatibilitätsquelle
-
-Für die spezielle Situation mit zwei parallelen Meta Scheduled Exports gibt es jetzt eine temporäre, strikt getrennte `SECOND`-Quelle.
-
-Die Regeln sind bewusst eng:
-
-- Ein Pfadsegment mit exakt dem Namen `SECOND` (ohne Beachtung der Groß-/Kleinschreibung) ist eine eigene Quelle und wird niemals als Primary Daily, Reference oder Full Exports behandelt.
-- Follower-Evidenz aus Primary und SECOND wird vereinigt und nach Identity/Timestamp dedupliziert.
-- Vollständige Following-Snapshots behalten ihre Quelle; für den effektiven Daily-Stand gewinnt anhand der bestehenden Datei-Zeitmetadaten immer der tatsächlich neuere Snapshot.
-- Insights bleiben Primary-first. SECOND darf nur einen vollständig fehlenden Dateityp ergänzen (`audience_insights.json`, `content_interactions.json`, `profiles_reached.json`). Existiert der Dateityp für den kanonischen Tag in Primary, darf SECOND ihn nicht überschreiben.
-- `recently_unfollowed_profiles.json` bleibt in dieser Kompatibilitätsschicht Primary-only.
-- Die Snapshot-Provenienz speichert, ob die einzelnen Insights-Dateitypen und der Following-Wert aus Primary oder SECOND stammen.
-
-Die Schicht ist später leicht abschaltbar/entfernbar. Im Drive-Panel gibt es einen lokalen Schalter. Auf Code-/Config-Ebene blendet `secondSourceFeature: false` in `config.js` den Schalter aus und ignoriert den gesamten `SECOND`-Baum. Der Cloudflare Worker muss nicht geändert werden.

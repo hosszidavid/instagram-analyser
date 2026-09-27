@@ -1,81 +1,42 @@
-# Instagram Followers Analyzer v0.25.2
+# Instagram Followers Analyzer v0.26.0
 
-### v0.25.2: egységes új ikon + PWA assetek
+## v0.26.0: gyors forrásszinkron, biztonságos Reference-szűrés, SECOND eltávolítás
 
-Az alkalmazás minden ikonfelülete most kizárólag a csomagban lévő `logo_new.svg` új artworkből készül. A korábbi `favicon.svg` és `logo-mark.svg` nincs használatban. Az új artwork jelenik meg a böngésző faviconjaként, a felületi brand ikonként, az Apple touch iconként, valamint a normál és maskable PWA ikonokban. Bekerült a `manifest.webmanifest`; service worker és agresszív asset-cache továbbra sincs hozzáadva.
+### Külön Drive szinkronok
 
-### v0.25.1: Unfollowers Full checkpointok szerint
+A Drive panelen három célzott szinkron van:
 
-Az Unfollowers lista most aszerint csoportosít, hogy egy fiók melyik Full checkpointban hiányzik először úgy, hogy egy korábbi Fullban még jelen volt. A legfrissebb Fullhoz tartozó veszteségek kerülnek legfelülre. A kiválasztott név/dátum rendezés a csoportokon belül továbbra is működik. Az a történeti follower evidence, amelyhez nem rendelhető Full→Full eltűnés, egy tompa történeti blokkba kerül a lista alján.
+- **Sync Daily** csak a `Daily` forrást ellenőrzi. A már teljesen feldolgozott Daily parent/export mappákat cache-eli és kihagyja. A legújabb Daily parent aktív marad, így az új exportmappákat megtalálja anélkül, hogy a régi ágakat újra bejárná.
+- **Sync Full** csak a `Full Exports` mappát ellenőrzi, és Drive file ID alapján csak az új Full fájlokat dolgozza fel.
+- **Sync Reference** csak a kicsi `Reference` relationship készletet frissíti. A relationship fájlokat szándékosan újraolvassa, így az azonos Drive ID mellett helyben lecserélt Reference sem marad észrevétlen.
 
+A normál Daily sync ezért már nem járja végig rekurzívan a teljes történeti Drive fát. A root és az aktív Daily ág ellenőrződik, a lezárt ágak cache találatként kimaradnak.
 
-## v0.25.1: Persistent Archive + Incremental Sync
+### Full Drive Rescan
 
-A v0.25 hosszú távú, tartós lokális archívumot vezet be. A Google Drive-on lévő Instagram/Meta raw exportok továbbra is forrásanyagok, a böngésző pedig IndexedDB-ben tárolja a normalizált historyt.
+A **Full Drive Rescan** a szándékosan lassabb út. Újra végigjárja a Daily, Full Exports és Reference fákat, és újrafeldolgozza az aktuális forrásanyagot. Drive átrendezés vagy teljes forrás-újraellenőrzés után érdemes használni.
 
-### Normál Sync
+### Clear sync cache
 
-Meglévő telepítésen az első v0.25 Sync egyszer felépíti a lokális archívumot a Drive-on elérhető forrásokból. Ezután a Sync továbbra is lekéri a Drive fájlmanifestet, de csak azokat a forrásfájlokat tölti le és parse-olja, amelyek Drive file ID-ja még nincs feldolgozva.
+A **Clear sync cache** csak a Drive discovery és processed-file cache jelöléseket törli. **Nem törli** a normalizált relationship historyt, Full checkpointokat, Reference adatot, Insights historyt, Heartokat vagy a beállításokat. A következő sync újra felfedezi és feldolgozza a megfelelő Drive forrást, majd a meglévő archívumba merge-eli.
 
-A korábban ingestált evidence akkor is megmarad a lokális adatbázisban, ha az eredeti raw Drive fájlt később törlöd.
+### Nézet-specifikus Reference matching
 
-A `Reprocess current Drive files` biztonságos javítási művelet. Egy alkalommal figyelmen kívül hagyja a processed-file cache-t a Drive-on még meglévő fájloknál, de a már archivált történeti adatokat nem törli. Ezt használd akkor is, ha egy Drive fájl tartalma ugyanazon file ID alatt lett lecserélve, vagy egy parser-javítást a meglévő raw fájlokra is újra alkalmazni szeretnél.
+A Reference szűrés most mindig az aktuális nézettel azonos halmazt hasonlítja:
 
-### Teljes Database Export / Import
+- Followers nézet: Current Followers vs Reference Followers.
+- Following nézet: Current Following vs Reference Following.
+- Not Following Back: Current NFB vs Reference NFB.
 
-Az `Export database` most már teljes, hordozható normalizált archívumot készít, nem csupán az aktuális számokat menti. Benne van minden olyan evidence, amelyből a history később újraépíthető:
+Így ha valaki a Reference idején még mutual volt, de most NFB, a **Hide reference matches** nem rejtheti el.
 
-- Primary és SECOND follower eventek
-- tömörített Daily Following history
-- Reference
-- Full checkpointok
-- Insights file evidence és mentett snapshotok
-- rename / identity bemenetek, FBID mappingek és recently-unfollowed identity evidence
-- feldolgozott Drive fájlok manifestje és source provenance
-- Heart rekordok és hordozható source beállítások
+### SECOND kivezetve
 
-Új gépen vagy böngészőben először importáld a Database exportot, utána indíts Drive Syncet. Az importált processed-file manifest miatt az app nem tölti le újra azokat a régi Drive forrásokat, amelyek már szerepelnek az archívumban, csak az új vagy korábban nem látott fájlokat dolgozza fel.
+Az ideiglenes SECOND automatizálási kompatibilitási réteg kikerült az aktív UI-ból, source classificationből és runtime adatmodellből. Régi v0.24/v0.25 adatbázis betöltésekor az archive normalizálás eltávolítja a legacy SECOND processed-file és folder-cache rekordokat, follower eventeket, Following historyt és SECOND-derived Insights snapshotokat. A régi config mezők, például a `secondSourceFeature`, figyelmen kívül maradnak.
 
-### Év végi archiválási workflow
+### Tartós lokális archívum
 
-Támogatott hosszú távú workflow:
-
-1. Szinkronizáld az összes elérhető forrást.
-2. Exportáld a Database-t.
-3. Tarts legalább két backupot, és az egyiket próbáld visszaimportálni egy tiszta böngészőprofilban.
-4. Sikeres ellenőrzés után a régi éves Daily raw exportokat igény szerint törölheted a Drive-ról.
-5. A korábbi historyt ezután az adatbázis adja, a Drive pedig csak az új raw exportokat szolgáltatja.
-
-Egy raw Drive fájl törlése nem törli az abból korábban ingestált történeti adatot. Ettől függetlenül érdemes évente legalább egy év végi teljes Meta Full exportot megtartani, mert ha egy későbbi parser olyan mezőt szeretne használni, amelyet a régi adatbázis még nem normalizált, azt raw export nélkül már nem lehet visszanyerni.
-
-### Opcionális `/DATABASE` Drive mappa
-
-A pontosan `DATABASE` nevű útvonalszegmens, kis- és nagybetűtől függetlenül, hordozható Database checkpointok számára van fenntartva. Ha a `Use DATABASE checkpoints from Drive` kapcsoló aktív, a Drive Sync először be tudja tölteni a legfrissebb kompatibilis Database checkpointot, majd csak ezután dolgozza fel a raw forrásokat. Ez új eszköz bootstrapjához hasznos.
-
-A kapcsoló alapból KI van kapcsolva. A hordozható Database koncentrált relationship historyt tartalmaz, ezért nyilvánosan olvasható Drive mappába csak akkor tedd, ha ezt a kitettséget elfogadod.
-
-### Source policy
-
-A Reference, Full és SECOND egymástól független advanced source policyt kapott:
-
-- `Automatic`: a lokális archívum használata, Drive-ról pedig az új/friss evidence hozzáadása.
-- `Local database`: a már archivált evidence használata, az adott source Drive-ról nem kerül újra ingestálásra.
-- `Drive only`: csak olyan evidence használata, amelyhez a forrásfájl jelenleg ténylegesen megtalálható a Drive-on.
-
-A Primary Daily szándékosan nem választható külön: annak normál modellje a lokális archív history + új Drive fájlok.
-
-A SECOND továbbra is kivehető kompatibilitási réteg. Frontenden kikapcsolható, a `config.js` fájlban pedig a `secondSourceFeature: false` teljesen kikapcsolja az aktív adatmodellből és a UI-ból.
-
-
-Egy privacy-first, böngészőben futó Instagram kapcsolat- és Insights-elemző.
-
-Aktuális verzió: **v0.25**
-
-Az alkalmazás célja, hogy az Instagram exportokat helyben, a böngészőben dolgozza fel, elemezze a követői kapcsolatokat, időben kövesse az Insights adatokat, és opcionálisan egy nyilvános Google Drive archívumból automatikusan szinkronizálja az exportokat.
-
-Instagram-bejelentkezés nem szükséges.
-
----
+A normalizált history továbbra is IndexedDB-ben marad, és bekerül a hordozható Database Export/Import fájlba. A Drive raw fájljai forrásanyagok, a már archivált normalizált evidence pedig egy ellenőrzött database backup után a régebbi raw exportok törlése után is megmaradhat.
 
 ## Funkciók
 
@@ -800,18 +761,3 @@ A jóváhagyott látványterv designnyelve bekerült a tényleges felületbe, a 
 - Tudatosabb színakcentusok az Insights és az interaktív vezérlők körül.
 - A Growth Trends megkapta a jóváhagyott chart nyelvet: magasabb plot, sima multi-series vonalak, enyhe area fill, vertikális guide-ok, tisztább pontok és egy dátumhoz tartozó összes aktív metrikát mutató, panelen belül maradó tooltip.
 - A responsive működés, Daily Sync, Full Checkpoint, Heart Sync, identity kezelés és minden számítási logika változatlan.
-
-## v0.24 - Opcionális SECOND automatizálási kompatibilitási forrás
-
-A két párhuzamos Meta scheduled export speciális helyzetére bekerült egy ideiglenes, szigorúan elkülönített `SECOND` forrás.
-
-A szabályok szándékosan szűkek:
-
-- A Drive útvonalban pontosan `SECOND` nevű path segment (kis- és nagybetűtől függetlenül) külön forrásnak számít. Soha nem kerül a Primary Daily, Reference vagy Full Exports közé.
-- A Primary és SECOND follower evidence összeolvad, identity/timestamp alapján deduplikálva.
-- A teljes Following snapshotok megőrzik a forrásukat; az effektív Daily állapothoz mindig a ténylegesen frissebb snapshot nyer a már használt fájl-generálási metadata alapján.
-- Az Insights Primary-first marad. A SECOND csak egy teljesen hiányzó fájltípust pótolhat (`audience_insights.json`, `content_interactions.json`, `profiles_reached.json`). Ha a Primaryban az adott canonical naphoz megvan a fájltípus, a SECOND nem írhatja felül.
-- A `recently_unfollowed_profiles.json` ebben a kompatibilitási rétegben továbbra is csak Primary forrásból jön.
-- Az Insights snapshot provenance eltárolja, hogy az egyes fájltípusok és a Following érték Primaryból vagy SECONDből érkeztek.
-
-A réteg később egyszerűen kikapcsolható/kivehető. A Drive panelen van helyi kapcsoló. Kódszinten a `config.js` fájlban a `secondSourceFeature: false` elrejti a kapcsolót és teljesen figyelmen kívül hagyja a `SECOND` fát. Cloudflare Worker módosítás nem szükséges.

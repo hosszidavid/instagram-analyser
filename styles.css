@@ -672,7 +672,8 @@ h1,h2,
   border-color:#b7bcc0;
   box-shadow:0 0 0 3px rgba(20,22,26,.04);
 }
-.drive-sync-button{min-width:122px}
+.drive-sync-actions{display:flex;align-items:center;justify-content:flex-end;gap:7px;flex-wrap:wrap}
+.drive-sync-button{min-width:108px}
 .drive-sync-button:disabled{opacity:.55;cursor:wait}
 
 .drive-meta{
@@ -710,7 +711,9 @@ h1,h2,
 @media(max-width:760px){
   .drive-head{flex-direction:column;gap:12px}
   .drive-controls{grid-template-columns:1fr}
-  .drive-sync-button{width:100%}
+  .drive-sync-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  #syncDailyBtn{grid-column:1/-1}
+  .drive-sync-button{width:100%;min-width:0}
   .drive-meta{grid-template-columns:1fr 1fr}
 }
 @media(max-width:420px){
@@ -1995,68 +1998,6 @@ body{
 }
 
 
-/* ==========================================================================
-   v0.24 — Temporary SECOND automation compatibility layer
-   This block can be removed together with the SECOND source module later.
-   ========================================================================== */
-.second-source-option{
-  margin-top:12px;
-  padding:10px 12px;
-  border:1px solid #e1e3ee;
-  border-radius:13px;
-  background:rgba(249,248,255,.72);
-}
-.second-source-option[hidden]{display:none!important}
-.second-source-control{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  cursor:pointer;
-  user-select:none;
-}
-.second-source-control>input{
-  position:absolute;
-  opacity:0;
-  pointer-events:none;
-}
-.second-source-switch{
-  position:relative;
-  width:36px;
-  height:20px;
-  flex:0 0 auto;
-  border:1px solid #d5d8e4;
-  border-radius:999px;
-  background:#e8eaf1;
-  transition:background .16s ease,border-color .16s ease,box-shadow .16s ease;
-}
-.second-source-switch::after{
-  content:"";
-  position:absolute;
-  top:2px;
-  left:2px;
-  width:14px;
-  height:14px;
-  border-radius:50%;
-  background:#fff;
-  box-shadow:0 1px 4px rgba(25,30,50,.22);
-  transition:transform .16s ease;
-}
-.second-source-control>input:checked+.second-source-switch{
-  border-color:#7c3aed;
-  background:#7c3aed;
-  box-shadow:0 0 0 3px rgba(124,58,237,.065);
-}
-.second-source-control>input:checked+.second-source-switch::after{transform:translateX(16px)}
-.second-source-control>input:focus-visible+.second-source-switch{outline:2px solid #a78bfa;outline-offset:2px}
-.second-source-text{display:flex;min-width:0;flex-direction:column;gap:2px}
-.second-source-text b{color:#4d5870;font-size:11.5px;font-weight:680}
-.second-source-text small{color:#8791a4;font-size:10.5px;line-height:1.35}
-@media(max-width:620px){
-  .second-source-option{padding:10px}
-  .second-source-control{align-items:flex-start}
-  .second-source-switch{margin-top:1px}
-}
-
 /* ========================================================================== 
    v0.25 - Persistent Archive + Incremental Sync controls
    ========================================================================== */
@@ -2110,7 +2051,7 @@ body{
 .archive-database-toggle small{font-size:10px;line-height:1.45;color:#7a8498}
 .archive-source-grid{
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:10px;
 }
 .archive-info-row{
@@ -2161,3 +2102,6 @@ body{
 .unfollowers-group-divider::before,.unfollowers-group-divider::after{content:"";height:1px;background:var(--line);flex:1;min-width:16px}
 .unfollowers-group-divider span{white-space:nowrap;opacity:.72}
 @media(max-width:620px){.unfollowers-group-divider{padding:10px 10px 6px;font-size:9px;gap:8px}.unfollowers-group-divider::before,.unfollowers-group-divider::after{min-width:10px}}
+
+/* v0.26 - Fast source-specific Drive Sync */
+.archive-cache-actions{padding-top:2px;border-top:1px solid #eceef5}

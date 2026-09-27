@@ -9,20 +9,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Followers Analyzer" />
-  <link rel="icon" type="image/svg+xml" href="logo_new.svg?v=0.25.2" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=0.25.2" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=0.25.2" />
-  <link rel="shortcut icon" href="favicon.ico?v=0.25.2" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=0.25.2" />
-  <link rel="manifest" href="manifest.webmanifest?v=0.25.2" />
-  <link rel="stylesheet" href="styles.css?v=0.25.2" />
+  <link rel="icon" type="image/svg+xml" href="logo_new.svg?v=0.26.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=0.26.0" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=0.26.0" />
+  <link rel="shortcut icon" href="favicon.ico?v=0.26.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=0.26.0" />
+  <link rel="manifest" href="manifest.webmanifest?v=0.26.0" />
+  <link rel="stylesheet" href="styles.css?v=0.26.0" />
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
       <div class="brand-block">
         <div class="brand-kicker">
-          <img class="brand-mark" src="logo_new.svg?v=0.25.2" alt="" aria-hidden="true" />
+          <img class="brand-mark" src="logo_new.svg?v=0.26.0" alt="" aria-hidden="true" />
           <p class="eyebrow" data-i18n="eyebrow">LOCAL INSTAGRAM ANALYZER</p>
         </div>
         <h1><span>Followers</span> <span class="brand-accent">Analyzer</span></h1>
@@ -115,18 +115,11 @@
             value=""
           />
         </label>
-        <button class="button drive-sync-button" id="syncDriveBtn" type="button" data-i18n="syncDrive">Sync Drive</button>
-      </div>
-
-      <div class="second-source-option" id="secondSourceOption">
-        <label class="second-source-control">
-          <input id="secondSourceToggle" type="checkbox" />
-          <span class="second-source-switch" aria-hidden="true"></span>
-          <span class="second-source-text">
-            <b data-i18n="secondSourceLabel">Use SECOND compatibility source</b>
-            <small data-i18n="secondSourceCopy">Merge follower evidence, use the freshest Following snapshot, and fill only missing Insights files from SECOND.</small>
-          </span>
-        </label>
+        <div class="drive-sync-actions" aria-label="Drive sync actions">
+          <button class="button drive-sync-button" id="syncDailyBtn" type="button" data-i18n="syncDaily">Sync Daily</button>
+          <button class="button ghost drive-sync-button" id="syncFullBtn" type="button" data-i18n="syncFull">Sync Full</button>
+          <button class="button ghost drive-sync-button" id="syncReferenceBtn" type="button" data-i18n="syncReference">Sync Reference</button>
+        </div>
       </div>
 
       <details class="archive-settings" id="archiveSettings">
@@ -164,14 +157,6 @@
                 <option value="drive" data-i18n="sourcePolicyDrive">Drive only</option>
               </select>
             </label>
-            <label class="field" id="secondSourcePolicyField">
-              <span class="field-label" data-i18n="secondSourcePolicy">SECOND source</span>
-              <select id="secondSourcePolicy" class="select">
-                <option value="auto" data-i18n="sourcePolicyAuto">Automatic</option>
-                <option value="database" data-i18n="sourcePolicyDatabase">Local database</option>
-                <option value="drive" data-i18n="sourcePolicyDrive">Drive only</option>
-              </select>
-            </label>
           </div>
 
           <div class="archive-info-row">
@@ -181,8 +166,13 @@
           </div>
 
           <div class="archive-actions">
-            <button class="button ghost" id="reprocessDriveBtn" type="button" data-i18n="reprocessDrive">Reprocess current Drive files</button>
-            <small data-i18n="reprocessDriveCopy">Keeps archived history, but ignores the processed-file cache once and reparses files that are still on Drive.</small>
+            <button class="button ghost" id="reprocessDriveBtn" type="button" data-i18n="reprocessDrive">Full Drive Rescan</button>
+            <small data-i18n="reprocessDriveCopy">Checks the complete Daily, Full Exports and Reference trees and reparses current source files. Archived history is preserved.</small>
+          </div>
+
+          <div class="archive-actions archive-cache-actions">
+            <button class="button ghost" id="clearDriveCacheBtn" type="button" data-i18n="clearDriveCache">Clear sync cache</button>
+            <small data-i18n="clearDriveCacheCopy">Clears only Drive discovery and processed-file markers. Archived history, Hearts and settings stay intact.</small>
           </div>
 
           <p class="archive-privacy-note" data-i18n="databasePrivacyNote">DATABASE is optional. A database export contains concentrated relationship history, so do not place it in a public Drive folder unless you accept that exposure.</p>
@@ -351,7 +341,7 @@
     <section id="insightsSection" class="section-card section-panel">
       <div class="section-title-row insights-head">
         <div class="insights-title-wrap">
-          <span class="section-brand-icon" aria-hidden="true"><img src="logo_new.svg?v=0.25.2" alt="" /></span>
+          <span class="section-brand-icon" aria-hidden="true"><img src="logo_new.svg?v=0.26.0" alt="" /></span>
           <div>
           <p class="eyebrow" data-i18n="instagramInsights">INSTAGRAM INSIGHTS</p>
           <h2 data-i18n="insightsTitle">Useful account performance</h2>
@@ -544,8 +534,8 @@
     </section>
   </div>
 
-  <script src="config.js?v=0.25.2"></script>
-  <script src="archive-store.js?v=0.25.2"></script>
-  <script src="app.js?v=0.25.2"></script>
+  <script src="config.js?v=0.26.0"></script>
+  <script src="archive-store.js?v=0.26.0"></script>
+  <script src="app.js?v=0.26.0"></script>
 </body>
 </html>
