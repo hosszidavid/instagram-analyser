@@ -1,4 +1,10 @@
-# Instagram Followers Analyzer v0.27.0
+# Instagram Followers Analyzer v0.28.0
+
+## v0.28.0: NFB status filters and icon actions
+
+- MFB and Unavailable row actions now use circular ✓ / × icon buttons matching the Heart control.
+- NFB has independent Hearted, MFB and Unavailable filters with Hidden (default), Visible and Only this modes.
+- Active manual MFB and Unavailable records remain queryable from NFB even when their status removes them from the operational NFB result.
 
 ## v0.27.0: Fast source sync, safe Reference matching, SECOND removal
 

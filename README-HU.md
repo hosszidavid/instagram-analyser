@@ -1,4 +1,11 @@
-# Instagram Followers Analyzer v0.27.0
+# Instagram Followers Analyzer v0.28.0
+
+## v0.28.0: NFB státuszszűrők és ikonos műveletek
+
+- Az MFB és Unavailable sor-műveletek most a Heart gombhoz illeszkedő kör alakú ✓ / × ikonokat használnak.
+- Az NFB külön Hearted, MFB és Unavailable szűrőt kapott: Nem látszik (alapértelmezett), Látszik, Csak ez látszik.
+- Az aktív manuális MFB és Unavailable rekordok akkor is lekérdezhetők az NFB nézetben, ha a státuszuk miatt már nem részei az operatív NFB eredménynek.
+
 
 ## v0.27.0: gyors forrásszinkron, biztonságos Reference-szűrés, SECOND eltávolítás
 
