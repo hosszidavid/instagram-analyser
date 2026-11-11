@@ -9,20 +9,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Followers Analyzer" />
-  <link rel="icon" type="image/svg+xml" href="logo_new.svg?v=0.26.0" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=0.26.0" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=0.26.0" />
-  <link rel="shortcut icon" href="favicon.ico?v=0.26.0" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=0.26.0" />
-  <link rel="manifest" href="manifest.webmanifest?v=0.26.0" />
-  <link rel="stylesheet" href="styles.css?v=0.26.0" />
+  <link rel="icon" type="image/svg+xml" href="logo_new.svg?v=0.27.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=0.27.0" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=0.27.0" />
+  <link rel="shortcut icon" href="favicon.ico?v=0.27.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=0.27.0" />
+  <link rel="manifest" href="manifest.webmanifest?v=0.27.0" />
+  <link rel="stylesheet" href="styles.css?v=0.27.0" />
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
       <div class="brand-block">
         <div class="brand-kicker">
-          <img class="brand-mark" src="logo_new.svg?v=0.26.0" alt="" aria-hidden="true" />
+          <img class="brand-mark" src="logo_new.svg?v=0.27.0" alt="" aria-hidden="true" />
           <p class="eyebrow" data-i18n="eyebrow">LOCAL INSTAGRAM ANALYZER</p>
         </div>
         <h1><span>Followers</span> <span class="brand-accent">Analyzer</span></h1>
@@ -325,6 +325,11 @@
           <span data-i18n="hideHearted">Hide hearted</span>
         </label>
 
+        <label class="heart-filter" id="unavailableFilterWrap">
+          <input id="showUnavailableOnly" type="checkbox" />
+          <span data-i18n="showUnavailableOnly">Show only unavailable</span>
+        </label>
+
         <button class="button export-button" id="exportCsvBtn" type="button" data-i18n="exportCsv">Export CSV</button>
       </div>
 
@@ -341,7 +346,7 @@
     <section id="insightsSection" class="section-card section-panel">
       <div class="section-title-row insights-head">
         <div class="insights-title-wrap">
-          <span class="section-brand-icon" aria-hidden="true"><img src="logo_new.svg?v=0.26.0" alt="" /></span>
+          <span class="section-brand-icon" aria-hidden="true"><img src="logo_new.svg?v=0.27.0" alt="" /></span>
           <div>
           <p class="eyebrow" data-i18n="instagramInsights">INSTAGRAM INSIGHTS</p>
           <h2 data-i18n="insightsTitle">Useful account performance</h2>
@@ -534,8 +539,8 @@
     </section>
   </div>
 
-  <script src="config.js?v=0.26.0"></script>
-  <script src="archive-store.js?v=0.26.0"></script>
-  <script src="app.js?v=0.26.0"></script>
+  <script src="config.js?v=0.27.0"></script>
+  <script src="archive-store.js?v=0.27.0"></script>
+  <script src="app.js?v=0.27.0"></script>
 </body>
 </html>

@@ -19,7 +19,7 @@
   const DB_VERSION = 1;
   const STORE_NAME = "kv";
   const ARCHIVE_KEY = "archive";
-  const ARCHIVE_SCHEMA_VERSION = 3;
+  const ARCHIVE_SCHEMA_VERSION = 4;
 
   function emptyArchive() {
     const now = new Date().toISOString();
@@ -39,6 +39,11 @@
       identityFbids: {},
       insightFiles: [],
       insightSnapshots: [],
+      appSnapshots: [],
+      manualOverrides: {
+        followsBack: {},
+        unavailable: {}
+      },
       reference: null,
       fullCheckpoints: []
     };
@@ -84,6 +89,11 @@
         if (meta.following === "second") return false;
         return !Object.values(meta.insights || {}).some(source => source === "second");
       }) : [],
+      appSnapshots: Array.isArray(value.appSnapshots) ? value.appSnapshots.filter(row => row?.id) : [],
+      manualOverrides: {
+        followsBack: value.manualOverrides?.followsBack && typeof value.manualOverrides.followsBack === "object" && !Array.isArray(value.manualOverrides.followsBack) ? value.manualOverrides.followsBack : {},
+        unavailable: value.manualOverrides?.unavailable && typeof value.manualOverrides.unavailable === "object" && !Array.isArray(value.manualOverrides.unavailable) ? value.manualOverrides.unavailable : {}
+      },
       reference: value.reference && typeof value.reference === "object" ? value.reference : null,
       fullCheckpoints: Array.isArray(value.fullCheckpoints) ? value.fullCheckpoints : []
     };
@@ -429,6 +439,7 @@
     if (timelineDate) dates.push(timelineDate);
     for (const row of archive.followerEvents.primary) if (row?.sourceDate) dates.push(row.sourceDate);
     for (const row of archive.insightSnapshots) if (row?.id) dates.push(row.id);
+    for (const row of archive.appSnapshots) if (row?.id) dates.push(row.id);
     for (const row of archive.fullCheckpoints) if (row?.date) dates.push(row.date);
     return dates.sort().at(-1) || null;
   }
@@ -536,6 +547,30 @@
       : [...incoming.insightSnapshots, ...local.insightSnapshots];
     for (const row of snapshotOrder) if (row?.id) snapshots.set(row.id, row);
     merged.insightSnapshots = [...snapshots.values()].sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+
+    const appSnapshots = new Map();
+    for (const row of [...(incoming.appSnapshots || []), ...(local.appSnapshots || [])]) {
+      if (!row?.id) continue;
+      const old = appSnapshots.get(row.id);
+      if (!old || String(row.capturedAt || "") >= String(old.capturedAt || "")) appSnapshots.set(row.id, row);
+    }
+    merged.appSnapshots = [...appSnapshots.values()].sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+
+    const mergeOverrideRecords = (incomingRecords, localRecords) => {
+      const out = {};
+      for (const source of [incomingRecords || {}, localRecords || {}]) {
+        for (const [key, row] of Object.entries(source)) {
+          if (!row || typeof row !== "object") continue;
+          const old = out[key];
+          if (!old || (Number(row.updatedAt) || 0) >= (Number(old.updatedAt) || 0)) out[key] = row;
+        }
+      }
+      return out;
+    };
+    merged.manualOverrides = {
+      followsBack: mergeOverrideRecords(incoming.manualOverrides?.followsBack, local.manualOverrides?.followsBack),
+      unavailable: mergeOverrideRecords(incoming.manualOverrides?.unavailable, local.manualOverrides?.unavailable)
+    };
 
     const refs = [local.reference, incoming.reference].filter(Boolean).sort((a, b) => String(a.updatedAt || "").localeCompare(String(b.updatedAt || "")));
     merged.reference = refs.at(-1) || null;

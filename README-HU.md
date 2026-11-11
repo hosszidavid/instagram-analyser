@@ -1,6 +1,6 @@
-# Instagram Followers Analyzer v0.26.0
+# Instagram Followers Analyzer v0.27.0
 
-## v0.26.0: gyors forrásszinkron, biztonságos Reference-szűrés, SECOND eltávolítás
+## v0.27.0: gyors forrásszinkron, biztonságos Reference-szűrés, SECOND eltávolítás
 
 ### Külön Drive szinkronok
 
@@ -761,3 +761,20 @@ A jóváhagyott látványterv designnyelve bekerült a tényleges felületbe, a 
 - Tudatosabb színakcentusok az Insights és az interaktív vezérlők körül.
 - A Growth Trends megkapta a jóváhagyott chart nyelvet: magasabb plot, sima multi-series vonalak, enyhe area fill, vertikális guide-ok, tisztább pontok és egy dátumhoz tartozó összes aktív metrikát mutató, panelen belül maradó tooltip.
 - A responsive működés, Daily Sync, Full Checkpoint, Heart Sync, identity kezelés és minden számítási logika változatlan.
+
+## v0.27 manuális relationship státuszok és Daily grafikon
+
+A **Not Following Back** nézetben két manuális státusz használható:
+
+- **Visszakövet**: kézi follower-bizonyíték olyan profilhoz, amelyet a hiányos Daily export NFB-ként mutat. A státusz ideiglenes. Az első, a jelölésnél frissebb Full Checkpoint automatikusan lezárja. Ha a Fullban a profil follower, a Full bizonyíték tartja bent; ha nincs benne, újra NFB lehet.
+- **Nem elérhető**: tartós manuális státusz blokkolt, deaktivált vagy más okból nem megnyitható profilokhoz. Full Checkpoint nem törli. A **Csak a nem elérhetők** kapcsolóval külön ellenőrzőlistaként megjeleníthető.
+
+A felismerhető username-váltások továbbra is alias-feloldással kezelődnek, és nem kerülnek NFB-ként a listába.
+
+A manuális státuszok az IndexedDB archívum és a hordozható Database Export részei. Nem a Heart Cloud Sync rekordjai.
+
+### Growth Trends relationship adatok
+
+A Growth Trends **Followers** és **Following** sorozatai v0.27-től az Analyzer Daily állapotából készülnek. Nem a Meta Insights aggregált follower értékét használják. A `Follows`, `Unfollows`, `Reach`, `Profile visits` és más Insights metrikák továbbra is az Insights JSON-okból származnak.
+
+A meglévő Daily Following history alapján az app a hiányzó korábbi relationship pontokat vissza tudja építeni, a jövőbeni Daily Sync pedig elmenti az aktuálisan megjelenített Analyzer-állapotot.

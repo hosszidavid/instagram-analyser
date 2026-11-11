@@ -1,6 +1,6 @@
-# Instagram Followers Analyzer v0.26.0
+# Instagram Followers Analyzer v0.27.0
 
-## v0.26.0: Fast source sync, safe Reference matching, SECOND removal
+## v0.27.0: Fast source sync, safe Reference matching, SECOND removal
 
 ### Separate Drive sync actions
 
@@ -454,3 +454,18 @@ The approved visual concept has been implemented in the actual interface without
 - More deliberate accent use across Insights and interactive controls.
 - Growth Trends now uses the approved chart language: taller plot, smooth multi-series lines, subtle area fills, vertical guides, clearer points and a grouped date tooltip that remains clamped inside the chart panel.
 - Existing responsive behavior, Daily Sync, Full Checkpoints, Heart Sync, identity handling and calculation logic are unchanged.
+
+## v0.27 manual relationship states and Daily chart data
+
+The **Not Following Back** view now supports two manual states:
+
+- **Follows back**: provisional manual follower evidence for accounts that a partial Daily export incorrectly leaves in NFB. The first Full Checkpoint newer than the manual mark automatically supersedes it.
+- **Unavailable**: persistent manual state for blocked, deactivated, or otherwise inaccessible profiles. Full Checkpoints never clear it. Use **Show only unavailable** as a periodic review list.
+
+Detected username changes remain alias-resolved and excluded from NFB.
+
+Manual states are stored in the local IndexedDB archive and portable Database Export. They are not part of Heart Cloud Sync.
+
+### Growth Trends relationship data
+
+From v0.27, the **Followers** and **Following** chart series come from the Analyzer's own Daily relationship state, not Meta's aggregate Insights follower value. `Follows`, `Unfollows`, `Reach`, `Profile visits`, and the other Insights metrics continue to come from the Insights JSON files.
